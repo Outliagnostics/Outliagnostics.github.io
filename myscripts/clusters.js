@@ -1,68 +1,23 @@
-/**
- * Created by vinhtngu on 3/10/17.
+/* November 2017 
+ * Tommy Dang, Assistant professor, iDVL@TTU
+ *
+ * THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
+ * WARRANTY.  IN PARTICULAR, THE AUTHORS MAKE NO REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
+ * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 
-var forceSize = 165; // Max size of force layouts at the bottom
+var forceSize = 150; // Max size of force layouts at the bottom
+var colorRedBlue = d3.scale.linear()
+    .domain([0, 0.1, 0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
+    .range(["#9dbee6","#afcae6","#c8dce6","#e6e6e6","#e6e6d8","#e6d49c","#e6b061","#e6852f","#e6531a","#e61e1a"]);
 
 var allSVG = [];
+var pointOpacity = 0.9;
+var selectedVar = 0;
+var selectedScag = 0;
 function updateSubLayout(nodes, links, m) {
-
-    //console.log("updateSubLayout:"+m);
-
-    var fill = d3.scale.category10();
-    var groups = d3.nest()
-        .key(function (d) {
-            return d.community;
-        })
-        .entries(nodes);
-    groups = groups.filter(function (d) {
-        return d.values.length > 1;
-    });
-    var partition = [];
-    groups.forEach(function (d) {
-        var temp = [];
-        d.values.forEach(function (e) {
-            temp.push(e.id);
-        })
-        partition.push(temp);
-    });
-
-    var groupPath = function (d) {
-        var fakePoints = [];
-        if (d.values.length == 2) {
-            //[dx, dy] is the direction vector of the line
-            var dx = d.values[1].x - d.values[0].x;
-            var dy = d.values[1].y - d.values[0].y;
-
-            //scale it to something very small
-            dx *= 0.00001;
-            dy *= 0.00001;
-
-            //orthogonal directions to a 2D vector [dx, dy] are [dy, -dx] and [-dy, dx]
-            //take the midpoint [mx, my] of the line and translate it in both directions
-            var mx = (d.values[0].x + d.values[1].x) * 0.5;
-            var my = (d.values[0].y + d.values[1].y) * 0.5;
-            fakePoints = [[mx + dy, my - dx],
-                [mx - dy, my + dx]];
-            //the two additional points will be sufficient for the convex hull algorithm
-        }
-        //do not forget to append the fakePoints to the input data
-        return "M" +
-            d3.geom.hull(d.values.map(function (i) {
-                return [i.x, i.y];
-            })
-                .concat(fakePoints))
-                .join("L")
-            + "Z";
-    }
-    var groupFill = function (d, i) {
-        // return fill(+d.key);
-        return "#000";
-    };
-    //var width = 20, height = 20;
-    //var svg = d3.select("body").append("svg").attr("width", XGAP_).attr("height", XGAP_);
-
-
+    console.log("update Scatterplot:"+m);
+    
     svg.selectAll(".force" + m).remove();
 
     var svg2 = svg.append("svg")
@@ -70,77 +25,109 @@ function updateSubLayout(nodes, links, m) {
         .attr("width", forceSize)
         .attr("height", forceSize)
         .attr("x", xStep - forceSize / 2 + m * XGAP_)
-        .attr("y", 30);
+        .attr("y", 32);
+   /* svg2.append("rect")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("fill", "pink")
+    .attr("fill-opacity", 0.5);*/
+    
     allSVG.push(svg2);
 
-    var force = d3.layout.force()
-        .gravity(0.5)
-        .distance(2)
-        .charge(-2)
-        .size([forceSize, forceSize]);
-    force.nodes(nodes)
-        .links(links)
-        .start();
-    //force.resume();
-
-
-    var group =  svg2.selectAll("path")
-        .data(groups)
-        .attr("d", groupPath)
-        .enter().append("path", "circle")
-        .style("fill", groupFill)
-        .style("stroke", groupFill)
-        .style("stroke-width", 1)
-        .style("stroke-linejoin", "round")
-        .style("opacity", 0.2);
-
-
-// Link Scales ************************************************************
-    var link = svg2.selectAll(".link5")
-        .data(force.links())
-        .enter().append("line")
-        .attr("class", "link5")
-        .style("stroke-opacity", 0.6)
-        .style("stroke", "#000")
-        .style("stroke-width", function (d) {
-            return linkScale3(d.count)*linkscaleForSnapshot;
-        });
-
-    var node = svg2.selectAll(".node5")
-        .data(force.nodes())
-        .enter().append("circle")
-        .attr("class", "node5")
-        .attr("r", 1)
-        .style("stroke", "#000")
-        .style("stroke-width", 0.02)
-        .style("stroke-opacity", 1)
-        .style("fill", function (d) {
-            return getColor3(d.category);
+  
+  var size =15;
+  var padding =0;
+  var x2 = 0;
+  var y2 = 0;
+  
+  
+  var margin = forceSize/ 2-size/2; 
+  svg2.append("rect")
+      .attr("class", "frame")
+      .attr("x", margin)
+      .attr("y", margin)
+      .attr("rx", 1)
+      .attr("ry", 1)
+      .attr("width", size - padding)
+      .attr("height", size - padding)
+      .style("fill", function(d) { 
+            return colorRedBlue(dataS.YearsData[m].Scagnostics0[0]);
+      })
+      //.style("fill-opacity",0.9)
+      .style("stroke","#000")
+      .style("stroke-width",0.03);
+  
+  var dataPoints =[];
+  for (var c=0; c<dataS.Countries.length;c++){
+    var obj = {};
+    obj.country = dataS.Countries[c];
+    obj.year = m;
+    for (var v=0; v<dataS.Variables.length;v++){
+      obj["s"+v] = dataS.YearsData[m]["s"+v][c];
+      obj["v"+v] = dataS.CountriesData[obj.country][m]["v"+v];
+      if (v%2==1){
+        var pair = Math.floor(v/2);
+        obj["Scagnostics"+pair] = dataS.YearsData[m]["Scagnostics"+pair]; // 0 is the index of Outlysing
+        obj["ScagnosticsLeave1out"+pair] = []; // 0 is the index of Outlysing
+        for (var s=0; s<dataS.Scagnostics.length;s++){ 
+            obj["ScagnosticsLeave1out"+pair].push(dataS.CountriesData[obj.country][m][dataS.Scagnostics[s]]);
+        }
+      }
+    }
+    dataPoints.push(obj);
+  }    
+  //debugger;
+  svg2.selectAll("circle")
+      .data(dataPoints)
+    .enter().append("circle")
+        .attr("class", function (d,i) {
+            return "dataPoint"+i;
         })
-        .on("mouseover", function(d){
-            showTip(d, this);
+        .attr("cx", function(d) { 
+            if (d["v0"]=="NaN")
+                return 0;
+            else
+                return margin+1+d["s"+selectedVar]*(size-2); 
+        })
+        .attr("cy", function(d,i) { 
+            if (d["v1"]=="NaN")
+                return 0;
+            else
+                return margin+size-1-d["s"+(selectedVar+1)]*(size-2); 
+        })
+        .attr("r", size/30)
+        .style("stroke", "#fff")
+        .style("stroke-width", 0.02)
+        .style("stroke-opacity", 0.8)
+        .style("fill", "#000")
+        .style("fill-opacity", pointOpacity)
+        .on("mouseover", function(d,i){
+            showTip(d,i,this);
         })
         .on("mouseout", function(d){
             hideTip(d);
-        });
+        }); 
 
-    force.on("tick", function () {
-        node.attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; });   
-        
-        link.attr("x1", function (d) { return d.source.x;})
-            .attr("y1", function (d) { return d.source.y;})
-            .attr("x2", function (d) { return d.target.x; })
-            .attr("y2", function (d) { return d.target.y; });
-        group.attr("d", groupPath);   
-        
-    });
-
-    force.on("end", function () {
-        link.attr("x1", function (d) { return d.source.x;})
-            .attr("y1", function (d) { return d.source.y;})
-            .attr("x2", function (d) { return d.target.x; })
-            .attr("y2", function (d) { return d.target.y; });
-            group.attr("d", groupPath);           
-     });
+  // Show score on each plot    
+  /*cell.append("text")
+      .attr("class", "scoreCellText")
+      .attr("x", 3)
+      .attr("y", 14)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "8px")
+      .style("text-shadow", "1px 1px 0 rgba(0, 0, 0, 0.7")
+      .style("fill", "#f6f")
+      .text(function(d,i) { 
+        var k = -1;  
+        if (p.mi<p.mj){
+          k = p.mj*(p.mj-1)/2+p.mi; 
+        }
+        else if (p.mi>p.mj){
+           k = p.mi*(p.mi-1)/2+p.mj; 
+        }
+        return parseFloat(dataS[k][selectedScag]).toFixed(2); 
+      })
+      .style("fill-opacity", function(){
+        return document.getElementById("checkbox1").checked ? 1 : 0;
+      });  */       
 }

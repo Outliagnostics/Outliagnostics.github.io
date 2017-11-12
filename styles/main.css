@@ -81,7 +81,7 @@
     left: 4px;
     width: 140px;
     height: 82px;
-    background: rgba(224, 224, 224, 0.6);
+    background: rgba(204, 204, 204, 0.6);
     border: 0.4px solid rgba(0,0,0, 0.1);
 }
 
@@ -127,10 +127,10 @@ input.search {
   padding: 10px;
   font-size: 14px;
   font-family: "sans-serif";
-  background: rgba(204, 204, 204, 0.96);
+  background: rgba(224, 224, 224, 0.96);
   color: #000;
-  border-radius: 2px;
-  z-index: 1110;
+  border-radius: 4px;
+  z-index: 110;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.75);
 }
 
@@ -154,7 +154,7 @@ input.search {
   left: 0;
 }
 table, th, td {
-    border: 1px solid #ccc;
+    border: 1px solid #888;
     border-collapse: collapse;
     padding: 2px;
     background-color: #fff;

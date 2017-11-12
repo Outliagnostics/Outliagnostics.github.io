@@ -18,24 +18,26 @@ var timeDelay = 150;
 
 var tip = d3.tip()
   .attr('class', 'd3-tip')
-  .style('border', '1px solid #555');
+  .style('border', '1px solid #000');
 
 
-function showTip(d,tipItem) { 
+function showTip(d,brushingIndex,tipItem) { 
   // Update network
   for (var i=0; i<allSVG.length;i++){
       var svg2 = allSVG[i];
-      svg2.selectAll(".node5")
-          //.transition().duration(timeDelay)
-          .style("fill-opacity", function(d2){ return (d.name == d2.name) ? 1 : 0.2; })
-          .style("stroke-opacity", function(d2){ return (d.name == d2.name) ? 1 : 0; }); 
-      svg2.selectAll(".link5")
-          //.transition().duration(timeDelay)
-          .style("stroke-opacity", function(d2){
-              return (d.name == d2.source.name || d.name == d2.target.name) ? 1 : 0.1;
-             });   
+      for (var c=0; c<dataS.Countries.length;c++){
+        if (c==brushingIndex){
+          svg2.selectAll(".dataPoint"+c)
+            .style("fill-opacity", function(d2){ return 1; });
+           // .style("stroke-opacity", function(d2){ return 1; }); 
+        }
+        else{
+          svg2.selectAll(".dataPoint"+c)
+            .style("fill-opacity", function(d2){ return 0; })
+           // .style("stroke-opacity", function(d2){ return 0.1; }); 
+        }
+      }  
       svg.selectAll(".textCloud3") 
-        //.transition().duration(timeDelay)      
         .style("fill-opacity", function(d2){ return (d.name == d2.name) ? 1 : 0.1; });  
       svg.selectAll(".layer3")
         //.transition().duration(timeDelay)  
@@ -44,7 +46,6 @@ function showTip(d,tipItem) {
        
        var nameList = "";
        svg.selectAll(".linkArc3") 
-        //.transition().duration(timeDelay)
           .style("stroke-opacity", function(d2){
             // Create list of name
             if (d.name == d2.source.name || d.name == d2.target.name) {
@@ -54,76 +55,48 @@ function showTip(d,tipItem) {
                 nameList+= "_"+d2.target.name+"_";
             }
             return (d.name == d2.source.name || d.name == d2.target.name) ? 1 : 0.1;
-           });   
+          });   
       svg.selectAll(".nodeText3")  
-        //.transition().duration(timeDelay)      
         .style("fill-opacity", function(d2){ return (nameList.indexOf("_"+d2.name+"_")>=0) ? 1 : 0.1; });  
   }
 
   // Add time series of frequeny{}
-  var monthly = computeMonthlyData(d.name); // count number of items in the time series to position the tooltip
   tip.html(function(d) {
     var str ="";
-    if (d.ref==undefined) { //  In the main View
-      str+="<b> Node info: </b>"
-      str+="<table border='0.5px'  style='width:100%'>"
-      for (key in d) {
-        if (key== "net"){     
-          str+=  "<tr><td>frequency net</td> <td align='right'>  <span style='color:black'>" +Math.round(d[key])+ "</span> </td></tr>";
-        }
-        else if (key== "measurement"){     
-          str+=  "<tr><td>Measurement</td> <td align='right'>  <span style='color:black'>" +Math.round(d[key])+ "</span> </td></tr>";
-        }
-        else if (key== "weight"){     
-          str+=  "<tr><td>Degree</td> <td align='right'>  <span style='color:black'>" +d[key]+ "</span> </td></tr>";
-        }
-        else if (key== "name"){
-            str+=  "<tr><td>"+key+"</td> <td>  <span style='color:"+ getColor3(d.category)+";text-shadow: 0px 0px 0px #000;'>" + d[key] + "</span> </td></tr>"; 
-        }
-        else if (key== "x" || key== "y" || key== "px" || key== "py" || key== "category"|| key== "index" || 
-          key== "isConnected" || key=="indexForTextClouds" || key=="monthly"|| key=="frequency" || key=="m")
-            ;// Do nothing
-        else{
-          var value = d[key];
-          if (value==undefined)
-            value = "?";
-          str+=  "<tr><td>"+key+"</td> <td align='right'>  <span style='color:black'>" + value + "</span> </td></tr>";
-        }     
-      } 
-      str+="</table>"
-
-      // Add time series of frequeny{}
-      if (monthly){
-        str+="<table border='0.5px'  style='background-color:rgba(0, 0, 0, 0);width:100%'>"
-
-        // table header 
-        if (fileName.indexOf("VIS")>=0|| fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
-            str+=  "<tr><td align='right' style='background-color:rgba(0, 0, 0, 0);'><b>Year</b></td> <td align='right' style='background-color:rgba(0, 0, 0, 0);'>  <span style='color:black'> <b>frequency<b> </span> </td></tr>";
-        }
-        else 
-          str+=  "<tr><td align='right' style='background-color:rgba(0, 0, 0, 0);'><b>Month</b></td> <td align='right' style='background-color:rgba(0, 0, 0, 0);'>  <span style='color:black'> <b>frequency<b> </span> </td></tr>";
-
-        for (var key in monthly) {
-          var value = monthly[key].value;
-          if (value>0){
-            // table header 
-            var time ;
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
-                time =  (+monthly[key].monthId+minYear);
-              }
-            else {
-               time =  months[monthly[key].monthId%12] +" "+(minYear+Math.round(monthly[key].monthId/12)); 
-            }
-            if (d.m==monthly[key].monthId)
-              str+=  "<tr><td  align='right'><b>"+time+"</b></td> <td align='right'>  <span style='color:black'><b>" + value + "</b></span> </td></tr>";
-            else
-              str+=  "<tr><td  align='right'>"+time+"</td> <td align='right'>  <span style='color:black'>" + value + "</span> </td></tr>";
-          }   
-        } 
-        str+="</table>"
-      }
-      return str;
+    str+="<b> Country info: </b>"
+    str+="<table border='1px'  style='width:100%'>"
+    str+=  "<tr><td>Country</td> <td align='right'>  <span style='color:black'>" +d.country+ "</span> </td></tr>";
+    str+=  "<tr><td>Selected Year</td> <td align='right'>  <span style='color:black'>" +(minYear+d.year)+ "</span> </td></tr>";
+    for (var v=0; v<dataS.Variables.length;v++){
+      str+=  "<tr><td>"+dataS.Variables[v]+"</td> <td align='right'>  <span style='color:black'>" +d["v"+v]+ "</span> </td></tr>";
     }
+    str+="</table> <br>"
+
+
+    str+="<b> Scaterplot info: </b>";
+    str+="<table border='0.5px'  style='width:100%'>";
+    // **************************** Heading ****************************
+    str+=  "<tr><td style='background-color:rgb(180,180,180);'>Scagnostics</td> <td align='center' style='background-color:rgb(180,180,180);'>Original Scaterplot</td> <td align='center' style='background-color:rgb(180,180,180);'>Leave '"+d.country+"' out</td> </tr>";
+    
+    for (var v=0; v<dataS.Variables.length;v++){
+      if (v%2==1){
+        var pair = Math.floor(v/2);
+        for (var s=0; s<dataS.Scagnostics.length;s++){
+          if (s==selectedScag)
+            str+=  "<tr><td><b>"+dataS.Scagnostics[s]
+               +"</b></td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'><b>" 
+               +d["Scagnostics"+pair][s]+ "</b></span> </td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'><b>" 
+               +d["ScagnosticsLeave1out"+pair][s]+ "</b></span> </td></tr>";
+          else  
+            str+=  "<tr><td>"+dataS.Scagnostics[s]
+                +"</td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'>" 
+                +d["Scagnostics"+pair][s]+ "</span> </td><td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'>" 
+                +d["ScagnosticsLeave1out"+pair][s]+ "</span> </td></tr>";
+        }         
+      }
+    } 
+    str+="</table>"
+    return str;
       
    });   
   tip.direction('se');
@@ -133,18 +106,28 @@ function showTip(d,tipItem) {
       
   tip.show(d);   
 }    
+function hexToRgbA(hex){
+    var c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+    }
+    throw new Error('Bad Hex');
+}
 
 function hideTip(d) { 
   // Update network
   for (var i=0; i<allSVG.length;i++){
-      var svg2 = allSVG[i];
-      svg2.selectAll(".node5")
-          //.transition().duration(100)
-          .style("fill-opacity", 1)
+    var svg2 = allSVG[i];
+    for (var c=0; c<dataS.Countries.length;c++){
+       svg2.selectAll(".dataPoint"+c)
+          .style("fill-opacity", pointOpacity)
           .style("stroke-opacity", 1); 
-      svg2.selectAll(".link5")
-          //.transition().duration(100)
-          .style("stroke-opacity", 0.6);   
+     }     
   }
   svg.selectAll(".textCloud3")  
         //.transition().duration(100)       

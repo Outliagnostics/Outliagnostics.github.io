@@ -17,7 +17,7 @@ var numCut = 5;
 var cutOffvalue=[];
 
 
-var snapshotScale = 0.20; // Snapshiot Size******************************************************
+var snapshotScale = 0.18; // Snapshiot Size******************************************************
 var maxNodesInSnapshot =30; // ******************************************************
 
 var nodeRadiusRange = [0.1, 0.8]; 
@@ -353,37 +353,118 @@ function drawgraph2() {
         });
            
 
-    svg.selectAll(".layer3").remove();
-    var update_ = svg.selectAll(".layer3")
-        .data(lNodes, function (d) {
-            return d.name
+    
+    // Scagnostics stream graphs
+    var countryList =[];
+    yTemp = yStart;
+    for (var c=0; c<dataS.Countries.length/10;c++){
+        var country = dataS.Countries[c];
+        countryList.push(dataS.CountriesData[country])
+        for (var i=0; i<dataS.CountriesData[country].length;i++){
+            dataS.CountriesData[country][i].y = yTemp;
+        }
+        yTemp+=20;
+    }  
+
+    var yScaleS = d3.scale.linear()
+        .range([0, 120])
+        .domain([0, 1]);
+
+    var areaAbove = d3.svg.area()
+        .interpolate("cardinal")
+        .x(function (d,i) {
+            return xStep + xScale(i);
+        })
+        .y0(function (d,i) {
+            return d.y+yScaleS(dataS.YearsData[i].Scagnostics0[selectedScag]);
+        })
+        .y1(function (d,i) {
+            var scagLeave1out = dataS.YearsData[i].Scagnostics0[selectedScag];
+            if (d.Outlying>scagLeave1out)
+                return d.y+yScaleS(d.Outlying);
+            else
+                return d.y+yScaleS(scagLeave1out);     
         });
-
-
-    var enter_ = update_.enter();
-    enter_.append("path")
-        .attr("class", "layer3")
+    var areaBelow = d3.svg.area()
+        .interpolate("cardinal")
+        .x(function (d,i) {
+            return xStep + xScale(i);
+        })
+        .y0(function (d,i) {
+            return d.y+yScaleS(dataS.YearsData[i].Scagnostics0[selectedScag]);
+        })
+        .y1(function (d,i) {
+            var scagLeave1out = dataS.YearsData[i].Scagnostics0[selectedScag];
+            if (d.Outlying<scagLeave1out)
+                return d.y+yScaleS(d.Outlying);
+            else
+                return d.y+yScaleS(scagLeave1out);     
+        });    
+           
+    svg.selectAll(".layerAbove").remove();
+    svg.selectAll(".layerAbove")
+        .data(countryList).enter()
+        .append("path")
+        .attr("class", "layerAbove")
         .style("stroke", "#000")
         .style("stroke-width", 0.1)
         .style("stroke-opacity", 1)
-        .style("fill-opacity", 0.3)
+        .style("fill-opacity", 0.9)
         .style("fill", function (d) {
-            return getColor3(d.category);
+            return "#f00";
         })
-        .attr("d", function (d, index) {
-            if (termList[d.name].monthly == undefined) {
-                termList[d.name].monthly = computeMonthlyData(d.name);
-            }
-
-
-            for (var i = 0; i < termList[d.name].monthly.length; i++) {
-                termList[d.name].monthly[i].yNode = d.yInMultiples;     // Copy node y coordinate
-            }
-            return area3(termList[d.name].monthly);
+        .attr("d", function (d) {
+             return areaAbove(d);
+        });
+    svg.selectAll(".layerBelow").remove();
+    svg.selectAll(".layerBelow")
+        .data(countryList).enter()
+        .append("path")
+        .attr("class", "layerBelow")
+        .style("stroke", "#000")
+        .style("stroke-width", 0.1)
+        .style("stroke-opacity", 1)
+        .style("fill-opacity", 0.9)
+        .style("fill", function (d) {
+            return "#0f0";//getColor3(d.category);
+        })
+        .attr("d", function (d) {
+             return areaBelow(d);
         });
 
+    svg.selectAll(".countryText").remove();
+    svg.selectAll(".countryText")
+            .data(countryList).enter()
+        .append("text")
+        .attr("class", "countryText")
+        .style("fill", function (d) {
+            return "#000";
+        })
+        .style("text-anchor", "end")
+        .style("text-shadow", "1px 1px 0 rgba(255, 255, 255, 0.99")
+        .attr("x", function (d) {
+            return xStep;    // x position is at the arcs
+        })
+        .attr("y", function (d, i) {
+            return d[0].y+yScaleS(dataS.YearsData[i].Scagnostics0[selectedScag]);     // Copy node y coordinate
+        })
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .text(function (d) {
+            return "aaaaaa";
+        })
+        .on("mouseover", function(d){
+            showTip(d, this);
+        })
+        .on("mouseout", function(d){
+            hideTip(d);
+        });   
+            
+    
+   // debugger;   
+
     // LINKs **********************************
-    lLinks = [];
+    /*lLinks = [];
     for (var m = startMonth; m < endMonth; m++) {
         var newCut = selectedCut;
         if (newCut<0){  // Best Q modularity selected
@@ -407,7 +488,7 @@ function drawgraph2() {
         .style("stroke-opacity", 0.6)
         .style("stroke", "#000")
         .style("fill", "none")
-        .attr("d", linkArc3);
+        .attr("d", linkArc3);*/
 
     svg.selectAll(".nodeText3").remove();
     var updateText = svg.selectAll(".nodeText3")

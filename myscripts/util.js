@@ -488,12 +488,23 @@ function updateTimeLegend() {
         });
 
     // ************************************SCALE force layouts ************************************
+   // snapshotScale = 0.10;
     for (var i = minYear; i <= maxYear; i++) {
         for (var j = 0; j < 12; j++) {
             var m = (i - minYear) * 12 + j;
             var view = "0 0 " + forceSize + " " + forceSize;
             if (lMonth - numLens <= m && m <= lMonth + numLens)
                 view = (forceSize * (1-snapshotScale)/2) + " " + (forceSize * (1-snapshotScale)/2) + " " + (forceSize * snapshotScale) + " " + (forceSize * snapshotScale);
+            else if (lMonth - numLens == m+1 ){
+                var snapshotScale2 = snapshotScale*2;
+                view = (forceSize * (1-snapshotScale2*1.25)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
+            }
+            else if (m-1 == lMonth + numLens){
+                var snapshotScale2 = snapshotScale*2;
+                view = (forceSize * (1-snapshotScale2/1.33)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
+               
+            }
+            
             svg.selectAll(".force" + m).transition().duration(500)
                 .attr("x", xStep - forceSize / 2 + xScale(m))
                 .attr("viewBox", view);
@@ -552,7 +563,6 @@ function drawTimeBox() {
 }
 
 function updateTimeBox() {
-    debugger;
     svg.selectAll(".timeLegendText")
         .attr("y", function (d, i) {
             // For figure 4

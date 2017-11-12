@@ -1,4 +1,4 @@
-/* September 2017 
+/* November 2017 
  * Tommy Dang, Assistant professor, iDVL@TTU
  *
  * THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
@@ -99,7 +99,11 @@ var fileName;
 addDatasetsOptions(); // Add these dataset to the select dropdown, at the end of this files
 drawControlPanel();
 
+var dataS;
 function loadData(){
+    d3.json("data3/WBD_MaleFemale.json", function(data_) {
+      dataS=data_;
+    });
     searchTerm = "";
     isLensing = false;
     termMax=0;
@@ -164,37 +168,33 @@ function loadData(){
                     maxYear = year;
                 d.m = year;
             });    
-
+            minYear =1960;
+            maxYear =2015;
             
             // Set the dropdown value
             document.getElementById('edgeWeightDropdown').value = "1";  
             document.getElementById('nodeDropdown').value = "1";  
             maxNodesInSnapshot =35;
             maxRel = 5;
-            snapshotScale = 0.22; 
             if (fileName.indexOf("VIS")>=0){
                // minYear = 2000;
-                snapshotScale = 0.16;   
                maxNodesInSnapshot = 30;
             }
             else if (fileName.indexOf("IMDB")>=0){
                 minYear = 1975;   // IMDB first movie was in 1919
                // minYear = 2001;   // IMDB first movie was in 1919
                // snapshotScale = 0.15;  
-               snapshotScale = 0.22;  
             }  
             else if (fileName.indexOf("PopCha")>=0){
                 minYear = 1980;   // PopCha first movie was in 1937
 
             }  
             else if (fileName.indexOf("Cards_PC")>=0){
-                snapshotScale = 0.17;    // PopCha first movie was in 1937
             }  
             else if (fileName.indexOf("Cards_Fries")>=0){
                 minYear = 1995; 
                 maxNodesInSnapshot = 50;
                 maxRel = 5;
-                snapshotScale = 0.20;    // PopCha first movie was in 1937
             }   
 
             //minYear = 2004;
@@ -253,14 +253,12 @@ function loadData(){
                 document.getElementById('edgeWeightDropdown').value = "2";  
                 maxNodesInSnapshot =30
                 maxRel = 12;
-                snapshotScale = 0.16;    
             }  
             else if (fileName.indexOf("Esquire")>=0){
                 document.getElementById('nodeDropdown').value = "1";  
                 document.getElementById('edgeWeightDropdown').value = "1";  
                 maxNodesInSnapshot =15;
                 maxRel = 8;
-                snapshotScale = 0.16;   
             }
             else if (fileName.indexOf("EmptyWheel")>=0){
                 minYear = 2012; 
@@ -269,21 +267,18 @@ function loadData(){
                 document.getElementById('edgeWeightDropdown').value = "3";  
                 maxNodesInSnapshot =20;
                 maxRel = 17;
-                snapshotScale = 0.13;   
             }
             else if (fileName.indexOf("CrooksAndLiars")>=0){
                 document.getElementById('nodeDropdown').value = "3";  
                 document.getElementById('edgeWeightDropdown').value = "2";  
                 maxNodesInSnapshot =25;
                 maxRel = 12;
-                snapshotScale = 0.16;   
             }
             else if (fileName.indexOf("Huffington")>=0){
                 document.getElementById('nodeDropdown').value = "4";  
                 document.getElementById('edgeWeightDropdown').value = "5";  
                 maxNodesInSnapshot =20;
                 maxRel = 50;
-                snapshotScale = 0.15;   
             }
             else if (fileName.indexOf("WikiNews")>=0){
                 minYear = 2010; 
@@ -291,7 +286,6 @@ function loadData(){
                 document.getElementById('edgeWeightDropdown').value = "3";  
                 maxNodesInSnapshot =35;
                 maxRel = 10;
-                snapshotScale = 0.19;   
             }
             //************************* Figure4 **********************
             //if (isForFigure4)
