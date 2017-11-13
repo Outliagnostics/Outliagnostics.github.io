@@ -1,4 +1,4 @@
-### *Outliagnostics*: Am I oulier or contributor?
+### *Outliagnostics*: Am I outlier or contributor?
 Online demo:  Outliagnostics.github.io
 [![ScreenShot](https://github.com/DycomDetector/DycomDetector.github.io/blob/master/images/dycomthumb2.png)](https://youtu.be/x6wgT8--ZkI)
 ### Schematic overview of *DycomDetector*
