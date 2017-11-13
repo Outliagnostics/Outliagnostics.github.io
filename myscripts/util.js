@@ -269,7 +269,7 @@ function drawColorLegend() {
             .style("text-anchor", "end")
             .style("fill", "#000");     
     }   
-    drawTopEntities(text1);
+    //drawTopEntities(text1);
 }
 
 // ******************************************Process top 100 entities array ******************************************
@@ -357,8 +357,9 @@ function removeColorLegend() {
     svg.selectAll(".nodeLegend").remove();
 }
 
-function drawTimeLegend() {
-    var listX = [];
+var listX;
+function drawTimeGrid() {
+    listX = [];
     if (fileName.indexOf("VIS")>=0|| fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
         for (var i = minYear; i <= maxYear; i++) {
             var xx = xStep + xScale(i - minYear);
@@ -394,6 +395,8 @@ function drawTimeLegend() {
         })
         .attr("y1", 0)
         .attr("y2", 1500);
+}
+function drawTimeText() {
     svg.selectAll(".timeLegendText").data(listX)
         .enter().append("text")
         .attr("class", "timeLegendText")
@@ -496,12 +499,12 @@ function updateTimeLegend() {
             if (lMonth - numLens <= m && m <= lMonth + numLens)
                 view = (forceSize * (1-snapshotScale)/2) + " " + (forceSize * (1-snapshotScale)/2) + " " + (forceSize * snapshotScale) + " " + (forceSize * snapshotScale);
             else if (lMonth - numLens == m+1 ){
-                var snapshotScale2 = snapshotScale*2;
-                view = (forceSize * (1-snapshotScale2*1.25)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
+                var snapshotScale2 = snapshotScale*1.8;
+                view = (forceSize * (1-snapshotScale2*1.05)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
             }
             else if (m-1 == lMonth + numLens){
-                var snapshotScale2 = snapshotScale*2;
-                view = (forceSize * (1-snapshotScale2/1.33)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
+                var snapshotScale2 = snapshotScale*1.8;
+                view = (forceSize * (1-snapshotScale2/1.05)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
                
             }
             
@@ -539,11 +542,11 @@ function getOpacity(d,i) {
 function drawTimeBox() {
     svg.append("rect")
         .attr("class", "timeBox")
-        .style("fill", "#aaa")
-        .style("fill-opacity", 0.2)
+        .style("fill", "#ddd")
+        .style("fill-opacity", 0.6)
         .attr("x", xStep)
-        .attr("y", yTimeBox)
-        .attr("width", XGAP_ * numMonth)
+        .attr("y", yTimeBox-1)
+        .attr("width", width-xStep)
         .attr("height", 30)
         .on("mouseout", function () {
             isLensing = false;

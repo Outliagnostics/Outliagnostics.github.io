@@ -9,7 +9,7 @@
 var margin = {top: 0, right: 0, bottom: 0, left: 0};
 var width = document.body.clientWidth - margin.left - margin.right;
 var height = 50 - margin.top - margin.bottom;
-var heightSVG = 859;
+var heightSVG = 2500;
 
 //Append a SVG to the body of the html page. Assign this SVG as an object to svg
 var svg = d3.select("body").append("svg")
@@ -31,7 +31,7 @@ var xStep = 210;
 var searchTerm;
 
 var isLensing;
-var lensingMul = 8;
+var lensingMul = 6;
 var lMonth;
 var oldLmonth; // use this variable to compare if we are lensing over a different month
 
@@ -52,10 +52,17 @@ function xScale(m) {
         var total = numMonth + numMonthInLense * (lensingMul - 1);
         var xGap = (XGAP_ * numMonth) / total;
 
-        if (m < lMonth - numLens)
-            return m * xGap;
+        if (m < lMonth - numLens){
+            var xx =  m * xGap;
+            if (m == lMonth - numLens-1)
+                xx+=xGap;
+            return xx;
+        }  
         else if (m > lMonth + numLens) {
-            return maxM * xGap + numMonthInLense * xGap * lensingMul + (m - (lMonth + numLens + 1)) * xGap;
+            var xx = maxM * xGap + numMonthInLense * xGap * lensingMul + (m - (lMonth + numLens + 1)) * xGap;
+            if (m == lMonth + numLens+1)
+                xx-=xGap;
+            return xx;
         }
         else {
             return maxM * xGap + (m - maxM) * xGap * lensingMul;
@@ -341,8 +348,9 @@ function loadData(){
             .attr("height", heightSVG)
 
         drawColorLegend();
-        drawTimeLegend();
+        drawTimeGrid();
         drawTimeBox(); // This box is for brushing 
+        drawTimeText();
         
         // 2017. this function is main2.js
         computeMonthlyGraphs();
@@ -462,36 +470,7 @@ function readTermsAndRelationships() {
     removeList["dismantle roe"] = 1;
     removeList["huffington post"] = 1;
     
-   /* removeList["new york times"]=1;
-    removeList["tsarnaev"] = 1;
-    removeList["committee"] = 1;
-    removeList["yahoo"] = 1;
-     removeList["alexander"] = 1;
-      removeList["intelligence committee"] = 1;*/
-     
-    
-    /*
-    removeList["lanza"] = 1;
-    removeList["giglio"] = 1;
-    removeList["portman"] = 1;
-    removeList["thatcher"] = 1;
-    removeList["ground"] = 1;
-    removeList["summers"] = 1;
-    removeList["lapierre"] = 1;
-    removeList["hagel"] = 1;
-    removeList["swartz"] = 1;
-    removeList["tsarnaev"] = 1;
-    removeList["marathon"] = 1;
-    removeList["martin"] = 1;
-    removeList["zimmerman"] = 1;
-    removeList["karzai"] = 1;
-    removeList["rice"] = 1;
-    removeList["tamerlan"] = 1;
-    removeList["boston"] = 1;
-    removeList["foreign intelligence surveillance court"] = 1;
-    removeList["trayvon"] = 1;
-    */
-    
+  
     termArray = [];
     for (var att in terms) {
         var e = {};
@@ -751,19 +730,6 @@ function chartStreamGraphs(color) {
       var layers = stack(nest.entries(data));
       x.domain(d3.extent(data, function(d) { return d.date; }));
       y.domain([0, d3.max(data, function(d) { return d.y0 + d.y; })]);
-
-
-     /* svg.append("text")
-            .attr("class", "nodeLegend5")
-            .attr("x", 0)
-            .attr("y", 0)
-            .text("Frequency")
-            .attr("dy", ".21em")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "15px")
-            .attr("transform", "translate("+(xStep+15)+",420) rotate(-90)")
-            .style("text-anchor", "end")
-            .style("fill", "#000");*/
 
     svg.selectAll(".layer")
         .data(layers)
