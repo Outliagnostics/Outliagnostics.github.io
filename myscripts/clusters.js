@@ -16,7 +16,7 @@ var pointOpacity = 0.9;
 var selectedVar = 0;
 var selectedScag = 0;
 function updateSubLayout(nodes, links, m) {
-    console.log("update Scatterplot:"+m);
+    //console.log("update Scatterplot:"+m);
     
     svg.selectAll(".force" + m).remove();
 

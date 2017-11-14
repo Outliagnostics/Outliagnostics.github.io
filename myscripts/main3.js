@@ -6,7 +6,7 @@
  * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 
-var numTermsWordCloud = 5; // numTerms in each month
+var numTermsWordCloud = 7; // numTerms in each month
     
 function setCut(cutvalue){
     var selectedvalue = cutvalue;
@@ -170,7 +170,7 @@ function drawHistograms(yStartHistogram) {
 
 // This Texts is independent from the lower text with stream graphs
 var tNodes;
-function drawTextClouds(countryList, yTextClouds) {
+function drawTextClouds(yTextClouds) {
     tNodes = [];
     for (var y = 1; y <= dataS.YearsData.length; y++) {
         var newCut = selectedCut;
@@ -184,17 +184,17 @@ function drawTextClouds(countryList, yTextClouds) {
         }
 
         nodes.sort(function (a, b) {
-            if (Math.abs(a[y].OutlyingDif) < Math.abs(b[y].OutlyingDif) ) {   // weight is the degree of nodes
+            if (Math.abs(a[y].OutlyingDif) < Math.abs(b[y].OutlyingDif) )  
                 return 1;
-            }
             else  
                 return -1;
         });
+
         for (var i = 0; i < numTermsWordCloud; i++) {
             tNodes.push(nodes[i]);
         }
     }
-    //debugger;
+    // ************ maxAbs ************ defined in main2.js 
     var maxAbs = Math.max(maxDifAboveForAll, Math.abs(maxDifBelowForAll));
 
     svg.selectAll(".textCloud3").remove();
@@ -202,32 +202,35 @@ function drawTextClouds(countryList, yTextClouds) {
     var updateText = svg.selectAll(".textCloud3")
         .data(tNodes);
     var enterText = updateText.enter();
+
+ //   console.log("maxAbs="+maxAbs+ " numLens="+numLens+" lMonth="+lMonth);
+               
     enterText.append("text")
         .attr("class", "textCloud3")
         .style("text-anchor", "middle")
         .attr("font-family", "sans-serif")
         .attr("font-size", function(d,i) {
             var s;
-            var y = Math.floor(i/numTermsWordCloud)+1;
-            if (lMonth-numLens<=d.m && d.m<=lMonth+numLens){
+            var y = Math.floor(i/numTermsWordCloud);
+            if (lMonth-numLens<=y && y<=lMonth+numLens){
                 var sizeScale = d3.scale.linear()
                     .range([10, 17])
                     .domain([0, maxAbs]);
-                s = sizeScale(Math.abs(d[y].OutlyingDif));
+                s = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
             else{
                 var sizeScale = d3.scale.linear()
-                    .range([2, 12])
+                    .range([2, 11])
                 .domain([0, maxAbs]);
-                s = sizeScale(Math.abs(d[y].OutlyingDif));
+                s = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
             if (isNaN(s)) // exception
                 s=5;
             return s+"px";
         })
         .style("fill", function(d,i) {
-            var y = Math.floor(i/numTermsWordCloud)+1;
-            return colorPurpleGreen(d[y].OutlyingDif);
+            var y = Math.floor(i/numTermsWordCloud);
+            return colorPurpleGreen(d[y+1].OutlyingDif);
         })
         .attr("x", function(d,i) {
             return xStep + xScale(Math.floor(i/numTermsWordCloud));    // x position is at the arcs

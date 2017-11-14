@@ -349,8 +349,8 @@ function loadData(){
 
         drawColorLegend();
         drawTimeGrid();
-        drawTimeBox(); // This box is for brushing 
         drawTimeText();
+        drawTimeBox(); // This box is for brushing 
         
         // 2017. this function is main2.js
         computeMonthlyGraphs();

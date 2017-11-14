@@ -304,7 +304,6 @@ function drawTopEntities(text1){
         .style("font-weight", "bold")
         .style("fill", "#000");
 
-
     var node6 = svg.selectAll(".node6Text")
         .data(top100termsArray)
         .enter()
@@ -427,7 +426,6 @@ function drawTimeText() {
 
 function updateTimeLegend() {
     var listX = [];
-
     if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
         for (var i = minYear; i <= maxYear; i++) {
             var xx = xStep + xScale(i - minYear);
@@ -449,7 +447,7 @@ function updateTimeLegend() {
         }
     }
 
-    svg.selectAll(".timeLegendLine").data(listX).transition().duration(500)
+    svg.selectAll(".timeLegendLine").data(listX).transition().duration(transitionTime)
         .style("stroke-dasharray", function (d, i) {
             if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
                 return i % 5 == 0 ? "3, 1" : "1, 3"
@@ -482,7 +480,7 @@ function updateTimeLegend() {
         .attr("x2", function (d) {
             return d.x;
         });
-    svg.selectAll(".timeLegendText").data(listX).transition().duration(500)
+    svg.selectAll(".timeLegendText").data(listX).transition().duration(transitionTime)
         .style("fill-opacity", function (d, i) {
             return getOpacity(d,i);
         })
@@ -508,7 +506,7 @@ function updateTimeLegend() {
                
             }
             
-            svg.selectAll(".force" + m).transition().duration(500)
+            svg.selectAll(".force" + m).transition().duration(transitionTime)
                 .attr("x", xStep - forceSize / 2 + xScale(m))
                 .attr("viewBox", view);
         }
@@ -542,8 +540,8 @@ function getOpacity(d,i) {
 function drawTimeBox() {
     svg.append("rect")
         .attr("class", "timeBox")
-        .style("fill", "#ddd")
-        .style("fill-opacity", 0.6)
+        .style("fill", "#666")
+        .style("fill-opacity", 0.5)
         .attr("x", xStep)
         .attr("y", yTimeBox-1)
         .attr("width", width-xStep)
@@ -568,9 +566,6 @@ function drawTimeBox() {
 function updateTimeBox() {
     svg.selectAll(".timeLegendText")
         .attr("y", function (d, i) {
-            // For figure 4
-            if (isForFigure4) return (i==0) ? 0 : 548;
-
             if (fileName.indexOf("VIS")>=0  || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
                 return yTimeBox + 20;
             }
@@ -585,8 +580,6 @@ function updateTimeBox() {
 
     // Recompute the timeArcs
     if (oldLmonth != lMonth) {
-        //drawgraph2();
-        
         updategraph2();
         oldLmonth = lMonth;
     }
