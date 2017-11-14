@@ -354,6 +354,7 @@ function loadData(){
         
         // 2017. this function is main2.js
         computeMonthlyGraphs();
+
        
         // Spinner Stop ********************************************************************
         spinner.stop();

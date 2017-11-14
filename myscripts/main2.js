@@ -30,11 +30,14 @@ var maxRel = 15;   // for scaling, if count > 6 the link will looks similar to 6
 // Colors
 var colorAbove = "#0a0";
 var colorBelow = "#b06";
+var maxDifAboveForAll = 0;   
+var maxDifBelowForAll = 0;  
+
+var colorPurpleGreen= d3.scale.linear()
+    .domain([0,0,0])
+    .range([colorBelow,"#444",colorAbove]);
 
 
-if (fileName.indexOf("VIS")>=0){
-    maxRel=4;
-}    
 var linkScale3 = function (count) {
     var scale = d3.scale.linear()
                     .range([0, 3])
@@ -177,16 +180,72 @@ function computeMonthlyGraphs() {
         if (graphByMonths[m][selectedCut] != undefined) {
             updateSubLayout(graphByMonths[m][selectedCut].nodes, graphByMonths[m][selectedCut].links, m);
         }
-        else{
-           // debugger;
-           // setCut("optimized");
-        }
     }
     // Update the layout
     updateTimeLegend();
     oldLmonth =-100;  // This to make sure the histogram and text list is updated
     updateTimeBox();
+    drawgraph2();
 }
+
+
+var yScaleS = d3.scale.linear()
+        .range([0, 100])
+        .domain([0, 1]);
+
+var areaAbove = d3.svg.area()
+    .interpolate("cardinal")
+    .x(function (d,i) {
+        if (i==0)
+            return xStep-10;
+        else
+            return xStep + xScale(i-1);
+    })
+    .y0(function (d,i) {
+        if (i==0 || i==dataS.YearsData.length+1)
+            return d.y;
+        else{
+            return d.y-yScaleS(dataS.YearsData[i-1].Scagnostics0[selectedScag]);
+        }
+            
+    })
+    .y1(function (d,i) {
+        if(i==0 || i==dataS.YearsData.length+1)
+            return d.y;
+        else{
+            var scagLeaveOriginal = dataS.YearsData[i-1].Scagnostics0[selectedScag];
+            if (d.OutlyingDif>0)
+                return d.y-yScaleS(d.Outlying);
+            else
+                return d.y-yScaleS(scagLeaveOriginal);    
+        }     
+    });
+var areaBelow = d3.svg.area()
+    .interpolate("cardinal")
+    .x(function (d,i) {
+        if (i==0)
+            return xStep -10;
+        else
+            return xStep + xScale(i-1);
+    })
+    .y0(function (d,i) {
+         if(i==0 || i==dataS.YearsData.length+1)
+            return d.y;
+        else{
+            return d.y-yScaleS(dataS.YearsData[i-1].Scagnostics0[selectedScag]);
+        }    
+    })
+    .y1(function (d,i) {
+        if(i==0 || i==dataS.YearsData.length+1)
+            return d.y;
+        else{
+            var scagLeaveOriginal = dataS.YearsData[i-1].Scagnostics0[selectedScag];
+            if (d.OutlyingDif<0)
+                return d.y-yScaleS(d.Outlying);
+            else
+                return d.y-yScaleS(scagLeaveOriginal);     
+        }    
+    });    
 
 function drawgraph2() {
     var startMonth = lMonth > numLens ? lMonth - numLens : 0;
@@ -332,33 +391,7 @@ function drawgraph2() {
                 }                 
             });
     }
-
-
-
-    var yTextClouds = height + 120; // y starts drawing the stream graphs
-    drawTextClouds(yTextClouds);    // in main3.js
-
-
-    
-    var yScale3 = d3.scale.linear()
-        .range([0, maxHeightOfStreamGraph])
-        .domain([0, termMax]);
-    
-
-    var area3 = d3.svg.area()
-        .interpolate("basic")
-        .x(function (d) {
-            return xStep + xScale(d.monthId);
-        })
-        .y0(function (d) {
-            return d.yNode - yScale3(d.value);
-        })
-        .y1(function (d) {
-            return d.yNode + yScale3(d.value);
-        });
-           
-
-    
+ 
     // Scagnostics stream graphs
     var countryList =[];
     for (var c=0; c<dataS.Countries.length;c++){
@@ -396,8 +429,14 @@ function drawgraph2() {
             }
         }
         // Max of maxDifAbove and maxDifBelow ******
+        if (thisCountryData.maxDifAbove>maxDifAboveForAll)
+            maxDifAboveForAll = thisCountryData.maxDifAbove;
+        if (thisCountryData.maxDifBelow<maxDifBelowForAll)
+            maxDifBelowForAll = thisCountryData.maxDifBelow;
         thisCountryData.maxDifAbsolute = Math.max(thisCountryData.maxDifAbove, Math.abs(thisCountryData.maxDifBelow));
     }  
+    colorPurpleGreen.domain([maxDifBelowForAll,0,maxDifAboveForAll]);
+
 
     countryList.sort(function (a, b) {
         if (a.maxDifAbsolute < b.maxDifAbsolute) { // order by month
@@ -418,65 +457,7 @@ function drawgraph2() {
         }
          yTemp2+=10;
     } 
-
-    var yScaleS = d3.scale.linear()
-        .range([0, 100])
-        .domain([0, 1]);
-
-    var areaAbove = d3.svg.area()
-        .interpolate("cardinal")
-        .x(function (d,i) {
-            if (i==0)
-                return xStep-10;
-            else
-                return xStep + xScale(i-1);
-        })
-        .y0(function (d,i) {
-            if (i==0 || i==dataS.YearsData.length+1)
-                return d.y;
-            else{
-                return d.y-yScaleS(dataS.YearsData[i-1].Scagnostics0[selectedScag]);
-            }
-                
-        })
-        .y1(function (d,i) {
-            if(i==0 || i==dataS.YearsData.length+1)
-                return d.y;
-            else{
-                var scagLeaveOriginal = dataS.YearsData[i-1].Scagnostics0[selectedScag];
-                if (d.OutlyingDif>0)
-                    return d.y-yScaleS(d.Outlying);
-                else
-                    return d.y-yScaleS(scagLeaveOriginal);    
-            }     
-        });
-    var areaBelow = d3.svg.area()
-        .interpolate("cardinal")
-        .x(function (d,i) {
-            if (i==0)
-                return xStep -10;
-            else
-                return xStep + xScale(i-1);
-        })
-        .y0(function (d,i) {
-             if(i==0 || i==dataS.YearsData.length+1)
-                return d.y;
-            else{
-                return d.y-yScaleS(dataS.YearsData[i-1].Scagnostics0[selectedScag]);
-            }    
-        })
-        .y1(function (d,i) {
-            if(i==0 || i==dataS.YearsData.length+1)
-                return d.y;
-            else{
-                var scagLeaveOriginal = dataS.YearsData[i-1].Scagnostics0[selectedScag];
-                if (d.OutlyingDif<0)
-                    return d.y-yScaleS(d.Outlying);
-                else
-                    return d.y-yScaleS(scagLeaveOriginal);     
-            }    
-        });    
-           
+      
     svg.selectAll(".layerAbove").remove();
     svg.selectAll(".layerAbove")
         .data(countryList).enter()
@@ -540,11 +521,14 @@ function drawgraph2() {
         .append("text")
         .attr("class", "maxAboveText")
         .style("fill", function (d) {
-            return "#000";
+             if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
+                return "#f00";
+            else
+                return colorPurpleGreen(d[d.maxYearAbove].OutlyingDif);
         })
         .style("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(255, 255, 255, 0.99")
-        .attr("x", function (d) {
+        .attr("x", function (d,i) {
             //console.log(d.maxYearAbove);
             if (d.maxYearAbove==undefined)
                 return 0;
@@ -552,10 +536,12 @@ function drawgraph2() {
                 return xStep + xScale(d.maxYearAbove);    // x position is at the arcs
         })
         .attr("y", function (d, i) {
-            if (d[d.maxYearAbove]==undefined)
-                return 100;
-            else
-                return d[0].y-yScaleS(d[d.maxYearAbove].Outlying);     // Copy node y coordinate
+            if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
+                return d[0].y;
+            else{
+                //console.log(d.maxYearAbove+" above "+d[d.maxYearAbove]+" "+d[d.maxYearAbove].Outlying);
+                return d[0].y-yScaleS(d[d.maxYearAbove].Outlying);     // Copy node y coordinate    
+            }
         })
         .attr("font-family", "sans-serif")
         .attr("font-size", "11px")
@@ -569,7 +555,11 @@ function drawgraph2() {
         .append("text")
         .attr("class", "maxBelowText")
         .style("fill", function (d) {
-            return "#000";
+            if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
+                return "#f00";
+            else
+                return colorPurpleGreen(d[d.maxYearBelow].OutlyingDif);
+        
         })
         .style("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(255, 255, 255, 0.99")
@@ -581,8 +571,8 @@ function drawgraph2() {
                 return xStep + xScale(d.maxYearBelow);    // x position is at the arcs
         })
         .attr("y", function (d, i) {
-            if (d[d.maxYearBelow]==undefined)
-                return 100;
+            if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
+                return d[0].y;
             else
                 return d[0].y-yScaleS(d[d.maxYearBelow].Outlying); 
         })
@@ -590,8 +580,40 @@ function drawgraph2() {
         .attr("font-size", "11px")
         .text(function (d) {
             return d[0].country;
-        });           
+        });  
+
+    //** TEXT CLOUD **********************************************************    
+    var yTextClouds = height + 120; // y starts drawing the stream graphs
+    drawTextClouds(countryList,yTextClouds);    // in main3.js
+             
 }
+
+function updategraph2() {
+    svg.selectAll(".layerBelow")
+        .attr("d", areaBelow);
+    svg.selectAll(".layerAbove")
+        .attr("d", areaAbove);  
+    svg.selectAll(".maxAboveText")
+        .attr("x", function (d,i) {
+            if (d.maxYearAbove==undefined)
+                return 0;
+            else
+                return xStep + xScale(d.maxYearAbove);    // x position is at the arcs
+        });
+    svg.selectAll(".maxBelowText")
+        .attr("x", function (d) {
+            if (d.maxYearBelow==undefined)
+                return 0;
+            else
+                return xStep + xScale(d.maxYearBelow);    // x position is at the arcs
+        }); 
+
+    svg.selectAll(".textCloud3")
+        .attr("x", function(d,i) {
+            return xStep + xScale(Math.floor(i/numTermsWordCloud));    // x position is at the arcs
+        });
+        
+}    
 
 function computeMonthlyData(term) {
     var monthly = [];

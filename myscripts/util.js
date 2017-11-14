@@ -585,7 +585,9 @@ function updateTimeBox() {
 
     // Recompute the timeArcs
     if (oldLmonth != lMonth) {
-        drawgraph2();
+        //drawgraph2();
+        
+        updategraph2();
         oldLmonth = lMonth;
     }
 }
