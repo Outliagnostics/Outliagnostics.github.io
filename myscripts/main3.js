@@ -6,7 +6,13 @@
  * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 
-var numTermsWordCloud = 7; // numTerms in each month
+var numTermsWordCloud = 6; // numTerms in each month
+var boxplotHeight = 60; // numTerms in each month
+var hBoxplotScale = d3.scale.linear()
+                .range([1, boxplotHeight])
+                .domain([0, 1]);
+ var boxplotNodes;
+               
     
 function setCut(cutvalue){
     var selectedvalue = cutvalue;
@@ -95,7 +101,6 @@ function updateHistogramOptimized() {
     }
 }
 function createForceOptimized() {
-    console.log("createForceOptimized");
     for (var c = 0; c < numCut; c++) {
         for (var m = 1; m < numMonth; m++) {
             if (c==cutOffvalue[m]-1){
@@ -127,7 +132,7 @@ function drawHistograms(yStartHistogram) {
             .style("stroke-opacity", function () {
                 return cut == selectedCut ? 1 : 0.25;
             })
-            .style("fill", getColor3(cut))
+            .style("fill", "#f00")
             .style("fill-opacity", function () {
                 return cut == selectedCut ? 1 : 0.12;
             })
@@ -167,17 +172,167 @@ function drawHistograms(yStartHistogram) {
     }
 }
 
+function drawBoxplot(yStartBoxplot) {
+    boxplotNodes = [];
+    for (var y = 1; y <= dataS.YearsData.length; y++) {
+        var nodes = [];
+
+        var obj ={};
+        obj.sumAbove =0;
+        obj.sumBelow =0;
+        obj.countAbove =0;
+        obj.countBelow =0;
+        for (var c = 0; c < countryList.length; c++) {
+            nodes.push(countryList[c]);
+            if (countryList[c][y].OutlyingDif>0){
+                obj.sumAbove+=countryList[c][y].OutlyingDif;
+                obj.countAbove++;
+            }      
+            else if (countryList[c][y].OutlyingDif<0){
+                obj.sumBelow+=countryList[c][y].OutlyingDif;
+                obj.countBelow++;
+            }         
+        }
+        nodes.sort(function (a, b) {
+            if (a[y].OutlyingDif < b[y].OutlyingDif)  
+                return 1;
+            else  
+                return -1;
+        });
+        if (obj.countAbove>0)
+            obj.averageAbove = obj.sumAbove/obj.countAbove;
+        else
+            obj.averageAbove = 0;
+        if (obj.countBelow>0)
+            obj.averageBelow = obj.sumBelow/obj.countBelow;
+        else
+            obj.averageBelow = 0;
+
+        obj.maxAbove = nodes[0][y].OutlyingDif;
+        obj.maxBelow = nodes[nodes.length-1][y].OutlyingDif;
+        obj.maxAboveCountry = nodes[0];
+        obj.maxBelowCountry = nodes[nodes.length-1];
+        boxplotNodes.push(obj);      
+    }
+
+   
+    hBoxplotScale = d3.scale.linear()
+                .range([1, boxplotHeight])
+                .domain([0, maxAbs]);
+
+    
+    svg.selectAll(".boxplotLine").remove();
+    svg.selectAll(".boxplotLine")
+        .data(boxplotNodes).enter()
+        .append("line")
+        .attr("class", "boxplotLine")
+        .style("stroke", "#000")
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.75)
+        .attr("x1", function (d, i) {
+            return xStep + xScale(i);    // x position is at the arcs
+        })
+        .attr("y1", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.maxBelow);
+        })
+        .attr("x2", function (d, i) {
+            return xStep + xScale(i);    // x position is at the arcs
+        })
+        .attr("y2", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.maxAbove);
+        });    
+    
+
+    svg.selectAll(".boxplotLineAbove").remove();
+    svg.selectAll(".boxplotLineAbove")
+        .data(boxplotNodes).enter()
+        .append("line")
+        .attr("class", "boxplotLineAbove")
+        .style("stroke", "#000")
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.75)
+        .attr("x1", function (d, i) {
+            return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("y1", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.maxAbove);
+        })
+        .attr("x2", function (d, i) {
+            return xStep + (xScale(i) + (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("y2", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.maxAbove);
+        });
+    svg.selectAll(".boxplotLineBelow").remove();
+    svg.selectAll(".boxplotLineBelow")
+        .data(boxplotNodes).enter()
+        .append("line")
+        .attr("class", "boxplotLineBelow")
+        .style("stroke", "#000")
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.75)
+        .attr("x1", function (d, i) {
+            return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("y1", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.maxBelow);
+        })
+        .attr("x2", function (d, i) {
+            return xStep + (xScale(i) + (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("y2", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.maxBelow);
+        });    
+    
+
+    
+    svg.selectAll(".boxplotRectAbove").remove();
+    svg.selectAll(".boxplotRectAbove")
+        .data(boxplotNodes).enter()
+        .append("rect")
+        .attr("class", "boxplotRectAbove")
+        .style("stroke", "#000")
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.5)
+        .style("fill", colorAbove)
+        .style("fill-opacity", 1)
+        .attr("x", function (d, i) {
+            return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("y", function (d, i) {
+            return yStartBoxplot-hBoxplotScale(d.averageAbove);
+        })
+        .attr("height", function (d) {
+            return hBoxplotScale(d.averageAbove);
+        })
+        .attr("width", XGAP_ / 4);
+    svg.selectAll(".boxplotRectBelow").remove();
+    svg.selectAll(".boxplotRectBelow")
+        .data(boxplotNodes).enter()
+        .append("rect")
+        .attr("class", "boxplotRectBelow")
+        .style("stroke", "#000")
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.5)
+        .style("fill", colorBelow)
+        .style("fill-opacity", 1)
+        .attr("x", function (d, i) {
+            return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("y", yStartBoxplot)
+        .attr("height", function (d) {
+            return hBoxplotScale(Math.abs(d.averageBelow));
+        })
+        .attr("width", XGAP_ / 4);  
+
+
+}
 
 // This Texts is independent from the lower text with stream graphs
 var tNodes;
 function drawTextClouds(yTextClouds) {
     tNodes = [];
     for (var y = 1; y <= dataS.YearsData.length; y++) {
-        var newCut = selectedCut;
-        if (newCut<0){  // Best Q modularity selected
-            newCut = cutOffvalue[m]-1;
-        }
-
         var nodes = [];
         for (var c = 0; c < countryList.length; c++) {
             nodes.push(countryList[c]);
@@ -195,8 +350,7 @@ function drawTextClouds(yTextClouds) {
         }
     }
     // ************ maxAbs ************ defined in main2.js 
-    var maxAbs = Math.max(maxDifAboveForAll, Math.abs(maxDifBelowForAll));
-
+   
     svg.selectAll(".textCloud3").remove();
     var yStep = 12;
     var updateText = svg.selectAll(".textCloud3")

@@ -68,6 +68,7 @@ function drawColorLegend() {
         .style("text-anchor", "left")
         .style("fill", "#000");    */
 
+    /*
     svg.append("text")
         .attr("class", "nodeLegend")
         .attr("x", xx - 10)
@@ -86,7 +87,7 @@ function drawColorLegend() {
             countList[termArray[i].category] = 1;
         else
             countList[termArray[i].category]++;
-    }   
+    }  */ 
 
     // Draw color legend
      svg.selectAll(".legends")
@@ -100,28 +101,10 @@ function drawColorLegend() {
         })
         .attr("r", rr)
         .style("fill", function (d, i) {
-            return getColor3(d);
+            return "#000";
         });
 
-    svg.selectAll(".legendText")
-        .data(categories)
-        .enter()
-        .append("text")
-        .attr("class", "legendText")
-        .attr("x", xx + 7)
-        .attr("y", function (d, i) {
-            return yy + i * 16+2;
-        })
-        .text(function (d) {
-            return d + " ("+numberWithCommas(countList[d])+" "+text1+")";
-        })
-        .attr("dy", ".21em")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "13px")
-        .style("text-anchor", "left")
-        .style("fill", function (d, i) {
-            return getColor3(d);
-        });
+   
 
 
  //*************Figure 4 ***********       
@@ -379,7 +362,6 @@ function drawTimeGrid() {
             }
         }
     }
-
     svg.selectAll(".timeLegendLine").data(listX)
         .enter().append("line")
         .attr("class", "timeLegendLine")
@@ -498,11 +480,11 @@ function updateTimeLegend() {
                 view = (forceSize * (1-snapshotScale)/2) + " " + (forceSize * (1-snapshotScale)/2) + " " + (forceSize * snapshotScale) + " " + (forceSize * snapshotScale);
             else if (lMonth - numLens == m+1 ){
                 var snapshotScale2 = snapshotScale*1.8;
-                view = (forceSize * (1-snapshotScale2*1.05)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
+                view = (forceSize * (1-snapshotScale2*1.085)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
             }
             else if (m-1 == lMonth + numLens){
                 var snapshotScale2 = snapshotScale*1.8;
-                view = (forceSize * (1-snapshotScale2/1.05)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
+                view = (forceSize * (1-snapshotScale2/1.09)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
                
             }
             

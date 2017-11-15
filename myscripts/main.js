@@ -102,6 +102,21 @@ var initialDataset = "VIS_papers";
 
 var fileName;
 
+// START: loader spinner settings ****************************
+var opts = {
+  lines: 25, // The number of lines to draw
+  length: 15, // The length of each line
+  width: 5, // The line thickness
+  radius: 25, // The radius of the inner circle
+  color: '#000', // #rgb or #rrggbb or array of colors
+  speed: 2, // Rounds per second
+  trail: 50, // Afterglow percentage
+  className: 'spinner', // The CSS class to assign to the spinner
+};
+var target = document.getElementById('loadingSpinner');
+var spinner = new Spinner(opts).spin(target);
+// END: loader spinner settings ****************************
+
 
 addDatasetsOptions(); // Add these dataset to the select dropdown, at the end of this files
 drawControlPanel();
@@ -110,234 +125,19 @@ var dataS;
 function loadData(){
     d3.json("data3/WBD_MaleFemale.json", function(data_) {
       dataS=data_;
-    });
-    searchTerm = "";
-    isLensing = false;
-    termMax=0;
-    oldLmonth = -1000;
-    lMonth = -lensingMul * 2;
-    fileName = "data/"+fileName+".tsv"; // Add data folder path
     
-    if (fileName.indexOf("Cards_Fries")>=0){
-        categories = ["increases_activity", "decreases_activity"];
-    }
-    else if (fileName.indexOf("Cards_PC")>=0){
-        categories = ["adds_modification", "removes_modification", "increases","decreases", "binds", "translocation"];
-    }
-    else if (fileName.indexOf("PopCha")>=0){
-        categories = ["Comedy","Drama","Action", "Fantasy", "Horror"];
-    }
-    else if (fileName.indexOf("IMDB")>=0){
-        categories = ["Comedy","Drama","Action"];
-    }
-    else if (fileName.indexOf("VIS")>=0){
-        categories = ["Vis","VAST","InfoVis","SciVis"];
-    }
-    else 
-        categories = ["person","location","organization","miscellaneous"];
-    
-    getColor3 = d3.scale.category10(); 
-    for (var cate=0; cate<categories.length;cate++){ // This loop makes sure person is Blue ...
-        var category = categories[cate];
-        getColor3(category);
-    }  
-    
-    // START: loader spinner settings ****************************
-    var opts = {
-      lines: 25, // The number of lines to draw
-      length: 15, // The length of each line
-      width: 5, // The line thickness
-      radius: 25, // The radius of the inner circle
-      color: '#000', // #rgb or #rrggbb or array of colors
-      speed: 2, // Rounds per second
-      trail: 50, // Afterglow percentage
-      className: 'spinner', // The CSS class to assign to the spinner
-    };
-    var target = document.getElementById('loadingSpinner');
-    var spinner = new Spinner(opts).spin(target);
-    // END: loader spinner settings ****************************
-
-    d3.tsv(fileName, function (error, data_) {
-        if (error) throw error;
-        data = data_;
-
-        terms = new Object();
-        minYear = 9999;
-        maxYear = 0;
-
-        if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
-            data.forEach(function (d) { // Update month
-                // Process date
-                var year =+d["Year"];
-                if (year<minYear)
-                    minYear = year;
-                if (year>maxYear)
-                    maxYear = year;
-                d.m = year;
-            });    
-            minYear =1960;
-            maxYear =2015;
-            
-            // Set the dropdown value
-            document.getElementById('edgeWeightDropdown').value = "1";  
-            document.getElementById('nodeDropdown').value = "1";  
-            maxNodesInSnapshot =35;
-            maxRel = 5;
-            if (fileName.indexOf("VIS")>=0){
-               // minYear = 2000;
-               maxNodesInSnapshot = 30;
-            }
-            else if (fileName.indexOf("IMDB")>=0){
-                minYear = 1975;   // IMDB first movie was in 1919
-               // minYear = 2001;   // IMDB first movie was in 1919
-               // snapshotScale = 0.15;  
-            }  
-            else if (fileName.indexOf("PopCha")>=0){
-                minYear = 1980;   // PopCha first movie was in 1937
-
-            }  
-            else if (fileName.indexOf("Cards_PC")>=0){
-            }  
-            else if (fileName.indexOf("Cards_Fries")>=0){
-                minYear = 1995; 
-                maxNodesInSnapshot = 50;
-                maxRel = 5;
-            }   
-
-            //minYear = 2004;
-            // Update months
-            numMonth = maxYear - minYear +1;
-            XGAP_ = (width-xStep-10)/numMonth; // gap between months on xAxis
-
-            data.forEach(function (d) {    
-                d.m = d.m-minYear;
-                var list = d["Author Names"].split(";");
-                for (var i = 0; i < list.length; i++) {
-                    var term = list[i];
-                    d[term] = 1;
-                    if (!terms[term]) {
-                        terms[term] = new Object();
-                        terms[term].max = 0;
-                        terms[term].maxMonth = -100;   // initialized negative
-                        terms[term].category = d.Conference;
-                    }
-                    if (!terms[term][d.m]){
-                        terms[term][d.m] = 1;
-                        terms[term].max = terms[term][d.m];
-                        terms[term].maxMonth = d.m;
-                    }         
-                    else {
-                        terms[term][d.m]++;
-                        if (terms[term][d.m] > terms[term].max) {
-                            terms[term].max = terms[term][d.m];
-                            terms[term].maxMonth = d.m;
-                        }
-                    }
-                }     
-            });
-            
-        }
-        else{
-            data.forEach(function (d) {
-                d.source = d["source"];
-                // Process date
-                var curDate = Date.parse(d["time"]);
-                d.date = new Date(d["time"]);
-                var year = d.date.getFullYear();
-                // Compute min and max years from the data
-                if (year<minYear)
-                    minYear = year;
-                if (year>maxYear)
-                    maxYear = year;
-                var m = 12 * year + d.date.getMonth();
-                d.m = m;
-                
-            });
-
-            if (fileName.indexOf("FactCheck")>=0){
-                minYear = 2007;   
-                document.getElementById('nodeDropdown').value = "1"; 
-                document.getElementById('edgeWeightDropdown').value = "2";  
-                maxNodesInSnapshot =30
-                maxRel = 12;
-            }  
-            else if (fileName.indexOf("Esquire")>=0){
-                document.getElementById('nodeDropdown').value = "1";  
-                document.getElementById('edgeWeightDropdown').value = "1";  
-                maxNodesInSnapshot =15;
-                maxRel = 8;
-            }
-            else if (fileName.indexOf("EmptyWheel")>=0){
-                minYear = 2012; 
-                maxYear = 2015; 
-                document.getElementById('nodeDropdown').value = "1";  
-                document.getElementById('edgeWeightDropdown').value = "3";  
-                maxNodesInSnapshot =20;
-                maxRel = 17;
-            }
-            else if (fileName.indexOf("CrooksAndLiars")>=0){
-                document.getElementById('nodeDropdown').value = "3";  
-                document.getElementById('edgeWeightDropdown').value = "2";  
-                maxNodesInSnapshot =25;
-                maxRel = 12;
-            }
-            else if (fileName.indexOf("Huffington")>=0){
-                document.getElementById('nodeDropdown').value = "4";  
-                document.getElementById('edgeWeightDropdown').value = "5";  
-                maxNodesInSnapshot =20;
-                maxRel = 50;
-            }
-            else if (fileName.indexOf("WikiNews")>=0){
-                minYear = 2010; 
-                document.getElementById('nodeDropdown').value = "1";  
-                document.getElementById('edgeWeightDropdown').value = "3";  
-                maxNodesInSnapshot =35;
-                maxRel = 10;
-            }
-            //************************* Figure4 **********************
-            //if (isForFigure4)
-            //   minYear = 2012;
-            //    maxYear = 2009;
-            // Update months
-            numMonth = 12*(maxYear - minYear);
-            XGAP_ = (width-xStep)/numMonth; // gap between months on xAxis
-            
-            data.forEach(function (d) { // Update month
-                d.m = d.m-12*minYear;
-                for (var cate=0; cate<categories.length;cate++){
-                    var category = categories[cate];
-                    if (d[category]!="" &&  d[category] != 1) {
-                        var list = d[category].split("|");
-                        for (var i = 0; i < list.length; i++) {
-                            var term = list[i];
-                            d[term] = 1;
-                            if (!terms[term]) {
-                                terms[term] = new Object();
-                                terms[term].max = 0;
-                                terms[term].maxMonth = -100;   // initialized negative
-                                terms[term].category = category;
-                            }
-                            if (!terms[term][d.m])
-                                terms[term][d.m] = 1;
-                            else {
-                                terms[term][d.m]++;
-                                if (terms[term][d.m] > terms[term].max) {
-                                    terms[term].max = terms[term][d.m];
-                                    terms[term].maxMonth = d.m;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        // Set the value from dropdown (which might be changed depending on the input dataset above)
-        selectedCut = document.getElementById('edgeWeightDropdown').value-1; // dropdown start at 1
-        selectedSetNodeBy = document.getElementById('nodeDropdown').value; // Exceptional for categorical dropdown
+        searchTerm = "";
+        isLensing = false;
+        termMax=0;
+        oldLmonth = -1000;
+        lMonth = -lensingMul * 2;
+         
         
+        minYear =1960;
+        maxYear =2015;
+        numMonth = maxYear - minYear +1;
+        XGAP_ = (width-xStep-2)/numMonth; // gap between months on xAxis
 
-        readTermsAndRelationships();
-        console.log("DONE computing relationshipMax=" + relationshipMax);
 
         svg.append("rect")
             .attr("class", "background")
@@ -351,7 +151,7 @@ function loadData(){
         drawTimeGrid();
         drawTimeText();
         drawTimeBox(); // This box is for brushing 
-        
+
         // 2017. this function is main2.js
         computeMonthlyGraphs();
 
@@ -360,10 +160,10 @@ function loadData(){
         spinner.stop();
 
 
-        var maxNum = Math.min(termArray.length, 10000);
-        for (var i = 0; i < termArray.length; i++) {
-            optArray.push(termArray[i].term);
-        }
+       // var maxNum = Math.min(termArray.length, 10000);
+       // for (var i = 0; i < termArray.length; i++) {
+       //     optArray.push(termArray[i].term);
+       // }
         optArray = optArray.sort();
         $(function () {
             $("#search").autocomplete({
@@ -425,10 +225,7 @@ function loadData(){
                 
             }, 50);    
         }, 3000);  
-
-
-    });
-
+    });   
 }    
 
 function readTermsAndRelationships() {

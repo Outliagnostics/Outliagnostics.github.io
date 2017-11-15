@@ -15,7 +15,7 @@ var allSVG = [];
 var pointOpacity = 0.9;
 var selectedVar = 0;
 var selectedScag = 0;
-function updateSubLayout(nodes, links, m) {
+function updateSubLayout(m) {
     //console.log("update Scatterplot:"+m);
     
     svg.selectAll(".force" + m).remove();
@@ -25,7 +25,7 @@ function updateSubLayout(nodes, links, m) {
         .attr("width", forceSize)
         .attr("height", forceSize)
         .attr("x", xStep - forceSize / 2 + m * XGAP_)
-        .attr("y", 30);
+        .attr("y", 28);
    /* svg2.append("rect")
     .attr("width", "100%")
     .attr("height", "100%")
