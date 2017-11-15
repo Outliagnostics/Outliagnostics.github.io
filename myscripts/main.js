@@ -17,16 +17,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", heightSVG);
 svg.call(tip);  
 
-var personTerms, locTerms, misTerms, orgTerms;
-
-var data, data2;
-var minYear, maxYear, numMonth;
-
-var nodes;
-var numNode;
-
-var termArray, relationship, termMax;
-var terms;
+var minYear, maxYear;
 var xStep = 210;
 var searchTerm;
 
@@ -34,11 +25,6 @@ var isLensing;
 var lensingMul = 6;
 var lMonth;
 var oldLmonth; // use this variable to compare if we are lensing over a different month
-
-// Selected values from dropdown ****** used in main2.js and main3.js
-var selectedSetNodeBy;
-var selectedCut;
-
 
 var XGAP_; // gap between months on xAxis
 var numLens = 3;
@@ -86,21 +72,12 @@ var area = d3.svg.area()
     });
 
 var optArray = [];   // FOR search box
-
-var listMonth;
-
 var categories = ["Above Outlying of original plot","Below Outlying of original plot"];
 var getColor3;  // Colors of categories
  
-
 //*****************************************************************
-var isForFigure4 = false;
-
-var fileList = ["WikiNews","Huffington","CrooksAndLiars","EmptyWheel","Esquire","FactCheck"
-                ,"VIS_papers","IMDB","PopCha","Cards_PC","Cards_Fries"]
-var initialDataset = "VIS_papers";
-
-var fileName;
+var fileList = ["LifeExpectancy"]
+var fileName = fileList[0];
 
 // START: loader spinner settings ****************************
 var opts = {
@@ -123,7 +100,7 @@ drawControlPanel();
 
 var dataS;
 function loadData(){
-    d3.json("data3/WBD_MaleFemale.json", function(data_) {
+    d3.json("data/"+fileName+".json", function(data_) {
         dataS=data_;
     
         searchTerm = "";
@@ -151,13 +128,12 @@ function loadData(){
         drawTimeText();
         drawTimeBox(); // This box is for brushing 
 
-        // 2017. this function is main2.js
+        // 2017, this function is main2.js
         computeMonthlyGraphs();
 
        
         // Spinner Stop ********************************************************************
         spinner.stop();
-
 
         for (var i = 0; i < dataS.Countries.length; i++) {
             optArray.push(dataS.Countries[i]);
@@ -269,7 +245,7 @@ function addDatasetsOptions() {
         el["data-image"]="images2/datasetThumnails/"+fileList[i]+".png";
         select.appendChild(el);
     }        
-    document.getElementById('datasetsSelect').value = initialDataset;  //************************************************
+    document.getElementById('datasetsSelect').value = fileName;  //************************************************
     fileName = document.getElementById("datasetsSelect").value;
     loadData();
 }

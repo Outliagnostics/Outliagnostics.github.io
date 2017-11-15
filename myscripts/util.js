@@ -34,7 +34,7 @@ function drawColorLegend() {
     else{
         text1 = "terms";
         text2 = "blogs";
-        textFile = fileName.split("/")[1].split(".tsv")[0];
+        textFile = fileName;
     }
     
     /*
@@ -245,7 +245,7 @@ function removeColorLegend() {
 var listX;
 function drawTimeGrid() {
     listX = [];
-    if (fileName.indexOf("VIS")>=0|| fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+    if (fileName.indexOf("VIS")>=0|| fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0){
         for (var i = minYear; i <= maxYear; i++) {
             var xx = xStep + xScale(i - minYear);
             var obj = {};
@@ -297,7 +297,7 @@ function drawTimeText() {
         .attr("font-family", "sans-serif")
         .attr("font-size", "15px")
         .text(function (d, i) {
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
                 return d.year;
             }    
             else{
@@ -311,7 +311,7 @@ function drawTimeText() {
 
 function updateTimeLegend() {
     var listX = [];
-    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
         for (var i = minYear; i <= maxYear; i++) {
             var xx = xStep + xScale(i - minYear);
             var obj = {};
@@ -334,7 +334,7 @@ function updateTimeLegend() {
 
     svg.selectAll(".timeLegendLine").data(listX).transition().duration(transitionTime)
         .style("stroke-dasharray", function (d, i) {
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
                 return i % 5 == 0 ? "3, 1" : "1, 3"
             }
             else{ 
@@ -345,7 +345,7 @@ function updateTimeLegend() {
             }    
         })
         .style("stroke-opacity", function (d, i) {
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
                 return 1;
             }
             else{    
@@ -399,7 +399,7 @@ function updateTimeLegend() {
 }
 // Used in util.js and main.js *****************
 function getOpacity(d,i) {
-    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
         if (i % 5 == 0)
             return 1;
         else {
@@ -451,7 +451,7 @@ function drawTimeBox() {
 function updateTimeBox() {
     svg.selectAll(".timeLegendText")
         .attr("y", function (d, i) {
-            if (fileName.indexOf("VIS")>=0  || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
+            if (fileName.indexOf("VIS")>=0  || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
                 return yTimeBox + 20;
             }
             else{
