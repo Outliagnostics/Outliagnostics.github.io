@@ -273,7 +273,7 @@ function drawgraph2() {
         })
         .on("mouseover", function(d){
             var countryIndex = dataS.Countries.indexOf(d[0].country);
-            brushingStreamText(d, countryIndex, this);
+            brushingStreamText(countryIndex);
         })
         .on("mouseout", function(d){
             hideTip(d);
@@ -363,23 +363,31 @@ function updategraph2() {
             return xStep + xScale(Math.floor(i/numTermsWordCloud));    // x position is at the arcs
         })
         .attr("font-size", function(d,i) {
-            var s;
             var y = Math.floor(i/numTermsWordCloud);
             if (lMonth-numLens<=y && y<=lMonth+numLens){
                 var sizeScale = d3.scale.linear()
                     .range([10, 17])
                     .domain([0, maxAbs]);
-                s = sizeScale(Math.abs(d[y+1].OutlyingDif));
+                d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
             else{
                 var sizeScale = d3.scale.linear()
-                    .range([2, 11])
+                    .range([6, 9])
                 .domain([0, maxAbs]);
-                s = sizeScale(Math.abs(d[y+1].OutlyingDif));
+                d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
-            if (isNaN(s)) // exception
-                s=5;
-            return s+"px";
+            //if (isNaN(d.fontSize)) // exception
+            //    d.fontSize=5;
+            return d.fontSize;
+        })
+        .text(function(d,i) {
+            var y = Math.floor(i/numTermsWordCloud);
+            if (lMonth-numLens-1<=y && y<=lMonth+numLens+1){
+                return d[0].country.substring(0,16);//+" ("+d.count+")";
+            }
+            else{
+                return d[0].country.substring(0,5);
+            }
         });
     if (0<=lMonth && lMonth<dataS.YearsData.length)  { 
         var year =  lMonth+1;
@@ -417,7 +425,7 @@ function updategraph2() {
         
         svg.selectAll(".layerTopAbove").transition().duration(transitionTime)
             .attr("d", areaTopAbove(boxplotNodes));
-        svg.selectAll(".layerTopBelow").transition().duration(transitionTime)
+        svg.selectAll(".layerTopBelow").transition().duration(transitionTime) 
             .attr("d", areaTopBelow(boxplotNodes));    
     
 

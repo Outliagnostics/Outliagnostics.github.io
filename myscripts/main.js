@@ -89,7 +89,7 @@ var optArray = [];   // FOR search box
 
 var listMonth;
 
-var categories = ["person","location","organization","miscellaneous"];
+var categories = ["Above Outlying of original plot","Below Outlying of original plot"];
 var getColor3;  // Colors of categories
  
 
@@ -124,11 +124,10 @@ drawControlPanel();
 var dataS;
 function loadData(){
     d3.json("data3/WBD_MaleFemale.json", function(data_) {
-      dataS=data_;
+        dataS=data_;
     
         searchTerm = "";
         isLensing = false;
-        termMax=0;
         oldLmonth = -1000;
         lMonth = -lensingMul * 2;
          
@@ -160,10 +159,9 @@ function loadData(){
         spinner.stop();
 
 
-       // var maxNum = Math.min(termArray.length, 10000);
-       // for (var i = 0; i < termArray.length; i++) {
-       //     optArray.push(termArray[i].term);
-       // }
+        for (var i = 0; i < dataS.Countries.length; i++) {
+            optArray.push(dataS.Countries[i]);
+        }
         optArray = optArray.sort();
         $(function () {
             $("#search").autocomplete({
@@ -228,171 +226,6 @@ function loadData(){
     });   
 }    
 
-function readTermsAndRelationships() {
-    console.log("readTermsAndRelationships");
-    data2 = data.filter(function (d, i) {
-        if (!searchTerm || searchTerm == "") {
-            return d;
-        }
-        else if (d[searchTerm])  // data2 contain the row which contains searched term
-            return d;
-    });
-
-    var selected = {}
-    if (searchTerm && searchTerm != "") {
-        data2.forEach(function (d) {
-            for (var term1 in d) {
-                if (!selected[term1])
-                    selected[term1] = {};
-                else {
-                    if (!selected[term1].isSelected)
-                        selected[term1].isSelected = 1;
-                    else
-                        selected[term1].isSelected++;
-                }
-            }
-        });
-    }
-
-    var removeList = {};   // remove list **************
-    removeList["source"] = 1;
-    removeList["person"] = 1;
-    removeList["location"] = 1;
-    removeList["organization"] = 1;
-    removeList["miscellaneous"] = 1;
-
-    removeList["muckreads weekly deadly force"] = 1
-    removeList["propublica"] = 1;
-    removeList["white this alabama judge has figured out how"] = 1;
-    removeList["dea ’s facebook impersonato"] = 1;
-    removeList["dismantle roe"] = 1;
-    removeList["huffington post"] = 1;
-    
-  
-    termArray = [];
-    for (var att in terms) {
-        var e = {};
-        e.term = att;
-        if (removeList[e.term] || (searchTerm && searchTerm != "" && !selected[e.term])) // remove list **************
-            continue;
-
-        var maxNet = 0;
-        var maxMonth = -1;
-        var count = 0;
-        for (var m = 0; m < numMonth; m++) {
-            if (terms[att][m]) {
-                var previous = 0;
-                if (terms[att][m - 1])
-                    previous = terms[att][m - 1];
-                var net = (terms[att][m] + 1) / (previous + 1);
-                if (net > maxNet) {
-                    maxNet = net;
-                    maxMonth = m;
-                }
-                count+=terms[att][m];
-            }
-          //  console.log(att+" net="+net);
-        }
-        e.max = maxNet;
-        e.count = count;
-        e.maxMonth = maxMonth;
-        e.category = terms[att].category;
-
-        if (e.term == searchTerm) {
-            e.max = 1000;
-            e.isSearchTerm = 1;
-        }
-        else if (searchTerm && searchTerm != "" && selected[e.term] && selected[e.term].isSelected) {
-            e.max = 500 + selected[e.term].isSelected;
-        }
-
-        if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
-            if (e.term.length>1)  
-                termArray.push(e);
-        }
-        else{    
-            if (e.max > 2 && e.term.length>2)    // Only get terms with some increase ************** with TEXT
-                termArray.push(e);
-        }
-    }
-    termArray.sort(function (a, b) {
-        if (a.max < b.max) {
-            return 1;
-        }
-        if (a.max > b.max) {
-            return -1;
-        }
-        return 0;
-    });
-
-    // Compute relationship **********************************************************
-    numNode = Math.min(topNumber, termArray.length);
-    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("PopCha")>=0 || fileName.indexOf("Cards")>=0){
-        numNode = termArray.length;   
-    }  
-    else if (fileName.indexOf("IMDB")>=0){  
-        numNode = Math.min(5000, termArray.length);
-    }    
-    top200terms ={};
-    top100termsArray = [];
-    for (var i=0; i<numNode;i++){
-       top200terms[termArray[i].term] = termArray[i];  // top200terms is defined in main2.js
-       if (top100termsArray.length<30)
-             top100termsArray.push(termArray[i]);
-       /*  // Sentiment request to server
-       var query =  "http://127.0.0.1:1337/status?userID="+termArray[i].term;
-         new Promise(function(resolve) {
-          d3.json(query, function(d) { 
-           // debugger;
-            resolve(d) })
-        });*/
-    }
-    console.log("numNode="+numNode);
-
-
-    // compute the term frequency ************************************************************************************
-    termMax = 0;
-    for (var i = 0; i < numNode; i++) {
-        for (var m = 0; m < numMonth; m++) {
-            var mon = new Object();
-            if (terms[termArray[i].term][m]) {
-                mon.value = terms[termArray[i].term][m];
-                if (mon.value > termMax)
-                    termMax = mon.value;
-            }
-        }
-    }
-    relationship ={};
-    relationshipMax =0;
-    data2.forEach(function(d) { 
-        var m = d.m;
-        for (var term1 in d) {
-            if (top200terms[term1]){   // if the term is in the selected 100 terms
-                for (var term2 in d) {
-                    if (top200terms[term2]){   // if the term is in the selected 100 terms
-                        if (!relationship[term1+"__"+term2]){
-                            relationship[term1+"__"+term2] = new Object();
-                            relationship[term1+"__"+term2].max = 1;
-                            relationship[term1+"__"+term2].maxMonth =m;
-                        }    
-                        if (!relationship[term1+"__"+term2][m])
-                            relationship[term1+"__"+term2][m] = 1;
-                        else{
-                            relationship[term1+"__"+term2][m]++;
-                            if (relationship[term1+"__"+term2][m]>relationship[term1+"__"+term2].max){
-                                relationship[term1+"__"+term2].max = relationship[term1+"__"+term2][m];
-                                relationship[term1+"__"+term2].maxMonth =m;  
-                                if (relationship[term1+"__"+term2].max>relationshipMax) // max over time
-                                    relationshipMax = relationship[term1+"__"+term2].max;
-                            }  
-                        }    
-                    }
-                }
-            }
-        }
-    });  
-}
-
 
 $('#btnUpload').click(function () {
     var bar = document.getElementById('progBar'),
@@ -418,229 +251,12 @@ $('#btnUpload').click(function () {
 
 });
 
-// Stream graphs ***********************************************
-function chartStreamGraphs(color) {
-    var datearray = [];
-    var colorrange = [];
-
-    if (color == "blue") {
-      colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
-    }
-    else if (color == "pink") {
-      colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-    }
-    else if (color == "orange") {
-      colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
-    }
-    strokecolor = colorrange[0];
-    var format = d3.time.format("%m/%d/%y");
-    var width = document.body.clientWidth ;
-    var height = 1000;
-
-    var tooltip = d3.select("body")
-        .append("div")
-        .attr("class", "remove")
-        .style("position", "absolute")
-        .style("z-index", "20")
-        .style("visibility", "hidden")
-        .style("top", "30px")
-        .style("left", "55px");
-    var x = d3.time.scale()
-        .range([xStep, width]);
-    var y = d3.scale.linear()
-        .range([height, 400]);
-    var z = d3.scale.ordinal()
-        .range(colorrange);
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .ticks(4);
-    var yAxisr = d3.svg.axis()
-        .scale(y);
-    var stack = d3.layout.stack()
-        .offset("silhouette")
-        .values(function(d) { return d.values; })
-        .x(function(d) { return d.date; })
-        .y(function(d) { return d.value; });
-    var nest = d3.nest()
-        .key(function(d) { return d.key; });
-    var area = d3.svg.area()
-        .interpolate("cardinal")
-        .x(function(d) { return x(d.date); })
-        .y0(function(d) { return y(d.y0); })
-        .y1(function(d) { return y(d.y0 + d.y); });
-        var data2 = [];
-        var maxNet2 = 0;
-        for (var k in top200terms){
-            for (var m = 0; m < numMonth; m++) {
-                var obj = {};
-                obj.key = k;
-                obj.date = m;
-                //obj.category = top200terms[k].category;
-                if (terms[k][m]) {
-                    obj.value = terms[k][m];
-                }
-                else
-                    obj.value = 0;
-                if (terms[k].max>maxNet2)
-                    maxNet2 = terms[k].max;
-                data2.push(obj);
-            }    
-        }
-        data2.sort(function (a, b) {
-        if (getPosition(categories,top200terms[a.key].category) < getPosition(categories,top200terms[b.key].category)) {
-            return 1;
-        }
-        else if (getPosition(categories,top200terms[a.key].category) > getPosition(categories,top200terms[b.key].category) ) {
-            return -1;
-        }
-        else{
-            if (terms[a.key].max > terms[b.key].max) {
-                return 1;
-            }
-            else if (terms[a.key].max < terms[b.key].max) {
-                return -1;
-            }
-            else{    
-                if (a.date < b.date) {
-                    return 1;
-                }
-                else if (a.date > b.date) {
-                    return -1;
-                }
-
-                 return 0;
-            } 
-        }
-      });
-      
-
-        function getPosition(arrayName,arrayItem) {
-            for(var i=0;i<arrayName.length;i++){ 
-                if(arrayName[i]==arrayItem)
-                return i;
-        }
-      }   
-      var data = data2;
-        
-      var layers = stack(nest.entries(data));
-      x.domain(d3.extent(data, function(d) { return d.date; }));
-      y.domain([0, d3.max(data, function(d) { return d.y0 + d.y; })]);
-
-    svg.selectAll(".layer")
-        .data(layers)
-        .enter().append("path")
-          .attr("class", "layer")
-          .attr("d", function(d) { return area(d.values); })
-          .style("fill", function(d, i) { 
-            console.log(top200terms[d.key].category);
-           return getColor3(top200terms[d.key].category); })
-          .style("fill-opacity", function(d, i) { 
-            var count = terms[d.key].max;
-            var opac = Math.min(Math.sqrt(0.1+count/maxNet2),1);
-            return opac;
-          });
-    /*svg.append("g")
-          .attr("class", "y axis")
-          .attr("transform", "translate(" + xStep + ", 0)")
-          .attr("stroke-width",1)
-          .call(yAxis.orient("left"));*/
-
-    svg.selectAll(".layer")
-        .attr("opacity", 1)
-        .on("mouseover", function(d, i) {
-          svg.selectAll(".layer").transition()
-          .duration(250)
-          .attr("opacity", function(d, j) {
-            return j != i ? 0.6 : 1;
-        })})
-
-        .on("mousemove", function(d, i) {
-          mousex = d3.mouse(this);
-          mousex = mousex[0];
-          var invertedx = x.invert(mousex);
-          invertedx = invertedx.getMonth() + invertedx.getDate();
-          var selected = (d.values);
-          for (var k = 0; k < selected.length; k++) {
-            datearray[k] = selected[k].date
-            datearray[k] = datearray[k].getMonth() + datearray[k].getDate();
-          }
-
-          mousedate = datearray.indexOf(invertedx);
-          pro = d.values[mousedate].value;
-
-          d3.select(this)
-          .classed("hover", true)
-          .attr("stroke", strokecolor)
-          .attr("stroke-width", "0.5px"), 
-          tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "visible");
-          
-        })
-        .on("mouseout", function(d, i) {
-         svg.selectAll(".layer")
-          .transition()
-          .duration(250)
-          .attr("opacity", "1");
-          d3.select(this)
-          .classed("hover", false)
-          .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
-      })
-        
-      var vertical = d3.select(".chart")
-            .append("div")
-            .attr("class", "remove")
-            .style("position", "absolute")
-            .style("z-index", "19")
-            .style("width", "1px")
-            .style("height", "380px")
-            .style("top", "10px")
-            .style("bottom", "30px")
-            .style("left", "0px")
-            .style("background", "#fff");
-
-    d3.select(".chart")
-        .on("mousemove", function(){  
-             mousex = d3.mouse(this);
-             mousex = mousex[0] + 5;
-             vertical.style("left", mousex + "px" )})
-        .on("mouseover", function(){  
-             mousex = d3.mouse(this);
-             mousex = mousex[0] + 5;
-             vertical.style("left", mousex + "px")});
-}
-
-
-function recompute() {
-    var bar = document.getElementById('progBar'),
-        fallback = document.getElementById('downloadProgress'),
-        loaded = 0;
-        
-    var load = function () {
-        loaded += 5;
-        bar.value = loaded;
-        /* The below will be visible if the progress tag is not supported */
-        $(fallback).empty().append("HTML5 progress tag not supported: ");
-        $('#progUpdate').empty().append(loaded + "% loaded");
-
-        if (loaded == 100) {
-            clearInterval(beginLoad);
-            $('#progUpdate').empty().append("Complete");
-        }
-    };
-
-    var beginLoad = setInterval(function () {
-        load();
-    }, 1);
-    readTermsAndRelationships();
-    computeMonthlyGraphs();
-}
-
 // Other fucntions *******************************************************
 function searchNode() {
     searchTerm = document.getElementById('search').value;
-    recompute();
+    var countryIndex = dataS.Countries.indexOf(searchTerm);
+    if (countryIndex>=0)
+        brushingStreamText(countryIndex);
 }
 
 function addDatasetsOptions() {

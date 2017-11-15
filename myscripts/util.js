@@ -5,35 +5,26 @@ var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 // Add color legend
 var yTimeBox = 0;
 
+var colorArray = ["#9dbee6","#afcae6","#c8dce6","#e6e6e6","#e6e6d8","#e6d49c","#e6b061","#e6852f","#e6531a","#e61e1a"];
+
+var colorRedBlue = d3.scale.linear()
+    .domain([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
+    .range(colorArray);
+
 // These texts are different upon input dataset   
 var text1 = "terms";
 var text2 = "blogs";
 var textFile = "";
        
 function drawColorLegend() {
-    var xx = 15;
-    var yy = 80;
+    var xx = 10;
+    var yy = 58;
     var rr = 6;
     // number of input terms
     if (fileName.indexOf("Cards_Fries")>=0){
         text1 = "proteins";
         text2 = "index cards";
         textFile = "Fries Cards";
-    }
-    else if (fileName.indexOf("Cards_PC")>=0){
-        text1 = "proteins";
-        text2 = "publications";
-        textFile = "Pathway Commons";
-    }
-    else if (fileName.indexOf("PopCha")>=0){
-        text1 = "actors";
-        text2 = "movies";
-        textFile = "PopCha movies";
-    }
-    else if (fileName.indexOf("IMDB")>=0){
-        text1 = "actors";
-        text2 = "movies";
-        textFile = "IMDB movies";
     }
     else if (fileName.indexOf("VIS")>=0){
         text1 = "authors";
@@ -45,29 +36,7 @@ function drawColorLegend() {
         text2 = "blogs";
         textFile = fileName.split("/")[1].split(".tsv")[0];
     }
-    /*
-    svg.append("text")
-        .attr("class", "nodeLegend")
-        .attr("x", xx - 10)
-        .attr("y", yy-40)
-        .text("Data:")
-        .attr("dy", ".21em")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "13px")
-        .style("text-anchor", "left")
-        .style("fill", "#000");
-
-    svg.append("text")
-        .attr("class", "nodeLegend")
-        .attr("x", xx + 24)
-        .attr("y", yy-40)
-        .text(textFile)
-        .attr("dy", ".21em")
-        .attr("font-family", "Impact, Charcoal, sans-serif")
-        .attr("font-size", "18px")
-        .style("text-anchor", "left")
-        .style("fill", "#000");    */
-
+    
     /*
     svg.append("text")
         .attr("class", "nodeLegend")
@@ -88,170 +57,104 @@ function drawColorLegend() {
         else
             countList[termArray[i].category]++;
     }  */ 
+            
+    
+    // Scagnostics color legend ****************
+    //Append a defs (for definition) element to your SVG
+    var defs = svg.append("defs");
+    //Append a linearGradient element to the defs and give it a unique id
+    var linearGradient = defs.append("linearGradient")
+        .attr("id", "linear-gradient");    
+    //Horizontal gradient
+    linearGradient
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "100%")
+        .attr("y2", "0%");    
+    for (var i =0; i<colorArray.length;i++){
+        var percent = i*10;
+        linearGradient.append("stop") 
+            .attr("offset", percent+"%")   
+            .attr("stop-color", colorArray[i]); //dark blue  
+    }      
 
-    // Draw color legend
-     svg.selectAll(".legends")
-        .data(categories)
-        .enter()
+    var yScagLegend = 60;
+    var wScagLegend = 160;
+    //Draw the rectangle and fill with gradient
+    svg.append("rect")
+        .attr("x", 11)
+        .attr("y", yScagLegend+5)
+        .attr("width", wScagLegend)
+        .attr("height", 20)
+        .style("fill", "url(#linear-gradient)");
+    
+    svg.append("text")
+        .attr("x", wScagLegend/2+8)
+        .attr("y", yScagLegend)
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .style("text-anchor", "middle")
+        .style("font-weight", "bold")
+        .style("fill", "#000")
+        .text("Outlying measure"); 
+    svg.append("text")
+        .attr("x", 2)
+        .attr("y", yScagLegend+19)
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .style("text-anchor", "left")
+        .style("font-weight", "bold")
+        .style("fill", "#000")
+        .text("0");  
+    svg.append("text")
+        .attr("x", wScagLegend+12)
+        .attr("y", yScagLegend+19)
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .style("text-anchor", "left")
+        .style("font-weight", "bold")
+        .style("fill", "#000")
+        .text("1");           
+
+     // Draw color legend **************************************************
+    var yScagLegend2 = 110;
+    svg.selectAll(".legendCircle").remove();
+    svg.selectAll(".legendCircle")
+        .data(categories).enter()
         .append("circle")
-        .attr("class", "legends")
+        .attr("class", "legendCircle")
         .attr("cx", xx-3)
         .attr("cy", function (d, i) {
-            return yy + i * 16;
+            return yScagLegend2 + i * 16;
         })
         .attr("r", rr)
         .style("fill", function (d, i) {
-            return "#000";
+            if (i==0) return colorAbove;
+            else if (i==1) return colorBelow;
+            else return "#000";
         });
-
-   
-
-
- //*************Figure 4 ***********       
-    if (isForFigure4){
-        var yy = 500;
-        var xx = 0;
-        var sy = 24;
-        var fontSize = 20;
-
-        svg.append("text")
-            .attr("class", "nodeLegend")
-            .attr("x", xx)
-            .attr("y", yy-50)
-            .text(textFile)
-            .attr("dy", ".21em")
-            .attr("font-family", "Impact, Charcoal, sans-serif")
-            .attr("font-size", +(fontSize+6)+"px")
-            .style("text-anchor", "left")
-            .style("fill", "#000");    
-
-        svg.append("text")
-            .attr("class", "nodeLegend")
-            .attr("x", xx)
-            .attr("y", yy-sy+3)
-            .text("Data contains " + numberWithCommas(data.length) + " "+text2)
-            .attr("dy", ".21em")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", fontSize+"px")
-            .style("text-anchor", "left")
-            .style("fill", "#000");
-    
-
-        svg.selectAll(".legendText2")
-        .data(categories)
-        .enter()
+    svg.selectAll(".legendText").remove();
+    svg.selectAll(".legendText")
+        .data(categories).enter()
         .append("text")
-        .attr("class", "legendText2")
-        .attr("x", xx)
+        .attr("class", "legendText")
+        .attr("x", xx+6)
         .attr("y", function (d, i) {
-            return yy  + i * sy+17;
+            return yScagLegend2 + i * 16 + 2;
         })
         .text(function (d) {
-            return "Number of "+ d ;
+            return d;
         })
         .attr("dy", ".21em")
         .attr("font-family", "sans-serif")
-        .attr("font-size", fontSize+"px")
-        .style("text-anchor", "start")
+        .attr("font-size", "12px")
+        .style("text-anchor", "left")
         .style("fill", function (d, i) {
-            return getColor3(d);
+            if (i==0) return colorAbove;
+            else if (i==1) return colorBelow;
+            else return "#000";
         });
-
-        svg.selectAll(".legendText3")
-            .data(categories)
-            .enter()
-            .append("text")
-            .attr("class", "legendText3")
-            .style("text-anchor", "end")
-            .attr("x", xx+400)
-            .attr("y", function (d, i) {
-                return yy  + i * sy+17;
-            })
-            .text(function (d) {
-                return numberWithCommas(countList[d])+" "+text1+"";
-            })
-            .attr("dy", ".21em")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", fontSize+"px")
-            .style("fill", function (d, i) {
-                return getColor3(d);
-            });
-        
-         svg.append("line")
-            .attr("class", "timeLegendLine3")
-            .style("stroke", "#000")
-            .style("stroke-opacity", 1)
-            .style("stroke-width", 1)
-            .attr("x1", function (d) {
-                return xx;
-            })
-            .attr("x2", function (d) {
-                return xx+400;
-            })
-            .attr("y1", function (d, i) {
-                return yy;
-            })
-            .attr("y2", function (d, i) {
-                return yy;
-            });   
-        svg.append("line")
-            .attr("class", "timeLegendLine4")
-            .style("stroke", "#000")
-            .style("stroke-opacity", 1)
-            .style("stroke-width", 1)
-            .attr("x1", function (d) {
-                return xx+260;
-            })
-            .attr("x2", function (d) {
-                return xx+260;
-            })
-            .attr("y1", function (d, i) {
-                return yy;
-            })
-            .attr("y2", function (d, i) {
-                return yy+sy*(categories.length+1);
-            });       
-
-        svg.selectAll(".textLegendLine2").data(categories)
-            .enter().append("line")
-            .attr("class", "timeLegendLine2")
-            .style("stroke", "#000")
-            .style("stroke-opacity", 1)
-            .style("stroke-width", 1)
-            .attr("x1", function (d) {
-                return xx;
-            })
-            .attr("x2", function (d) {
-                return xx+400;
-            })
-            .attr("y1", function (d, i) {
-                return yy  + i * sy+25;
-            })
-            .attr("y2", function (d, i) {
-                return yy  + i * sy+25;
-            });    
-    
-        svg.append("text")
-            .attr("class", "nodeLegend5")
-            .attr("x", xx)
-            .attr("y", yy+sy*categories.length+17)
-            .text("Total ")
-            .attr("dy", ".21em")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", fontSize+"px")
-            .style("text-anchor", "left")
-            .style("fill", "#000");
-        svg.append("text")
-            .attr("class", "nodeLegend5")
-            .attr("x", xx+400)
-            .attr("y", yy+sy*categories.length+17 )
-            .text(numberWithCommas(termArray.length) + " "+text1)
-            .attr("dy", ".21em")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", fontSize+"px")
-            .style("text-anchor", "end")
-            .style("fill", "#000");     
-    }   
+            
     //drawTopEntities(text1);
 }
 

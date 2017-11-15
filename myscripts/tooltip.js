@@ -21,20 +21,19 @@ var tip = d3.tip()
   .style('border', '1px solid #000');
 
 
-function brushingDataPoints(d,brushingIndex,tipItem) { 
-  updateElements(d,brushingIndex,tipItem);
-  showPopup(d,brushingIndex,tipItem);
+function brushingDataPoints(d,brushingIndex) { 
+  updateElements(brushingIndex);
+  showPopup(d,brushingIndex);
 
 }
 
-function brushingStreamText(d,brushingIndex,tipItem) { 
-  updateElements(d,brushingIndex,tipItem);
-  //showPopup(d,brushingIndex,tipItem)
+function brushingStreamText(brushingIndex) { 
+  updateElements(brushingIndex);
 }    
 
 
 // brushingIndex is the index of country in the Country list
-function updateElements(d,brushingIndex,tipItem) { 
+function updateElements(brushingIndex) { 
   // Update network
   for (var i=0; i<allSVG.length;i++){
       var svg2 = allSVG[i];
@@ -71,12 +70,14 @@ function updateElements(d,brushingIndex,tipItem) {
             }
             return (d.name == d2.source.name || d.name == d2.target.name) ? 1 : 0.1;
           });   
-      svg.selectAll(".nodeText3")  
-        .style("fill-opacity", function(d2){ return (nameList.indexOf("_"+d2.name+"_")>=0) ? 1 : 0.1; });  
+      svg.selectAll(".countryText")  
+        .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex]==d2[0].country) ? 1 : 0.25; });
+      svg.selectAll(".textCloud3")  
+        .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex]==d2[0].country) ? 1 : 0.1; });    
   }
 }
 
-function showPopup(d,brushingIndex,tipItem) { 
+function showPopup(d,brushingIndex) { 
   // Add time series of frequeny{}
   tip.html(function(d) {
     var str ="";
@@ -155,13 +156,8 @@ function hideTip(d) {
         .style("stroke-opacity", 0.5);  
   
   svg.selectAll(".textCloud3")  
-        //.transition().duration(100)       
         .style("fill-opacity", 1);    
-  svg.selectAll(".linkArc3") 
-        //.transition().duration(100)
-        .style("stroke-opacity", 0.6);     
-  svg.selectAll(".nodeText3")  
-        //.transition().duration(timeDelay)      
+  svg.selectAll(".countryText")  
         .style("fill-opacity", 1);       
   tip.hide();
 }  

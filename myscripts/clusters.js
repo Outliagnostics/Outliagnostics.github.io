@@ -7,9 +7,6 @@
  */
 
 var forceSize = 90; // Max size of force layouts at the bottom
-var colorRedBlue = d3.scale.linear()
-    .domain([0, 0.1, 0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
-    .range(["#9dbee6","#afcae6","#c8dce6","#e6e6e6","#e6e6d8","#e6d49c","#e6b061","#e6852f","#e6531a","#e61e1a"]);
 
 var allSVG = [];
 var pointOpacity = 0.9;
@@ -25,7 +22,7 @@ function updateSubLayout(m) {
         .attr("width", forceSize)
         .attr("height", forceSize)
         .attr("x", xStep - forceSize / 2 + m * XGAP_)
-        .attr("y", 28);
+        .attr("y", 26);
    /* svg2.append("rect")
     .attr("width", "100%")
     .attr("height", "100%")
@@ -102,7 +99,7 @@ function updateSubLayout(m) {
         .style("fill", "#000")
         .style("fill-opacity", pointOpacity)
         .on("mouseover", function(d,i){
-            brushingDataPoints(d,i,this);
+            brushingDataPoints(d,i);
         })
         .on("mouseout", function(d){
             hideTip(d);

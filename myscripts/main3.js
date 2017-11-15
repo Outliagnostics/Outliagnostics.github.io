@@ -373,34 +373,27 @@ function drawTextClouds(yTextClouds) {
    
     svg.selectAll(".textCloud3").remove();
     var yStep = 12;
-    var updateText = svg.selectAll(".textCloud3")
-        .data(tNodes);
-    var enterText = updateText.enter();
-
- //   console.log("maxAbs="+maxAbs+ " numLens="+numLens+" lMonth="+lMonth);
-               
-    enterText.append("text")
+    svg.selectAll(".textCloud3")
+        .data(tNodes).enter()
+        .append("text")
         .attr("class", "textCloud3")
         .style("text-anchor", "middle")
         .attr("font-family", "sans-serif")
         .attr("font-size", function(d,i) {
-            var s;
             var y = Math.floor(i/numTermsWordCloud);
             if (lMonth-numLens<=y && y<=lMonth+numLens){
                 var sizeScale = d3.scale.linear()
                     .range([10, 17])
                     .domain([0, maxAbs]);
-                s = sizeScale(Math.abs(d[y+1].OutlyingDif));
+                d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
             else{
                 var sizeScale = d3.scale.linear()
-                    .range([2, 11])
+                    .range([6, 9])
                 .domain([0, maxAbs]);
-                s = sizeScale(Math.abs(d[y+1].OutlyingDif));
+                d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
-            if (isNaN(s)) // exception
-                s=5;
-            return s+"px";
+            return d.fontSize;
         })
         .style("fill", function(d,i) {
             var y = Math.floor(i/numTermsWordCloud);
@@ -413,12 +406,7 @@ function drawTextClouds(yTextClouds) {
             return yTextClouds + (i%numTermsWordCloud) * yStep;     // Copy node y coordinate
         })
         .text(function(d) {
-            if (lMonth-numLens<=d.m && d.m<=lMonth+numLens){
-                return d[0].country.substring(0,18);//+" ("+d.count+")";
-            }
-            else{
-                return d[0].country.substring(0,10);
-            }
+            return d[0].country.substring(0,9);
         });
 
 }
