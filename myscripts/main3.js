@@ -220,7 +220,27 @@ function drawBoxplot(yStartBoxplot) {
                 .range([1, boxplotHeight])
                 .domain([0, maxAbs]);
 
+    // Area on the top
+    svg.selectAll(".layerTopAbove").remove();
+    svg.append("path")
+        .attr("class", "layerTopAbove")
+        .style("stroke", "#000")
+        .style("stroke-width", 0)
+        .style("stroke-opacity", 0.5)
+        .style("fill-opacity", 0.2)
+        .style("fill", colorAbove)
+        .attr("d", areaTopAbove(boxplotNodes));
+    svg.selectAll(".layerTopBelow").remove();
+    svg.append("path")
+        .attr("class", "layerTopBelow")
+        .style("stroke", "#000")
+        .style("stroke-width", 0)
+        .style("stroke-opacity", 0.5)
+        .style("fill-opacity", 0.2)
+        .style("fill", colorBelow)
+        .attr("d", areaTopBelow(boxplotNodes));    
     
+
     svg.selectAll(".boxplotLine").remove();
     svg.selectAll(".boxplotLine")
         .data(boxplotNodes).enter()
@@ -285,7 +305,7 @@ function drawBoxplot(yStartBoxplot) {
         });    
     
 
-    
+
     svg.selectAll(".boxplotRectAbove").remove();
     svg.selectAll(".boxplotRectAbove")
         .data(boxplotNodes).enter()

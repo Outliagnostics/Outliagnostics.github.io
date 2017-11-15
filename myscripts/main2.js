@@ -34,6 +34,7 @@ var maxDifAboveForAll = 0;
 var maxDifBelowForAll = 0;  
 var maxAbs; 
 var yStart;
+var yStartBoxplot;
 var transitionTime =1000;
 var countryList =[];
     
@@ -121,7 +122,31 @@ var areaBelow = d3.svg.area()
             else
                 return d.y-yScaleS(scagLeaveOriginal);     
         }    
-    });    
+    }); 
+
+var areaTopAbove = d3.svg.area()
+    .interpolate("cardinal")
+    .x(function (d,i) {
+        return xStep + xScale(i);
+    })
+    .y0(function (d,i) {
+        return yStartBoxplot;
+    })
+    .y1(function (d,i) {
+        return yStartBoxplot-hBoxplotScale(d.maxAbove);        
+    });        
+var areaTopBelow = d3.svg.area()
+    .interpolate("cardinal")
+    .x(function (d,i) {
+        return xStep + xScale(i);
+    })
+    .y0(function (d,i) {
+        return yStartBoxplot;
+    })
+    .y1(function (d,i) {
+        return yStartBoxplot-hBoxplotScale(d.maxBelow);        
+    });        
+
 
 function drawgraph2() {
     var startMonth = lMonth > numLens ? lMonth - numLens : 0;
@@ -324,7 +349,7 @@ function drawgraph2() {
         });  
     */
     //** TEXT CLOUD **********************************************************    
-    var yStartBoxplot = height + 90; // y starts drawing the stream graphs
+    yStartBoxplot = height + 90; // y starts drawing the stream graphs
     drawBoxplot(yStartBoxplot);   // in main3.js
 
     var yTextClouds = height + 150; // y starts drawing the stream graphs
@@ -390,6 +415,12 @@ function updategraph2() {
         svg.selectAll(".layerAbove").transition().duration(transitionTime)
             .attr("d", areaAbove);  
         
+        svg.selectAll(".layerTopAbove").transition().duration(transitionTime)
+            .attr("d", areaTopAbove(boxplotNodes));
+        svg.selectAll(".layerTopBelow").transition().duration(transitionTime)
+            .attr("d", areaTopBelow(boxplotNodes));    
+    
+
         svg.selectAll(".maxAboveText").transition().duration(transitionTime)
         .attr("x", function (d,i) {
             if (d.maxYearAbove==undefined)
