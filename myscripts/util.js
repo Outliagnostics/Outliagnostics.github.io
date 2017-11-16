@@ -21,12 +21,7 @@ function drawColorLegend() {
     var yy = 58;
     var rr = 6;
     // number of input terms
-    if (fileName.indexOf("Cards_Fries")>=0){
-        text1 = "proteins";
-        text2 = "index cards";
-        textFile = "Fries Cards";
-    }
-    else if (fileName.indexOf("VIS")>=0){
+    if (fileName.indexOf("VIS")>=0){
         text1 = "authors";
         text2 = "papers";
         textFile = "VIS publications";
@@ -245,17 +240,8 @@ function removeColorLegend() {
 var listX;
 function drawTimeGrid() {
     listX = [];
-    if (fileName.indexOf("VIS")>=0|| fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0){
-        for (var i = minYear; i <= maxYear; i++) {
-            var xx = xStep + xScale(i - minYear);
-            var obj = {};
-            obj.x = xx;
-            obj.year = i;
-            listX.push(obj);   
-        }
-    }
-    else{    
-        for (var i = minYear; i <= maxYear; i++) {
+    if (fileName.indexOf("Political")>=0){
+         for (var i = minYear; i <= maxYear; i++) {
             for (var j = 0; j < 12; j++) {
                 var xx = xStep + xScale((i - minYear) * 12 + j);
                 var obj = {};
@@ -264,6 +250,15 @@ function drawTimeGrid() {
                 listX.push(obj);
             }
         }
+    }
+    else{ 
+        for (var i = minYear; i <= maxYear; i++) {
+            var xx = xStep + xScale(i - minYear);
+            var obj = {};
+            obj.x = xx;
+            obj.year = i;
+            listX.push(obj);   
+        }         
     }
     svg.selectAll(".timeLegendLine").data(listX)
         .enter().append("line")
@@ -297,30 +292,21 @@ function drawTimeText() {
         .attr("font-family", "sans-serif")
         .attr("font-size", "15px")
         .text(function (d, i) {
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
-                return d.year;
-            }    
-            else{
-                if (i % 12 == 0)
+            if (fileName.indexOf("Political")>=0){
+                 if (i % 12 == 0)
                     return d.year;
                 else
                     return months[i % 12];
+            }    
+            else{
+               return d.year;
             }    
         });
 }
 
 function updateTimeLegend() {
     var listX = [];
-    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
-        for (var i = minYear; i <= maxYear; i++) {
-            var xx = xStep + xScale(i - minYear);
-            var obj = {};
-            obj.x = xx;
-            obj.year = i;
-            listX.push(obj);   
-        }
-    }
-    else{    
+    if (fileName.indexOf("Political")>=0){
         for (var i = minYear; i <= maxYear; i++) {
             for (var j = 0; j < 12; j++) {
                 var xx = xStep + xScale((i - minYear) * 12 + j);
@@ -331,25 +317,31 @@ function updateTimeLegend() {
             }
         }
     }
+    else{    
+        for (var i = minYear; i <= maxYear; i++) {
+            var xx = xStep + xScale(i - minYear);
+            var obj = {};
+            obj.x = xx;
+            obj.year = i;
+            listX.push(obj);   
+        }
+    }
 
     svg.selectAll(".timeLegendLine").data(listX).transition().duration(transitionTime)
         .style("stroke-dasharray", function (d, i) {
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
-                return i % 5 == 0 ? "3, 1" : "1, 3"
-            }
-            else{ 
-                if (!isLensing)
+            if (fileName.indexOf("Political")>=0 ){
+                 if (!isLensing)
                     return "1, 2";
                 else
                     return i % 12 == 0 ? "3, 1" : "1, 3"
+            }
+            else{ 
+                return i % 5 == 0 ? "3, 1" : "1, 3"
             }    
         })
         .style("stroke-opacity", function (d, i) {
-            if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
-                return 1;
-            }
-            else{    
-                if (i % 12 == 0)
+            if (fileName.indexOf("Political")>=0){
+                 if (i % 12 == 0)
                     return 1;
                 else {
                     if (isLensing && lMonth - numLens <= i && i <= lMonth + numLens)
@@ -357,6 +349,9 @@ function updateTimeLegend() {
                     else
                         return 0;
                 }
+            }
+            else{    
+                return 1;
             }
         })
         .attr("x1", function (d) {
@@ -399,8 +394,8 @@ function updateTimeLegend() {
 }
 // Used in util.js and main.js *****************
 function getOpacity(d,i) {
-    if (fileName.indexOf("VIS")>=0 || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
-        if (i % 5 == 0)
+    if (fileName.indexOf("Political")>=0){
+        if (i % 12 == 0)
             return 1;
         else {
             if (isLensing && lMonth - numLens <= i && i <= lMonth + numLens)
@@ -410,7 +405,7 @@ function getOpacity(d,i) {
         }
     }    
     else{
-        if (i % 12 == 0)
+        if (i % 5 == 0)
             return 1;
         else {
             if (isLensing && lMonth - numLens <= i && i <= lMonth + numLens)
@@ -451,13 +446,12 @@ function drawTimeBox() {
 function updateTimeBox() {
     svg.selectAll(".timeLegendText")
         .attr("y", function (d, i) {
-            if (fileName.indexOf("VIS")>=0  || fileName.indexOf("IMDB")>=0 || fileName.indexOf("LifeExpectancy")>=0 || fileName.indexOf("Cards")>=0){
-                return yTimeBox + 20;
+            if (fileName.indexOf("Political")>=0){
+                return (i % 12 == 0) ? yTimeBox + 12 : yTimeBox + 22;   
             }
             else{
-                return (i % 12 == 0) ? yTimeBox + 12 : yTimeBox + 22;
+                return yTimeBox + 18;
             }    
-            
         })
         .attr("x", function (d, i) {
             return d.x;

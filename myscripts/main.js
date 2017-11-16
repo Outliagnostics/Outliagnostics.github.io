@@ -76,7 +76,7 @@ var categories = ["Above Outlying of original plot","Below Outlying of original 
 var getColor3;  // Colors of categories
  
 //*****************************************************************
-var fileList = ["LifeExpectancy"]
+var fileList = ["LE","PrevalenceOfHIV","LifeExpectancy"]
 var fileName = fileList[0];
 
 // START: loader spinner settings ****************************

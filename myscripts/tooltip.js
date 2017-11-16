@@ -103,12 +103,12 @@ function showPopup(d,brushingIndex) {
           if (s==selectedScag)
             str+=  "<tr><td><b>"+dataS.Scagnostics[s]
                +"</b></td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'><b>" 
-               +d["Scagnostics"+pair][s]+ "</b></span> </td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'><b>" 
+               +d["Scagnostics"+pair][s]+ "</b></span> </td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["ScagnosticsLeave1out"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'><b>" 
                +d["ScagnosticsLeave1out"+pair][s]+ "</b></span> </td></tr>";
           else  
             str+=  "<tr><td>"+dataS.Scagnostics[s]
                 +"</td> <td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'>" 
-                +d["Scagnostics"+pair][s]+ "</span> </td><td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["Scagnostics"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'>" 
+                +d["Scagnostics"+pair][s]+ "</span> </td><td align='center' style=\"background-color:"+hexToRgbA(colorRedBlue(d["ScagnosticsLeave1out"+pair][s]))+"\">  <span style='color:black; text-shadow: 0px 1px 1px #fff;'>" 
                 +d["ScagnosticsLeave1out"+pair][s]+ "</span> </td></tr>";
         }         
       }
