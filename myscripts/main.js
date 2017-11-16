@@ -144,28 +144,8 @@ function loadData(){
                 source: optArray
             });
         });
-        //    chartStreamGraphs();  // Streamgraphs********************************************************************
         
-        setTimeout(function(){
-            svg.selectAll(".textTopEntities")
-                 .text("Click on "+text1);
-            var startTime = new Date().getTime();
-            var interval = setInterval(function(){ 
-                var d = new Date();
-                var n = d.getMilliseconds();
-                svg.selectAll(".textTopEntities")
-                    .style("fill-opacity", (n%1000)/1000);
-                if(new Date().getTime() - startTime > 5000){
-                    clearInterval(interval);
-                    svg.selectAll(".textTopEntities")
-                        .attr("class", "textTopEntities2") // change class to stop flashing;  
-                        .style("fill-opacity", 1)
-                        .text(function () { return "Top " +top100termsArray.length +" "+text1;});    
-                    return;
-                }    
-            }, 50);    
-        }, 10000);  
-
+        //    chartStreamGraphs();  // Streamgraphs********************************************************************
         setTimeout(function(){
             svg.append("text")
                 .attr("class", "textLensingArea")
