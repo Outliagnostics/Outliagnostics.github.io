@@ -58,22 +58,15 @@ function updateElements(brushingIndex) {
         .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex] == d2[0].country) ? 1 : 0.1; })
         .style("stroke-opacity", function(d2){ return (dataS.Countries[brushingIndex] == d2[0].country) ? 1 : 0; });  
        
-       var nameList = "";
-       svg.selectAll(".linkArc3") 
-          .style("stroke-opacity", function(d2){
-            // Create list of name
-            if (d.name == d2.source.name || d.name == d2.target.name) {
-              if (nameList.indexOf(d2.source.name)<0)
-                nameList+= "__"+d2.source.name;
-              if (nameList.indexOf(d2.target.name)<0)
-                nameList+= "_"+d2.target.name+"_";
-            }
-            return (d.name == d2.source.name || d.name == d2.target.name) ? 1 : 0.1;
-          });   
       svg.selectAll(".countryText")  
         .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex]==d2[0].country) ? 1 : 0.25; });
       svg.selectAll(".textCloud3")  
         .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex]==d2[0].country) ? 1 : 0.1; });    
+      
+      svg.selectAll(".maxAboveText")
+         .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex]==d2[0].country) ? 1 : 0.1; });  
+      svg.selectAll(".maxBelowText")
+         .style("fill-opacity", function(d2){ return (dataS.Countries[brushingIndex]==d2[0].country) ? 1 : 0.1; });
   }
 }
 
@@ -159,6 +152,12 @@ function hideTip(d) {
         .style("fill-opacity", 1);    
   svg.selectAll(".countryText")  
         .style("fill-opacity", 1);       
+  
+  svg.selectAll(".maxAboveText")  
+        .style("fill-opacity", 1);    
+  svg.selectAll(".maxBelowText")  
+        .style("fill-opacity", 1);       
+  
   tip.hide();
 }  
 

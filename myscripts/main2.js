@@ -279,7 +279,7 @@ function drawgraph2() {
             hideTip(d);
         });   
 
-    /*    
+     
     // Text of max different appearing on top of the stream graph    
     svg.selectAll(".maxAboveText").remove();
     svg.selectAll(".maxAboveText")
@@ -290,12 +290,11 @@ function drawgraph2() {
              if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
                 return "#f00";
             else
-                return colorPurpleGreen(d[d.maxYearAbove].OutlyingDif);
+                return colorPurpleGreen(d[d.maxYearAbove+1].OutlyingDif);
         })
         .style("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(255, 255, 255, 0.99")
         .attr("x", function (d,i) {
-            //console.log(d.maxYearAbove);
             if (d.maxYearAbove==undefined)
                 return 0;
             else
@@ -305,14 +304,16 @@ function drawgraph2() {
             if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
                 return d[0].y;
             else{
-                //console.log(d.maxYearAbove+" above "+d[d.maxYearAbove]+" "+d[d.maxYearAbove].Outlying);
-                return d[0].y-yScaleS(d[d.maxYearAbove].Outlying);     // Copy node y coordinate    
+                return d[0].y-yScaleS(d[d.maxYearAbove+1].Outlying);     // Copy node y coordinate    
             }
         })
         .attr("font-family", "sans-serif")
         .attr("font-size", "11px")
         .text(function (d) {
-            return d[0].country;
+            if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
+                return "";
+            else
+                return d[d.maxYearAbove+1].OutlyingDif.toFixed(2);
         });       
     // Text of max Below appearing on top of the stream graph    
     svg.selectAll(".maxBelowText").remove();
@@ -324,7 +325,7 @@ function drawgraph2() {
             if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
                 return "#f00";
             else
-                return colorPurpleGreen(d[d.maxYearBelow].OutlyingDif);
+                return colorPurpleGreen(d[d.maxYearBelow+1].OutlyingDif);
         
         })
         .style("text-anchor", "middle")
@@ -340,14 +341,17 @@ function drawgraph2() {
             if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
                 return d[0].y;
             else
-                return d[0].y-yScaleS(d[d.maxYearBelow].Outlying); 
+                return d[0].y-yScaleS(d[d.maxYearBelow+1].Outlying); 
         })
         .attr("font-family", "sans-serif")
         .attr("font-size", "11px")
         .text(function (d) {
-            return d[0].country;
+            if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
+                return "";
+            else
+                return d[d.maxYearBelow+1].OutlyingDif.toFixed(2);
         });  
-    */
+    
     //** TEXT CLOUD **********************************************************    
     yStartBoxplot = height + 90; // y starts drawing the stream graphs
     drawBoxplot(yStartBoxplot);   // in main3.js
@@ -435,6 +439,13 @@ function updategraph2() {
                 return 0;
             else
                 return xStep + xScale(d.maxYearAbove);    // x position is at the arcs
+        })
+        .attr("y", function (d, i) {
+            if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
+                return d[0].y;
+            else{
+                return d[0].y-yScaleS(d[d.maxYearAbove+1].Outlying);     // Copy node y coordinate    
+            }
         });
         svg.selectAll(".maxBelowText").transition().duration(transitionTime)
             .attr("x", function (d) {
@@ -442,7 +453,13 @@ function updategraph2() {
                     return 0;
                 else
                     return xStep + xScale(d.maxYearBelow);    // x position is at the arcs
-            }); 
+            })
+            .attr("y", function (d, i) {
+            if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
+                return d[0].y;
+            else
+                return d[0].y-yScaleS(d[d.maxYearBelow+1].Outlying); 
+        }); 
 
         svg.selectAll(".boxplotLine").transition().duration(transitionTime)
             .attr("x1", function (d, i) {
