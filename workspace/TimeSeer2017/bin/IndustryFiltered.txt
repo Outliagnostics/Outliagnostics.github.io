@@ -1,0 +1,14 @@
+00000000	Total Nonfarm 
+30000000	Manufacturing 
+40000000	Trade and Transportation 
+42000000	Retail Trade 
+55000000	Financial Activities 
+60000000	Professional and Business  
+65000000	Education and Health  
+70000000	Leisure and Hospitality 
+70720000	Accommodation and Food 
+80000000	Other Services 
+90000000	Government 
+90920000	State Government 
+90930000	Local Government 
+9093a000	State Employment 
