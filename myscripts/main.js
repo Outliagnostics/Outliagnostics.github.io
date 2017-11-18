@@ -77,7 +77,7 @@ var getColor3;  // Colors of categories
  
 //*****************************************************************
 var fileList = ["UnemploymentRate","LifeExpectancy263","PrevalenceOfHIV"]
-var fileName = fileList[0];
+var fileName = fileList[2];
 
 // START: loader spinner settings ****************************
 var opts = {

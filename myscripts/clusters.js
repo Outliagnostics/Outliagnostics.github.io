@@ -64,6 +64,7 @@ function updateSubLayout(m) {
       obj["v"+v] = dataS.CountriesData[obj.country][m]["v"+v];
       if (v%2==1){
         var pair = Math.floor(v/2);
+        console.log(m+ " dataS.YearsData="+dataS.YearsData[m]["Scagnostics"+pair])
         obj["Scagnostics"+pair] = dataS.YearsData[m]["Scagnostics"+pair]; // 0 is the index of Outlysing
         obj["ScagnosticsLeave1out"+pair] = []; // 0 is the index of Outlysing
         for (var s=0; s<dataS.Scagnostics.length;s++){ 
