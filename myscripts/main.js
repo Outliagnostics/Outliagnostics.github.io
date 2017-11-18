@@ -100,7 +100,8 @@ drawControlPanel();
 
 var dataS;
 function loadData(){
-    d3.json("data/"+fileName+".json", function(data_) {
+    d3.json("/workspace/Scagnostics2017/src/data/out.json", function(data_) {
+      //d3.json("data/"+fileName+".json", function(data_) {
         dataS=data_;
     
         searchTerm = "";
