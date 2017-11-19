@@ -12,12 +12,41 @@ import processing.core.PApplet;
 import processing.core.PFont;
 
 public class ScagnosticsWBD2017 extends PApplet {
-	public static String filename = "data/UnemploymentRate.txt";
-	public static int nC = 241; // Unemployment rate
-	//public static String filename = "data/PrevalenceOfHIV.txt";
-	//public static int nC = 217; // Unemployment rate
+	// UnemploymentRate: 5. in 1976: Lesotho, Swazila, Comoros Dominican Republ Egypt Arab R are good inliers
+		//nC = 241; 
 	
-	////public static int nC = 217;
+	// LifeExpectancy:  9. GOOD example: Cambodia,Swaziland, Iran, Iraq.  deaths related to wars 
+	// FirstMarriage: 3. missing many data points
+	// PrevalenceOfHIV: 5.5 . It has many outliers and inliers in one plot
+	// PrevalenceObesity: 7. USA is an outlier from 2000 to 2014
+		
+	// PrevalenceOfOverweight: ok 6
+	// PrimaryCompletion: good 8 -> Maldives in year 2000 as outlier and Nicaragua 1986 as inlier
+	// ProgressionSecondary: 3. Not many points
+	// RatioUnemployments: 7. Ethiopia in 2005 and Quatar 2011 are good example of outliers
+		// out.json may have problem of quotation	
+	// SchoolEnrollment: 5
+	// PrevalenceSmoking: 6. good example of outliers of different types
+	
+	// Account: 6 (only 2 years data) Good example of 2D outlier. Shoudl be in the paper
+	// FertilityDeath: Good example of 2D outlier. SHoudl be in the paper: Figure 1, year 1960
+		//https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&ctype=b&strail=false&nselm=s&met_x=sp_dyn_le00_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&iconSize=0.5&uniSize=0.035#!ctype=b&strail=false&bcs=d&nselm=s&met_x=sp_dyn_cdrt_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&pit=1447866000000&hl=en_US&dl=en_US&ind=false
+	
+	public static String filename = "data/LifeExpectancy.txt";
+	public static int nC = 217; // Unemployment rate
+	public static int selectYear = 1960;
+	public static String remove1 = "Gabon";
+	public static String remove2 = "Niger";	
+	public static String remove3 = "Mali";
+	public static String remove4 = "Argentina";
+	public static String remove5 = "United Arab Emirates";
+		
+	
+	
+	
+		
+	public static int startYear = 1960;
+	
 	public static int nY = 56; // No data for 2016 and 2017
 	public static int nV = 2;
 	public static String[] countries = new String[nC];
@@ -75,8 +104,6 @@ public class ScagnosticsWBD2017 extends PApplet {
 	float y = 30;
 	float size = 185;
 	
-	public static int selectYear = 1986;
-	public static int startYear = 1960;
 	public static double[] data11;
 	public static double[] data12;
 	public static double[] data21;
@@ -90,22 +117,6 @@ public class ScagnosticsWBD2017 extends PApplet {
 	public static double[] data61;
 	public static double[] data62;
 
-	// Unemployment	
-	public static String remove1 = "Greece";
-	public static String remove2 = "Pakistan";
-	public static String remove3 = "El Salvador";
-	public static String remove4 = "\"Congo, Dem. Rep.\"";
-	public static String remove5 = "Vietnam";
-	
-	// PrevalenceOfHIV	
-	//public static String remove1 = "Uganda";
-	//public static String remove2 = "Zimbabwe";
-	//public static String remove3 = "Zambia";
-	//public static String remove4 = "Liberia";
-	//public static String remove5 = "\"Congo, Dem. Rep.\"";
-	
-	
-	
 	public static void main(String args[]){
 	  PApplet.main(new String[] { ScagnosticsWBD2017.class.getName() });
     }
@@ -270,6 +281,8 @@ public class ScagnosticsWBD2017 extends PApplet {
 	}
 	
 	public static double outlierCutoff =-1;
+	// Make sure leave 1 out plots are computed based on the original MST length
+	public static double totalMSTLength =-1;
 	
 	private static void computeScagnosticsOnFileData() {
 		for (int v = 0; v < nV; v=v+2) {
@@ -279,6 +292,7 @@ public class ScagnosticsWBD2017 extends PApplet {
 				
 				// outlierCutoff make sure that the original plot and leave 1 out plot has the same cut off value
 				outlierCutoff =-1;
+				totalMSTLength = -1;
 				Binner b1 = new Binner();
 				BinnedData bdata1 = b1.binHex(dataS[v][y], dataS[v+1][y],
 						BinnedData.BINS);
@@ -303,8 +317,6 @@ public class ScagnosticsWBD2017 extends PApplet {
 		        	DT1 = dt1;
 		        	scagnostics1 = scagnostics[variable][y];
 		        	isOutliers = dt1.isOutlier;
-		        	System.out.println();		
-		        	System.out.println();		
 		        }
 				System.out.println();	
 				
@@ -383,6 +395,7 @@ public class ScagnosticsWBD2017 extends PApplet {
 	
 	private static void writeOut() {
         try {
+        	System.out.println("************* writeOut *************");
             BufferedWriter out = new BufferedWriter(new FileWriter("data/out.json"));
             out.write("{");
             
@@ -627,7 +640,14 @@ public class ScagnosticsWBD2017 extends PApplet {
 		fill(0,0,0);
 		this.textAlign(PApplet.CENTER);
 		DecimalFormat df = new DecimalFormat("#.##");
-		this.text("Outlying="+df.format(scagnostics[0]),(float) (xoff+size/(2*ratio)),yoff+size);
+		this.text("Outlying="+df.format(scagnostics[0]),(float) (xoff+size/(2*ratio)),yoff+size*4+100);
+		
+		DecimalFormat df2 = new DecimalFormat("#.");
+		this.text("OutLength="+df2.format(DT.totalMSTOutlierLengths),(float) (xoff+size/(2*ratio)),yoff+size*4+115);
+		this.text("MSTLength="+df2.format(DT.totalOriginalMSTLengths),(float) (xoff+size/(2*ratio)),yoff+size*4+130);
+		
+		this.text("totalCount="+DT.totalCount,(float) (xoff+size/(2*ratio)),yoff+size*4+148);
+		this.text("totalPeeledCount="+DT.totalPeeledCount,(float) (xoff+size/(2*ratio)),yoff+size*4+163);
 		
 		
 		// Alpha Shape **********************************************		

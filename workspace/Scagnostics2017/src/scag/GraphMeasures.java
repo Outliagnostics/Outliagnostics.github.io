@@ -324,7 +324,7 @@ class Triangulation {
         this.bdata = bdata;
         this.px = bdata.getXData();
         this.py = bdata.getYData();
-        if (px.length < 2)
+        if (px.length < 4)
             return null;
         
         findOutliers(bdata);
@@ -356,7 +356,15 @@ class Triangulation {
         	cutoff = ScagnosticsWBD2017.outlierCutoff; 
         else
         	ScagnosticsWBD2017.outlierCutoff = cutoff;
+        
         computeTotalOriginalMSTLengths();
+        
+        // TOMMY: Make sure leave 1 out plots are computed based on the original MST length
+    	if (ScagnosticsWBD2017.totalMSTLength>=0)
+        	totalOriginalMSTLengths = ScagnosticsWBD2017.totalMSTLength; 
+        else
+        	ScagnosticsWBD2017.totalMSTLength = totalOriginalMSTLengths;
+        
         boolean foundNewOutliers = computeMSTOutliers(cutoff);
         //double[] sortedPeeledMSTLengths;
         while (foundNewOutliers) {
@@ -403,10 +411,10 @@ class Triangulation {
 
     private void computeDT(int[] px, int[] py) {
         totalPeeledCount = 0;
-        Random r = new Random(13579);
+        //Random r = new Random(13579);
         for (int i = 0; i < px.length; i++) {
-            int x = px[i] + (int) (8 * (r.nextDouble() - .5)); // perturb to prevent singularities
-            int y = py[i] + (int) (8 * (r.nextDouble() - .5));
+            int x = px[i] ; // perturb to prevent singularities
+            int y = py[i] ;
             int count = counts[i];
             if (!isOutlier[i]) {
                 insert(x, y, count, i);
@@ -537,7 +545,8 @@ class Triangulation {
     private double computeOutlierMeasure() {
     	if (totalMSTOutlierLengths / totalOriginalMSTLengths>1)
     		System.out.println(totalMSTOutlierLengths+" "+totalOriginalMSTLengths);
-        return totalMSTOutlierLengths / totalOriginalMSTLengths;
+    	
+    	return Math.sqrt(totalMSTOutlierLengths / totalOriginalMSTLengths);
     }
 
     private double[] computeEdgeLengths(Iterator graph, int n) {
