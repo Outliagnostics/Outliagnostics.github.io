@@ -356,11 +356,11 @@ function updateTimeLegend() {
                 view = (forceSize * (1-snapshotScale)/2) + " " + (forceSize * (1-snapshotScale)/2) + " " + (forceSize * snapshotScale) + " " + (forceSize * snapshotScale);
             else if (lMonth - numLens == m+1 ){
                 var snapshotScale2 = snapshotScale*1.8;
-                view = (forceSize * (1-snapshotScale2*1.085)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
+                view = (forceSize * (1-snapshotScale2*1.03)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);  
             }
             else if (m-1 == lMonth + numLens){
                 var snapshotScale2 = snapshotScale*1.8;
-                view = (forceSize * (1-snapshotScale2/1.09)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
+                view = (forceSize * (1-snapshotScale2/1.04)/2) + " " + (forceSize * (1-snapshotScale2)/2) + " " + (forceSize * snapshotScale2) + " " + (forceSize * snapshotScale2);
                
             }
             
