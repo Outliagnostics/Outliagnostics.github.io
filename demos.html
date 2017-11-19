@@ -37,22 +37,33 @@
 </div>
 
 <div id="holder2"  class="holder2">
-  <label for="nodeDropdown"> <i>Select nodes by:</i> </label>
+  <label for="nodeDropdown"> <i>Order time series by:</i> </label>
   <select id="nodeDropdown" class="styled-select2"></select><br>
-  <label for="edgeWeightDropdown"> <i>Select edge weight:</i> </label>
+  <label for="edgeWeightDropdown"> <i>Order time interval:</i> </label>
   <select id="edgeWeightDropdown" class="styled-select2"></select>
+  <br><br>
+  <label><input type="checkbox" id="checkbox1" value="value" onchange="showScore()">Show outlying scores</label> 
+  <input id="search" class="search">
+  <input type="submit" value="Search" onclick="searchNode()"><br>
 </div>
 
+<!--
 <div id="holder3"  class="holder3">
     <br>
     <input id="search" class="search">
-    <button type="button" onclick="searchNode()">Search</button>
+    <button type="submit" onclick="searchNode()">Search</button>
+    <progress value="0" max="100" id="progBar" style="width:152px">
+        <span id="downloadProgress">
+    </span>
+</div> -->
+
+<div id="holder4"  class="holder4">
+    <input type="submit" value="Clear lensing" onclick="clearLensing()"><br>
 </div>
 
 <script src="javascripts/d3.v3.min.js"></script>
 <script src="javascripts/fisheye.js"></script>
 <script src="javascripts/select2.min.js"></script>
-<script src="myscripts/util.js"></script>
 <script src="javascripts/d3.tip.v0.6.3.js"></script>
 <script src='javascripts/spin.min.js'></script> 
 <!-- Spinner when loading -->
@@ -60,8 +71,9 @@
 
 <script src="myscripts/tooltip.js"></script>
 <script src="myscripts/main3.js"></script>
-<script src="myscripts/main.js"></script>
 <script src="myscripts/main2.js"></script>
+<script src="myscripts/util.js"></script>
+<script src="myscripts/main.js"></script>
 <script src="myscripts/jLouvain.js"></script>
 <script src="myscripts/clusters.js"></script>
 <script src="myscripts/iDVLab.js"></script>

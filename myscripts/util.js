@@ -17,9 +17,9 @@ var text2 = "blogs";
 var textFile = "";
        
 function drawColorLegend() {
-    var xx = 10;
+    var xx = 11;
     var yy = 58;
-    var rr = 6;
+    var rr = 5;
     // number of input terms
     if (fileName.indexOf("VIS")>=0){
         text1 = "authors";
@@ -30,29 +30,7 @@ function drawColorLegend() {
         text1 = "terms";
         text2 = "blogs";
         textFile = fileName;
-    }
-    
-    /*
-    svg.append("text")
-        .attr("class", "nodeLegend")
-        .attr("x", xx - 10)
-        .attr("y", yy-17)
-        .text(numberWithCommas(termArray.length) + " "+text1+" of " + numberWithCommas(data.length) + " "+text2)
-        .attr("dy", ".21em")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "13px")
-        .style("text-anchor", "left")
-        .style("fill", "#000000");
-
-     // Count terms for each category
-    var countList = {};      
-    for(var i = 0;i <termArray.length; i++){
-        if (countList[termArray[i].category]==undefined)
-            countList[termArray[i].category] = 1;
-        else
-            countList[termArray[i].category]++;
-    }  */ 
-            
+    }        
     
     // Scagnostics color legend ****************
     //Append a defs (for definition) element to your SVG
@@ -73,7 +51,7 @@ function drawColorLegend() {
             .attr("stop-color", colorArray[i]); //dark blue  
     }      
 
-    var yScagLegend = 60;
+    var yScagLegend = 56;
     var wScagLegend = 160;
     //Draw the rectangle and fill with gradient
     svg.append("rect")
@@ -112,7 +90,7 @@ function drawColorLegend() {
         .text("1");           
 
      // Draw color legend **************************************************
-    var yScagLegend2 = 110;
+    var yScagLegend2 = 132;
     svg.selectAll(".legendCircle").remove();
     svg.selectAll(".legendCircle")
         .data(categories).enter()
@@ -133,7 +111,7 @@ function drawColorLegend() {
         .data(categories).enter()
         .append("text")
         .attr("class", "legendText")
-        .attr("x", xx+6)
+        .attr("x", xx+5)
         .attr("y", function (d, i) {
             return yScagLegend2 + i * 16 + 2;
         })
@@ -427,9 +405,9 @@ function drawTimeBox() {
         .attr("width", width-xStep)
         .attr("height", 30)
         .on("mouseout", function () {
-            isLensing = false;
-            coordinate = d3.mouse(this);
-            lMonth = Math.floor((coordinate[0] - xStep) / XGAP_);
+            //isLensing = false;
+            //coordinate = d3.mouse(this);
+            //lMonth = Math.floor((coordinate[0] - xStep) / XGAP_);
         })
         .on("mousemove", function () {
             isLensing = true;
@@ -439,7 +417,6 @@ function drawTimeBox() {
             // Update layout
             updateTimeLegend();
             updateTimeBox();
-
         });
 }
 
@@ -455,13 +432,39 @@ function updateTimeBox() {
         })
         .attr("x", function (d, i) {
             return d.x;
-        });
+        })
+        ;
 
     // Recompute the timeArcs
     if (oldLmonth != lMonth) {
         updategraph2();
         oldLmonth = lMonth;
     }
+}
+
+function clearLensing(){
+    isLensing = false;
+    oldLmonth = -1000;
+    lMonth = -lensingMul * 2;
+         
+    
+    // Update layout
+    updateTimeLegend();
+    updateTimeBox();
+}
+function showScore(){
+    if (document.getElementById("checkbox1").checked) {
+        svg.selectAll(".maxAboveText").transition().duration(transitionTime)
+            .attr("font-size", "11px");
+        svg.selectAll(".maxBelowText").transition().duration(transitionTime)
+            .attr("font-size", "11px");    
+    }   
+    else{
+        svg.selectAll(".maxAboveText").transition().duration(transitionTime)
+            .attr("font-size", "0px");
+         svg.selectAll(".maxBelowText").transition().duration(transitionTime)
+            .attr("font-size", "0px");    
+    } 
 }
 
 var buttonLensingWidth =100;
@@ -473,10 +476,8 @@ var buttonColor = "#ddd";
 // Control panel on the left *********************
 function drawControlPanel(){
     //  node Dropdown *********************
-    var nodedata = [{"id": 1, "value": "Frequency"}, {"id": 2, "value": "Net frequency"}, {"id": 3, "value": "Degree"},{
-        "id": 4,"value": "Betweenness centrality"
-    }];
-    var selectOrder = d3.select('#nodeDropdown').on('change',setNodesBy);
+    var nodedata = [{"id": 1, "value": "Outliers"}, {"id": 2, "value": "Inliers"}, {"id": 3, "value": "Both (absolute)"}];
+    var selectOrder = d3.select('#nodeDropdown').on('change',updategraph2);
     var Orderoptions = selectOrder.selectAll('option').data(nodedata).enter().append('option').attr('value', function (d) {
         return d.id;
     }).text(function (d) {
@@ -484,11 +485,8 @@ function drawControlPanel(){
     })
 
     //  edge Weight Dropdown *********************
-    var edgeData =[{"id":1, "value":">=1"},{"id":2, "value":">=2"},{"id":3, "value":">=3"},{"id":4, "value":">=4"},{"id":5, "value":">=5"},{"id":"optimized", "value":"Best Q modularity"}];
-    var select = d3.select('#edgeWeightDropdown').on('change',function () {
-        selectValue = d3.select('#edgeWeightDropdown').property('value');
-        setCut(selectValue);
-    })
+    var edgeData =[{"id":1, "value":"Brushing year"},{"id":2, "value":"All lensing years"}];
+    var select = d3.select('#edgeWeightDropdown').on('change',updategraph2)
     var options = select.selectAll('option').data(edgeData).enter().append('option').attr('value', function (d) {
         return d.id;
     }).text(function (d) {

@@ -13,31 +13,25 @@ var pointOpacity = 0.9;
 var selectedVar = 0;
 var selectedScag = 0;
 function updateSubLayout(m) {
-    //console.log("update Scatterplot:"+m);
-    
-    svg.selectAll(".force" + m).remove();
+  svg.selectAll(".force" + m).remove();
 
-    var svg2 = svg.append("svg")
-        .attr("class", "force" + m)
-        .attr("width", forceSize)
-        .attr("height", forceSize)
-        .attr("x", xStep - forceSize / 2 + m * XGAP_)
-        .attr("y", 26);
-   /* svg2.append("rect")
-    .attr("width", "100%")
-    .attr("height", "100%")
-    .attr("fill", "pink")
-    .attr("fill-opacity", 0.5);*/
-    
-    allSVG.push(svg2);
+  var svg2 = svg.append("svg")
+      .attr("class", "force" + m)
+      .attr("width", forceSize)
+      .attr("height", forceSize)
+      .attr("x", xStep - forceSize / 2 + m * XGAP_)
+      .attr("y", 26);
+ /* svg2.append("rect")
+  .attr("width", "100%")
+  .attr("height", "100%")
+  .attr("fill", "pink")
+  .attr("fill-opacity", 0.5);*/ 
+  allSVG.push(svg2);
 
-  
-  var size =15;
+  var size =20;
   var padding =0;
   var x2 = 0;
   var y2 = 0;
-  
-  
   var margin = forceSize/ 2-size/2; 
   svg2.append("rect")
       .attr("class", "frame")
@@ -52,7 +46,7 @@ function updateSubLayout(m) {
       })
       //.style("fill-opacity",0.9)
       .style("stroke","#000")
-      .style("stroke-width",0.03);
+      .style("stroke-width",0.05);
   
   var dataPoints =[];
   for (var c=0; c<dataS.Countries.length;c++){
@@ -64,7 +58,6 @@ function updateSubLayout(m) {
       obj["v"+v] = dataS.CountriesData[obj.country][m]["v"+v];
       if (v%2==1){
         var pair = Math.floor(v/2);
-        console.log(m+ " dataS.YearsData="+dataS.YearsData[m]["Scagnostics"+pair])
         obj["Scagnostics"+pair] = dataS.YearsData[m]["Scagnostics"+pair]; // 0 is the index of Outlysing
         obj["ScagnosticsLeave1out"+pair] = []; // 0 is the index of Outlysing
         for (var s=0; s<dataS.Scagnostics.length;s++){ 

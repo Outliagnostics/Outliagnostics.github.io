@@ -223,8 +223,8 @@ function addDatasetsOptions() {
         var el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
-        el["data-image"]="images2/datasetThumnails/"+fileList[i]+".png";
-        select.appendChild(el);
+        //el["data-image"]="images2/datasetThumnails/"+fileList[i]+".png";
+         select.appendChild(el);
     }        
     document.getElementById('datasetsSelect').value = fileName;  //************************************************
     fileName = document.getElementById("datasetsSelect").value;

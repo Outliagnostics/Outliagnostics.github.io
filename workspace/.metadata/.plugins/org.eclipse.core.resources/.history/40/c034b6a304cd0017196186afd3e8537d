@@ -13,7 +13,8 @@ import processing.core.PFont;
 
 public class ScagnosticsWBD2017 extends PApplet {
 	// UnemploymentRate: 5. in 1976: Lesotho, Swazila, Comoros Dominican Republ Egypt Arab R are good inliers
-		//nC = 241; 	
+		//nC = 241; 
+	
 	// LifeExpectancy:  9. GOOD example: Cambodia,Swaziland, Iran, Iraq.  deaths related to wars 
 	// FirstMarriage: 3. missing many data points
 	// PrevalenceOfHIV: 5.5 . It has many outliers and inliers in one plot
@@ -34,14 +35,17 @@ public class ScagnosticsWBD2017 extends PApplet {
 	public static String filename = "data/LifeExpectancy.txt";
 	public static int nC = 217; // Unemployment rate
 	public static int selectYear = 1960;
-	public static int startYear = 1960;
-	
 	public static String remove1 = "Gabon";
 	public static String remove2 = "Niger";	
 	public static String remove3 = "Mali";
 	public static String remove4 = "Argentina";
 	public static String remove5 = "United Arab Emirates";
+		
 	
+	
+	
+		
+	public static int startYear = 1960;
 	
 	public static int nY = 56; // No data for 2016 and 2017
 	public static int nV = 2;

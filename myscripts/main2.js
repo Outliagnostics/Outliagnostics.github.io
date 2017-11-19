@@ -17,7 +17,7 @@ var numCut = 5;
 var cutOffvalue=[];
 
 
-var snapshotScale = 0.20; // Snapshiot Size******************************************************
+var snapshotScale = 0.265; // Snapshiot Size******************************************************
 var maxNodesInSnapshot =30; // ******************************************************
 
 var nodeRadiusRange = [0.1, 0.8]; 
@@ -154,7 +154,7 @@ function drawgraph2() {
         startMonth=-100;   // Do not draw arc diagram if not lensed
     var endMonth = startMonth + numLens * 2 + 1;
     
-    yStart = height + 250; // y starts drawing the stream graphs
+    yStart = height + 275; // y starts drawing the stream graphs
 
     // Scagnostics stream graphs
     countryList =[];
@@ -278,7 +278,6 @@ function drawgraph2() {
         .on("mouseout", function(d){
             hideTip(d);
         });   
-
      
     // Text of max different appearing on top of the stream graph    
     svg.selectAll(".maxAboveText").remove();
@@ -293,7 +292,7 @@ function drawgraph2() {
                 return colorPurpleGreen(d[d.maxYearAbove+1].OutlyingDif);
         })
         .style("text-anchor", "middle")
-        .style("text-shadow", "1px 1px 0 rgba(255, 255, 255, 0.99")
+        .style("text-shadow", "0 0 5px #fff")
         .attr("x", function (d,i) {
             if (d.maxYearAbove==undefined)
                 return 0;
@@ -308,7 +307,7 @@ function drawgraph2() {
             }
         })
         .attr("font-family", "sans-serif")
-        .attr("font-size", "11px")
+        .attr("font-size", "1px")
         .text(function (d) {
             if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
                 return "";
@@ -329,7 +328,7 @@ function drawgraph2() {
         
         })
         .style("text-anchor", "middle")
-        .style("text-shadow", "1px 1px 0 rgba(255, 255, 255, 0.99")
+        .style("text-shadow", "0 0 2px #fff")
         .attr("x", function (d) {
             //console.log(d.maxYearAbove);
             if (d.maxYearBelow==undefined)
@@ -344,7 +343,7 @@ function drawgraph2() {
                 return d[0].y-yScaleS(d[d.maxYearBelow+1].Outlying); 
         })
         .attr("font-family", "sans-serif")
-        .attr("font-size", "11px")
+        .attr("font-size", "1px")
         .text(function (d) {
             if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
                 return "";
@@ -356,12 +355,73 @@ function drawgraph2() {
     yStartBoxplot = height + 90; // y starts drawing the stream graphs
     drawBoxplot(yStartBoxplot);   // in main3.js
 
-    var yTextClouds = height + 150; // y starts drawing the stream graphs
-    drawTextClouds(yTextClouds);    // in main3.js
-             
+    var yTextClouds = height + 160; // y starts drawing the stream graphs
+    drawTextClouds(yTextClouds);    // in main3.js            
 }
 
 function updategraph2() {
+    updateBoxplots();
+    updateTimeSeries();  
+    updateTextClouds();    
+}   
+
+function updateBoxplots() {
+    svg.selectAll(".boxplotLine").transition().duration(transitionTime)
+        .attr("x1", function (d, i) {
+            return xStep + xScale(i);    // x position is at the arcs
+        })
+        .attr("x2", function (d, i) {
+            return xStep + xScale(i);    // x position is at the arcs
+        });
+
+    svg.selectAll(".boxplotLineAbove").transition().duration(transitionTime)
+        .attr("x1", function (d, i) {
+            return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("x2", function (d, i) {
+            return xStep + (xScale(i) + (XGAP_ / 8));    // x position is at the arcs
+        }); 
+    svg.selectAll(".boxplotLineBelow").transition().duration(transitionTime)
+        .attr("x1", function (d, i) {
+            return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
+        })
+        .attr("x2", function (d, i) {
+            return xStep + (xScale(i) + (XGAP_ / 8));    // x position is at the arcs
+        });            
+    
+    svg.selectAll(".boxplotRectAbove").transition().duration(transitionTime)
+        .attr("x", function (d, i) {
+            var w = XGAP_ / 4;
+            if (lMonth - numLens <= i && i <= lMonth + numLens){
+                 var w = XGAP_ / 2;
+            }
+            return xStep + xScale(i) - 0.5*w;    // x position is at the arcs
+        })
+        .attr("width", function (d, i) {
+            var w = XGAP_ / 4;
+            if (lMonth - numLens <= i && i <= lMonth + numLens){
+                var w = XGAP_ / 2;
+            }            
+            return w;
+        });    
+    svg.selectAll(".boxplotRectBelow").transition().duration(transitionTime)
+        .attr("x", function (d, i) {
+            var w = XGAP_ / 4;
+            if (lMonth - numLens <= i && i <= lMonth + numLens){
+                 var w = XGAP_ / 2;
+            }
+            return xStep + xScale(i) - 0.5*w;    // x position is at the arcs
+        })
+        .attr("width", function (d, i) {
+            var w = XGAP_ / 4;
+            if (lMonth - numLens <= i && i <= lMonth + numLens){
+                var w = XGAP_ / 2;
+            }            
+            return w;
+        });
+}
+
+function updateTextClouds() {
     svg.selectAll(".textCloud3").transition().duration(transitionTime)
         .attr("x", function(d,i) {
             return xStep + xScale(Math.floor(i/numTermsWordCloud));    // x position is at the arcs
@@ -380,8 +440,6 @@ function updategraph2() {
                 .domain([0, maxAbs]);
                 d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
-            //if (isNaN(d.fontSize)) // exception
-            //    d.fontSize=5;
             return d.fontSize;
         })
         .text(function(d,i) {
@@ -393,126 +451,102 @@ function updategraph2() {
                 return d[0].country.substring(0,5);
             }
         });
-    if (0<=lMonth && lMonth<dataS.YearsData.length)  { 
-        var year =  lMonth+1;
+}
 
-        countryList.sort(function (a, b) {
-            var maxOutlyingDif_A = 0;
-            var maxOutlyingDif_B = 0;
-            for (var i=year-numLens; i<=year+numLens;i++){
-                if (0<i && i<=dataS.YearsData.length){ // within the lensing interval
+
+function updateTimeSeries() {
+    var brushingYear =  lMonth+1;
+    var orderby = d3.select('#nodeDropdown').property('value');
+    var interval = d3.select('#edgeWeightDropdown').property('value');              
+    countryList.sort(function (a, b) {
+        var maxOutlyingDif_A = 0;
+        var maxOutlyingDif_B = 0;
+        for (var i=brushingYear-numLens; i<=brushingYear+numLens;i++){
+            if (0<i && i<=dataS.YearsData.length){ // within the lensing interval
+                if (interval==1 && i!=brushingYear) {  //interval==1: Order by lensing year 
+                    continue; // if users select brushing year to order 
+                }   
+                if (orderby==1){ // Order by outlier
+                    if (a[i].OutlyingDif<0)
+                        maxOutlyingDif_A = Math.max(maxOutlyingDif_A, Math.abs(a[i].OutlyingDif));
+                    if (b[i].OutlyingDif<0)
+                        maxOutlyingDif_B = Math.max(maxOutlyingDif_B, Math.abs(b[i].OutlyingDif)); 
+                }
+                else if (orderby==2){ // Order by inliers
+                    if (a[i].OutlyingDif>0)
+                        maxOutlyingDif_A = Math.max(maxOutlyingDif_A, a[i].OutlyingDif);
+                    if (b[i].OutlyingDif>0)
+                        maxOutlyingDif_B = Math.max(maxOutlyingDif_B, b[i].OutlyingDif); 
+                }
+                else if (orderby==3){ // Order by 
                     maxOutlyingDif_A = Math.max(maxOutlyingDif_A, Math.abs(a[i].OutlyingDif));
                     maxOutlyingDif_B = Math.max(maxOutlyingDif_B, Math.abs(b[i].OutlyingDif)); 
-                }  
-            }
-            if (maxOutlyingDif_A < maxOutlyingDif_B)
+                }
+
+            }  
+        }
+        if (maxOutlyingDif_A < maxOutlyingDif_B)
+            return 1;
+        else if (maxOutlyingDif_A > maxOutlyingDif_B)
+            return -1;
+        else{
+            if (a.maxDifAbsolute < b.maxDifAbsolute)
                 return 1;
-            else 
-                return -1;
-        });
+            else if (a.maxDifAbsolute > b.maxDifAbsolute)
+                return -1;           
+            return -1;
+        }
+            
+    });
 
-        var yTemp2 =  yStart;
-        for (var c=0; c<countryList.length;c++){
-            for (var y=0; y<countryList[c].length;y++){
-                countryList[c][y].y = yTemp2;
-            }
-             yTemp2+=10;
-        } 
-        svg.selectAll(".countryText").transition().duration(transitionTime)
-            .attr("y", function (d, i) {
-                return d[0].y;     // Copy node y coordinate
-            })
-        svg.selectAll(".layerBelow").transition().duration(transitionTime)
-            .attr("d", areaBelow);
-        svg.selectAll(".layerAbove").transition().duration(transitionTime)
-            .attr("d", areaAbove);  
-        
-        svg.selectAll(".layerTopAbove").transition().duration(transitionTime)
-            .attr("d", areaTopAbove(boxplotNodes));
-        svg.selectAll(".layerTopBelow").transition().duration(transitionTime) 
-            .attr("d", areaTopBelow(boxplotNodes));    
+    var yTemp2 =  yStart;
+    for (var c=0; c<countryList.length;c++){
+        for (var y=0; y<countryList[c].length;y++){
+            countryList[c][y].y = yTemp2;
+        }
+         yTemp2+=10;
+    } 
+    svg.selectAll(".countryText").transition().duration(transitionTime)
+        .attr("y", function (d, i) {
+            return d[0].y;     // Copy node y coordinate
+        })
+    svg.selectAll(".layerBelow").transition().duration(transitionTime)
+        .attr("d", areaBelow);
+    svg.selectAll(".layerAbove").transition().duration(transitionTime)
+        .attr("d", areaAbove);  
     
+    svg.selectAll(".layerTopAbove").transition().duration(transitionTime)
+        .attr("d", areaTopAbove(boxplotNodes));
+    svg.selectAll(".layerTopBelow").transition().duration(transitionTime) 
+        .attr("d", areaTopBelow(boxplotNodes));    
 
-        svg.selectAll(".maxAboveText").transition().duration(transitionTime)
-        .attr("x", function (d,i) {
-            if (d.maxYearAbove==undefined)
+
+    svg.selectAll(".maxAboveText").transition().duration(transitionTime)
+    .attr("x", function (d,i) {
+        if (d.maxYearAbove==undefined)
+            return 0;
+        else
+            return xStep + xScale(d.maxYearAbove);    // x position is at the arcs
+    })
+    .attr("y", function (d, i) {
+        if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
+            return d[0].y;
+        else{
+            return d[0].y-yScaleS(d[d.maxYearAbove+1].Outlying);     // Copy node y coordinate    
+        }
+    });
+    svg.selectAll(".maxBelowText").transition().duration(transitionTime)
+        .attr("x", function (d) {
+            if (d.maxYearBelow==undefined)
                 return 0;
             else
-                return xStep + xScale(d.maxYearAbove);    // x position is at the arcs
+                return xStep + xScale(d.maxYearBelow);    // x position is at the arcs
         })
         .attr("y", function (d, i) {
-            if (d.maxYearAbove==undefined || d.maxYearAbove==0 || d[d.maxYearAbove]==undefined)
-                return d[0].y;
-            else{
-                return d[0].y-yScaleS(d[d.maxYearAbove+1].Outlying);     // Copy node y coordinate    
-            }
-        });
-        svg.selectAll(".maxBelowText").transition().duration(transitionTime)
-            .attr("x", function (d) {
-                if (d.maxYearBelow==undefined)
-                    return 0;
-                else
-                    return xStep + xScale(d.maxYearBelow);    // x position is at the arcs
-            })
-            .attr("y", function (d, i) {
-            if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
-                return d[0].y;
-            else
-                return d[0].y-yScaleS(d[d.maxYearBelow+1].Outlying); 
-        }); 
-
-        svg.selectAll(".boxplotLine").transition().duration(transitionTime)
-            .attr("x1", function (d, i) {
-                return xStep + xScale(i);    // x position is at the arcs
-            })
-            .attr("x2", function (d, i) {
-                return xStep + xScale(i);    // x position is at the arcs
-            });
-
-        svg.selectAll(".boxplotLineAbove").transition().duration(transitionTime)
-            .attr("x1", function (d, i) {
-                return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
-            })
-            .attr("x2", function (d, i) {
-                return xStep + (xScale(i) + (XGAP_ / 8));    // x position is at the arcs
-            }); 
-        svg.selectAll(".boxplotLineBelow").transition().duration(transitionTime)
-            .attr("x1", function (d, i) {
-                return xStep + (xScale(i) - (XGAP_ / 8));    // x position is at the arcs
-            })
-            .attr("x2", function (d, i) {
-                return xStep + (xScale(i) + (XGAP_ / 8));    // x position is at the arcs
-            });            
-        
-        svg.selectAll(".boxplotRectAbove").transition().duration(transitionTime)
-            .attr("x", function (d, i) {
-                var w = XGAP_ / 4;
-                if (lMonth - numLens <= i && i <= lMonth + numLens){
-                     var w = XGAP_ / 2;
-                }
-                return xStep + xScale(i) - 0.5*w;    // x position is at the arcs
-            })
-            .attr("width", function (d, i) {
-                var w = XGAP_ / 4;
-                if (lMonth - numLens <= i && i <= lMonth + numLens){
-                    var w = XGAP_ / 2;
-                }            
-                return w;
-            });    
-        svg.selectAll(".boxplotRectBelow").transition().duration(transitionTime)
-            .attr("x", function (d, i) {
-                var w = XGAP_ / 4;
-                if (lMonth - numLens <= i && i <= lMonth + numLens){
-                     var w = XGAP_ / 2;
-                }
-                return xStep + xScale(i) - 0.5*w;    // x position is at the arcs
-            })
-            .attr("width", function (d, i) {
-                var w = XGAP_ / 4;
-                if (lMonth - numLens <= i && i <= lMonth + numLens){
-                    var w = XGAP_ / 2;
-                }            
-                return w;
-            });        
-    }      
-}    
+        if (d.maxYearBelow==undefined || d.maxYearBelow==0 || d[d.maxYearBelow]==undefined)
+            return d[0].y;
+        else
+            return d[0].y-yScaleS(d[d.maxYearBelow+1].Outlying); 
+    });           
+   
+}

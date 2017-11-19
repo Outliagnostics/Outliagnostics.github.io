@@ -77,30 +77,45 @@
     padding: 5px;
     border-radius: 5px;
     z-index: 120;
-    top: 240px;
-    left: 4px;
-    width: 140px;
-    height: 82px;
+    top: 260px;
+    left: 3px;
+    width: 135px;
+    height: 80px;
     background: rgba(204, 204, 204, 0.6);
-    border: 0.4px solid rgba(0,0,0, 0.1);
+    border: 1px solid rgba(0,0,0, 0.1);
 }
 
 #holder3 {
     position:absolute;
     border-radius: 5px;
     z-index: 110;
-    top: 325px;
+    top: 385px;
     left: 4px;
-    width: 200px;
+    width: 155px;
     height: 60px;
     border: 0px solid rgba(0,0,0, 1);
 }
+
+#holder4 {
+    position:absolute;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 120;
+    top: 64px;
+    right: 2px;
+    width: 86px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0);
+}
+
 
 label {
     font: normal 12px sans-serif !important;
 }
 input.search {
-    width: 90px;  
+    width: 72px;  
+    z-index: 180;
+    background: rgba(255, 255, 204, 1);
 }
 
 .styled-select {

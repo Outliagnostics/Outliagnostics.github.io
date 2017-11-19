@@ -11,49 +11,9 @@ var boxplotHeight = 60; // numTerms in each month
 var hBoxplotScale = d3.scale.linear()
                 .range([1, boxplotHeight])
                 .domain([0, 1]);
- var boxplotNodes;
+ var boxplotNodes=[];
                
-    
-function setCut(cutvalue){
-    var selectedvalue = cutvalue;
-    if (selectedvalue === "optimized") {
-        selectedCut = -100;
-        cutOffvalue=get_bestCut(graphByMonths);
-        createForceOptimized();
-        updateHistogramOptimized();
-    } else {
-        selectedCut = +selectedvalue - 1;
-        selectHistogram();
-    }
-     drawgraph2();
-}
 
-function setNodesBy(){
-    selectedSetNodeBy = d3.select('#nodeDropdown').property('value');
-
-    // Recompute the sub graphs
-    computeMonthlyGraphs();
-
-
-    if(selectedSetNodeBy==1){
-       console.log(selectedSetNodeBy);
-    }
-    else if(selectedSetNodeBy==2){
-        console.log(selectedSetNodeBy);
-    }
-    else if(selectedSetNodeBy==3){
-        console.log(selectedSetNodeBy);
-    }
-    else if(selectedSetNodeBy==4){
-        var cut_value = $('#nodeDropdown').val();
-        //Check if cutoff is calculated, if yes then skip
-        if(cutoff_Check.indexOf(+cut_value)===-1){
-            graphInsertBetweeness(graphByMonths, +cut_value);
-            cutoff_Check.push(+cut_value);
-        }
-    }
-    drawgraph2();
-}
 
 
 function selectHistogram() {
@@ -406,7 +366,7 @@ function drawTextClouds(yTextClouds) {
             return yTextClouds + (i%numTermsWordCloud) * yStep;     // Copy node y coordinate
         })
         .text(function(d) {
-            return d[0].country.substring(0,9);
+            return d[0].country.substring(0,6);
         });
 
 }
