@@ -274,6 +274,15 @@ function drawgraph2() {
         .on("mouseover", function(d){
             var countryIndex = dataS.Countries.indexOf(d[0].country);
             brushingStreamText(countryIndex);
+            // if autolensing is enable
+            if (document.getElementById("checkbox1").checked && d.maxYearBelow!=undefined) {
+                isLensing = true;
+                lMonth = d.maxYearBelow;
+
+                // Update layout
+                updateTimeLegend();
+                updateTimeBox();
+            }  
         })
         .on("mouseout", function(d){
             hideTip(d);

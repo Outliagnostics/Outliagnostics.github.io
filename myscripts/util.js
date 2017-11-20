@@ -452,8 +452,23 @@ function clearLensing(){
     updateTimeLegend();
     updateTimeBox();
 }
-function showScore(){
+
+function autoLensing(){
     if (document.getElementById("checkbox1").checked) {
+        isLensing = true;
+        lMonth = countryList[0].maxYearBelow;
+
+        // Update layout
+        updateTimeLegend();
+        updateTimeBox();
+    }   
+    else{
+       clearLensing();  
+    } 
+}
+
+function showScore(){
+    if (document.getElementById("checkbox2").checked) {
         svg.selectAll(".maxAboveText").transition().duration(transitionTime)
             .attr("font-size", "11px");
         svg.selectAll(".maxBelowText").transition().duration(transitionTime)
@@ -466,6 +481,8 @@ function showScore(){
             .attr("font-size", "0px");    
     } 
 }
+
+
 
 var buttonLensingWidth =100;
 var buttonheight =18;

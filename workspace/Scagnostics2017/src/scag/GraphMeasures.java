@@ -360,8 +360,9 @@ class Triangulation {
         computeTotalOriginalMSTLengths();
         
         // TOMMY: Make sure leave 1 out plots are computed based on the original MST length
-    	if (ScagnosticsWBD2017.totalMSTLength>=0)
-        	totalOriginalMSTLengths = ScagnosticsWBD2017.totalMSTLength; 
+    	if (ScagnosticsWBD2017.totalMSTLength>=0){
+    		//totalOriginalMSTLengths = ScagnosticsWBD2017.totalMSTLength; 
+    	}     	
         else
         	ScagnosticsWBD2017.totalMSTLength = totalOriginalMSTLengths;
         
@@ -371,9 +372,10 @@ class Triangulation {
             clear();
             computeDT(px, py);
             computeMST();
-            //sortedPeeledMSTLengths = getSortedMSTEdgeLengths();
+            double[] sortedPeeledMSTLengths = getSortedMSTEdgeLengths();
             
             // TUAN 2017 modified
+            computeCutoff(sortedPeeledMSTLengths);
             //cutoff = computeCutoff(sortedPeeledMSTLengths);
             foundNewOutliers = computeMSTOutliers(cutoff);
         }
@@ -411,11 +413,11 @@ class Triangulation {
 
     private void computeDT(int[] px, int[] py) {
         totalPeeledCount = 0;
-        //Random r = new Random(13579);
+        Random r = new Random(13579);
         for (int i = 0; i < px.length; i++) {
-            int x = px[i] ; // perturb to prevent singularities
-            int y = py[i] ;
-            int count = counts[i];
+        	int x = px[i] + (int) (8 * (r.nextDouble() - .5)); // perturb to prevent singularities
+        	int y = py[i] + (int) (8 * (r.nextDouble() - .5));
+        	int count = counts[i];
             if (!isOutlier[i]) {
                 insert(x, y, count, i);
                 totalPeeledCount += count;
@@ -543,9 +545,10 @@ class Triangulation {
     }
 
     private double computeOutlierMeasure() {
-    	if (totalMSTOutlierLengths / totalOriginalMSTLengths>1)
-    		System.out.println(totalMSTOutlierLengths+" "+totalOriginalMSTLengths);
+    	//if (totalMSTOutlierLengths / totalOriginalMSTLengths>1)
+    	//	System.out.println(totalMSTOutlierLengths+" "+totalOriginalMSTLengths);
     	
+    	//return totalMSTOutlierLengths / totalOriginalMSTLengths;
     	return Math.sqrt(totalMSTOutlierLengths / totalOriginalMSTLengths);
     }
 
