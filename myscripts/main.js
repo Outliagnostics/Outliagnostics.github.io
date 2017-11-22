@@ -117,7 +117,7 @@ function loadData(){
         
         numMonth = maxYear - minYear +1;
         XGAP_ = (width-xStep-2)/numMonth; // gap between months on xAxis
-
+        
 
         svg.append("rect")
             .attr("class", "background")

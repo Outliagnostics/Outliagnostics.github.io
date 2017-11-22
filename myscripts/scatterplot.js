@@ -67,7 +67,11 @@ function updateSubLayout(m) {
     }
     dataPoints.push(obj);
   }    
-  //debugger;
+  
+  var scaleRadius = d3.scale.linear()
+                  .range([size/35, size/10])
+                  .domain([0, 1]);
+
   svg2.selectAll("circle")
       .data(dataPoints)
     .enter().append("circle")
@@ -78,19 +82,31 @@ function updateSubLayout(m) {
             if (d["v0"]=="NaN")
                 return 0;
             else
-                return margin+1+d["s"+selectedVar]*(size-2); 
+                return margin+1.5+d["s"+selectedVar]*(size-3); 
         })
         .attr("cy", function(d,i) { 
             if (d["v1"]=="NaN")
                 return 0;
             else
-                return margin+size-1-d["s"+(selectedVar+1)]*(size-2); 
+                return margin+size-1.5-d["s"+(selectedVar+1)]*(size-3); 
         })
-        .attr("r", size/30)
+        .attr("r", function(d){
+          var difAbs = Math.abs(d["ScagnosticsLeave1out0"][0]-d["Scagnostics0"][0]);
+          return scaleRadius(difAbs);
+        })
         .style("stroke", "#fff")
         .style("stroke-width", 0.02)
         .style("stroke-opacity", 0.8)
-        .style("fill", "#000")
+        .style("fill", function(d){
+          if (d["ScagnosticsLeave1out0"][0]>d["Scagnostics0"][0]){
+            return colorAbove;
+          }
+          else if (d["ScagnosticsLeave1out0"][0]<d["Scagnostics0"][0]){
+            return colorBelow;
+          }
+          else
+            return "#000";
+        })
         .style("fill-opacity", pointOpacity)
         .on("mouseover", function(d,i){
             brushingDataPoints(d,i);
@@ -98,27 +114,4 @@ function updateSubLayout(m) {
         .on("mouseout", function(d){
             hideTip(d);
         }); 
-
-  // Show score on each plot    
-  /*cell.append("text")
-      .attr("class", "scoreCellText")
-      .attr("x", 3)
-      .attr("y", 14)
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "8px")
-      .style("text-shadow", "1px 1px 0 rgba(0, 0, 0, 0.7")
-      .style("fill", "#f6f")
-      .text(function(d,i) { 
-        var k = -1;  
-        if (p.mi<p.mj){
-          k = p.mj*(p.mj-1)/2+p.mi; 
-        }
-        else if (p.mi>p.mj){
-           k = p.mi*(p.mi-1)/2+p.mj; 
-        }
-        return parseFloat(dataS[k][selectedScag]).toFixed(2); 
-      })
-      .style("fill-opacity", function(){
-        return document.getElementById("checkbox1").checked ? 1 : 0;
-      });  */       
 }
