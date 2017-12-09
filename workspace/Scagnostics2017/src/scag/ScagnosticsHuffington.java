@@ -274,9 +274,6 @@ public class ScagnosticsHuffington extends PApplet {
 		}
 	}
 	
-	public static double outlierCutoff =-1;
-	// Make sure leave 1 out plots are computed based on the original MST length
-	public static double totalMSTLength =-1;
 	
 	private static void computeScagnosticsOnFileData() {
 		for (int v = 0; v < nV; v=v+2) {
@@ -285,8 +282,8 @@ public class ScagnosticsHuffington extends PApplet {
 				System.out.print("year = "+y);
 				
 				// outlierCutoff make sure that the original plot and leave 1 out plot has the same cut off value
-				outlierCutoff =-1;
-				totalMSTLength = -1;
+				ScagnosticsWBD2017.outlierCutoff =-1;
+				ScagnosticsWBD2017.totalMSTLength = -1;
 				Binner b1 = new Binner();
 				BinnedData bdata1 = b1.binHex(dataS[v][y], dataS[v+1][y],
 						BinnedData.BINS);

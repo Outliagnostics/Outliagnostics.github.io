@@ -99,10 +99,16 @@ function updateSubLayout(m) {
         .style("stroke-opacity", 0.8)
         .style("fill", function(d){
           if (d["ScagnosticsLeave1out0"][0]>d["Scagnostics0"][0]){
-            return colorAbove;
+            if (d["ScagnosticsLeave1out0"][0]-d["Scagnostics0"][0]<outlyingCut)
+              return "#000";
+            else 
+              return colorAbove;
           }
           else if (d["ScagnosticsLeave1out0"][0]<d["Scagnostics0"][0]){
-            return colorBelow;
+            if (d["Scagnostics0"][0]-d["ScagnosticsLeave1out0"][0]<outlyingCut)
+              return "#000";
+            else 
+              return colorBelow;
           }
           else
             return "#000";

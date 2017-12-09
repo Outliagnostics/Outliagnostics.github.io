@@ -1,0 +1,359 @@
+Dataset: ../data/IsoletData.txt
+num Instances: 1558
+num Variables: 167
+num Pairs: 13861
+Time to read + tranform:	1038,1030,1051,1036,1039,1032,1043,1043,
+Time to bin:		3428,3195,3274,3214,2529,1970,2610,3048,
+Time to compute scagnostics:	29776,29090,30313,25003,36400,57825,79998,30426,
+
+
+Dataset: ../data/MuskData.txt
+num Instances: 475
+num Variables: 167
+num Pairs: 13861
+Time to read + tranform:	943,936,945,941,943,942,940,940,
+Time to bin:		1494,1366,1490,1525,1205,1125,1179,1504,
+Time to compute scagnostics:	88644,83262,88705,88360,81593,68513,84816,86145,
+
+
+Dataset: ../data/GasData.txt
+num Instances: 3599
+num Variables: 129
+num Pairs: 8256
+Time to read + tranform:	1178,1170,1199,1175,1187,1174,1193,1190,
+Time to bin:		3690,3339,3570,3685,2842,2509,3096,2956,
+Time to compute scagnostics:	44643,34638,43774,43183,39801,42257,39239,57455,
+
+
+
+Dataset: ../data/CommunitiesData.txt
+num Instances: 1993
+num Variables: 128
+num Pairs: 8128
+Time to read + tranform:	581,571,593,579,580,574,585,584,
+Time to bin:		2595,2192,2372,2637,2103,1648,1964,2174,
+Time to compute scagnostics:	43517,55647,47209,41035,43863,46383,47650,43547,
+
+
+Dataset: ../data/IsoletData.txt
+num Instances: 400
+num Variables: 100
+num Pairs: 4950
+Time to read + tranform:	524,520,527,520,519,517,520,520,
+fx=0 fy=0 time=46619
+fx=0 fy=1 time=34128
+fx=0 fy=2 time=36171
+fx=0 fy=3 time=47306
+fx=0 fy=4 time=52267
+fx=0 fy=5 time=51568
+fx=0 fy=6 time=50193
+fx=0 fy=7 time=55298
+fx=1 fy=0 time=27983
+fx=1 fy=1 time=44937
+fx=1 fy=2 time=30047
+fx=1 fy=3 time=32902
+fx=1 fy=4 time=50559
+fx=1 fy=5 time=28745
+fx=1 fy=6 time=41113
+fx=1 fy=7 time=49878
+fx=2 fy=0 time=41672
+fx=2 fy=1 time=36975
+fx=2 fy=2 time=33763
+fx=2 fy=3 time=44557
+fx=2 fy=4 time=52777
+fx=2 fy=5 time=45582
+fx=2 fy=6 time=48762
+fx=2 fy=7 time=59158
+fx=3 fy=0 time=42107
+fx=3 fy=1 time=34955
+fx=3 fy=2 time=38138
+fx=3 fy=3 time=37387
+fx=3 fy=4 time=46478
+fx=3 fy=5 time=40936
+fx=3 fy=6 time=51689
+fx=3 fy=7 time=54738
+fx=4 fy=0 time=35241
+fx=4 fy=1 time=33898
+fx=4 fy=2 time=33182
+fx=4 fy=3 time=33831
+fx=4 fy=4 time=23116
+fx=4 fy=5 time=8572
+fx=4 fy=6 time=39627
+fx=4 fy=7 time=35083
+fx=5 fy=0 time=34364
+fx=5 fy=1 time=21827
+fx=5 fy=2 time=30527
+fx=5 fy=3 time=30155
+fx=5 fy=4 time=7824
+fx=5 fy=5 time=3663
+fx=5 fy=6 time=13895
+fx=5 fy=7 time=18045
+fx=6 fy=0 time=44665
+fx=6 fy=1 time=39295
+fx=6 fy=2 time=35692
+fx=6 fy=3 time=49852
+fx=6 fy=4 time=50617
+fx=6 fy=5 time=17675
+fx=6 fy=6 time=53274
+fx=6 fy=7 time=48202
+fx=7 fy=0 time=48216
+fx=7 fy=1 time=48364
+fx=7 fy=2 time=46979
+fx=7 fy=3 time=51015
+fx=7 fy=4 time=44676
+fx=7 fy=5 time=24127
+fx=7 fy=6 time=48803
+fx=7 fy=7 time=53271
+Time to compute scagnostics:	
+46619,34128,36171,47306,52267,51568,50193,55298,
+27983,44937,30047,32902,50559,28745,41113,49878,
+41672,36975,33763,44557,52777,45582,48762,59158,
+42107,34955,38138,37387,46478,40936,51689,54738,
+35241,33898,33182,33831,23116,8572,39627,35083,
+34364,21827,30527,30155,7824,3663,13895,18045,
+44665,39295,35692,49852,50617,17675,53274,48202,
+48216,48364,46979,51015,44676,24127,48803,53271,
+
+
+
+Dataset: ../data/MuskData.txt
+num Instances: 400
+num Variables: 100
+num Pairs: 4950
+Time to read + tranform:	748,746,751,744,744,743,744,743,
+fx=0 fy=0 time=46661
+fx=0 fy=1 time=42608
+fx=0 fy=2 time=42562
+fx=0 fy=3 time=45787
+fx=0 fy=4 time=39423
+fx=0 fy=5 time=30050
+fx=0 fy=6 time=41562
+fx=0 fy=7 time=38565
+fx=1 fy=0 time=41281
+fx=1 fy=1 time=34061
+fx=1 fy=2 time=36665
+fx=1 fy=3 time=42062
+fx=1 fy=4 time=26480
+fx=1 fy=5 time=18015
+fx=1 fy=6 time=27937
+fx=1 fy=7 time=29938
+fx=2 fy=0 time=40869
+fx=2 fy=1 time=36054
+fx=2 fy=2 time=38035
+fx=2 fy=3 time=42403
+fx=2 fy=4 time=31187
+fx=2 fy=5 time=23689
+fx=2 fy=6 time=33397
+fx=2 fy=7 time=33703
+fx=3 fy=0 time=43547
+fx=3 fy=1 time=41725
+fx=3 fy=2 time=42554
+fx=3 fy=3 time=45028
+fx=3 fy=4 time=37777
+fx=3 fy=5 time=27946
+fx=3 fy=6 time=39222
+fx=3 fy=7 time=36900
+fx=4 fy=0 time=34076
+fx=4 fy=1 time=24036
+fx=4 fy=2 time=27670
+fx=4 fy=3 time=33594
+fx=4 fy=4 time=17155
+fx=4 fy=5 time=12297
+fx=4 fy=6 time=18602
+fx=4 fy=7 time=24760
+fx=5 fy=0 time=25324
+fx=5 fy=1 time=16385
+fx=5 fy=2 time=20592
+fx=5 fy=3 time=24868
+fx=5 fy=4 time=11738
+fx=5 fy=5 time=8279
+fx=5 fy=6 time=13279
+fx=5 fy=7 time=19152
+fx=6 fy=0 time=36452
+fx=6 fy=1 time=26406
+fx=6 fy=2 time=30682
+fx=6 fy=3 time=37495
+fx=6 fy=4 time=19302
+fx=6 fy=5 time=13364
+fx=6 fy=6 time=20160
+fx=6 fy=7 time=27262
+fx=7 fy=0 time=37024
+fx=7 fy=1 time=31562
+fx=7 fy=2 time=34657
+fx=7 fy=3 time=36425
+fx=7 fy=4 time=27366
+fx=7 fy=5 time=21357
+fx=7 fy=6 time=28931
+fx=7 fy=7 time=31112
+Time to compute scagnostics:	
+46661,42608,42562,45787,39423,30050,41562,38565,
+41281,34061,36665,42062,26480,18015,27937,29938,
+40869,36054,38035,42403,31187,23689,33397,33703,
+43547,41725,42554,45028,37777,27946,39222,36900,
+34076,24036,27670,33594,17155,12297,18602,24760,
+25324,16385,20592,24868,11738,8279,13279,19152,
+36452,26406,30682,37495,19302,13364,20160,27262,
+37024,31562,34657,36425,27366,21357,28931,31112,
+
+
+Dataset: ../data/GasData.txt
+num Instances: 400
+num Variables: 100
+num Pairs: 4950
+Time to read + tranform:	748,727,732,726,725,724,725,726,
+fx=0 fy=0 time=34944
+fx=0 fy=1 time=25579
+fx=0 fy=2 time=27113
+fx=0 fy=3 time=28973
+fx=0 fy=4 time=20180
+fx=0 fy=5 time=19646
+fx=0 fy=6 time=25432
+fx=0 fy=7 time=12516
+fx=1 fy=0 time=24002
+fx=1 fy=1 time=16664
+fx=1 fy=2 time=20456
+fx=1 fy=3 time=23618
+fx=1 fy=4 time=13995
+fx=1 fy=5 time=13714
+fx=1 fy=6 time=17058
+fx=1 fy=7 time=7861
+fx=2 fy=0 time=26835
+fx=2 fy=1 time=20845
+fx=2 fy=2 time=24304
+fx=2 fy=3 time=26386
+fx=2 fy=4 time=16345
+fx=2 fy=5 time=16261
+fx=2 fy=6 time=20281
+fx=2 fy=7 time=11535
+fx=3 fy=0 time=28719
+fx=3 fy=1 time=25484
+fx=3 fy=2 time=26584
+fx=3 fy=3 time=28923
+fx=3 fy=4 time=20381
+fx=3 fy=5 time=20185
+fx=3 fy=6 time=25345
+fx=3 fy=7 time=13443
+fx=4 fy=0 time=21452
+fx=4 fy=1 time=14624
+fx=4 fy=2 time=16942
+fx=4 fy=3 time=20668
+fx=4 fy=4 time=13621
+fx=4 fy=5 time=13933
+fx=4 fy=6 time=16617
+fx=4 fy=7 time=7526
+fx=5 fy=0 time=20593
+fx=5 fy=1 time=15040
+fx=5 fy=2 time=16941
+fx=5 fy=3 time=20506
+fx=5 fy=4 time=13859
+fx=5 fy=5 time=13394
+fx=5 fy=6 time=16898
+fx=5 fy=7 time=8302
+fx=6 fy=0 time=25950
+fx=6 fy=1 time=17683
+fx=6 fy=2 time=20825
+fx=6 fy=3 time=25205
+fx=6 fy=4 time=16780
+fx=6 fy=5 time=16549
+fx=6 fy=6 time=20013
+fx=6 fy=7 time=8849
+fx=7 fy=0 time=15085
+fx=7 fy=1 time=9794
+fx=7 fy=2 time=12834
+fx=7 fy=3 time=16023
+fx=7 fy=4 time=8670
+fx=7 fy=5 time=8935
+fx=7 fy=6 time=9673
+fx=7 fy=7 time=6085
+Time to compute scagnostics:	
+34944,25579,27113,28973,20180,19646,25432,12516,
+24002,16664,20456,23618,13995,13714,17058,7861,
+26835,20845,24304,26386,16345,16261,20281,11535,
+28719,25484,26584,28923,20381,20185,25345,13443,
+21452,14624,16942,20668,13621,13933,16617,7526,
+20593,15040,16941,20506,13859,13394,16898,8302,
+25950,17683,20825,25205,16780,16549,20013,8849,
+15085,9794,12834,16023,8670,8935,9673,6085,
+
+
+
+Dataset: ../data/CommunitiesData.txt
+num Instances: 400
+num Variables: 100
+num Pairs: 4950
+Time to read + tranform:	669,667,669,663,664,663,664,663,
+fx=0 fy=0 time=41711
+fx=0 fy=1 time=37027
+fx=0 fy=2 time=41996
+fx=0 fy=3 time=38472
+fx=0 fy=4 time=36595
+fx=0 fy=5 time=34123
+fx=0 fy=6 time=41243
+fx=0 fy=7 time=34519
+fx=1 fy=0 time=38798
+fx=1 fy=1 time=37019
+fx=1 fy=2 time=36196
+fx=1 fy=3 time=33214
+fx=1 fy=4 time=31740
+fx=1 fy=5 time=24812
+fx=1 fy=6 time=31549
+fx=1 fy=7 time=28490
+fx=2 fy=0 time=36974
+fx=2 fy=1 time=34670
+fx=2 fy=2 time=36274
+fx=2 fy=3 time=36453
+fx=2 fy=4 time=32867
+fx=2 fy=5 time=26740
+fx=2 fy=6 time=34534
+fx=2 fy=7 time=28519
+fx=3 fy=0 time=35600
+fx=3 fy=1 time=36110
+fx=3 fy=2 time=36848
+fx=3 fy=3 time=34184
+fx=3 fy=4 time=34867
+fx=3 fy=5 time=32157
+fx=3 fy=6 time=37246
+fx=3 fy=7 time=31359
+fx=4 fy=0 time=32440
+fx=4 fy=1 time=31636
+fx=4 fy=2 time=32234
+fx=4 fy=3 time=31959
+fx=4 fy=4 time=26794
+fx=4 fy=5 time=16299
+fx=4 fy=6 time=31272
+fx=4 fy=7 time=23600
+fx=5 fy=0 time=31142
+fx=5 fy=1 time=25270
+fx=5 fy=2 time=27897
+fx=5 fy=3 time=32250
+fx=5 fy=4 time=16431
+fx=5 fy=5 time=9611
+fx=5 fy=6 time=18739
+fx=5 fy=7 time=17131
+fx=6 fy=0 time=35661
+fx=6 fy=1 time=33573
+fx=6 fy=2 time=34696
+fx=6 fy=3 time=35884
+fx=6 fy=4 time=31904
+fx=6 fy=5 time=19325
+fx=6 fy=6 time=37026
+fx=6 fy=7 time=28929
+fx=7 fy=0 time=36594
+fx=7 fy=1 time=30900
+fx=7 fy=2 time=31177
+fx=7 fy=3 time=33794
+fx=7 fy=4 time=25806
+fx=7 fy=5 time=18168
+fx=7 fy=6 time=28132
+fx=7 fy=7 time=21737
+Time to compute scagnostics:	
+41711,37027,41996,38472,36595,34123,41243,34519,
+38798,37019,36196,33214,31740,24812,31549,28490,
+36974,34670,36274,36453,32867,26740,34534,28519,
+35600,36110,36848,34184,34867,32157,37246,31359,
+32440,31636,32234,31959,26794,16299,31272,23600,
+31142,25270,27897,32250,16431,9611,18739,17131,
+35661,33573,34696,35884,31904,19325,37026,28929,
+36594,30900,31177,33794,25806,18168,28132,21737,
+
+

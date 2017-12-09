@@ -20,7 +20,7 @@ public class ScagnosticsWBD2017 extends PApplet {
 	// PrevalenceObesity: 7. USA is an outlier from 2000 to 2014
 		
 	// PrevalenceOfOverweight: ok 6
-	// PrimaryCompletion: good 8 -> Maldives in year 2000 as outlier and Nicaragua 1986 as inlier
+	// PrimaryCompletion: good 8 -> Maldives in year 2000 as outlier and Nicaragua 1987 as inlier
 	// ProgressionSecondary: 3. Not many points
 	// RatioUnemployments: 7. Ethiopia in 2005 and Quatar 2011 are good example of outliers
 		// out.json may have problem of quotation	
@@ -31,12 +31,12 @@ public class ScagnosticsWBD2017 extends PApplet {
 	// FertilityDeath: Good example of 2D outlier. SHoudl be in the paper: Figure 1, year 1960
 		//https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&ctype=b&strail=false&nselm=s&met_x=sp_dyn_le00_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&iconSize=0.5&uniSize=0.035#!ctype=b&strail=false&bcs=d&nselm=s&met_x=sp_dyn_cdrt_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&pit=1447866000000&hl=en_US&dl=en_US&ind=false
 	
-	public static String filename = "data/LifeExpectancy.txt";
+	public static String filename = "data/PrevalenceObesity.txt";
 	public static int nC = 217; // Unemployment rate
-	public static int selectYear = 1960;
+	public static int selectYear = 2006;
 	public static int startYear = 1960;
 	
-	public static String remove1 = "Gabon";
+	public static String remove1 = "Swaziland";
 	public static String remove2 = "Niger";	
 	public static String remove3 = "Mali";
 	public static String remove4 = "Argentina";
@@ -314,7 +314,8 @@ public class ScagnosticsWBD2017 extends PApplet {
 		        	scagnostics1 = scagnostics[variable][y];
 		        	isOutliers = dt1.isOutlier;
 		        }
-				System.out.println();	
+				System.out.println();
+				System.out.println("outlierCutoff="+outlierCutoff);	
 				
 				// Compute leave one out outliers **************
 				for (int c = 0; c < nC; c++) {			
@@ -331,6 +332,7 @@ public class ScagnosticsWBD2017 extends PApplet {
 							mt[scag] = 0;
 						scagnosticsLeave1out[variable][y][c][scag] = mt[scag];
 					}
+					//System.out.println(c+" outlierCutoff="+outlierCutoff);	
 					
 					if (y==selectYear-startYear && countries[c].equals(remove1)){
 						data21= dataS[v][y];
@@ -382,7 +384,6 @@ public class ScagnosticsWBD2017 extends PApplet {
 			        	isOutliers6 = dt.isOutlier;      	
 			        	scagnostics6 = scagnosticsLeave1out[variable][y][c];
 			        }
-					//System.out.println();	
 				}
 			}
 		}

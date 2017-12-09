@@ -345,13 +345,19 @@ function drawTextClouds(yTextClouds) {
                 var sizeScale = d3.scale.linear()
                     .range([10, 17])
                     .domain([0, maxAbs]);
-                d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
+                if (Math.abs(d[y+1].OutlyingDif)<outlyingCut)
+                     d.fontSize =0;
+                else
+                    d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
             else{
                 var sizeScale = d3.scale.linear()
                     .range([6, 9])
                 .domain([0, maxAbs]);
-                d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
+                if (Math.abs(d[y+1].OutlyingDif)<outlyingCut*2)
+                     d.fontSize =0;
+                else
+                    d.fontSize = sizeScale(Math.abs(d[y+1].OutlyingDif));
             }
             return d.fontSize;
         })

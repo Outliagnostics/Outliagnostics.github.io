@@ -361,21 +361,20 @@ class Triangulation {
         
         // TOMMY: Make sure leave 1 out plots are computed based on the original MST length
     	if (ScagnosticsWBD2017.totalMSTLength>=0){
-    		//totalOriginalMSTLengths = ScagnosticsWBD2017.totalMSTLength; 
+    		totalOriginalMSTLengths = ScagnosticsWBD2017.totalMSTLength; 
     	}     	
         else
         	ScagnosticsWBD2017.totalMSTLength = totalOriginalMSTLengths;
         
         boolean foundNewOutliers = computeMSTOutliers(cutoff);
-        //double[] sortedPeeledMSTLengths;
         while (foundNewOutliers) {
             clear();
             computeDT(px, py);
             computeMST();
-            double[] sortedPeeledMSTLengths = getSortedMSTEdgeLengths();
+            //double[] sortedPeeledMSTLengths = getSortedMSTEdgeLengths();
             
             // TUAN 2017 modified
-            computeCutoff(sortedPeeledMSTLengths);
+            //computeCutoff(sortedPeeledMSTLengths);
             //cutoff = computeCutoff(sortedPeeledMSTLengths);
             foundNewOutliers = computeMSTOutliers(cutoff);
         }
@@ -415,8 +414,8 @@ class Triangulation {
         totalPeeledCount = 0;
         Random r = new Random(13579);
         for (int i = 0; i < px.length; i++) {
-        	int x = px[i] + (int) (8 * (r.nextDouble() - .5)); // perturb to prevent singularities
-        	int y = py[i] + (int) (8 * (r.nextDouble() - .5));
+        	int x = px[i];// + (int) (8 * (r.nextDouble() - .5)); // perturb to prevent singularities
+        	int y = py[i];// + (int) (8 * (r.nextDouble() - .5));
         	int count = counts[i];
             if (!isOutlier[i]) {
                 insert(x, y, count, i);
@@ -548,8 +547,8 @@ class Triangulation {
     	//if (totalMSTOutlierLengths / totalOriginalMSTLengths>1)
     	//	System.out.println(totalMSTOutlierLengths+" "+totalOriginalMSTLengths);
     	
-    	//return totalMSTOutlierLengths / totalOriginalMSTLengths;
-    	return Math.sqrt(totalMSTOutlierLengths / totalOriginalMSTLengths);
+    	return totalMSTOutlierLengths / totalOriginalMSTLengths;
+    	//return Math.sqrt(totalMSTOutlierLengths / totalOriginalMSTLengths);
     }
 
     private double[] computeEdgeLengths(Iterator graph, int n) {

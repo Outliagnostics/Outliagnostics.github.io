@@ -110,10 +110,12 @@ function loadData(){
         lMonth = -lensingMul * 2;
          
         
-        //minYear =1960;
-        //maxYear =2019;
-        minYear =1990;
-        maxYear =2016;
+        minYear =1960;
+        maxYear =2015;
+        //minYear =1990; // Huffington
+        //maxYear =2048;
+        //minYear =1990; // VIS
+        //maxYear =2016;
         
         numMonth = maxYear - minYear +1;
         XGAP_ = (width-xStep-2)/numMonth; // gap between months on xAxis

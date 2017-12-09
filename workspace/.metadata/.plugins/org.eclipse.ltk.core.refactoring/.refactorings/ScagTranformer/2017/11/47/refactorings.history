@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;main.Main2016&apos; to &apos;Main2017_FeatureSelector&apos;&#x0A;- Original project: &apos;ScagTranformer&apos;&#x0A;- Original element: &apos;main.Main2016&apos;&#x0A;- Renamed element: &apos;main.Main2017_FeatureSelector&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Main2016&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;main{Main2016.java[Main2016" matchStrategy="1" name="Main2017_FeatureSelector" qualified="false" references="true" similarDeclarations="false" stamp="1511510336995" textual="false" version="1.0"/>
+</session>

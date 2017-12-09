@@ -1,0 +1,124 @@
+Dataset: Isolet
+num Instances: 1559
+num Variables: 167
+num Pairs: 13861
+	 get Data = 0.793(s)
+Read + Transform Data = 0.86399996(s)
+Binning = 11.56(s)
+Computing Scagnostics = 97.464(s)
+
+Read + Transform Data = 0.83(s)
+Binning = 11.532(s)
+Computing Scagnostics = 84.256(s)
+
+Read + Transform Data = 0.831(s)
+Binning = 9.559(s)
+Computing Scagnostics = 161.865(s)
+
+Read + Transform Data = 0.831(s)
+Binning = 8.087(s)
+Computing Scagnostics = 196.162(s)
+
+Read + Transform Data = 0.86399996(s)
+Binning = 9.156(s)
+Computing Scagnostics = 181.523(s)
+
+Read + Transform Data = 0.807(s)
+Binning = 7.388(s)
+Computing Scagnostics = 232.377(s)
+
+
+
+Dataset: Musk
+num Instances: 476
+num Variables: 167
+num Pairs: 13861
+	 get Data = 0.674(s)
+
+Read + Transform Data = 0.70100003(s)
+Binning = 5.345(s)
+Computing Scagnostics = 294.63(s)
+
+Read + Transform Data = 0.694(s)
+Binning = 4.876(s)
+Computing Scagnostics = 285.063(s)
+
+Read + Transform Data = 0.697(s)
+Binning = 4.938(s)
+Computing Scagnostics = 292.283(s)
+
+Read + Transform Data = 0.699(s)
+Binning = 4.417(s)
+Computing Scagnostics = 243.357(s)
+
+Read + Transform Data = 0.688(s)
+Binning = 4.102(s)
+Computing Scagnostics = 205.507(s)
+
+Read + Transform Data = 0.67700005(s)
+Binning = 4.253(s)
+Computing Scagnostics = 228.24(s)
+
+
+
+
+Dataset: Gas
+num Instances: 3600
+num Variables: 128
+num Pairs: 8128
+	 get Data = 1.621(s)
+
+Read + Transform Data = 1.7210001(s)
+Binning = 9.237(s)
+Computing Scagnostics = 98.229(s)
+
+Read + Transform Data = 1.723(s)
+Binning = 8.803(s)
+Computing Scagnostics = 106.298(s)
+
+Read + Transform Data = 1.76(s)
+Binning = 8.163(s)
+Computing Scagnostics = 103.056(s)
+
+Read + Transform Data = 1.6700001(s)
+Binning = 6.436(s)
+Computing Scagnostics = 96.927(s)
+
+Read + Transform Data = 1.7520001(s)
+Binning = 7.579(s)
+Computing Scagnostics = 95.215(s)
+
+Read + Transform Data = 1.643(s)
+Binning = 6.641(s)
+Computing Scagnostics = 102.75(s)
+
+
+
+Dataset: Communities
+num Instances: 1994
+num Variables: 128
+num Pairs: 8128
+	 
+Read + Transform Data = 0.832(s)
+Binning = 6.405(s)
+Computing Scagnostics = 127.27(s)
+
+Read + Transform Data = 0.77500004(s)
+Binning = 5.95(s)
+Computing Scagnostics = 127.121(s)
+
+Read + Transform Data = 0.77500004(s)
+Binning = 5.837(s)
+Computing Scagnostics = 121.024(s)
+
+Read + Transform Data = 0.77(s)
+Binning = 5.159(s)
+Computing Scagnostics = 112.385(s)
+
+Read + Transform Data = 0.797(s)
+Binning = 4.845(s)
+Computing Scagnostics = 117.81(s)
+
+Read + Transform Data = 0.75200003(s)
+Binning = 4.935(s)
+Computing Scagnostics = 117.621(s)
