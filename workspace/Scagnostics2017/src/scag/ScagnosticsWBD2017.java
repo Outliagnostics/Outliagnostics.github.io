@@ -31,7 +31,7 @@ public class ScagnosticsWBD2017 extends PApplet {
 	// FertilityDeath: Good example of 2D outlier. SHoudl be in the paper: Figure 1, year 1960
 		//https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&ctype=b&strail=false&nselm=s&met_x=sp_dyn_le00_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&iconSize=0.5&uniSize=0.035#!ctype=b&strail=false&bcs=d&nselm=s&met_x=sp_dyn_cdrt_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&pit=1447866000000&hl=en_US&dl=en_US&ind=false
 	
-	public static String filename = "data/PrevalenceObesity.txt";
+	public static String filename = "data/RatioUnemployments.txt";
 	public static int nC = 217; // Unemployment rate
 	public static int selectYear = 2006;
 	public static int startYear = 1960;
@@ -113,12 +113,17 @@ public class ScagnosticsWBD2017 extends PApplet {
 	public static double[] data61;
 	public static double[] data62;
 
+	// For teaser image of Outliagnostics
+	public static double[][] dataX;
+	public static double[][] dataY;
+	public static List[] MST;
+	
 	public static void main(String args[]){
 	  PApplet.main(new String[] { ScagnosticsWBD2017.class.getName() });
     }
 	
 	public void setup() {
-		size(1280, 850);
+		size(1440, 850);
 		stroke(255);
 		frameRate(12);
 		curveTightness(1.f); 
@@ -147,6 +152,8 @@ public class ScagnosticsWBD2017 extends PApplet {
 		boolean convexHull =true;
 		float xoff = x;
 		
+		
+		/*
 		drawDT("Original",showMST,alphaShape,convexHull,
 				data11, data12, MST1, areaAlpha1,periAlpha1, DT1, isOutliers, scagnostics1,xoff,1);
 		
@@ -166,6 +173,20 @@ public class ScagnosticsWBD2017 extends PApplet {
 		xoff = x +xMargin/5+(size+xMargin)*5;
 		drawDT("Leave "+remove5+" out",showMST,alphaShape,convexHull,
 				data61, data62, MST6, areaAlpha6,periAlpha6, DT6, isOutliers6, scagnostics6, xoff,1);
+		*/
+		// For teaser image of Outliagnostics
+		int startIndex =30;
+		int endIndex =45;
+		for (int y = startIndex; y < endIndex+1; y++) {
+			String label = (startYear+y+"");
+			if (y==startIndex)
+				label = "Year = "+(startYear+y);
+			drawDTForTeaser(label,dataX[y], dataY[y],MST[y],y*82-startIndex*82+12, (y-startIndex)*15+60);
+		}
+		// Original
+		String label = "Year = "+(startYear+endIndex);
+		drawDTForTeaser(label,dataX[endIndex], dataY[endIndex],MST[endIndex],endIndex*82-startIndex*82+12, (endIndex-startIndex)*15+300);
+	
 	}
 
 	
@@ -281,6 +302,9 @@ public class ScagnosticsWBD2017 extends PApplet {
 	public static double totalMSTLength =-1;
 	
 	private static void computeScagnosticsOnFileData() {
+		dataX = new double[nY][];
+		dataY = new double[nY][];
+		MST = new List[nY];
 		for (int v = 0; v < nV; v=v+2) {
 			int variable = (int) v/2;   // get pairs of variable
 			for (int y = 0; y < nY; y++) {
@@ -303,7 +327,10 @@ public class ScagnosticsWBD2017 extends PApplet {
 					System.out.print("\t"+format(scagnostics[variable][y][scag],2,0));
 					
 				}
-				
+				dataX[y] = dataS[v][y];
+				dataY[y] = dataS[v+1][y];
+				MST[y] = dt1.mstEdges;
+				System.out.println(y+" "+dataX[y]);
 				if (y==selectYear-startYear){
 					data11= dataS[v][y];
 					data12= dataS[v+1][y];
@@ -852,6 +879,64 @@ public class ScagnosticsWBD2017 extends PApplet {
 			this.translate(-(cX),-(cY));
 		}
 	}	
+	
+	public void drawDTForTeaser(String label,double[] d1, double[] d2, List MST, float xoff , float yoff) {
+		
+		this.noStroke();
+		float margin = 10;
+		float gap = 22;
+		double ratio = 1;
+		float pSize = 6;
+		float sat =220;
+	
+		
+		// Draw Input data **********************************************
+		this.textFont(metaBold, 20);
+		fill(0,0,0);
+		this.textAlign(PApplet.RIGHT);
+		this.text(label,(float) (xoff+size),yoff-15);
+		
+		
+		// MST ********************************************************************
+		this.strokeWeight(1);
+		fill(sat,sat,sat);
+		stroke(0,0,0);
+		rect(xoff-margin,yoff-margin, (float) ((size/ratio+margin*2)), (float) ((size*ratio+margin*2)));
+		noFill();
+		stroke(0,0,0);
+		rect(xoff-margin,yoff-margin, (float) ((size/ratio+margin*2)), (float) ((size*ratio+margin*2)));
+		
+		this.strokeWeight(2);
+		this.stroke(0,200,0);
+		for (int i = 0; i < MST.size(); i++) {
+		    Edge e = (Edge) MST.get(i);
+		    float x1 = (float) (xoff + e.p1.x*size/(1000*ratio));
+			float x2 = (float) (xoff + e.p2.x*size/(1000*ratio));
+			float y1 = (float) (yoff + e.p1.y*size/(1000*ratio));
+			float y2 = (float) (yoff + e.p2.y*size/(1000*ratio));
+			this.line(x1, y1, x2, y2);
+		}
+		
+		noStroke();
+		this.fill(Color.BLACK.getRGB());
+		for (int i = 0; i < d1.length; i++) {
+			float xx = (float) (xoff + d1[i]*size/ratio);
+			float yy = (float) (yoff + d2[i]*size/ratio);
+			this.ellipse(xx, yy, pSize, pSize);
+		}
+		
+		// Leave 1 out data point ******
+		this.noFill();
+		this.stroke(Color.RED.getRGB());
+		for (int i = 0; i < d1.length; i++) {
+			if (label.contains(countries[i])){
+				float xx = (float) (xoff + d1[i]*size/ratio);
+				float yy = (float) (yoff + d2[i]*size/ratio);
+				this.ellipse(xx, yy, pSize*2, pSize*2);
+			}
+		}
+	}	
+
 	
 	public void mouseWheel(MouseWheelEvent e) {
 		int delta = e.getWheelRotation();
