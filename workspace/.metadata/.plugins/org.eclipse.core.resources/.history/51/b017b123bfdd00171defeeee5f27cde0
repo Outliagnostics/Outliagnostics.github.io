@@ -31,7 +31,7 @@ public class ScagnosticsWBD2017 extends PApplet {
 	// FertilityDeath: Good example of 2D outlier. SHoudl be in the paper: Figure 1, year 1960
 		//https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&ctype=b&strail=false&nselm=s&met_x=sp_dyn_le00_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&iconSize=0.5&uniSize=0.035#!ctype=b&strail=false&bcs=d&nselm=s&met_x=sp_dyn_cdrt_in&scale_x=lin&ind_x=false&met_y=sp_dyn_tfrt_in&scale_y=lin&ind_y=false&met_s=sp_pop_totl&scale_s=lin&ind_s=false&dimp_c=country:region&ifdim=country&pit=1447866000000&hl=en_US&dl=en_US&ind=false
 	
-	public static String filename = "data/LifeExpectancy.txt";
+	public static String filename = "data/RatioUnemployments.txt";
 	public static int nC = 217; // Unemployment rate
 	public static int selectYear = 2005;
 	public static int startYear = 1960;
@@ -545,10 +545,11 @@ public class ScagnosticsWBD2017 extends PApplet {
 			float xoff, double ratio_) {
 		
 		this.noStroke();
-		float margin = 8;
+		float margin = 30;
 		float gap = 22;
 		double ratio = PApplet.sqrt((float) ratio_);
-		float pSize = 6;
+		float pSize1 = 6;
+		float pSize = 4;
 		float sat =220;
 
 		float yoff =y;		

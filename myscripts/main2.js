@@ -32,7 +32,7 @@ var colorAbove = "#0a0";
 var colorBelow = "#b06";
 var maxDifAboveForAll = 0;   
 var maxDifBelowForAll = 0;  
-var outlyingCut=0.02; // Threshold to decide to show Outlier/Inliers in the World Clound
+var outlyingCut=0.021; // Threshold to decide to show Outlier/Inliers in the World Clound
 var maxAbs; 
 var yStart;
 var yStartBoxplot;
@@ -216,7 +216,7 @@ function drawgraph2() {
         }
     });
 
-    var yTemp2 = yStart;
+    var yTemp2 = yStart-60;
     for (var c=0; c<countryList.length;c++){
         for (var y=0; y<countryList[c].length;y++){
             countryList[c][y].y = yTemp2;
