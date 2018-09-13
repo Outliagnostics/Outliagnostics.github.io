@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="javascripts/d3.v3.min.js"></script>
+    <script src="javascripts/d3.v3.min.js"></script>
+    <script type="text/javascript" src="../Scagnostics2018/scagnostics/build/js/outliagnostics.min.js"></script>
+    <script type="text/javascript" src="https://underscorejs.org/underscore-min.js"></script>
+    <script type="text/javascript" src="myscripts/outliagprocessor.js"></script>
+
+    <title>Test load data</title>
+</head>
+<body>
+<script>
+    d3.json("./data/UnemploymentRate.json", function (data_) {
+        let dataS = data_;
+        let startTime = new Date();
+        let op = new OutliagProcessor(dataS);
+        op.processOutliagData();
+        let endTime = new Date();
+        console.log(endTime-startTime);
+        alert("Done");
+    });
+
+
+</script>
+</body>
+</html>

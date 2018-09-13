@@ -15,7 +15,7 @@ var heightSVG = 2500;
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", heightSVG);
-svg.call(tip);  
+svg.call(tip);
 
 var minYear, maxYear;
 var xStep = 210;
@@ -38,16 +38,16 @@ function xScale(m) {
         var total = numMonth + numMonthInLense * (lensingMul - 1);
         var xGap = (XGAP_ * numMonth) / total;
 
-        if (m < lMonth - numLens){
-            var xx =  m * xGap;
-            if (m == lMonth - numLens-1)
-                xx+=xGap;
+        if (m < lMonth - numLens) {
+            var xx = m * xGap;
+            if (m == lMonth - numLens - 1)
+                xx += xGap;
             return xx;
-        }  
+        }
         else if (m > lMonth + numLens) {
             var xx = maxM * xGap + numMonthInLense * xGap * lensingMul + (m - (lMonth + numLens + 1)) * xGap;
-            if (m == lMonth + numLens+1)
-                xx-=xGap;
+            if (m == lMonth + numLens + 1)
+                xx -= xGap;
             return xx;
         }
         else {
@@ -72,23 +72,23 @@ var area = d3.svg.area()
     });
 
 var optArray = [];   // FOR search box
-var categories = ["Above Outlying of original plot","Below Outlying of original plot"];
+var categories = ["Above Outlying of original plot", "Below Outlying of original plot"];
 var getColor3;  // Colors of categories
- 
+
 //*****************************************************************
-var fileList = ["UnemploymentRate","LifeExpectancy263","PrevalenceOfHIV"]
+var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV"]
 var fileName = fileList[2];
 
 // START: loader spinner settings ****************************
 var opts = {
-  lines: 25, // The number of lines to draw
-  length: 15, // The length of each line
-  width: 5, // The line thickness
-  radius: 25, // The radius of the inner circle
-  color: '#000', // #rgb or #rrggbb or array of colors
-  speed: 2, // Rounds per second
-  trail: 50, // Afterglow percentage
-  className: 'spinner', // The CSS class to assign to the spinner
+    lines: 25, // The number of lines to draw
+    length: 15, // The length of each line
+    width: 5, // The line thickness
+    radius: 25, // The radius of the inner circle
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 2, // Rounds per second
+    trail: 50, // Afterglow percentage
+    className: 'spinner', // The CSS class to assign to the spinner
 };
 var target = document.getElementById('loadingSpinner');
 var spinner = new Spinner(opts).spin(target);
@@ -99,27 +99,32 @@ addDatasetsOptions(); // Add these dataset to the select dropdown, at the end of
 drawControlPanel();
 
 var dataS;
-function loadData(){
-    d3.json("/workspace/Scagnostics2017/bin/data/out.json", function(data_) {
-      //d3.json("data/"+fileName+".json", function(data_) {
-        dataS=data_;
+
+function loadData() {
+    // d3.json("./workspace/Scagnostics2017/bin/data/out.json", function(data_) {
+    d3.json("data/" + fileName + ".json", function (data_) {
+        dataS = data_;
+        //<editor-fold desc: Vung's code to reprocess the outliag data>
+        let op = new OutliagProcessor(dataS);
+        op.processOutliagData();
+        //</editor-fold>
         //debugger;
         searchTerm = "";
         isLensing = false;
         oldLmonth = -1000;
         lMonth = -lensingMul * 2;
-         
-        
-        minYear =1960;
-        maxYear =2015;
+
+
+        minYear = 1960;
+        maxYear = 2015;
         //minYear =1990; // Huffington
         //maxYear =2048;
         //minYear =1990; // VIS
         //maxYear =2016;
-        
-        numMonth = maxYear - minYear +1;
-        XGAP_ = (width-xStep-2)/numMonth; // gap between months on xAxis
-        
+
+        numMonth = maxYear - minYear + 1;
+        XGAP_ = (width - xStep - 2) / numMonth; // gap between months on xAxis
+
 
         svg.append("rect")
             .attr("class", "background")
@@ -137,7 +142,7 @@ function loadData(){
         // 2017, this function is main2.js
         computeMonthlyGraphs();
 
-       
+
         // Spinner Stop ********************************************************************
         spinner.stop();
 
@@ -150,12 +155,12 @@ function loadData(){
                 source: optArray
             });
         });
-        
+
         //    chartStreamGraphs();  // Streamgraphs********************************************************************
-        setTimeout(function(){
+        setTimeout(function () {
             svg.append("text")
                 .attr("class", "textLensingArea")
-                .attr("x", width/2)
+                .attr("x", width / 2)
                 .attr("y", 20)
                 .text("Lensing area")
                 .attr("font-family", "sans-serif")
@@ -168,25 +173,25 @@ function loadData(){
                 .style("fill-opacity", 0.05);
 
             var startTime = new Date().getTime();
-            var interval2 = setInterval(function(){ 
+            var interval2 = setInterval(function () {
                 var d = new Date();
                 var n = d.getMilliseconds();
                 svg.selectAll(".textLensingArea")
-                    .style("fill-opacity", (n%1000)/1000);
-                if(new Date().getTime() - startTime > 4000){
+                    .style("fill-opacity", (n % 1000) / 1000);
+                if (new Date().getTime() - startTime > 4000) {
                     clearInterval(interval2);
                     svg.selectAll(".textLensingArea").remove();
                     svg.selectAll(".timeLegendText")
                         .style("fill-opacity", function (d, i) {
-                            return getOpacity(d,i);
+                            return getOpacity(d, i);
                         });
                     return;
-                }  
-                
-            }, 50);    
-        }, 3000);  
-    });   
-}    
+                }
+
+            }, 50);
+        }, 3000);
+    });
+}
 
 
 $('#btnUpload').click(function () {
@@ -217,20 +222,20 @@ $('#btnUpload').click(function () {
 function searchNode() {
     searchTerm = document.getElementById('search').value;
     var countryIndex = dataS.Countries.indexOf(searchTerm);
-    if (countryIndex>=0)
+    if (countryIndex >= 0)
         brushingStreamText(countryIndex);
 }
 
 function addDatasetsOptions() {
-    var select = document.getElementById("datasetsSelect");   
-    for(var i = 0; i < fileList.length; i++) {
+    var select = document.getElementById("datasetsSelect");
+    for (var i = 0; i < fileList.length; i++) {
         var opt = fileList[i];
         var el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
         //el["data-image"]="images2/datasetThumnails/"+fileList[i]+".png";
-         select.appendChild(el);
-    }        
+        select.appendChild(el);
+    }
     document.getElementById('datasetsSelect').value = fileName;  //************************************************
     fileName = document.getElementById("datasetsSelect").value;
     loadData();

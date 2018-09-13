@@ -2,50 +2,50 @@
 <meta charset="utf-8">
 
 <head>
-  <link rel="shortcut icon" href="styles/dycom.png">
-  <script src="javascripts/jquery/jquery-1.9.0.min.js"></script>
-  <script src="javascripts/msdropdown/jquery.dd.js"></script>
-  <script src="javascripts/msdropdown/select.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles/default.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="styles/main.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="styles/msdropdown/dd.css" />
+    <link rel="shortcut icon" href="styles/dycom.png">
+    <script src="javascripts/jquery/jquery-1.9.0.min.js"></script>
+    <script src="javascripts/msdropdown/jquery.dd.js"></script>
+    <script src="javascripts/msdropdown/select.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/default.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="styles/msdropdown/dd.css"/>
 </head>
 <body>
-  <div class="navigation">
+<div class="navigation">
     <h1>Outliagnostics: Am I outlier or contributor?</h1>
     <h2>Eurovis 2018, Online Submission # </h2>
     <div id="menu">
-      <nav>
-        <ul>
-        <li><a href="index.html"><span style="color:#888">Video<span></a></li>
-        <li><a href="layout.html"><span style="color:#888">Layout<span></a></li>
-        <li><a href="usecases.html"><span style="color:#888">Use cases<span></a></li>
-        <li><a href="demos.html"><b><span style="color:#fff">Demos<span></b></a></li>    
-        </ul>
-      </nav>
+        <nav>
+            <ul>
+                <li><a href="index.html"><span style="color:#888">Video<span></a></li>
+                <li><a href="layout.html"><span style="color:#888">Layout<span></a></li>
+                <li><a href="usecases.html"><span style="color:#888">Use cases<span></a></li>
+                <li><a href="demos.html"><b><span style="color:#fff">Demos<span></b></a></li>
+            </ul>
+        </nav>
     </div>
-  </div>
+</div>
 
 <!-- Spinner when loading -->
 <div id="loadingSpinner">
-  <!-- <span id="progressText"> -->
+    <!-- <span id="progressText"> -->
 </div>
 
 <!-- Select datasets -->
-<div id="holder1"  class="holder1">
-  <select id="datasetsSelect" class="styled-select" onchange="loadNewData.call(this, event)"></select>
+<div id="holder1" class="holder1">
+    <select id="datasetsSelect" class="styled-select" onchange="loadNewData.call(this, event)"></select>
 </div>
 
-<div id="holder2"  class="holder2">
-  <label for="nodeDropdown"> <i>Order time series by:</i> </label>
-  <select id="nodeDropdown" class="styled-select2"></select><br>
-  <label for="edgeWeightDropdown"> <i>Order time interval:</i> </label>
-  <select id="edgeWeightDropdown" class="styled-select2"></select>
-  <br><br>
-  <label><input type="checkbox" id="checkbox1" value="value" onchange="autoLensing()">Auto lensing</label> <br>
-  <label><input type="checkbox" id="checkbox2" value="value" onchange="showScore()">Show outlying scores</label> 
-  <input id="search" class="search">
-  <input type="submit" value="Search" onclick="searchNode()"><br>
+<div id="holder2" class="holder2">
+    <label for="nodeDropdown"> <i>Order time series by:</i> </label>
+    <select id="nodeDropdown" class="styled-select2"></select><br>
+    <label for="edgeWeightDropdown"> <i>Order time interval:</i> </label>
+    <select id="edgeWeightDropdown" class="styled-select2"></select>
+    <br><br>
+    <label><input type="checkbox" id="checkbox1" value="value" onchange="autoLensing()">Auto lensing</label> <br>
+    <label><input type="checkbox" id="checkbox2" value="value" onchange="showScore()">Show outlying scores</label>
+    <input id="search" class="search">
+    <input type="submit" value="Search" onclick="searchNode()"><br>
 </div>
 
 <!--
@@ -58,7 +58,7 @@
     </span>
 </div> -->
 
-<div id="holder4"  class="holder4">
+<div id="holder4" class="holder4">
     <input type="submit" value="Clear lensing" onclick="clearLensing()"><br>
 </div>
 
@@ -66,9 +66,14 @@
 <script src="javascripts/fisheye.js"></script>
 <script src="javascripts/select2.min.js"></script>
 <script src="javascripts/d3.tip.v0.6.3.js"></script>
-<script src='javascripts/spin.min.js'></script> 
+<script src='javascripts/spin.min.js'></script>
 <!-- Spinner when loading -->
 
+<!--vung's scripts added here-->
+<script type="text/javascript" src="../Scagnostics2018/scagnostics/build/js/outliagnostics.min.js"></script>
+<script type="text/javascript" src="https://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="myscripts/outliagprocessor.js"></script>
+<!--end of vung's script-->
 
 <script src="myscripts/tooltip.js"></script>
 <script src="myscripts/main3.js"></script>
@@ -79,16 +84,16 @@
 <script src="myscripts/scatterplot.js"></script>
 <script src="myscripts/iDVLab.js"></script>
 <script src="myscripts/histogram.js"></script>
-<script type='text/javascript' src="https://code.jquery.com/ui/1.11.0/jquery-ui.min.js"> </script>
+<script type='text/javascript' src="https://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
 <!-- jquery
 <script type='text/javascript' src="javascripts/jquery-ui.min.js"> </script>-->
-<link href="styles/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="styles/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script src="myscripts/searchBox.js"></script>
 <script src="myscripts/functions.js"></script>
 
 <div class="footer">
     <span class="right">&copy; Last revised: September 30, 2017</span>
     <div class="clearer"><span></span></div>
-  </div>
-</div>  
+</div>
+</div>
 </body>
