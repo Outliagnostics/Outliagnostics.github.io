@@ -1,8 +1,12 @@
 class OutliagProcessor{
     constructor(dataS){
         this.dataS = dataS;
+        this.yearsPoints = {};
+        this.yearLeaveOutPoints = {};
+
     }
     processOutliagData(){
+        let start = new Date();
         let self = this;
         processYearlyOutliags();
         processLeaveOutOutliags();
@@ -10,7 +14,8 @@ class OutliagProcessor{
         function processYearlyOutliags(){
             let years = self.dataS["YearsData"].length;
             for (let year = 0; year < years; year++) {
-                self.setYearOutliag(year, self.calculateYearlyOutliag(year));
+                let outliag = self.calculateYearlyOutliag(year);
+                self.setYearOutliag(year, outliag);
             }
         }
         function processLeaveOutOutliags(){
@@ -18,10 +23,13 @@ class OutliagProcessor{
             let countries = d3.keys(self.dataS["CountriesData"]);
             for (let year = 0; year < years; year++) {
                 countries.forEach(country =>{
-                    self.setLeaveOutCountryOutliag(year, country, self.calculateYearlyLeaveOutOutliag(year, country));
+                    let outliag = self.calculateYearlyLeaveOutOutliag(year, country);
+                    self.setLeaveOutCountryOutliag(year, country, outliag);
                 });
             }
         }
+        let end = new Date();
+        console.log('Time taken: ' + (end-start));
     }
     getYearData(year){
         return this.getYearDataLeaveOutCountry(year, null);
@@ -42,6 +50,7 @@ class OutliagProcessor{
             y.push([v0[j], v1[j]]);
         }
         return y;
+
     }
     isLeaveOutPointValid(year, country){
         let cd = this.dataS["CountriesData"];
