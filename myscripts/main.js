@@ -77,6 +77,11 @@ var getColor3;  // Colors of categories
 
 //*****************************************************************
 var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV"]
+var processedData = {
+    "UnemploymentRate": null,
+    "LifeExpectancy263": null,
+    "PrevalenceOfHIV": null
+}
 var fileName = fileList[2];
 
 // START: loader spinner settings ****************************
@@ -100,13 +105,20 @@ drawControlPanel();
 
 var dataS;
 
+
+
 function loadData() {
     // d3.json("./workspace/Scagnostics2017/bin/data/out.json", function(data_) {
     d3.json("data/" + fileName + ".json", function (data_) {
-        dataS = data_;
+
         //<editor-fold desc: Vung's code to reprocess the outliag data>
-        let op = new OutliagProcessor(dataS);
-        op.processOutliagData();
+        if(processedData[fileName]==null){
+            dataS = data_;
+            let op = new OutliagProcessor(dataS);
+            op.processOutliagData();
+            processedData[fileName] = op.dataS;
+        }
+        dataS = processedData[fileName];
         //</editor-fold>
         //debugger;
         searchTerm = "";

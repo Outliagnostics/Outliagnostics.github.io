@@ -81,7 +81,7 @@ class OutliagProcessor {
         let self = this;
         y = y.filter(d => self.isValidPoint(d));
         if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, "leader", isNormalized, isBinned);
+            outliag = outliagnostics(y, "hexagon", isNormalized, isBinned);
         }
         return outliag;
     }

@@ -6,7 +6,7 @@
  * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 
-
+var interpolation = "cardinal";
 var topNumber = 100;
 var top200terms = {}; // top terms from input data
 var top100termsArray = []; // for user selection
@@ -72,7 +72,7 @@ var yScaleS = d3.scale.linear()
         .domain([0, 1]);
 
 var areaAbove = d3.svg.area()
-    .interpolate("cardinal")
+    .interpolate(interpolation)
     .x(function (d,i) {
         if (i==0)
             return xStep-10;
@@ -99,7 +99,7 @@ var areaAbove = d3.svg.area()
         }     
     });
 var areaBelow = d3.svg.area()
-    .interpolate("cardinal")
+    .interpolate(interpolation)
     .x(function (d,i) {
         if (i==0)
             return xStep -10;
@@ -126,7 +126,7 @@ var areaBelow = d3.svg.area()
     }); 
 
 var areaTopAbove = d3.svg.area()
-    .interpolate("cardinal")
+    .interpolate(interpolation)
     .x(function (d,i) {
         return xStep + xScale(i);
     })
@@ -137,7 +137,7 @@ var areaTopAbove = d3.svg.area()
         return yStartBoxplot-hBoxplotScale(d.maxAbove);        
     });        
 var areaTopBelow = d3.svg.area()
-    .interpolate("cardinal")
+    .interpolate(interpolation)
     .x(function (d,i) {
         return xStep + xScale(i);
     })
