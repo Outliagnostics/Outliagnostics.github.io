@@ -1,99 +1,101 @@
-class OutliagProcessor{
-    constructor(dataS){
+class OutliagProcessor {
+    constructor(dataS) {
         this.dataS = dataS;
-        this.yearsPoints = {};
-        this.yearLeaveOutPoints = {};
-
+        this.allYearsBins = [];
     }
-    processOutliagData(){
-        let start = new Date();
+
+    processOutliagData() {
         let self = this;
         processYearlyOutliags();
-        processLeaveOutOutliags();
-
-        function processYearlyOutliags(){
-            let years = self.dataS["YearsData"].length;
-            for (let year = 0; year < years; year++) {
-                let outliag = self.calculateYearlyOutliag(year);
-                self.setYearOutliag(year, outliag);
-            }
-        }
-        function processLeaveOutOutliags(){
+        processLeaveOut();
+        function processYearlyOutliags() {
             let years = self.dataS["YearsData"].length;
             let countries = d3.keys(self.dataS["CountriesData"]);
+            //Make sure that each year there is a bin
             for (let year = 0; year < years; year++) {
-                countries.forEach(country =>{
-                    let outliag = self.calculateYearlyLeaveOutOutliag(year, country);
-                    self.setLeaveOutCountryOutliag(year, country, outliag);
-                });
+                let outliag = self.calculateYearlyOutliag(year);
+                let outlyingScore = 0;
+                let bins = null;
+                if (outliag != null) {//outliag = null means set of valid unique points has length < 3
+                    outlyingScore = outliag.outlyingScore;
+                    bins = outliag.bins;
+                }
+                self.setYearOutliagScore(year, outlyingScore);
+                self.allYearsBins.push(bins);
+                //By default, leave out a country would not affect anything => so we set its default leave out to be the same as the not leaveout score.
+                countries.forEach(country=>{
+                    self.setYearCountryOutliagScore(year, country, outlyingScore);
+                })
+            }
+
+        }
+        function processLeaveOut() {
+            //Only need to process the bins !=null and each bin with length > 1.
+            let allBinsLength = self.allYearsBins.length;
+            for (let year = 0; year < allBinsLength ; ++year) {
+                let bins = self.allYearsBins[year];
+                if (bins != null) {//beans = null means that year, there is no data (nor the data points <=3).
+                    let binLength = bins.length;
+                    for (let i = 0; i < binLength; ++i) {
+                        let theBin = bins[i];
+                        if(theBin.length==1){//Only leave out the bin if it is single, since we assume if a bin has more members, it would not affect the overall score if remove one member
+                            let bins1 = bins.slice(0);//copy to avoid modifying the original one.
+                            //remove the current bin.
+                            bins1.splice(i, 1);
+                            //calcualte outliag.
+                            let outlyingScore = self.calculateOutliag(bins1.map(b => [b.x, b.y]), true, true).outlyingScore;
+                            self.setYearCountryOutliagScore(year, theBin[0].data, outlyingScore);
+                        }
+                    }
+                }
             }
         }
-        let end = new Date();
-        console.log('Time taken: ' + (end-start));
     }
-    getYearData(year){
-        return this.getYearDataLeaveOutCountry(year, null);
-    }
-    getYearDataLeaveOutCountry(year, theCountry){
+
+    getYearData(year) {
         let cd = this.dataS["CountriesData"];
-        let v0 = [],
-            v1 = [];
-        d3.keys(cd).forEach(country => {
-            if(country!==theCountry){
-                v0.push(cd[country][year]["v0"]);
-                v1.push(cd[country][year]["v1"]);
-            }
-        });
         //convert to points
         let y = [];
-        for (let j = 0; j < v0.length; j++) {
-            y.push([v0[j], v1[j]]);
-        }
+        d3.keys(cd).forEach(country => {
+            let point = [cd[country][year]["v0"], cd[country][year]["v1"]];
+            point.data = country;
+            y.push(point);
+        });
         return y;
+    }
 
-    }
-    isLeaveOutPointValid(year, country){
-        let cd = this.dataS["CountriesData"];
-        let d = [(cd[country][year]["v0"]) , (cd[country][year]["v1"])];
-        return this.isValidPoint(d);
-    }
-    getUniqueSize(data){
+    getUniqueSize(data) {
         return _.uniq(data.map(v => v.join(','))).length;
     }
+
     calculateYearlyOutliag(year) {
         let y = this.getYearData(year);
         //check if the input points has more than 2 unique values.
-        return this.calculateOutliag(y);
+        let outliag = this.calculateOutliag(y, false);
+        return outliag;
     }
-    calculateYearlyLeaveOutOutliag(year, country){
-        //If the leaveout is empty, then the outliag is the outliag of the year (the same as not leaving it out)
-        if(!this.isLeaveOutPointValid(year, country)){
-            return this.getYearOutliag(year);
-        }
-        //Otherwise continue the calculation
-        let y = this.getYearDataLeaveOutCountry(year, country);
-        return this.calculateOutliag(y);
-    }
-    calculateOutliag(y) {
-        let outliag = 0;
+
+
+    calculateOutliag(y, isNormalized, isBinned) {
+        var outliag = null;
         let self = this;
-        y = y.filter(d=> self.isValidPoint(d));
+        y = y.filter(d => self.isValidPoint(d));
         if (this.getUniqueSize(y) > 3) {
-            outliag = new outliagnostics(y, "leader").outlyingScore;
+            outliag = outliagnostics(y, "leader", isNormalized, isBinned);
         }
         return outliag;
     }
-    isValidPoint(d){
+
+    isValidPoint(d) {
         return (typeof d[0] === 'number') && (typeof d[1] === 'number');
     }
-    getYearOutliag(year){
-        //The full outliag
-        return this.dataS["YearsData"][year]["Scagnostics0"][0];
+
+
+    setYearOutliagScore(year, outliagScore) {
+        this.dataS["YearsData"][year]["Scagnostics0"][0] = outliagScore;
     }
-    setYearOutliag(year, outliag){
-        this.dataS["YearsData"][year]["Scagnostics0"][0] = outliag;
-    }
-    setLeaveOutCountryOutliag(year, country, outliag){
-        this.dataS["CountriesData"][country][year]["Outlying"] = outliag;
+
+    setYearCountryOutliagScore(year, country, outlyingScore) {
+        this.dataS["CountriesData"][country][year]["Outlying"] = outlyingScore;
     }
 }
