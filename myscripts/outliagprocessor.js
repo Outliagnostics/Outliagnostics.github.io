@@ -82,7 +82,7 @@ class OutliagProcessor {
         let self = this;
         y = y.filter(d => self.isValidPoint(d));
         if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, binningType, isNormalized, isBinned);
+            outliag = outliagnostics(y, binningType, 20, isNormalized, isBinned);
         }
         return outliag;
     }
