@@ -229,6 +229,15 @@ function drawTimeGrid() {
             }
         }
     }
+    if(fileName.indexOf("prices") >=0){
+        for (var i = minYear; i <= maxYear; i++) {
+            var xx = xStep + xScale(i - minYear);
+            var obj = {};
+            obj.x = xx;
+            obj.year = i-minYear;
+            listX.push(obj);
+        }
+    }
     else{ 
         for (var i = minYear; i <= maxYear; i++) {
             var xx = xStep + xScale(i - minYear);

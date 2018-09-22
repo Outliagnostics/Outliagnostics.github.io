@@ -1,3 +1,4 @@
+var binningType = "hexagon";
 class OutliagProcessor {
     constructor(dataS) {
         this.dataS = dataS;
@@ -81,7 +82,7 @@ class OutliagProcessor {
         let self = this;
         y = y.filter(d => self.isValidPoint(d));
         if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, "hexagon", isNormalized, isBinned);
+            outliag = outliagnostics(y, binningType, isNormalized, isBinned);
         }
         return outliag;
     }

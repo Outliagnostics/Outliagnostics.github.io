@@ -76,11 +76,14 @@ var categories = ["Above Outlying of original plot", "Below Outlying of original
 var getColor3;  // Colors of categories
 
 //*****************************************************************
-var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV"]
+var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV", "prices", "pricesDiff", "pricesDiffOverVolume"]
 var processedData = {
     "UnemploymentRate": null,
     "LifeExpectancy263": null,
-    "PrevalenceOfHIV": null
+    "PrevalenceOfHIV": null,
+    "prices":null,
+    "pricesDiff": null,
+    "pricesDiffOverVolume": null
 }
 var fileName = fileList[2];
 
@@ -144,7 +147,7 @@ function loadData() {
             .attr("x", 0)
             .attr("y", yTimeBox)
             .attr("width", width)
-            .attr("height", heightSVG)
+            .attr("height", heightSVG);
 
         drawColorLegend();
         drawTimeGrid();

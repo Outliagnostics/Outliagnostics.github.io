@@ -14,14 +14,15 @@
 <script>
     // d3.json("./data/PrevalenceOfHIV.json", function (data_) {
     // d3.json("./data/UnemploymentRate.json", function (data_) {
-    d3.json("./data/LifeExpectancy263.json", function (data_) {
+    // d3.json("./data/LifeExpectancy263.json", function (data_) {
+    d3.json("./data/prices.json", function (data_) {
         let dataS = data_;
         let startTime = new Date();
         let op = new OutliagProcessor(dataS);
         op.processOutliagData();
         let endTime = new Date();
         console.log(endTime-startTime);
-        // debugger
+        debugger
         alert("Done");
     });
 </script>
