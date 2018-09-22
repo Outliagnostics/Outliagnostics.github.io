@@ -85,7 +85,7 @@ var processedData = {
     "pricesDiff": null,
     "pricesDiffOverVolume": null
 }
-var fileName = fileList[2];
+var fileName = fileList[3];
 
 // START: loader spinner settings ****************************
 var opts = {
