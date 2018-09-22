@@ -1,4 +1,5 @@
 var binningType = "hexagon";
+var startBinGridSize = 40;
 class OutliagProcessor {
     constructor(dataS) {
         this.dataS = dataS;
@@ -71,8 +72,10 @@ class OutliagProcessor {
 
     calculateYearlyOutliag(year) {
         let y = this.getYearData(year);
-        //check if the input points has more than 2 unique values.
-        let outliag = this.calculateOutliag(y, false);
+        if(year==44){
+            debugger
+        }
+        let outliag = this.calculateOutliag(y, false, false);
         return outliag;
     }
 
@@ -81,8 +84,9 @@ class OutliagProcessor {
         var outliag = null;
         let self = this;
         y = y.filter(d => self.isValidPoint(d));
+        //check if the input points has more than 2 unique values.
         if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, binningType, 20, isNormalized, isBinned);
+            outliag = outliagnostics(y, binningType, startBinGridSize, isNormalized, isBinned);
         }
         return outliag;
     }
