@@ -159,7 +159,4 @@ function hideTip(d) {
         .style("fill-opacity", 1);       
   
   tip.hide();
-}  
-
-
-
+}

@@ -199,7 +199,7 @@ function drawgraph2() {
         if (thisCountryData.maxDifBelow<maxDifBelowForAll)
             maxDifBelowForAll = thisCountryData.maxDifBelow;
         thisCountryData.maxDifAbsolute = Math.max(thisCountryData.maxDifAbove, Math.abs(thisCountryData.maxDifBelow));
-    }  
+    }
     colorPurpleGreen.domain([maxDifBelowForAll,0,maxDifAboveForAll]);
     maxAbs = Math.max(maxDifAboveForAll, Math.abs(maxDifBelowForAll));    
     
@@ -223,10 +223,12 @@ function drawgraph2() {
         }
          yTemp2+=10;
     } 
-      
+    //Filtered country list (with outlying score difference > some point).
+    let countryListFiltered = countryList.filter(c=>Math.abs(c.maxDifAbsolute)>0.01);
+
     svg.selectAll(".layerAbove").remove();
     svg.selectAll(".layerAbove")
-        .data(countryList).enter()
+        .data(countryListFiltered).enter()
         .append("path")
         .attr("class", "layerAbove")
         .style("stroke", "#000")
@@ -239,7 +241,7 @@ function drawgraph2() {
         });
     svg.selectAll(".layerBelow").remove();
     svg.selectAll(".layerBelow")
-        .data(countryList).enter()
+        .data(countryListFiltered).enter()
         .append("path")
         .attr("class", "layerBelow")
         .style("stroke", "#000")
@@ -253,7 +255,7 @@ function drawgraph2() {
 
     svg.selectAll(".countryText").remove();
     svg.selectAll(".countryText")
-        .data(countryList).enter()
+        .data(countryListFiltered).enter()
         .append("text")
         .attr("class", "countryText")
         .style("fill", function (d) {
@@ -292,7 +294,7 @@ function drawgraph2() {
     // Text of max different appearing on top of the stream graph    
     svg.selectAll(".maxAboveText").remove();
     svg.selectAll(".maxAboveText")
-        .data(countryList).enter()
+        .data(countryListFiltered).enter()
         .append("text")
         .attr("class", "maxAboveText")
         .style("fill", function (d) {
@@ -327,7 +329,7 @@ function drawgraph2() {
     // Text of max Below appearing on top of the stream graph    
     svg.selectAll(".maxBelowText").remove();
     svg.selectAll(".maxBelowText")
-        .data(countryList).enter()
+        .data(countryListFiltered).enter()
         .append("text")
         .attr("class", "maxBelowText")
         .style("fill", function (d) {

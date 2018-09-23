@@ -78,9 +78,6 @@ class OutliagProcessor {
 
     calculateYearlyOutliag(year) {
         let y = this.getYearData(year);
-        if(year==44){
-            debugger
-        }
         let outliag = this.calculateOutliag(y, false, false);
         return outliag;
     }
