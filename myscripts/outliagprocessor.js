@@ -4,6 +4,7 @@ class OutliagProcessor {
     constructor(dataS) {
         this.dataS = dataS;
         this.allYearsBins = [];
+        this.allYearUpperBounds = [];
     }
 
     processOutliagData() {
@@ -13,17 +14,21 @@ class OutliagProcessor {
         function processYearlyOutliags() {
             let years = self.dataS["YearsData"].length;
             let countries = d3.keys(self.dataS["CountriesData"]);
-            //Make sure that each year there is a bin
+            //Make sure that each year there is a bin => because we will use year as index to access the bins information later on.
+            //Similar for the outlying upper bound (cut point)
             for (let year = 0; year < years; year++) {
                 let outliag = self.calculateYearlyOutliag(year);
                 let outlyingScore = 0;
                 let bins = null;
+                let outlyingUpperBound = 0;
                 if (outliag != null) {//outliag = null means set of valid unique points has length < 3
                     outlyingScore = outliag.outlyingScore;
                     bins = outliag.bins;
+                    outlyingUpperBound = outliag.outlyingUpperBound;
                 }
                 self.setYearOutliagScore(year, outlyingScore);
                 self.allYearsBins.push(bins);
+                self.allYearUpperBounds.push(outlyingUpperBound);
                 //By default, leave out a country would not affect anything => so we set its default leave out to be the same as the not leaveout score.
                 countries.forEach(country=>{
                     self.setYearCountryOutliagScore(year, country, outlyingScore);
@@ -37,6 +42,7 @@ class OutliagProcessor {
             for (let year = 0; year < allBinsLength ; ++year) {
                 let bins = self.allYearsBins[year];
                 if (bins != null) {//beans = null means that year, there is no data (nor the data points <=3).
+                    let outlyingUpperBound = self.allYearUpperBounds[year];
                     let binLength = bins.length;
                     for (let i = 0; i < binLength; ++i) {
                         let theBin = bins[i];
@@ -45,7 +51,7 @@ class OutliagProcessor {
                             //remove the current bin.
                             bins1.splice(i, 1);
                             //calcualte outliag.
-                            let outlyingScore = self.calculateOutliag(bins1.map(b => [b.x, b.y]), true, true).outlyingScore;
+                            let outlyingScore = self.calculateOutliag(bins1.map(b => [b.x, b.y]), true, true, outlyingUpperBound).outlyingScore;
                             self.setYearCountryOutliagScore(year, theBin[0].data, outlyingScore);
                         }
                     }
@@ -80,13 +86,13 @@ class OutliagProcessor {
     }
 
 
-    calculateOutliag(y, isNormalized, isBinned) {
+    calculateOutliag(y, isNormalized, isBinned, outlyingUpperBound) {
         var outliag = null;
         let self = this;
         y = y.filter(d => self.isValidPoint(d));
         //check if the input points has more than 2 unique values.
         if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, binningType, startBinGridSize, isNormalized, isBinned);
+            outliag = outliagnostics(y, binningType, startBinGridSize, isNormalized, isBinned, outlyingUpperBound);
         }
         return outliag;
     }
