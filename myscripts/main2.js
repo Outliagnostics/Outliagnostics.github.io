@@ -38,10 +38,12 @@ var yStart;
 var yStartBoxplot;
 var transitionTime =1000;
 var countryList =[];
-    
+var countryListYDistance = 15;
+
 var colorPurpleGreen= d3.scale.linear()
     .domain([0,0,0])
     .range([colorBelow,"#666",colorAbove]);
+
 
 
 var linkScale3 = function (count) {
@@ -216,12 +218,12 @@ function drawgraph2() {
         }
     });
 
-    var yTemp2 = yStart-60;
+    var yTemp2 = yStart-90;
     for (var c=0; c<countryList.length;c++){
         for (var y=0; y<countryList[c].length;y++){
             countryList[c][y].y = yTemp2;
         }
-         yTemp2+=10;
+         yTemp2+=countryListYDistance;
     } 
     //Filtered country list (with outlying score difference > some point).
     let countryListFiltered = countryList.filter(c=>Math.abs(c.maxDifAbsolute)>0.01);
@@ -522,7 +524,7 @@ function updateTimeSeries() {
         for (var y=0; y<countryList[c].length;y++){
             countryList[c][y].y = yTemp2;
         }
-         yTemp2+=10;
+         yTemp2+=countryListYDistance;
     } 
     svg.selectAll(".countryText").transition().duration(transitionTime)
         .attr("y", function (d, i) {

@@ -76,14 +76,15 @@ var categories = ["Above Outlying of original plot", "Below Outlying of original
 var getColor3;  // Colors of categories
 
 //*****************************************************************
-var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV", "prices", "pricesDiff", "pricesDiffOverVolume"]
+var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV", "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_data (38)"]
 var processedData = {
     "UnemploymentRate": null,
     "LifeExpectancy263": null,
     "PrevalenceOfHIV": null,
     "prices":null,
     "pricesDiff": null,
-    "pricesDiffOverVolume": null
+    "pricesDiffOverVolume": null,
+    "HPCC_data (38)": null
 }
 var fileName = fileList[3];
 
