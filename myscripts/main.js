@@ -76,7 +76,9 @@ var categories = ["Above Outlying of original plot", "Below Outlying of original
 var getColor3;  // Colors of categories
 
 //*****************************************************************
-var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV", "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_scagnostics (15)", "HPCC_scagnostics Overheat"]
+var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV",
+    "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_scagnostics (15)",
+    "HPCC_scagnostics Overheat", "ustrafficfatalities", "InternationalDebtData"]
 var processedData = {
     "UnemploymentRate": null,
     "LifeExpectancy263": null,
@@ -85,7 +87,9 @@ var processedData = {
     "pricesDiff": null,
     "pricesDiffOverVolume": null,
     "HPCC_scagnostics (15)": null,
-    "HPCC_scagnostics Overheat": null
+    "HPCC_scagnostics Overheat": null,
+    "ustrafficfatalities": null,
+    "InternationalDebtData": null,
 }
 var fileName = fileList[fileList.length-1];
 
@@ -140,7 +144,7 @@ function loadData() {
         //maxYear =2016;
 
         // numMonth = maxYear - minYear + 1;
-        numMonth = 19;
+        numMonth = 40;
         XGAP_ = (width - xStep - 2) / numMonth; // gap between months on xAxis
 
 
