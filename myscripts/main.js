@@ -78,7 +78,9 @@ var getColor3;  // Colors of categories
 //*****************************************************************
 var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV",
     "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_scagnostics (15)",
-    "HPCC_scagnostics Overheat", "ustrafficfatalities", "InternationalDebtData"]
+    "HPCC_scagnostics Overheat", "ustrafficfatalities", "InternationalDebtData", "WorldTerrorism",
+    "USUnEmploymentRate"
+]
 var processedData = {
     "UnemploymentRate": null,
     "LifeExpectancy263": null,
@@ -90,6 +92,22 @@ var processedData = {
     "HPCC_scagnostics Overheat": null,
     "ustrafficfatalities": null,
     "InternationalDebtData": null,
+    "WorldTerrorism": null,
+    "USUnEmploymentRate": null
+}
+var timeSteps={
+    "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
+    "LifeExpectancy263":  {minTime: 1960, maxTime: 2015, type: "year"},
+    "PrevalenceOfHIV":  {minTime: 1960, maxTime: 2015, type: "year"},
+    "prices": {minTime: 1, maxTime: 51, type: "month"},
+    "pricesDiff":  {minTime: 1, maxTime: 51, type: "month"},
+    "pricesDiffOverVolume":  {minTime: 1, maxTime: 51, type: "month"},
+    "HPCC_scagnostics (15)":  {minTime: 1, maxTime: 19, type: "quarter"},
+    "HPCC_scagnostics Overheat":  {minTime: 1, maxTime: 19, type: "quarter"},
+    "ustrafficfatalities":  {minTime:1 , maxTime: 24, type: "month"},
+    "InternationalDebtData":  {minTime: 1970, maxTime: 2022, type: "year"},
+    "WorldTerrorism":  {minTime:1970 , maxTime: 2017, type: "year"},
+    "USUnEmploymentRate":  {minTime:1999 , maxTime: 2017, type: "year"},
 }
 var fileName = fileList[fileList.length-1];
 
@@ -136,15 +154,14 @@ function loadData() {
         lMonth = -lensingMul * 2;
 
 
-        minYear = 1960;
-        maxYear = 2015;
+        minYear = timeSteps[fileName].minTime;
+        maxYear = timeSteps[fileName].maxTime;
         //minYear =1990; // Huffington
         //maxYear =2048;
         //minYear =1990; // VIS
         //maxYear =2016;
 
-        // numMonth = maxYear - minYear + 1;
-        numMonth = 40;
+        numMonth = maxYear - minYear + 1;
         XGAP_ = (width - xStep - 2) / numMonth; // gap between months on xAxis
 
 
