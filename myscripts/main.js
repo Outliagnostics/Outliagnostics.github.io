@@ -79,7 +79,7 @@ var getColor3;  // Colors of categories
 var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV",
     "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_scagnostics (15)",
     "HPCC_scagnostics Overheat", "ustrafficfatalities", "InternationalDebtData", "WorldTerrorism",
-    "USUnEmploymentRate"
+    "USUnEmploymentRate", "USEmploymentRateGoodVsService"
 ]
 var processedData = {
     "UnemploymentRate": null,
@@ -93,7 +93,8 @@ var processedData = {
     "ustrafficfatalities": null,
     "InternationalDebtData": null,
     "WorldTerrorism": null,
-    "USUnEmploymentRate": null
+    "USUnEmploymentRate": null,
+    "USEmploymentRateGoodVsService": null
 }
 var timeSteps={
     "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
@@ -108,6 +109,7 @@ var timeSteps={
     "InternationalDebtData":  {minTime: 1970, maxTime: 2022, type: "year"},
     "WorldTerrorism":  {minTime:1970 , maxTime: 2017, type: "year"},
     "USUnEmploymentRate":  {minTime:1999 , maxTime: 2017, type: "year"},
+    "USEmploymentRateGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
 }
 var fileName = fileList[fileList.length-1];
 
