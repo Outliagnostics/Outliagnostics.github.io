@@ -10,7 +10,7 @@ function setExploreEvent(theSvg, dataPoints) {
     theSvg.dataPoints = dataPoints;
     theSvg
     /*This is for the tooltip section*/
-        .on("mouseover", function(d) {
+        .on("click", function(d) {
             document.dataPoints = theSvg.dataPoints;
             tooltipDiv.transition()
                 .duration(200)
@@ -19,13 +19,7 @@ function setExploreEvent(theSvg, dataPoints) {
                 .html('<iframe src="explorescag.html" style="width: 1040px; height: 800px;"></iframe>')
                 .style("left", (d3.event.pageX -520) + "px")
                 .style("top", (d3.event.pageY + 52) + "px");
-        })
-        // .on("mouseout", function(d) {
-        //     tooltipDiv.transition()
-        //         .duration(500)
-        //         .style("opacity", 0);
-        // })
-    ;
+        });
     /*End of tooltip section*/
 }
 $(document).keyup(function(e) {
