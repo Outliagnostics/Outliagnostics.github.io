@@ -1,5 +1,5 @@
-var binningType = "leader";
-var startBinGridSize = 20;
+var binningType = "hexagon";
+var startBinGridSize = 40;
 class OutliagProcessor {
     constructor(dataS) {
         this.dataS = dataS;

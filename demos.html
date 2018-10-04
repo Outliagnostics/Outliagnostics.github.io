@@ -9,6 +9,28 @@
     <link rel="stylesheet" type="text/css" href="styles/default.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="styles/main.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="styles/msdropdown/dd.css"/>
+    <style>
+        /*these are for the tooltip*/
+        div.tooltipexplorescag {
+            border: 1px solid black;
+            position: absolute;
+            line-height: 1;
+            font-weight: bold;
+            padding: 12px;
+            color: #000000;
+            background: #FFFFFF;
+            border-radius: 2px;
+            /*pointer-events: none;*/
+        }
+
+        /* Style northward tooltips differently */
+        div.tooltipexplorescag.n:after {
+            margin: -1px 0 0 0;
+            top: 100%;
+            left: 0;
+        }
+        /*end tooltip section*/
+    </style>
 </head>
 <body>
 <div class="navigation">
@@ -89,9 +111,6 @@
 <!-- jquery
 <script type='text/javascript' src="javascripts/jquery-ui.min.js"> </script>-->
 
-<!--Vung's scripts added here again-->
-<script src="myscripts/scagnosticprocessor.js"></script>
-<!--end of Vung's scripts-->
 
 <link href="styles/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script src="myscripts/searchBox.js"></script>
@@ -101,5 +120,10 @@
     <span class="right">&copy; Last revised: September 30, 2017</span>
     <div class="clearer"><span></span></div>
 </div>
+
+<!--Vung's scripts added here again-->
+<script src="myscripts/explorescag.js"></script>
+<!--end of Vung's scripts-->
+
 </div>
 </body>

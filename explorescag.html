@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="javascripts/d3.v3.min.js"></script>
+    <script type="text/javascript"
+            src="https://idatavisualizationlab.github.io/Scagnostics2018/scagnostics/build/js/scagnostics.min.js"></script>
+    <!--<script type="text/javascript" src="../Scagnostics2018/scagnostics/build/js/scagnostics.min.js"></script>-->
+    <title>Scagnostics</title>
+    <style>
+        .hexagon {
+            stroke: #000;
+            strokels-width: 0.5px;
+        }
+
+        .triangles {
+            fill: none;
+            stroke: black;
+            stroke-width: 0.5px;
+        }
+
+        .links {
+            stroke: #000;
+        }
+
+        .sites {
+            fill: #000;
+            stroke: #fff;
+        }
+
+        .triangles .primary {
+            stroke: #fff;
+        }
+
+        .sites :first-child {
+            fill: #fff;
+        }
+
+        path {
+            opacity: 0.8
+        }
+
+        /*these are for the tooltip*/
+        div.tooltip {
+            position: absolute;
+            line-height: 1;
+            font-weight: bold;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        /* Creates a small triangle extender for the tooltip */
+        div.tooltip:after {
+            box-sizing: border-box;
+            display: inline;
+            font-size: 10px;
+            width: 100%;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.8);
+            content: "\25BC";
+            position: absolute;
+            left: 6px;
+            bottom: -10px;
+            text-align: left;
+        }
+
+        /* Style northward tooltips differently */
+        div.tooltip.n:after {
+            margin: -1px 0 0 0;
+            top: 100%;
+            left: 0;
+        }
+
+        /*end tooltip section*/
+    </style>
+</head>
+<body style="width: 1010px;">
+<svg id="normalizedsvg" width="500" height="500"
+     style="border: 1px solid black; overflow: visible; margin-top:20px;"></svg>
+<svg id="scagsvg" width="500" height="500" style="border: 1px solid black; overflow: visible; margin-top:20px;"></svg>
+<div id="controlButtons">
+</div>
+<div id="msg"></div>
+<script>
+    /*This is for the tooltip*/
+    var tooltipDiv = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+    /*End tooltip section*/
+
+    let binType = "hexagon";
+
+    let optionsBinLeader = ["origPoints", "bins", "triangulations", "mst", "outlyingLinks", "outlyingPoints", "noOutlyingTree", "noOutlyingPoints", "v2Corners", "obtuseV2Corners", "noOutlyingTriangulations", "convexHull", "concaveHull", "v1s"];
+
+    function createControlButtons(theContainer, theOptions) {
+        let controlButtons = d3.select("#" + theContainer);
+        theOptions.forEach(option => {
+            controlButtons.append("button")
+                .attr("onclick", `toggleDisplay(${option})`)
+                .html("Toggle " + option);
+
+        });
+    }
+
+    createControlButtons("controlButtons", optionsBinLeader);
+    //Display variables
+    let dataPointRadius = 2;
+    let origPoints = null;
+    let bins = null;
+    let triangulations = null;//path
+    let mst = null;//path
+    let outlyingLinks = null;//path
+    let outlyingPoints = null;//circle
+    let noOutlyingTree = null;//path
+    let noOutlyingPoints = null;//circle
+    let runtGraph = null;
+    let v2Corners = null;//circle
+    let obtuseV2Corners = null;//path
+    let noOutlyingTriangulations = null;//path
+    let convexHull = null;//path
+    let concaveHull = null;//path
+    let v1s = null;//circle
+
+    let scagsvg = d3.select("#scagsvg"),
+        normalizedsvg = d3.select("#normalizedsvg"),
+        margins = {left: 20, top: 20, right: 20, bottom: 20},
+        width = +scagsvg.attr("width") - margins.left - margins.right,
+        height = +scagsvg.attr("height") - margins.top - margins.bottom,
+        scaleX = d3.scale.linear().domain([0, 1]).range([0, width]),
+        scaleY = d3.scale.linear().domain([0, 1]).range([height, 0]);
+
+    // /***********FAITHFUL DATA*******************/
+    // d3.tsv("../data/faithful.tsv", (error, rawData)=>{
+    //     if(error) throw error;
+    //     let points = rawData.map(d=>[+d["eruptions"], +d["waiting"]]);
+    //     let scag = scagnostics(points, "hexagon");
+    //     drawNormalizedData(scag);
+    //     draw(scag);
+    // });
+
+    // /***********FLOWER DATA*******************/
+    // d3.csv("../data/flowers.csv", (error, rawData) => {
+    //     if (error) throw error;
+    //     let points = rawData.map(d => [+d["sepal width"], +d["sepal length"]]);
+    //     let scag = scagnostics(points, "hexagon");
+    //     drawNormalizedData(scag);
+    //     draw(scag);
+    // });
+
+    /***********NYSE DATA*******************/
+    var ifrm = window.frameElement; // reference to iframe element container
+    var parentElm = ifrm.ownerDocument; // reference to container's document
+    var dataPoints = parentElm.dataPoints; // reference to first form in container document
+
+    let points = getYearData();
+    //Filter NaN points
+    points = points.filter(x => isValidPoint(x));
+    let scag = scagnostics(points, "hexagon", 40);
+    drawNormalizedData(scag);
+    draw(scag);
+
+    function isValidPoint(d) {
+        return (typeof d[0] === 'number') && (typeof d[1] === 'number');
+    }
+
+    function getYearData() {
+        let cd = dataPoints;
+        //convert to points
+        let y = [];
+        d3.keys(cd).forEach(key => {
+            let point = [cd[key]["v0"], cd[key]["v1"]];
+            point.data = cd[key]["country"];
+            y.push(point);
+        });
+        return y;
+    }
+
+
+    function drawNormalizedDataSvg(scag, theSvg) {
+        //Main container
+        let g = theSvg.append("g").attr("transform", `translate(${margins.left}, ${margins.top})`);
+        g.append("g").selectAll("circle")
+            .data(scag.normalizedPoints)
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0]))
+            .attr("cy", d => scaleY(d[1]))
+            .attr("r", dataPointRadius)
+            .attr("fill", "black")
+            .attr("stroke", "none")
+            /*This is for the tooltip section*/
+            .on("mouseover", function (d) {
+                tooltipDiv.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltipDiv.html((d.data ? d.data + ': ' : '') + `[${d[0]}, ${d[1]}]`)
+                    .style("left", (d3.event.pageX - 10) + "px")
+                    .style("top", (d3.event.pageY - 52) + "px");
+            })
+            .on("mouseout", function (d) {
+                tooltipDiv.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+        /*End of tooltip section*/
+        return g;
+    }
+
+    function drawNormalizedData(scag) {
+        drawNormalizedDataSvg(scag, normalizedsvg);
+    }
+
+    //This method is called in string (creating the button using JS) so though it is displayed as unused => it is used.
+    function toggleDisplay(g) {
+        if (+d3.select(g.node()).style("opacity") != 10e-6) {
+            g.transition().duration(1000).style("opacity", 10e-6).style("display", "none");
+        } else {
+            g.transition().duration(1000).style("opacity", .8).style("display", "inline");
+        }
+    }
+
+
+    function displayScagScores(scag, msgContainer) {
+        let msg = "Scagnostics";
+        //Binning
+        msg += "<br/>0. Bin size: " + scag.binSize + "x" + scag.binSize + " bins" + ", num of bins: " + scag.bins.length;
+        //Outlying
+        msg += "<br/>1. Outlying score: " + scag.outlyingScore + ", outlying edge cut point: " + scag.outlyingUpperBound;
+        //Skewed
+        msg += "<br/>2. Skewed score: " + scag.skewedScore;
+        //Sparse
+        msg += "<br/>3. Sparse score: " + scag.sparseScore;
+        //Clumpy
+        msg += "<br/>4. Clumpy score: " + scag.clumpyScore;
+        //Striated
+        msg += "<br/>5. Striated score: " + scag.striatedScore;
+        //Convex
+        msg += "<br/>6. Convex score: " + scag.convexScore;
+        //Skinny
+        msg += "<br/>7. Skinny score: " + scag.skinnyScore;
+        //Stringy
+        msg += "<br/>8. Stringy score: " + scag.stringyScore;
+        //Monotonic
+        msg += "<br/>9. Monotonic score: " + scag.monotonicScore;
+        //Set the scagnostics message
+        d3.select("#" + msgContainer).html(msg);
+    }
+
+    function draw(scag) {
+        //Main container
+        let g = scagsvg.append("g").attr("transform", `translate(${margins.left}, ${margins.top})`);
+        //Original points
+        origPoints = drawNormalizedDataSvg(scag, scagsvg);
+
+        //Binning
+        var color = d3.scale.linear().domain(d3.extent(scag.bins.map(b => b.length)))
+            .interpolate(d3.interpolateHcl)
+            .range(["grey", "steelblue"]);
+
+        if (binType === "hexagon") {
+            bins = g.append("g")
+                .attr("class", "hexagon")
+                .selectAll("path")
+                .data(scag.bins)
+                .enter().append("path")
+                .attr("d", scag.binner.hexagon(scaleX(scag.binRadius)))
+                .attr("transform", function (d) {
+                    return "translate(" + scaleX(d.x) + "," + scaleY(d.y) + ")";
+                })
+                .attr("fill", d => color(d.length));
+        } else {
+            bins = g.append("g")
+                .attr("class", "leader")
+                .selectAll("circle")
+                .data(scag.bins)
+                .enter().append("circle")
+                // .attr("r", scaleX(scag.binRadius))
+                .attr("r", d => {
+                    let distances = d.map(p => distance([d.x, d.y], p));
+                    let radius = d3.max(distances);
+                    return radius === 0 ? dataPointRadius : scaleX(radius);
+                })
+                .attr("cx", d => scaleX(d.x))
+                .attr("cy", d => scaleY(d.y))
+                .attr("fill", d => color(d.length))
+                .attr("stroke", d => color(d.length))
+                .attr("stroke-width", 0.5);
+
+            // bins = g.append("g")
+            //     .attr("class", "leader")
+            //     .selectAll("circle")
+            //     .data(scag.bins)
+            //     .enter().append("circle")
+            //     .attr("r", d=> {
+            //         let distances = d.map(p=>distance([d.x, d.y], p));
+            //         let radius = d3.max(distances);
+            //         return radius === 0 ? dataPointRadius: scaleX(radius);
+            //     })
+            //     .attr("cx", d=>scaleX(d.x))
+            //     .attr("cy", d=>scaleY(d.y))
+            //     .attr("fill", d=>color(d.length))
+            //     .attr("stroke", d=>color(d.length))
+            //     .attr("stroke-width", 0.5);
+            function distance(a, b) {
+                let dx = a[0] - b[0],
+                    dy = a[1] - b[1];
+                //For computer storage issue, some coordinates of the same distance may return different distances if we use long floating point
+                //So take only 10 digits after the floating points=> this is precise enough and still have the same values for two different lines of the same distance
+                return Math.round(Math.sqrt((dx * dx) + (dy * dy)) * Math.pow(10, 10)) / Math.pow(10, 10);
+            }
+        }
+        //Triangulating
+        triangulations = g.append("g")
+            .attr("class", "triangles")
+            .selectAll("path")
+            .data(scag.triangleCoordinates)
+            .enter()
+            .append("path")
+            .call(drawTriangle);
+
+        function drawTriangle(triangle) {
+            triangle.attr("d", d => "M" + d.map(p => [scaleX(p[0]), scaleY(p[1])]).join("L") + "Z");
+        }
+
+        //Minimum spanning tree.
+        mst = g.append("g").selectAll("path")
+            .data(scag.mst.links)
+            .enter()
+            .append("line")
+            .attr("x1", d => scaleX(d.source[0]))
+            .attr("y1", d => scaleY(d.source[1]))
+            .attr("x2", d => scaleX(d.target[0]))
+            .attr("y2", d => scaleY(d.target[1]))
+            .attr("stroke", "purple")
+            .attr("stroke-width", 2);
+
+        //Minimum spanning tree.
+        //Outlying links
+        outlyingLinks = g.append("g").selectAll("path")
+            .data(scag.outlyingLinks)
+            .enter()
+            .append("line")
+            .attr("x1", d => scaleX(d.source[0]))
+            .attr("y1", d => scaleY(d.source[1]))
+            .attr("x2", d => scaleX(d.target[0]))
+            .attr("y2", d => scaleY(d.target[1]))
+            .attr("stroke", "red")
+            .attr("stroke-width", 2);
+        //Outlying points
+        outlyingPoints = g.append("g").selectAll("circle")
+            .data(scag.outlyingPoints)
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0]))
+            .attr("cy", d => scaleY(d[1]))
+            .attr("r", 3)
+            .attr("fill", "red")
+            .attr("stroke", "none");
+        //No outlying tree
+        noOutlyingTree = g.append("g").selectAll("path")
+            .data(scag.noOutlyingTree.links)
+            .enter()
+            .append("line")
+            .attr("x1", d => scaleX(d.source[0]))
+            .attr("y1", d => scaleY(d.source[1]))
+            .attr("x2", d => scaleX(d.target[0]))
+            .attr("y2", d => scaleY(d.target[1]))
+            .attr("stroke", "black")
+            .attr("stroke-width", 4).on("click", l => {
+                if (runtGraph) runtGraph.remove();
+                let rg = scag.clumpy.runtGraph(l);
+                runtGraph = g.append("g").selectAll("path")
+                    .data(rg)
+                    .enter()
+                    .append("line")
+                    .attr("x1", d => scaleX(d.source[0]))
+                    .attr("y1", d => scaleY(d.source[1]))
+                    .attr("x2", d => scaleX(d.target[0]))
+                    .attr("y2", d => scaleY(d.target[1]))
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 2);
+            });
+        noOutlyingPoints = g.append("g").selectAll("circle")
+            .data(scag.noOutlyingTree.nodes.map(n => n.id))
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0]))
+            .attr("cy", d => scaleY(d[1]))
+            .attr("r", 3)
+            .attr("fill", "green")
+            .attr("stroke", "none");
+
+
+        //Striated
+        //V2 corners
+        v2Corners = g.append("g").selectAll("circle")
+            .data(scag.v2Corners)
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0][0]))
+            .attr("cy", d => scaleY(d[0][1]))
+            .attr("r", 3)
+            .attr("stroke", "none")
+            .attr("fill", "yellow");
+        //ObtuseV2Corners
+        obtuseV2Corners = g.append("g").selectAll("path")
+            .data(scag.obtuseV2Corners)
+            .enter()
+            .append("path")
+            .attr("d", d => {
+                //Clone the data to avoid changing it
+                let d1 = d.splice(0);
+                //swap since we need to start drawing from the point which is not the vertex of the corner (first point).
+                let temp = d1[0];
+                d1[0] = d1[1];
+                d1[1] = temp;
+                d1 = d1.map(d => [scaleX(d[0]), scaleY(d[1])]);
+                return "M" + d1.join("L");
+            })
+            .attr("fill", "none")
+            .attr("stroke", "pink")
+            .attr("stroke-width", 1);
+
+        //Triangulating
+        noOutlyingTriangulations = g.append("g")
+            .attr("class", "triangles")
+            .selectAll("path")
+            .data(scag.noOutlyingTriangleCoordinates)
+            .enter()
+            .append("path")
+            .call(drawTriangle);
+
+        //Convex hull
+        convexHull = g.append("g").selectAll("path")
+            .data([scag.convexHull.map(d => [scaleX(d[0]), scaleY(d[1])])])
+            .enter()
+            .append("path")
+            .attr("d", d => "M" + d.join("L") + "Z")
+            .attr("stroke-width", 3)
+            .attr("stroke", "blue")
+            .attr("fill", "none");
+
+        //Concave hull
+        concaveHull = g.append("g")
+            .selectAll("path")
+            .data(scag.concaveHull)
+            .enter()
+            .append("path")
+            .attr("d", d => "M" + d.map(p => [scaleX(p[0]), scaleY(p[1])]).join("L") + "Z")
+            .attr("stroke-width", 2)
+            .attr("stroke", "green")
+            .attr("fill", "none");
+
+        //Stringy => single degree vertices
+        v1s = g.append("g")
+            .selectAll("circle")
+            .data(scag.v1s)
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0]))
+            .attr("cy", d => scaleY(d[1]))
+            .attr("r", 3)
+            .attr("stroke", "none")
+            .attr("fill", "orange");
+        //Scagnostics messages
+        let msgContainer = "msg";
+        displayScagScores(scag, msgContainer);
+    }
+</script>
+
+</body>
+</html>

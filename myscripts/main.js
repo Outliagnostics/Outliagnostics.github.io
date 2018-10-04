@@ -79,7 +79,7 @@ var getColor3;  // Colors of categories
 var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV",
     "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_scagnostics (15)",
     "HPCC_scagnostics Overheat", "ustrafficfatalities", "InternationalDebtData", "WorldTerrorism",
-    "USUnEmploymentRate", "USEmploymentRateGoodVsService"
+    "USUnEmploymentRate", "USEmploymentRateGoodVsService", "HPCC_TemperatureAndFan"
 ]
 var processedData = {
     "UnemploymentRate": null,
@@ -94,7 +94,8 @@ var processedData = {
     "InternationalDebtData": null,
     "WorldTerrorism": null,
     "USUnEmploymentRate": null,
-    "USEmploymentRateGoodVsService": null
+    "USEmploymentRateGoodVsService": null,
+    "HPCC_TemperatureAndFan": null
 }
 var timeSteps={
     "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
@@ -110,8 +111,11 @@ var timeSteps={
     "WorldTerrorism":  {minTime:1970 , maxTime: 2017, type: "year"},
     "USUnEmploymentRate":  {minTime:1999 , maxTime: 2017, type: "year"},
     "USEmploymentRateGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
+    "HPCC_TemperatureAndFan":  {minTime:1 , maxTime: 18, type: "quarter"},
+
 }
-var fileName = fileList[fileList.length-1];
+// var fileName = fileList[fileList.length-1];
+var fileName = fileList[2];
 
 // START: loader spinner settings ****************************
 var opts = {
