@@ -1,5 +1,6 @@
-var binningType = "hexagon";
-var startBinGridSize = 40;
+var binType = "leader";
+var startBinGridSize = 20;
+
 class OutliagProcessor {
     constructor(dataS) {
         this.dataS = dataS;
@@ -9,18 +10,22 @@ class OutliagProcessor {
 
     processOutliagData() {
         let self = this;
+
         processYearlyOutliags();
         processLeaveOut();
+
         function processYearlyOutliags() {
             let years = self.dataS["YearsData"].length;
             let countries = d3.keys(self.dataS["CountriesData"]);
             //Make sure that each year there is a bin => because we will use year as index to access the bins information later on.
             //Similar for the outlying upper bound (cut point)
+            let totalBins = 0;
+            let totalBinSize = 0;
             for (let year = 0; year < years; year++) {
                 let outliag = self.calculateYearlyOutliag(year);
                 let outlyingScore = 0;
                 let bins = null;
-                let outlyingUpperBound = 0;
+                let outlyingUpperBound = null;
                 if (outliag != null) {//outliag = null means set of valid unique points has length < 3
                     outlyingScore = outliag.outlyingScore;
                     bins = outliag.bins;
@@ -30,23 +35,29 @@ class OutliagProcessor {
                 self.allYearsBins.push(bins);
                 self.allYearUpperBounds.push(outlyingUpperBound);
                 //By default, leave out a country would not affect anything => so we set its default leave out to be the same as the not leaveout score.
-                countries.forEach(country=>{
+                countries.forEach(country => {
                     self.setYearCountryOutliagScore(year, country, outlyingScore);
-                })
+                });
+                //TODO: remove this since used to calculate efficiency only.
+                totalBins += bins? bins.length: 0;
+                totalBinSize += outliag? outliag.binSize: 0;
             }
-
+            console.log('Bins: ' + (totalBins/years) + ", " + (totalBinSize/years));
         }
+
         function processLeaveOut() {
             //Only need to process the bins !=null and each bin with length > 1.
             let allBinsLength = self.allYearsBins.length;
-            for (let year = 0; year < allBinsLength ; ++year) {
+            let totalActualScags = 0;
+            for (let year = 0; year < allBinsLength; ++year) {
                 let bins = self.allYearsBins[year];
                 if (bins != null) {//beans = null means that year, there is no data (nor the data points <=3).
                     let outlyingUpperBound = self.allYearUpperBounds[year];
                     let binLength = bins.length;
                     for (let i = 0; i < binLength; ++i) {
                         let theBin = bins[i];
-                        if(theBin.length==1){//Only leave out the bin if it is single, since we assume if a bin has more members, it would not affect the overall score if remove one member
+                        if (theBin.length == 1) {//Only leave out the bin if it is single, since we assume if a bin has more members, it would not affect the overall score if remove one member
+                            totalActualScags+=1;
                             let bins1 = bins.slice(0);//copy to avoid modifying the original one.
                             //remove the current bin.
                             bins1.splice(i, 1);
@@ -57,6 +68,7 @@ class OutliagProcessor {
                     }
                 }
             }
+            console.log("TotalActualScags: " + totalActualScags);
         }
     }
 
@@ -89,7 +101,7 @@ class OutliagProcessor {
         y = y.filter(d => self.isValidPoint(d));
         //check if the input points has more than 2 unique values.
         if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, binningType, startBinGridSize, isNormalized, isBinned, outlyingUpperBound);
+            outliag = outliagnostics(y, binType, startBinGridSize, isNormalized, isBinned, outlyingUpperBound);
         }
         return outliag;
     }

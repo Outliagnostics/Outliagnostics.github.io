@@ -76,44 +76,46 @@ var categories = ["Above Outlying of original plot", "Below Outlying of original
 var getColor3;  // Colors of categories
 
 //*****************************************************************
-var fileList = ["UnemploymentRate", "LifeExpectancy263", "PrevalenceOfHIV",
-    "prices", "pricesDiff", "pricesDiffOverVolume", "HPCC_scagnostics (15)",
-    "HPCC_scagnostics Overheat", "ustrafficfatalities", "InternationalDebtData", "WorldTerrorism",
-    "USUnEmploymentRate", "USEmploymentRateGoodVsService", "HPCC_TemperatureAndFan"
-]
+var fileList = [
+    "UnemploymentRate",
+    "LifeExpectancy263",
+    "PrevalenceOfHIV",
+    "NYSEPriceVsVolume",
+    "InternationalDebtData",
+    "WorldTerrorism",
+    "USUnEmpRateMenVsWomen",
+    "USEmpRGoodVsService",
+    "HPCCTempVsFan",
+    "HPCC_04Oct",
+];
+
+
 var processedData = {
     "UnemploymentRate": null,
     "LifeExpectancy263": null,
     "PrevalenceOfHIV": null,
-    "prices":null,
-    "pricesDiff": null,
-    "pricesDiffOverVolume": null,
-    "HPCC_scagnostics (15)": null,
-    "HPCC_scagnostics Overheat": null,
-    "ustrafficfatalities": null,
+    "NYSEPriceVsVolume":null,
     "InternationalDebtData": null,
     "WorldTerrorism": null,
-    "USUnEmploymentRate": null,
-    "USEmploymentRateGoodVsService": null,
-    "HPCC_TemperatureAndFan": null
-}
+    "USUnEmpRateMenVsWomen": null,
+    "USEmpRGoodVsService": null,
+    "HPCCTempVsFan": null,
+    "HPCC_04Oct": null
+};
+
 var timeSteps={
     "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
     "LifeExpectancy263":  {minTime: 1960, maxTime: 2015, type: "year"},
     "PrevalenceOfHIV":  {minTime: 1960, maxTime: 2015, type: "year"},
-    "prices": {minTime: 1, maxTime: 51, type: "month"},
-    "pricesDiff":  {minTime: 1, maxTime: 51, type: "month"},
-    "pricesDiffOverVolume":  {minTime: 1, maxTime: 51, type: "month"},
-    "HPCC_scagnostics (15)":  {minTime: 1, maxTime: 19, type: "quarter"},
-    "HPCC_scagnostics Overheat":  {minTime: 1, maxTime: 19, type: "quarter"},
-    "ustrafficfatalities":  {minTime:1 , maxTime: 24, type: "month"},
+    "NYSEPriceVsVolume":{minTime: 1, maxTime: 84, type: "month"},
     "InternationalDebtData":  {minTime: 1970, maxTime: 2022, type: "year"},
     "WorldTerrorism":  {minTime:1970 , maxTime: 2017, type: "year"},
-    "USUnEmploymentRate":  {minTime:1999 , maxTime: 2017, type: "year"},
-    "USEmploymentRateGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
-    "HPCC_TemperatureAndFan":  {minTime:1 , maxTime: 18, type: "quarter"},
+    "USUnEmpRateMenVsWomen":  {minTime:1999 , maxTime: 2017, type: "year"},
+    "USEmpRGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
+    "HPCCTempVsFan":  {minTime:1 , maxTime: 18, type: "quarter"},
+    "HPCC_04Oct":  {minTime:0 , maxTime: 32, type: "quarter"},
 
-}
+};
 // var fileName = fileList[fileList.length-1];
 var fileName = fileList[2];
 
