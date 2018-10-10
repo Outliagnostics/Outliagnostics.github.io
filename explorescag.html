@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <script src="javascripts/d3.v3.min.js"></script>
+    <!--<script src="build/js/scagnostics.min.js"></script>-->
+    <!--<script src="build/js/outliagnostics.min.js"></script>-->
     <script type="text/javascript"
             src="https://idatavisualizationlab.github.io/Scagnostics2018/scagnostics/build/js/scagnostics.min.js"></script>
-    <!--<script type="text/javascript" src="../Scagnostics2018/scagnostics/build/js/scagnostics.min.js"></script>-->
+    <script type="text/javascript"
+            src="https://idatavisualizationlab.github.io/Scagnostics2018/scagnostics/build/js/outliagnostics.min.js"></script>
+    <script src="https://underscorejs.org/underscore-min.js"></script>
+    <script src="https://unpkg.com/delaunator@3.0.2/delaunator.min.js"></script> <!-- minified build -->
+
     <title>Scagnostics</title>
     <style>
         .hexagon {
             stroke: #000;
-            strokels-width: 0.5px;
+            stroke-width: 0.5px;
         }
 
         .triangles {
@@ -75,23 +81,140 @@
         }
 
         /*end tooltip section*/
+        /*Section for the plot title style*/
+        .plottitle {
+            position: relative;
+            display: block;
+        }
     </style>
 </head>
-<body style="width: 1010px;">
-<svg id="normalizedsvg" width="500" height="500"
-     style="border: 1px solid black; overflow: visible; margin-top:20px;"></svg>
-<svg id="scagsvg" width="500" height="500" style="border: 1px solid black; overflow: visible; margin-top:20px;"></svg>
+<body>
+<svg id="normalizedsvg"
+     style="overflow: visible; margin-top:0px;"></svg>
+<svg id="scagsvg"
+     style="overflow: visible; margin-top:0px;"></svg>
+<svg id="leaveoutsvg"
+     style="overflow: visible; margin-top:0px;"></svg>
 <div id="controlButtons">
 </div>
 <div id="msg"></div>
 <script>
+    class SingleOutliagProcessor {
+        constructor(points) {
+            this.points = points;
+            //set index for the points
+            points.forEach((p, i) => {
+                if (!p.data) {
+                    p.data = {};
+                }
+                p.data.index = i;
+            });
+            this.bins = [];
+            this.upperBound = null;
+            this.outlyingScore = 0;
+            this.outlyingUpperBound = null;
+            this.allOutliags = {};
+        }
+
+        processOutliagData() {
+            let self = this;
+
+            processOutliag();
+            processLeaveOut();
+
+            function processOutliag() {
+                let outliag = self.calculateOutliag(self.points, true);
+                if (outliag) {
+                    self.outlyingScore = outliag.outlyingScore;
+                    self.bins = outliag.bins;
+                    self.outlyingUpperBound = outliag.outlyingUpperBound;
+                }
+            }
+
+            function cloneScag(scag) {
+                let mst = JSON.parse(JSON.stringify(scag.mst));
+                let outlyingLinks = JSON.parse(JSON.stringify(scag.outlyingLinks));
+                let outlyingPoints = JSON.parse(JSON.stringify(scag.outlyingPoints));
+                let noOutlyingTree = JSON.parse(JSON.stringify(scag.noOutlyingTree));
+                return {
+                    "mst": mst,
+                    "outlyingLinks": outlyingLinks,
+                    "outlyingPoints": outlyingPoints,
+                    "noOutlyingTree": noOutlyingTree,
+                    "outlyingScore": scag.outlyingScore
+                }
+
+            }
+
+            function processLeaveOut() {
+                //Only need to process the bins !=null and each bin with length > 1.
+                let bins = self.bins;
+                if (bins != null) {//beans = null means that year, there is no data (nor the data points <=3).
+                    let outlyingUpperBound = self.outlyingUpperBound;
+                    let binLength = bins.length;
+                    for (let i = 0; i < binLength; ++i) {
+                        let theBin = bins[i];
+                        if (theBin.length == 1) {//Only leave out the bin if it is single, since we assume if a bin has more members, it would not affect the overall score if remove one member
+                            let bins1 = bins.slice(0);//copy to avoid modifying the original one.
+                            //remove the current bin.
+                            bins1.splice(i, 1);
+                            let outliag = self.calculateOutliag(bins1.map(b => [b.x, b.y]), true, true, outlyingUpperBound);
+                            if (outliag != null) {
+                                //calcualte outliag.
+                                let outlyingScore = outliag.outlyingScore;
+                                self.setPointOutliagScore(theBin[0].data.index, outlyingScore);
+                                let copiedOutliag = cloneScag(outliag);
+                                self.allOutliags[theBin[0].data.index] = copiedOutliag;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        getUniqueSize(data) {
+            return _.uniq(data.map(v => v.join(','))).length;
+        }
+
+        calculateOutliag(y, isNormalized, isBinned, outlyingUpperBound) {
+            var outliag = null;
+            let self = this;
+            y = y.filter(d => self.isValidPoint(d));
+            //check if the input points has more than 2 unique values.
+            if (this.getUniqueSize(y) > 3) {
+                outliag = outliagnostics(y, binType, startBinGridSize, isNormalized, isBinned, outlyingUpperBound);
+            }
+            return outliag;
+        }
+
+        isValidPoint(d) {
+            return (typeof d[0] === 'number') && (typeof d[1] === 'number');
+        }
+
+        setPointOutliagScore(index, outlyingScore) {
+            this.points[index].outliagScore = this.outlyingScore - outlyingScore;
+            if (isNaN(this.points[index].outliagScore)) {
+                debugger
+            }
+        }
+    }
+</script>
+<script>
+    let binType = "leader";
+    let startBinGridSize = 20;
+    let animateTime = 20;
+    let colorAbove = "#0a0";
+    let colorBelow = "#b06";
+    let outlyingCut=0.021;
+
     /*This is for the tooltip*/
-    var tooltipDiv = d3.select("body").append("div")
+    var div = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
     /*End tooltip section*/
 
-    let optionsBinLeader = ["origPoints", "bins", "triangulations", "mst", "outlyingLinks", "outlyingPoints", "noOutlyingTree", "noOutlyingPoints", "v2Corners", "obtuseV2Corners", "noOutlyingTriangulations", "convexHull", "concaveHull", "v1s"];
+    //<editor-fold desc="section for display options">
+    let optionsBinLeader = ["origPoints", "bins", "triangulations", "mst", "outlyingLinks", "outlyingPoints", "noOutlyingPoints", "noOutlyingTree",  "v2Corners", "obtuseV2Corners", "noOutlyingTriangulations", "convexHull", "concaveHull", "v1s"];
 
     function createControlButtons(theContainer, theOptions) {
         let controlButtons = d3.select("#" + theContainer);
@@ -106,6 +229,9 @@
     createControlButtons("controlButtons", optionsBinLeader);
     //Display variables
     let dataPointRadius = 4;
+    let dataPointOpacity = 0.9;
+    let binOpacity = 0.8;
+    let origPoints0 = null;
     let origPoints = null;
     let bins = null;
     let triangulations = null;//path
@@ -122,45 +248,24 @@
     let concaveHull = null;//path
     let v1s = null;//circle
 
-    let scagsvg = d3.select("#scagsvg"),
-        normalizedsvg = d3.select("#normalizedsvg"),
-        margins = {left: 20, top: 20, right: 20, bottom: 20},
-        width = +scagsvg.attr("width") - margins.left - margins.right,
-        height = +scagsvg.attr("height") - margins.top - margins.bottom,
-        scaleX = d3.scale.linear().domain([0, 1]).range([0, width]),
-        scaleY = d3.scale.linear().domain([0, 1]).range([height, 0]);
+    let svgWidth = 500;
+    let svgHeight = 520;
+    let scagsvg = d3.select("#scagsvg").attr("width", svgWidth).attr("height", svgHeight),
+        normalizedsvg = d3.select("#normalizedsvg").attr("width", svgWidth).attr("height", svgHeight),
+        leaveoutsvg = d3.select("#leaveoutsvg").attr("width", svgWidth).attr("height", svgHeight),
+        margins = {left: 20, top: 40, right: 20, bottom: 20},
+        padding = 10;
+    contentWidth = +scagsvg.attr("width") - margins.left - margins.right - 2 * padding,
+        contentHeight = +scagsvg.attr("height") - margins.top - margins.bottom - 2 * padding,
+        scaleX = d3.scale.linear().domain([0, 1]).range([0, contentWidth]),
+        scaleY = d3.scale.linear().domain([0, 1]).range([contentHeight, 0]);
 
-    // /***********FAITHFUL DATA*******************/
-    // d3.tsv("../data/faithful.tsv", (error, rawData)=>{
-    //     if(error) throw error;
-    //     let points = rawData.map(d=>[+d["eruptions"], +d["waiting"]]);
-    //     let scag = scagnostics(points, "hexagon");
-    //     drawNormalizedData(scag);
-    //     draw(scag);
-    // });
 
-    // /***********FLOWER DATA*******************/
-    // d3.csv("../data/flowers.csv", (error, rawData) => {
-    //     if (error) throw error;
-    //     let points = rawData.map(d => [+d["sepal width"], +d["sepal length"]]);
-    //     let scag = scagnostics(points, "hexagon");
-    //     drawNormalizedData(scag);
-    //     draw(scag);
-    // });
-
-    /***********NYSE DATA*******************/
+    /***********PASSING DATA*******************/
     var ifrm = window.frameElement; // reference to iframe element container
     var parentElm = ifrm.ownerDocument; // reference to container's document
     var dataPoints = parentElm.dataPoints; // reference to first form in container document
-    let binType = "leader";
-
-    let points = getYearData();
-    //Filter NaN points
-    points = points.filter(x => isValidPoint(x));
-    let scag = scagnostics(points, binType, 40);
-    drawNormalizedData(scag);
-    draw(scag);
-
+    let variables = dataPoints.Variables;
     function isValidPoint(d) {
         return (typeof d[0] === 'number') && (typeof d[1] === 'number');
     }
@@ -171,46 +276,146 @@
         let y = [];
         d3.keys(cd).forEach(key => {
             let point = [cd[key]["v0"], cd[key]["v1"]];
-            point.data = cd[key]["country"];
+            if(!point.data){
+                point.data={};
+            }
+            point.data.text = cd[key]["country"];
             y.push(point);
         });
         return y;
     }
 
+    let points = getYearData();
+    //Filter NaN points
+    points = points.filter(x => isValidPoint(x));
+
+    let outliagProcessor = null;
+    //Assign original points to the data.
+    points.forEach(p => {
+        if (!p.data) {
+            p.data = {};
+        }
+        p.data.originalPoint = [p[0], p[1]];
+    });
+    let scag = scagnostics(points, binType, startBinGridSize);
+    //process outliag score
+    outliagProcessor = new SingleOutliagProcessor(scag.normalizedPoints);
+    outliagProcessor.processOutliagData();
+    //Draw axis
+
+
+    drawAxis(normalizedsvg, variables);
+    drawAxis(scagsvg, variables);
+    drawAxis(leaveoutsvg, variables);
+    drawTitle(normalizedsvg, "Original scatter plot");
+    drawTitle(scagsvg, "Bins on original");
+    drawTitle(leaveoutsvg, "Bins on leave-one-out");
+    drawContentBound(normalizedsvg);
+    drawContentBound(scagsvg);
+    drawContentBound(leaveoutsvg);
+
+    drawNormalizedData(scag);
+    draw(scag);
+
 
     function drawNormalizedDataSvg(scag, theSvg) {
-        theSvg.style("background", "#ddd");
+        //Add outliag scores as 0 for those doesn't have it
+        scag.normalizedPoints.forEach(p => {
+            if (!p.outliagScore) {
+                p.outliagScore = 0;
+            }
+        });
+        // let outlierColor = d3.scale.linear().range(["#000", "red"])
+        //     .interpolate(d3.interpolateHcl)
+        //     .domain(d3.extent(scag.normalizedPoints.map(p => (p.outliagScore.toFixed(3) > 0 ? p.outliagScore.toFixed(3) : 0))));
+        // let inlierColor = d3.scale.linear().range(["green", "#000"])
+        //     .interpolate(d3.interpolateHcl)
+        //     .domain(d3.extent(scag.normalizedPoints.map(p => (p.outliagScore.toFixed(3) < 0 ? p.outliagScore.toFixed(3) : 0))));
+        let originalPointColor = function(p){
+            return (p.outliagScore > outlyingCut)?colorBelow : ((p.outliagScore < -outlyingCut)?colorAbove:"#000");
+        }
+
         //Main container
-        let g = theSvg.append("g").attr("transform", `translate(${margins.left}, ${margins.top})`);
-        g.append("g").selectAll("circle")
+        let g = theSvg.append("g").attr("transform", `translate(${margins.left + padding}, ${margins.top + padding})`).append("g").selectAll("circle")
             .data(scag.normalizedPoints)
             .enter()
             .append("circle")
             .attr("cx", d => scaleX(d[0]))
             .attr("cy", d => scaleY(d[1]))
             .attr("r", dataPointRadius)
-            .attr("fill", "black")
+            // .attr("fill", "black")
+            .attr("fill", d => originalPointColor(d))
             .attr("stroke", "none")
+            .attr("opacity", dataPointOpacity)
             /*This is for the tooltip section*/
             .on("mouseover", function (d) {
-                tooltipDiv.transition()
+                div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                tooltipDiv.html((d.data ? d.data + ': ' : '') + `[${d[0]}, ${d[1]}]`)
+                div.html((d.data ? (d.data.text ? d.data.text : d.data.index?d.data.index: '') + ': ' : '') + `[${(d.data ? (d.data.originalPoint ? d.data.originalPoint[0] : d[0]) : d[0]).toFixed(3)}, ${(d.data ? (d.data.originalPoint ? d.data.originalPoint[1] : d[1]) : d[1]).toFixed(3)}]`)
                     .style("left", (d3.event.pageX - 10) + "px")
                     .style("top", (d3.event.pageY - 52) + "px");
             })
             .on("mouseout", function (d) {
-                tooltipDiv.transition()
+                div.transition()
                     .duration(500)
                     .style("opacity", 0);
+            })
+            .on("click", d => {
+                let outliag = outliagProcessor.allOutliags[d.data.index];
+                drawLeaveOut(outliag);
+                brushDataPoint(origPoints0, d.data.index);
+                brushDataPoint(origPoints, d.data.index);
+                brushBins(bins, d.data.index);
+                //Display skip tooltip
+                if(!outliag){
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    div.html((d.data ? (d.data.text ? d.data.text : d.data.index?d.data.index: '') + ': ' : '') + `[${(d.data ? (d.data.originalPoint ? d.data.originalPoint[0] : d[0]) : d[0]).toFixed(3)}, ${(d.data ? (d.data.originalPoint ? d.data.originalPoint[1] : d[1]) : d[1]).toFixed(3)}]`)
+                        .style("left", (d3.event.pageX - 10) + "px")
+                        .style("top", (d3.event.pageY - 52) + "px");
+                }
             });
         /*End of tooltip section*/
         return g;
     }
 
+    function brushDataPoint(g, index){
+        g.style("opacity", d=>{
+            if(d.data.index == index){
+                return 1.0;
+            }else{
+                return 0.1;
+            }
+        });
+    }
+    function getBinsFromPointIdx(bins, pointIndex){
+        let data = bins.data;
+        for (let i = 0; i < data.length; i++) {
+            if(d[i].data.index == pointIndex){
+                return bins[i];
+            }
+        }
+    }
+    function brushBins(bins, pointIndex){
+        bins.style("opacity", d=>{
+            for (let i = 0; i < d.length; i++) {
+                if(d[i].data.index == pointIndex){
+                    return 1.0;
+                }
+            }
+            return 0.1;
+        });
+    }
+    function unbrushBins(bins){
+        bins.style("opacity", 1.0);
+    }
+    function unBrushDataPoints(g){
+        g.style("opacity", 1.0);
+    }
     function drawNormalizedData(scag) {
-        drawNormalizedDataSvg(scag, normalizedsvg);
+        origPoints0 = drawNormalizedDataSvg(scag, normalizedsvg);
     }
 
     //This method is called in string (creating the button using JS) so though it is displayed as unused => it is used.
@@ -218,7 +423,8 @@
         if (+d3.select(g.node()).style("opacity") != 10e-6) {
             g.transition().duration(1000).style("opacity", 10e-6).style("display", "none");
         } else {
-            g.transition().duration(1000).style("opacity", .8).style("display", "inline");
+            animateNodes(g, animateTime, 10e-6, .8);
+            g.style("display", "inline");
         }
     }
 
@@ -249,16 +455,110 @@
         d3.select("#" + msgContainer).html(msg);
     }
 
+    function animateNodes(selection, time, fromOpacity, toOpacity, onEnd) {
+        recurseDisplay(selection, 0, time, fromOpacity, toOpacity, onEnd);
+
+        function recurseDisplay(selection, i, time, fromOpacity, toOpacity) {
+            let nodes = selection[0];
+            let length = nodes.length;
+            if (i < length) {
+                d3.select(nodes[i]).style("opacity", fromOpacity).transition().duration(time).style("opacity", toOpacity);
+                i = i + 1;
+                //recurse
+                setTimeout(() => {
+                    recurseDisplay(selection, i, time, fromOpacity, toOpacity, onEnd);
+                }, time);
+            } else {
+                if (onEnd) {
+                    onEnd();
+                }
+            }
+        }
+    }
+
+
+    function drawMst(g, scag) {
+        let mstLinks = scag.mst.links.sort((a, b) => a.weight - b.weight);
+        let mst = g.append("g").selectAll("path")
+            .data(mstLinks)
+            .enter()
+            .append("line")
+            .attr("x1", d => scaleX(d.source[0]))
+            .attr("y1", d => scaleY(d.source[1]))
+            .attr("x2", d => scaleX(d.target[0]))
+            .attr("y2", d => scaleY(d.target[1]))
+            .attr("stroke", "green")
+            .attr("stroke-width", 2)
+            .attr("opacity", 10e-6)
+            .style("display", "inline");
+        return mst;
+    }
+
+    function drawOutlyingLinks(g, scag) {
+        return g.append("g").selectAll("path")
+            .data(scag.outlyingLinks)
+            .enter()
+            .append("line")
+            .attr("x1", d => scaleX(d.source[0]))
+            .attr("y1", d => scaleY(d.source[1]))
+            .attr("x2", d => scaleX(d.target[0]))
+            .attr("y2", d => scaleY(d.target[1]))
+            .attr("stroke", "red")
+            .attr("stroke-width", 2)
+            .attr("opacity", 10e-6)
+            .style("display", "inline");
+    }
+
+    function drawOutlyingPoints(g, scag) {
+        return g.append("g").selectAll("circle")
+            .data(scag.outlyingPoints)
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0]))
+            .attr("cy", d => scaleY(d[1]))
+            .attr("r", dataPointRadius)
+            .attr("fill", "black")
+            .attr("stroke-width", 2)
+            .attr("stroke", "red")
+            .attr("opacity", 10e-6)
+            .style("display", "inline");
+    }
+
+    function drawNoOutlyingPoints(g, scag) {
+        return g.append("g").selectAll("circle")
+            .data(scag.noOutlyingTree.nodes.map(n => n.id))
+            .enter()
+            .append("circle")
+            .attr("cx", d => scaleX(d[0]))
+            .attr("cy", d => scaleY(d[1]))
+            .attr("r", 3)
+            .attr("fill", "black")
+            .attr("fill-opacity", dataPointOpacity)
+            .attr("stroke", "none")
+            .attr("opacity", 10e-6)
+            .style("display", "inline");
+    }
+
+    function drawScores(g, scag) {
+        return g.append("g").selectAll("text")
+            .data([{type: 'Outlying score', score: scag.outlyingScore}])
+            .enter()
+            .append("text")
+            .text(d => d.type + ": " + d.score.toFixed(3))
+            .attr("x", 0)
+            .attr("y", -14);
+    }
+
     function draw(scag) {
         //Main container
-        let g = scagsvg.append("g").attr("transform", `translate(${margins.left}, ${margins.top})`);
+        let g = scagsvg.append("g").attr("transform", `translate(${margins.left + padding}, ${margins.top + padding})`);
         //Original points
         origPoints = drawNormalizedDataSvg(scag, scagsvg);
-
-        //Binning
-        var color = d3.scale.linear().domain(d3.extent(scag.bins.map(b => b.length)))
+        toggleDisplay(origPoints);//Disable it
+        drawScores(g, scag);
+        var color = d3.scale.linear().range(["#EEEEEE", "#000"])
             .interpolate(d3.interpolateHcl)
-            .range(["grey", "steelblue"]);
+            .domain(d3.extent(scag.bins.map(b => b.length)));
 
         if (binType === "hexagon") {
             bins = g.append("g")
@@ -270,12 +570,15 @@
                 .attr("transform", function (d) {
                     return "translate(" + scaleX(d.x) + "," + scaleY(d.y) + ")";
                 })
+                .attr("fill-opacity", 1)
                 .attr("fill", d => color(d.length));
         } else {
+            //sort the scag bins by x first then by y
+            let scagBins = scag.bins.sort((a, b) => (a.x - b.x != 0) ? a.x - b.x : a.y - b.y);
             bins = g.append("g")
                 .attr("class", "leader")
                 .selectAll("circle")
-                .data(scag.bins)
+                .data(scagBins)
                 .enter().append("circle")
                 // .attr("r", scaleX(scag.binRadius))
                 .attr("r", d => {
@@ -286,24 +589,12 @@
                 .attr("cx", d => scaleX(d.x))
                 .attr("cy", d => scaleY(d.y))
                 .attr("fill", d => color(d.length))
-                .attr("stroke", d => color(d.length))
+                // .attr("fill", "none")
+                .attr("stroke", "black")
+                .attr("opacity", 10e-6)
+                .attr("display", "inline")
                 .attr("stroke-width", 0.5);
 
-            // bins = g.append("g")
-            //     .attr("class", "leader")
-            //     .selectAll("circle")
-            //     .data(scag.bins)
-            //     .enter().append("circle")
-            //     .attr("r", d=> {
-            //         let distances = d.map(p=>distance([d.x, d.y], p));
-            //         let radius = d3.max(distances);
-            //         return radius === 0 ? dataPointRadius: scaleX(radius);
-            //     })
-            //     .attr("cx", d=>scaleX(d.x))
-            //     .attr("cy", d=>scaleY(d.y))
-            //     .attr("fill", d=>color(d.length))
-            //     .attr("stroke", d=>color(d.length))
-            //     .attr("stroke-width", 0.5);
             function distance(a, b) {
                 let dx = a[0] - b[0],
                     dy = a[1] - b[1];
@@ -312,6 +603,8 @@
                 return Math.round(Math.sqrt((dx * dx) + (dy * dy)) * Math.pow(10, 10)) / Math.pow(10, 10);
             }
         }
+
+
         //Triangulating
         triangulations = g.append("g")
             .attr("class", "triangles")
@@ -319,6 +612,8 @@
             .data(scag.triangleCoordinates)
             .enter()
             .append("path")
+            .attr("opacity", 10e-6)
+            .style("display", "none")
             .call(drawTriangle);
 
         function drawTriangle(triangle) {
@@ -326,39 +621,15 @@
         }
 
         //Minimum spanning tree.
-        mst = g.append("g").selectAll("path")
-            .data(scag.mst.links)
-            .enter()
-            .append("line")
-            .attr("x1", d => scaleX(d.source[0]))
-            .attr("y1", d => scaleY(d.source[1]))
-            .attr("x2", d => scaleX(d.target[0]))
-            .attr("y2", d => scaleY(d.target[1]))
-            .attr("stroke", "green")
-            .attr("stroke-width", 2);
+        mst = drawMst(g, scag);
 
         //Minimum spanning tree.
         //Outlying links
-        outlyingLinks = g.append("g").selectAll("path")
-            .data(scag.outlyingLinks)
-            .enter()
-            .append("line")
-            .attr("x1", d => scaleX(d.source[0]))
-            .attr("y1", d => scaleY(d.source[1]))
-            .attr("x2", d => scaleX(d.target[0]))
-            .attr("y2", d => scaleY(d.target[1]))
-            .attr("stroke", "red")
-            .attr("stroke-width", 2);
+        outlyingLinks = drawOutlyingLinks(g, scag);
+
         //Outlying points
-        outlyingPoints = g.append("g").selectAll("circle")
-            .data(scag.outlyingPoints)
-            .enter()
-            .append("circle")
-            .attr("cx", d => scaleX(d[0]))
-            .attr("cy", d => scaleY(d[1]))
-            .attr("r", 3)
-            .attr("fill", "red")
-            .attr("stroke", "none");
+        outlyingPoints = drawOutlyingPoints(g, scag);
+
         //No outlying tree
         noOutlyingTree = g.append("g").selectAll("path")
             .data(scag.noOutlyingTree.links)
@@ -382,17 +653,20 @@
                     .attr("y2", d => scaleY(d.target[1]))
                     .attr("stroke", "red")
                     .attr("stroke-width", 2);
+            })
+            .attr("opacity", 10e-6)
+            .style("display", "none");
+        noOutlyingPoints = drawNoOutlyingPoints(g, scag);
+        //Display some main components
+        animateNodes(bins, animateTime, 10e-6, .8, ()=>{
+            animateNodes(mst, animateTime, 10e-6, .8, () => {
+                animateNodes(outlyingLinks, animateTime, 10e-6, .8, () => {
+                    animateNodes(outlyingPoints, animateTime, 10e-6, .8, () => {
+                        animateNodes(noOutlyingPoints, animateTime, 10e-6, .8);
+                    });
+                });
             });
-        noOutlyingPoints = g.append("g").selectAll("circle")
-            .data(scag.noOutlyingTree.nodes.map(n => n.id))
-            .enter()
-            .append("circle")
-            .attr("cx", d => scaleX(d[0]))
-            .attr("cy", d => scaleY(d[1]))
-            .attr("r", 3)
-            .attr("fill", "green")
-            .attr("stroke", "none");
-
+        });
 
         //Striated
         //V2 corners
@@ -404,7 +678,9 @@
             .attr("cy", d => scaleY(d[0][1]))
             .attr("r", 3)
             .attr("stroke", "none")
-            .attr("fill", "yellow");
+            .attr("fill", "yellow")
+            .attr("opacity", 10e-6)
+            .style("display", "none");
         //ObtuseV2Corners
         obtuseV2Corners = g.append("g").selectAll("path")
             .data(scag.obtuseV2Corners)
@@ -422,7 +698,9 @@
             })
             .attr("fill", "none")
             .attr("stroke", "pink")
-            .attr("stroke-width", 1);
+            .attr("stroke-width", 1)
+            .attr("opacity", 10e-6)
+            .style("display", "none");
 
         //Triangulating
         noOutlyingTriangulations = g.append("g")
@@ -431,7 +709,9 @@
             .data(scag.noOutlyingTriangleCoordinates)
             .enter()
             .append("path")
-            .call(drawTriangle);
+            .call(drawTriangle)
+            .attr("opacity", 10e-6)
+            .style("display", "none");
 
         //Convex hull
         convexHull = g.append("g").selectAll("path")
@@ -441,7 +721,9 @@
             .attr("d", d => "M" + d.join("L") + "Z")
             .attr("stroke-width", 3)
             .attr("stroke", "blue")
-            .attr("fill", "none");
+            .attr("fill", "none")
+            .attr("opacity", 10e-6)
+            .style("display", "none");
 
         //Concave hull
         concaveHull = g.append("g")
@@ -452,7 +734,9 @@
             .attr("d", d => "M" + d.map(p => [scaleX(p[0]), scaleY(p[1])]).join("L") + "Z")
             .attr("stroke-width", 2)
             .attr("stroke", "green")
-            .attr("fill", "none");
+            .attr("fill", "none")
+            .attr("opacity", 10e-6)
+            .style("display", "none");
 
         //Stringy => single degree vertices
         v1s = g.append("g")
@@ -464,10 +748,72 @@
             .attr("cy", d => scaleY(d[1]))
             .attr("r", 3)
             .attr("stroke", "none")
-            .attr("fill", "orange");
+            .attr("fill", "orange")
+            .attr("opacity", 10e-6)
+            .style("display", "none");
         //Scagnostics messages
         let msgContainer = "msg";
         displayScagScores(scag, msgContainer);
+    }
+
+    function drawLeaveOut(outliag) {
+        leaveoutsvg.selectAll("*").remove();
+        drawTitle(leaveoutsvg, "Bins on leave-one-out");
+        drawAxis(leaveoutsvg, variables);
+        drawContentBound(leaveoutsvg);
+        //Main container
+        let g = leaveoutsvg.append("g").attr("class", "leaveoutg").attr("transform", `translate(${margins.left + padding}, ${margins.top + padding})`);
+        if (!outliag) {
+            // g.append("text").text("Skipped this calculation, please see the MST on the left").attr("x", 10).attr("y", 10);
+        } else {
+            let mst = drawMst(g, outliag);
+            let outlyingLinks = drawOutlyingLinks(g, outliag);
+            let outlyingPoints = drawOutlyingPoints(g, outliag);
+            let noOutlyingPoints = drawNoOutlyingPoints(g, outliag);
+            drawScores(g, outliag);
+            mst.style("display", "inline");
+            outlyingLinks.style("display", "inline");
+            outlyingPoints.style("display", "inline");
+            noOutlyingPoints.style("display", "inline");
+
+            animateNodes(mst, animateTime, 10e-6, .8, () => {
+                animateNodes(outlyingLinks, animateTime, 10e-6, .8, () => {
+                    animateNodes(outlyingPoints, animateTime, 10e-6, .8, () => {
+                        animateNodes(noOutlyingPoints, animateTime, 10e-6, .8);
+                    });
+                });
+            });
+        }
+
+    }
+
+    function drawAxis(svg, variables) {
+        let v1 = variables[0];
+        let v2 = variables[1];
+        let x1 = +svg.attr("width") / 2;
+        let y1 = +svg.attr("height") - margins.bottom / 2;
+        let x2 = margins.left / 2;
+        let y2 = svgHeight / 2;
+        svg.append("text").text(v1).attr("font-style", "italic").attr("alignment-baseline", "middle").attr("text-anchor", "middle").attr("transform", `translate(${x1}, ${y1}) rotate(0)`);
+        svg.append("text").text(v2).attr("font-style", "italic").attr("alignment-baseline", "middle").attr("text-anchor", "middle").attr("transform", `translate(${x2}, ${y2}) rotate(-90)`);
+    }
+
+    function drawTitle(svg, title) {
+        let x = +svg.attr("width") / 2;
+        let y = margins.top / 2;
+        svg.append('text').text(title).attr("font-weight", "bold").attr("alignment-baseline", "middle").attr("text-anchor", "middle").attr("transform", `translate(${x}, ${y}) rotate(0)`);
+    }
+
+    function drawContentBound(svg) {
+        let x = margins.left;
+        let y = margins.top;
+        let rectWidth = +svg.attr("width") - margins.left - margins.right;
+        let rectHeight = +svg.attr("height") - margins.top - margins.bottom;
+        svg.append("rect").attr("x", x).attr("y", y).attr("width", rectWidth).attr("height", rectHeight).attr("stroke", "black").attr("stroke-width", 1).attr("fill", "#ddd").on("click", ()=>{
+            unBrushDataPoints(origPoints0);
+            unBrushDataPoints(origPoints);
+            unbrushBins(bins);
+        });
     }
 </script>
 

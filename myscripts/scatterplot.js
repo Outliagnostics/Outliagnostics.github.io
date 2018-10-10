@@ -124,5 +124,5 @@ function updateSubLayout(m) {
         .on("mouseout", function (d) {
             hideTip(d);
         });
-    setExploreEvent(svg2, dataPoints);
+    setExploreEvent(svg2, dataPoints, dataS.Variables);
 }

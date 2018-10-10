@@ -19,8 +19,6 @@ class OutliagProcessor {
             let countries = d3.keys(self.dataS["CountriesData"]);
             //Make sure that each year there is a bin => because we will use year as index to access the bins information later on.
             //Similar for the outlying upper bound (cut point)
-            let totalBins = 0;
-            let totalBinSize = 0;
             for (let year = 0; year < years; year++) {
                 let outliag = self.calculateYearlyOutliag(year);
                 let outlyingScore = 0;
@@ -38,17 +36,12 @@ class OutliagProcessor {
                 countries.forEach(country => {
                     self.setYearCountryOutliagScore(year, country, outlyingScore);
                 });
-                //TODO: remove this since used to calculate efficiency only.
-                totalBins += bins? bins.length: 0;
-                totalBinSize += outliag? outliag.binSize: 0;
             }
-            console.log('Bins: ' + (totalBins/years) + ", " + (totalBinSize/years));
         }
 
         function processLeaveOut() {
             //Only need to process the bins !=null and each bin with length > 1.
             let allBinsLength = self.allYearsBins.length;
-            let totalActualScags = 0;
             for (let year = 0; year < allBinsLength; ++year) {
                 let bins = self.allYearsBins[year];
                 if (bins != null) {//beans = null means that year, there is no data (nor the data points <=3).
@@ -57,18 +50,18 @@ class OutliagProcessor {
                     for (let i = 0; i < binLength; ++i) {
                         let theBin = bins[i];
                         if (theBin.length == 1) {//Only leave out the bin if it is single, since we assume if a bin has more members, it would not affect the overall score if remove one member
-                            totalActualScags+=1;
                             let bins1 = bins.slice(0);//copy to avoid modifying the original one.
                             //remove the current bin.
                             bins1.splice(i, 1);
                             //calcualte outliag.
                             let outlyingScore = self.calculateOutliag(bins1.map(b => [b.x, b.y]), true, true, outlyingUpperBound).outlyingScore;
+                            //theBin[0].data => is the country => we can make sure that the this is a single country for a bin
+                            //since we only recalculating for the bin with single data point (so country is the data of the first and only point in that bin).
                             self.setYearCountryOutliagScore(year, theBin[0].data, outlyingScore);
                         }
                     }
                 }
             }
-            console.log("TotalActualScags: " + totalActualScags);
         }
     }
 
