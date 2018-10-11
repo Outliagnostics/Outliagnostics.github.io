@@ -95,9 +95,8 @@
      style="overflow: visible; margin-top:0px;"></svg>
 <svg id="leaveoutsvg"
      style="overflow: visible; margin-top:0px;"></svg>
-<div id="controlButtons">
-</div>
 <div id="msg"></div>
+<div id="controlButtons"></div>
 <script>
     class SingleOutliagProcessor {
         constructor(points) {
@@ -205,7 +204,7 @@
     let animateTime = 20;
     let colorAbove = "#0a0";
     let colorBelow = "#b06";
-    let outlyingCut=0.021;
+    let outlyingCut=0.008;
 
     /*This is for the tooltip*/
     var div = d3.select("body").append("div")

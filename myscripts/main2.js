@@ -32,8 +32,9 @@ var colorAbove = "#0a0";
 var colorBelow = "#b06";
 var maxDifAboveForAll = 0;   
 var maxDifBelowForAll = 0;  
-var outlyingCut=0.021; // Threshold to decide to show Outlier/Inliers in the World Clound
-var maxAbs; 
+// var outlyingCut=0.021; // Threshold to decide to show Outlier/Inliers in the World Clound
+var outlyingCut=0.008; // Threshold to decide to show Outlier/Inliers in the World Clound
+var maxAbs;
 var yStart;
 var yStartBoxplot;
 var transitionTime =1000;
