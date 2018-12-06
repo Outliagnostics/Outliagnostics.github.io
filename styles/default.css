@@ -13,7 +13,7 @@ http://templates.arcsin.se/license/
 /* standard elements */
 
 body {
-	background: #000 url(./pattern3.jpg) repeat;
+	/*background: #000 url(./pattern3.jpg) repeat;*/
     color: #000;
 	margin: 0;
     width: 100%; 

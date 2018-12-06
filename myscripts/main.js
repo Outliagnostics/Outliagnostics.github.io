@@ -105,16 +105,18 @@ var processedData = {
 
 var timeSteps={
     "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
-    "LifeExpectancy263":  {minTime: 1960, maxTime: 2015, type: "year"},
-    "PrevalenceOfHIV":  {minTime: 1960, maxTime: 2015, type: "year"},
+    // "LifeExpectancy263":  {minTime: 1960, maxTime: 2015, type: "year"},
+    "LifeExpectancy263":  {minTime: 1970, maxTime: 2002, type: "year"},//TODO: Change this for Life Expectancey from 1970 or above (filtered out first 10 years) and before 2002 (remove last 13 years)
+    "PrevalenceOfHIV":  {minTime: 1990, maxTime: 2015, type: "year"},
     "NYSEPriceVsVolume":{minTime: 1, maxTime: 84, type: "month"},
     "InternationalDebtData":  {minTime: 1970, maxTime: 2022, type: "year"},
     "WorldTerrorism":  {minTime:1970 , maxTime: 2017, type: "year"},
     "USUnEmpRateMenVsWomen":  {minTime:1999 , maxTime: 2017, type: "year"},
-    "USEmpRGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
+    // "USEmpRGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
+    "USEmpRGoodVsService":  {minTime:185 , maxTime: 223, type: "month"},//TODO: Change this For Florida Irma
+    // "USEmpRGoodVsService":  {minTime:40 , maxTime: 80, type: "month"},//TODO: Change this For Luisiana Cartina
     "HPCCTempVsFan":  {minTime:1 , maxTime: 18, type: "quarter"},
     "HPCC_04Oct":  {minTime:0 , maxTime: 32, type: "quarter"},
-
 };
 // var fileName = fileList[fileList.length-1];
 var fileName = fileList[2];
@@ -145,7 +147,41 @@ var dataS;
 function loadData() {
     // d3.json("./workspace/Scagnostics2017/bin/data/out.json", function(data_) {
     d3.json("data/" + fileName + ".json", function (data_) {
+        // //Filter out yearrs before 1990 if it is HIV
+        if(fileName.indexOf("PrevalenceOfHIV")>=0){
+            data_["YearsData"] = data_["YearsData"].slice(30, data_["YearsData"].length);
 
+            data_["Countries"].forEach(country=>{
+                let cd = data_["CountriesData"][country];
+                data_["CountriesData"][country] = cd.slice(30, cd.length).map(d=>{
+                    d.year=d.year-30;
+                    return d;
+                });
+            });
+        }
+        // //Filter out years before minTime if it is USEmpRGoodVsService
+        if(fileName.indexOf("USEmpRGoodVsService")>=0){
+            data_["YearsData"] = data_["YearsData"].slice(timeSteps[fileName].minTime, data_["YearsData"].length);
+
+            data_["Countries"].forEach(country=>{
+                let cd = data_["CountriesData"][country];
+                data_["CountriesData"][country] = cd.slice(timeSteps[fileName].minTime, cd.length).map(d=>{
+                    d.year=d.year-timeSteps[fileName].minTime;
+                    return d;
+                });
+            });
+        }
+        //TODO: 10 here coz we know explicitly that we would cut 10 years at first and 13 at last
+        if(fileName.indexOf("LifeExpectancy263")>=0){
+            data_["YearsData"] = data_["YearsData"].slice(10, data_["YearsData"].length-13);
+            data_["Countries"].forEach(country=>{
+                let cd = data_["CountriesData"][country];
+                data_["CountriesData"][country] = cd.slice(10, cd.length-13).map(d=>{
+                    d.year=d.year-10;
+                    return d;
+                });
+            });
+        }
         //<editor-fold desc: Vung's code to reprocess the outliag data>
         if(processedData[fileName]==null){
             dataS = data_;
@@ -164,6 +200,7 @@ function loadData() {
 
         minYear = timeSteps[fileName].minTime;
         maxYear = timeSteps[fileName].maxTime;
+
         //minYear =1990; // Huffington
         //maxYear =2048;
         //minYear =1990; // VIS

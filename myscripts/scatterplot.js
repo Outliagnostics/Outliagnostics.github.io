@@ -29,8 +29,10 @@ function updateSubLayout(m) {
      .attr("fill-opacity", 0.5);*/
     allSVG.push(svg2);
 
-    var size = 20;
+    var size = 30;
+    // var size = 60;//TODO: This is for the teaser only (switch back the previous one for normal page)
     var padding = 0;
+
     var x2 = 0;
     var y2 = 0;
     var margin = forceSize / 2 - size / 2;
@@ -38,9 +40,11 @@ function updateSubLayout(m) {
         .attr("class", "frame")
         .attr("x", margin)
         .attr("y", margin)
-        .attr("rx", 1)
-        .attr("ry", 1)
-        .attr("width", size - padding)
+        .attr("rx", 2)
+        .attr("ry", 2)
+        // .attr("rx", 5)//TODO: This is for the teaser only (switch back the previous one for normal page)
+        // .attr("ry", 5)//TODO: This is for the teaser only (switch back the previous one for normal page)
+        // .attr("width", size - padding)
         .attr("height", size - padding)
         .style("fill", function (d) {
             if (!dataS.YearsData[m]) {
@@ -50,7 +54,7 @@ function updateSubLayout(m) {
         })
         //.style("fill-opacity",0.9)
         .style("stroke", "#000")
-        .style("stroke-width", 0.05);
+        .style("stroke-width", 0.1);
 
     var dataPoints = [];
     for (var c = 0; c < dataS.Countries.length; c++) {
@@ -72,6 +76,8 @@ function updateSubLayout(m) {
         dataPoints.push(obj);
     }
 
+    //Filter out data points with "NaN"
+    dataPoints = dataPoints.filter(d=>d["v0"]!=="NaN" && d["v1"]!=="NaN");
     var scaleRadius = d3.scale.linear()
         .range([size / 35, size / 10])
         .domain([0, 1]);
@@ -87,12 +93,14 @@ function updateSubLayout(m) {
                 return 0;
             else
                 return margin + 1.5 + d["s" + selectedVar] * (size - 3);
+                // return margin + 1.5 + d["s" + selectedVar] * (size - 9) + 3; //TODO: This is for the teaser only (switch back the previous one for normal page)
         })
         .attr("cy", function (d, i) {
             if (d["v1"] == "NaN")
                 return 0;
             else
                 return margin + size - 1.5 - d["s" + (selectedVar + 1)] * (size - 3);
+                // return margin + size - 1.5 - d["s" + (selectedVar + 1)] * (size - 9) - 3;//TODO: This is for the teaser only (switch back the previous one for normal page)
         })
         .attr("r", function (d) {
             var difAbs = Math.abs(d["ScagnosticsLeave1out0"][0] - d["Scagnostics0"][0]);
