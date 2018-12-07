@@ -37,6 +37,9 @@ var outlyingCut = 0.008; // Threshold to decide to show Outlier/Inliers in the W
 var maxAbs;
 var yStart;
 var yStartBoxplot;
+var yTextClouds;
+var boxHeight = 75;
+var textCloudHeight = 75;
 var transitionTime = 1000;
 var countryList = [];
 var countryListFiltered = [];
@@ -133,6 +136,10 @@ var areaBelow = d3.svg.area()
 
 
 function drawgraph2() {
+    //need to reset these values every time we calculate a new data set
+    var maxDifAboveForAll = 0;
+    var maxDifBelowForAll = 0;
+
     var startMonth = lMonth > numLens ? lMonth - numLens : 0;
     if (lMonth < 0)
         startMonth = -100;   // Do not draw arc diagram if not lensed
@@ -183,11 +190,12 @@ function drawgraph2() {
 
         countryList.push(thisCountryData);
     }
+    maxAbs = Math.max(maxDifAboveForAll, Math.abs(maxDifBelowForAll));
     //Filtered country list (with outlying score difference > some point).
     countryListFiltered = countryList.filter(c => Math.abs(c.maxDifAbsolute) > 0.01);
 
     colorPurpleGreen.domain([maxDifBelowForAll, 0, maxDifAboveForAll]);
-    maxAbs = Math.max(maxDifAboveForAll, Math.abs(maxDifBelowForAll));
+
 
 
     countryListFiltered.sort(function (a, b) {
@@ -256,7 +264,7 @@ function drawgraph2() {
             return d[0].y;     // Copy node y coordinate
         })
         .attr("font-family", "sans-serif")
-        .attr("font-size", "11px")
+        .attr("font-size", "14px")
         .text(function (d) {
             return d[0].country;
         })
@@ -349,12 +357,11 @@ function drawgraph2() {
                 return d[d.maxYearBelow + 1].OutlyingDif.toFixed(2);
         });
 
-    //** TEXT CLOUD **********************************************************    
-    yStartBoxplot = height + 90 + 110; // y starts drawing the stream graphs, add 80 at the end to have space for the text to move up.
-    drawBoxplot(yStartBoxplot);   // in main3.js
-
-    var yTextClouds = height + 160 - 85; // y starts drawing the stream graphs, minus 85 at the end to move it up
-    drawTextClouds(yTextClouds);    // in main3.js            
+    //** TEXT CLOUD **********************************************************
+    yTextClouds = height + boxHeight; // 75 is the height of the text cloud section.
+    drawTextClouds(yTextClouds);    // in main3.js
+    //** BOX PLOT **********************************************************
+    drawBoxplot();   // in main3.js
 }
 
 function updategraph2() {

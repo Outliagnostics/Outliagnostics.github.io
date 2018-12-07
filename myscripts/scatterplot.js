@@ -29,7 +29,7 @@ function updateSubLayout(m) {
      .attr("fill-opacity", 0.5);*/
     allSVG.push(svg2);
 
-    var size = 30;
+    var size = 20;
     // var size = 60;//TODO: This is for the teaser only (switch back the previous one for normal page)
     var padding = 0;
 
@@ -44,7 +44,7 @@ function updateSubLayout(m) {
         .attr("ry", 2)
         // .attr("rx", 5)//TODO: This is for the teaser only (switch back the previous one for normal page)
         // .attr("ry", 5)//TODO: This is for the teaser only (switch back the previous one for normal page)
-        // .attr("width", size - padding)
+        .attr("width", size - padding)
         .attr("height", size - padding)
         .style("fill", function (d) {
             if (!dataS.YearsData[m]) {

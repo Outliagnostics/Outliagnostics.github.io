@@ -154,7 +154,7 @@ function drawHistograms(yStartHistogram) {
 }
 
 
-function drawBoxplot(yStartBoxplot) {
+function drawBoxplot() {
     boxplotNodes = [];
     for (var y = 1; y <= dataS.YearsData.length; y++) {
         var nodes = [];
@@ -197,13 +197,15 @@ function drawBoxplot(yStartBoxplot) {
         boxplotNodes.push(obj);
     }
 
-    //TODO: Comment these lines if we would like to use the same scale.
+    //Vung's code to Draw boxplot ticks
+    //TODO: Comment these lines if we would like to use the same scale as the profile.
     hBoxplotScale = d3.scale.linear()
         .range([1, boxplotHeight])
         .domain([0, maxAbs]);
+    //Recalculate the yBoxPlotStart basing on the maximum above value
 
+    yStartBoxplot = yTextClouds + textCloudHeight + hBoxplotScale(d3.max(boxplotNodes.map(obj=>obj.maxAbove)));
 
-    //Vung's code to Draw boxplot ticks
     let boxPlotMaxAbove = d3.max(boxplotNodes.map(d=>d.maxAbove));
     let boxPlotMaxBelow = d3.min(boxplotNodes.map(d=>d.maxBelow));
     let boxPlotGridData = [];
@@ -362,8 +364,8 @@ function drawBoxplot(yStartBoxplot) {
 // This Texts is independent from the lower text with stream graphs
 var tNodes;
 let lensedTextCloudRange = [10, 16];
-let textCloudRange = [10, 16];
-let cloudTextLength = 12;
+let textCloudRange = [6, 12];
+let cloudTextLength = 5;
 let lensedCloudTextLength = 12;
 function drawTextClouds(yTextClouds) {
     tNodes = [];
