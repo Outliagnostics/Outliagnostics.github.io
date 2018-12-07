@@ -88,7 +88,7 @@ var areaAbove = d3.svg.area()
             return xStep + xScale(i - 1);
     })
     .y0(function (d, i) {
-        if (i == 0 || i == dataS.YearsData.length + 1){
+        if (i == 0 || i == dataS.YearsData.length + 1) {
             return d.y;
         }
         else {
@@ -102,7 +102,7 @@ var areaAbove = d3.svg.area()
         else {
             var scagLeaveOriginal = dataS.YearsData[i - 1].Scagnostics0[selectedScag];
             if (d.OutlyingDif > 0)
-                return d.y - yScaleS(scagLeaveOriginal)- yScaleS(d.OutlyingDif);
+                return d.y - yScaleS(scagLeaveOriginal) - yScaleS(d.OutlyingDif);
             else
                 return d.y - yScaleS(scagLeaveOriginal);
         }
@@ -128,14 +128,14 @@ var areaBelow = d3.svg.area()
         else {
             var scagLeaveOriginal = dataS.YearsData[i - 1].Scagnostics0[selectedScag];
             if (d.OutlyingDif < 0)
-                return d.y  - yScaleS(scagLeaveOriginal) + yScaleS(-d.OutlyingDif);
+                return d.y - yScaleS(scagLeaveOriginal) + yScaleS(-d.OutlyingDif);
             else
                 return d.y - yScaleS(scagLeaveOriginal);
         }
     });
 
-
 function drawgraph2() {
+
     //need to reset these values every time we calculate a new data set
     var maxDifAboveForAll = 0;
     var maxDifBelowForAll = 0;
@@ -145,7 +145,7 @@ function drawgraph2() {
         startMonth = -100;   // Do not draw arc diagram if not lensed
     var endMonth = startMonth + numLens * 2 + 1;
 
-    yStart = height + 275 + 30; // y starts drawing the stream graphs, added 50 to bring these downs
+    // yStart = height + 275 + 30; // y starts drawing the stream graphs, added 50 to bring these downs
 
     // Scagnostics stream graphs
     countryList = [];
@@ -197,20 +197,21 @@ function drawgraph2() {
     colorPurpleGreen.domain([maxDifBelowForAll, 0, maxDifAboveForAll]);
 
 
-
     countryListFiltered.sort(function (a, b) {
-        // Todo: uncomment these lines to sort by absolute values
-        // if (a.maxDifAbsolute < b.maxDifAbsolute) { // order by month
-        //     return 1;
-        // }
-        // else if (a.maxDifAbsolute > b.maxDifAbsolute) {
-        //     return -1;
-        // }
-        // else {
-        //     -1;
-        // }
         return a.maxDifBelow - b.maxDifBelow;
     });
+
+    //** TEXT CLOUD **********************************************************
+    yTextClouds = height + boxHeight; // 75 is the height of the text cloud section.
+    drawTextClouds(yTextClouds);    // in main3.js
+    //** BOX PLOT **********************************************************
+    drawBoxplot();   // in main3.js
+    //** COUNTRY PROFILE **********************************************************
+    drawCountryProfiles();
+}
+
+function drawCountryProfiles() {
+    yStart = yStartBoxplot + hBoxplotScale(d3.max(boxplotNodes.map(obj => -obj.maxBelow))) + yScaleS(d3.max(countryListFiltered[0].map(d=>d.Outlying + Math.abs(d.OutlyingDif)))) + 10;//10 is for the margin
 
     var yTemp2 = yStart;
     for (var c = 0; c < countryListFiltered.length; c++) {
@@ -285,7 +286,7 @@ function drawgraph2() {
             hideTip(d);
         });
 
-    // Text of max different appearing on top of the stream graph    
+    // Text of max different appearing on top of the stream graph
     svg.selectAll(".maxAboveText").remove();
     svg.selectAll(".maxAboveText")
         .data(countryListFiltered).enter()
@@ -320,7 +321,7 @@ function drawgraph2() {
             else
                 return d[d.maxYearAbove + 1].OutlyingDif.toFixed(2);
         });
-    // Text of max Below appearing on top of the stream graph    
+    // Text of max Below appearing on top of the stream graph
     svg.selectAll(".maxBelowText").remove();
     svg.selectAll(".maxBelowText")
         .data(countryListFiltered).enter()
@@ -356,12 +357,6 @@ function drawgraph2() {
             else
                 return d[d.maxYearBelow + 1].OutlyingDif.toFixed(2);
         });
-
-    //** TEXT CLOUD **********************************************************
-    yTextClouds = height + boxHeight; // 75 is the height of the text cloud section.
-    drawTextClouds(yTextClouds);    // in main3.js
-    //** BOX PLOT **********************************************************
-    drawBoxplot();   // in main3.js
 }
 
 function updategraph2() {

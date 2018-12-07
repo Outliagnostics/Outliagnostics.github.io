@@ -78,6 +78,7 @@ function updateSubLayout(m) {
 
     //Filter out data points with "NaN"
     dataPoints = dataPoints.filter(d=>d["v0"]!=="NaN" && d["v1"]!=="NaN");
+
     var scaleRadius = d3.scale.linear()
         .range([size / 35, size / 10])
         .domain([0, 1]);
