@@ -107,6 +107,35 @@ var areaAbove = d3.svg.area()
                 return d.y - yScaleS(scagLeaveOriginal);
         }
     });
+var outlyingBaseLine = d3.svg.line()
+    .interpolate(interpolation)
+    .x(function (d, i) {
+        if (i == 0)
+            return xStep - 10;
+        else
+            return xStep + xScale(i - 1);
+    })
+    .y(function (d, i) {
+        if (i == 0 || i == dataS.YearsData.length + 1)
+            return d.y;
+        else {
+            return d.y - yScaleS(dataS.YearsData[i - 1].Scagnostics0[selectedScag]);
+        }
+    });
+var countryBaseLine = d3.svg.line()
+    .x(function (d, i) {
+        if (i == 0)
+            return xStep - 10;
+        else
+            return xStep + xScale(i - 1);
+    })
+    .y(function (d, i) {
+        if (i == 0 || i == dataS.YearsData.length + 1)
+            return d.y;
+        else {
+            return d.y;
+        }
+    });
 var areaBelow = d3.svg.area()
     .interpolate(interpolation)
     .x(function (d, i) {
@@ -211,7 +240,13 @@ function drawgraph2() {
 }
 
 function drawCountryProfiles() {
-    yStart = yStartBoxplot + hBoxplotScale(d3.max(boxplotNodes.map(obj => -obj.maxBelow))) + yScaleS(d3.max(countryListFiltered[0].map(d=>d.Outlying + Math.abs(d.OutlyingDif)))) + 10;//10 is for the margin
+
+    // <editor-fold desc="TODO: This is enabled for the explanation of the profile only.">
+    // countryListYDistance = 80;
+    // countryListFiltered = countryListFiltered.filter(c => c[0].country === "Lesotho" || c[0].country === "Zimbabwe"  || c[0].country === "Swaziland");
+    // </editor-fold>
+
+    yStart = yStartBoxplot + hBoxplotScale(d3.max(boxplotNodes.map(obj => -obj.maxBelow))) + yScaleS(d3.max(countryListFiltered[0].map(d => d.Outlying + Math.abs(d.OutlyingDif)))) + 10;//10 is for the margin
 
     var yTemp2 = yStart;
     for (var c = 0; c < countryListFiltered.length; c++) {
@@ -220,6 +255,44 @@ function drawCountryProfiles() {
         }
         yTemp2 += countryListYDistance;
     }
+
+    //<editor-fold desc="TODO: This is enabled for the grid of the item profile only.">
+    //Vung's code to Draw profile ticks
+    // countryListFiltered.forEach(c=>{
+    //         drawProfileGrid(c[0].y);
+    // });
+    // function drawProfileGrid(yPosition) {
+    //     let boxPlotGridData = [];
+    //     boxPlotGridData.push({"value": 0});
+    //     boxPlotGridData.push({"value": 0.2});
+    //     boxPlotGridData.push({"value": 0.4});
+    //     boxPlotGridData.push({"value": 0.6});
+    //
+    //
+    //     let profileGrid = svg.append("g").attr("transform", `translate(${0}, ${yPosition})`);
+    //     let enter = profileGrid.selectAll(".boxPlotGridLine").data(boxPlotGridData).enter();
+    //
+    //     function yBoxPlotGrid(d) {
+    //         return -yScaleS(d.value);
+    //     }
+    //
+    //     enter.append("line").attr("x1", xStep - 10).attr("y1", yBoxPlotGrid).attr("x2", +svg.attr("width")).attr("y2", yBoxPlotGrid)
+    //         .attr("class", "profileGrid")
+    //         .style("stroke", "#000")
+    //         .style("stroke-opacity", 1)
+    //         .style("stroke-width", 0.3)
+    //         .style("stroke-dasharray", "3, 1");
+    //
+    //
+    //     enter.append("text").attr("x", xStep - 10 - 5).attr("y", yBoxPlotGrid)
+    //         .attr("alignment-baseline", "middle")
+    //         .attr("class", "boxPlotTickLabel")
+    //         .attr("font-family", "san-serif")
+    //         .attr("font-size", "11px")
+    //         .text(d => d.value);
+    // }
+
+    // </editor-fold>
 
     svg.selectAll(".layerAbove").remove();
     svg.selectAll(".layerAbove")
@@ -247,6 +320,28 @@ function drawCountryProfiles() {
         .attr("d", function (d) {
             return areaBelow(d);
         });
+    //<editor-fold desc="TODO: These baselines are enabled to explain the profile only">
+    // svg.selectAll(".outlyingBaseLine").remove();
+    // svg.selectAll(".outlyingBaseLine")
+    //     .data(countryListFiltered).enter()
+    //     .append("path")
+    //     .style("stroke", "black")
+    //     .style("stroke-width", 1)
+    //     .style("stroke-opacity", 1)
+    //     .style("fill", "none")
+    //     .attr("stroke-dasharray", "2, 2")
+    //     .attr("d", outlyingBaseLine);
+    // svg.selectAll(".countryBaseLine").remove()
+    // svg.selectAll(".countryBaseLine")
+    //     .data(countryListFiltered).enter()
+    //     .append("path")
+    //     .style("stroke", "#000")
+    //     .style("stroke-width", 1)
+    //     .style("stroke-opacity", 1)
+    //     .style("fill", "none")
+    //     // .attr("stroke-dasharray", "3, 3")
+    //     .attr("d", countryBaseLine);
+    //</editor-fold>
 
     svg.selectAll(".countryText").remove();
     svg.selectAll(".countryText")

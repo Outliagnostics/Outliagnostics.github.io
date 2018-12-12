@@ -62,6 +62,8 @@ class OutliagProcessor {
                     }
                 }
             }
+            //Count singleton bins
+            console.log(fileName + ":" + d3.mean(self.allYearsBins.filter(yb=>yb!=null).map(b=>b.filter(a => a.length === 1).length)));
         }
     }
 
