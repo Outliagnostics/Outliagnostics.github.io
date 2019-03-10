@@ -48,6 +48,7 @@ class OutliagProcessor {
                 outliags.push(e);
                 if (outliags.length === yearsData.length) {
                     setData(outliags);
+                    resetWorkers();
                     processLeaveOut(onCompleted);
                 }
             }
@@ -69,6 +70,7 @@ class OutliagProcessor {
                         outlyingUpperBound = outliag.outlyingUpperBound;
                     }
                     myself.setYearOutliagScore(year, outlyingScore);
+                    //TODO: Continue here.
                     myself.allYearsBins.push(bins);
                     myself.allYearUpperBounds.push(outlyingUpperBound);
                     //By default, leave out a country would not affect anything => so we set its default leave out to be the same as the not leaveout score.
@@ -81,6 +83,7 @@ class OutliagProcessor {
 
         function processLeaveOut(onCompleted) {
             //Only need to process the bins !=null and each bin with length > 1.
+
             let allBinsLength = myself.allYearsBins.length;
             const leaveOutData = [];
             for (let year = 0; year < allBinsLength; ++year) {
@@ -114,6 +117,7 @@ class OutliagProcessor {
 
             let outliags = [];
 
+
             leaveOutData.map((data, i) => {
                 startWorker("myscripts/myworker.js", data, onResult, i);
             });
@@ -122,6 +126,7 @@ class OutliagProcessor {
                 outliags.push(e);
                 if (outliags.length === leaveOutData.length) {
                     setData(outliags);
+                    resetWorkers();
                     onCompleted();
                 }
             }
