@@ -43,18 +43,15 @@ function xScale(m) {
             if (m == lMonth - numLens - 1)
                 xx += xGap;
             return xx;
-        }
-        else if (m > lMonth + numLens) {
+        } else if (m > lMonth + numLens) {
             var xx = maxM * xGap + numMonthInLense * xGap * lensingMul + (m - (lMonth + numLens + 1)) * xGap;
             if (m == lMonth + numLens + 1)
                 xx -= xGap;
             return xx;
-        }
-        else {
+        } else {
             return maxM * xGap + (m - maxM) * xGap * lensingMul;
         }
-    }
-    else {
+    } else {
         return m * XGAP_;
     }
 }
@@ -94,7 +91,7 @@ var processedData = {
     "UnemploymentRate": null,
     "LifeExpectancy263": null,
     "PrevalenceOfHIV": null,
-    "NYSEPriceVsVolume":null,
+    "NYSEPriceVsVolume": null,
     "InternationalDebtData": null,
     "WorldTerrorism": null,
     "USUnEmpRateMenVsWomen": null,
@@ -103,22 +100,22 @@ var processedData = {
     "HPCC_04Oct": null
 };
 
-var timeSteps={
+var timeSteps = {
     "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
     // "UnemploymentRate": {minTime: 1965, maxTime: 1985, type: "year"},//TODO: Change this For Customized Scatterplots
-    "LifeExpectancy263":  {minTime: 1960, maxTime: 2015, type: "year"},
+    "LifeExpectancy263": {minTime: 1960, maxTime: 2015, type: "year"},
     // "LifeExpectancy263":  {minTime: 1970, maxTime: 2002, type: "year"},//TODO: Change this for Life Expectancey from 1970 or above (filtered out first 10 years) and before 2002 (remove last 13 years)
-    "PrevalenceOfHIV":  {minTime: 1990, maxTime: 2015, type: "year"},
-    "NYSEPriceVsVolume":{minTime: 1, maxTime: 84, type: "month"},
-    "InternationalDebtData":  {minTime: 1970, maxTime: 2022, type: "year"},
-    "WorldTerrorism":  {minTime:1970 , maxTime: 2017, type: "year"},
-    "USUnEmpRateMenVsWomen":  {minTime:1999 , maxTime: 2017, type: "year"},
-    "USEmpRGoodVsService":  {minTime:0 , maxTime: 223, type: "month"},
+    "PrevalenceOfHIV": {minTime: 1990, maxTime: 2015, type: "year"},
+    "NYSEPriceVsVolume": {minTime: 1, maxTime: 84, type: "month"},
+    "InternationalDebtData": {minTime: 1970, maxTime: 2022, type: "year"},
+    "WorldTerrorism": {minTime: 1970, maxTime: 2017, type: "year"},
+    "USUnEmpRateMenVsWomen": {minTime: 1999, maxTime: 2017, type: "year"},
+    "USEmpRGoodVsService": {minTime: 0, maxTime: 223, type: "month"},
     // "USEmpRGoodVsService":  {minTime:185 , maxTime: 223, type: "month"},//TODO: Change this For Florida Irma
     // "USEmpRGoodVsService":  {minTime:40 , maxTime: 80, type: "month"},//TODO: Change this For Luisiana Katrina
     // "USEmpRGoodVsService":  {minTime:205 , maxTime: 220, type: "month"},//TODO: Change this For Customized Scatterplots
-    "HPCCTempVsFan":  {minTime:1 , maxTime: 18, type: "quarter"},
-    "HPCC_04Oct":  {minTime:0 , maxTime: 32, type: "quarter"},
+    "HPCCTempVsFan": {minTime: 1, maxTime: 18, type: "quarter"},
+    "HPCC_04Oct": {minTime: 0, maxTime: 32, type: "quarter"},
 };
 // var fileName = fileList[fileList.length-1];
 var fileName = fileList[2];
@@ -145,7 +142,6 @@ drawControlPanel();
 var dataS;
 
 
-
 function loadData() {
 
     // d3.json("./workspace/Scagnostics2017/bin/data/out.json", function(data_) {
@@ -153,13 +149,13 @@ function loadData() {
 
         //<editor-fold desc="This section filters out some data => for the purpose of the explanation of the process of building this software">
         //Filter out years before 1990 if it is HIV
-        if(fileName.indexOf("PrevalenceOfHIV")>=0){
+        if (fileName.indexOf("PrevalenceOfHIV") >= 0) {
             data_["YearsData"] = data_["YearsData"].slice(30, data_["YearsData"].length);
 
-            data_["Countries"].forEach(country=>{
+            data_["Countries"].forEach(country => {
                 let cd = data_["CountriesData"][country];
-                data_["CountriesData"][country] = cd.slice(30, cd.length).map(d=>{
-                    d.year=d.year-30;
+                data_["CountriesData"][country] = cd.slice(30, cd.length).map(d => {
+                    d.year = d.year - 30;
                     return d;
                 });
             });
@@ -201,97 +197,115 @@ function loadData() {
         //</editor-fold>
 
         //<editor-fold desc: Vung's code to reprocess the outliag data>
-        if(processedData[fileName]==null){
+        // //Synchronous version
+        // if (processedData[fileName] == null) {
+        //     dataS = data_;
+        //     let op = new OutliagProcessor(dataS);
+        //     op.processOutliagData();
+        //     processedData[fileName] = op.dataS;
+        // }
+        // dataS = processedData[fileName];
+        // drawData(dataS);
+
+        //Parallel version
+        if (processedData[fileName] == null) {
             dataS = data_;
             let op = new OutliagProcessor(dataS);
-            op.processOutliagData();
-            processedData[fileName] = op.dataS;
+            op.processOutliagData(() => {
+                dataS = processedData[fileName] = op.dataS;
+                drawData(dataS)
+            });
+        } else {
+            dataS = processedData[fileName];
+            drawData(dataS);
         }
-        dataS = processedData[fileName];
+
         //</editor-fold>
 
-        searchTerm = "";
-        isLensing = false;
-        oldLmonth = -1000;
-        lMonth = -lensingMul * 2;
+        function drawData(dataS) {
+            searchTerm = "";
+            isLensing = false;
+            oldLmonth = -1000;
+            lMonth = -lensingMul * 2;
 
 
-        minYear = timeSteps[fileName].minTime;
-        maxYear = timeSteps[fileName].maxTime;
+            minYear = timeSteps[fileName].minTime;
+            maxYear = timeSteps[fileName].maxTime;
 
-        //minYear =1990; // Huffington
-        //maxYear =2048;
-        //minYear =1990; // VIS
-        //maxYear =2016;
+            //minYear =1990; // Huffington
+            //maxYear =2048;
+            //minYear =1990; // VIS
+            //maxYear =2016;
 
-        numMonth = maxYear - minYear + 1;
-        XGAP_ = (width - xStep - 2) / numMonth; // gap between months on xAxis
-
-
-        svg.append("rect")
-            .attr("class", "background")
-            .style("fill", "#fff")
-            .attr("x", 0)
-            .attr("y", yTimeBox)
-            .attr("width", width)
-            .attr("height", heightSVG);
-
-        drawColorLegend();
-        drawTimeGrid();
-        drawTimeText();
-        drawTimeBox(); // This box is for brushing 
-
-        // 2017, this function is main2.js
-        computeMonthlyGraphs();
+            numMonth = maxYear - minYear + 1;
+            XGAP_ = (width - xStep - 2) / numMonth; // gap between months on xAxis
 
 
-        // Spinner Stop ********************************************************************
-        spinner.stop();
+            svg.append("rect")
+                .attr("class", "background")
+                .style("fill", "#fff")
+                .attr("x", 0)
+                .attr("y", yTimeBox)
+                .attr("width", width)
+                .attr("height", heightSVG);
 
-        for (var i = 0; i < dataS.Countries.length; i++) {
-            optArray.push(dataS.Countries[i]);
-        }
-        optArray = optArray.sort();
-        $(function () {
-            $("#search").autocomplete({
-                source: optArray
+            drawColorLegend();
+            drawTimeGrid();
+            drawTimeText();
+            drawTimeBox(); // This box is for brushing
+
+            // 2017, this function is main2.js
+            computeMonthlyGraphs();
+
+
+            // Spinner Stop ********************************************************************
+            spinner.stop();
+
+            for (var i = 0; i < dataS.Countries.length; i++) {
+                optArray.push(dataS.Countries[i]);
+            }
+            optArray = optArray.sort();
+            $(function () {
+                $("#search").autocomplete({
+                    source: optArray
+                });
             });
-        });
 
-        //    chartStreamGraphs();  // Streamgraphs********************************************************************
-        setTimeout(function () {
-            svg.append("text")
-                .attr("class", "textLensingArea")
-                .attr("x", width / 2)
-                .attr("y", 20)
-                .text("Lensing area")
-                .attr("font-family", "sans-serif")
-                .attr("font-size", "16px")
-                .style("text-anchor", "middle")
-                .style("font-weight", "bold")
-                .style("text-shadow", "0 0 5px #aaa")
-                .style("fill", "#000");
-            svg.selectAll(".timeLegendText")
-                .style("fill-opacity", 0.05);
+            //    chartStreamGraphs();  // Streamgraphs********************************************************************
+            setTimeout(function () {
+                svg.append("text")
+                    .attr("class", "textLensingArea")
+                    .attr("x", width / 2)
+                    .attr("y", 20)
+                    .text("Lensing area")
+                    .attr("font-family", "sans-serif")
+                    .attr("font-size", "16px")
+                    .style("text-anchor", "middle")
+                    .style("font-weight", "bold")
+                    .style("text-shadow", "0 0 5px #aaa")
+                    .style("fill", "#000");
+                svg.selectAll(".timeLegendText")
+                    .style("fill-opacity", 0.05);
 
-            var startTime = new Date().getTime();
-            var interval2 = setInterval(function () {
-                var d = new Date();
-                var n = d.getMilliseconds();
-                svg.selectAll(".textLensingArea")
-                    .style("fill-opacity", (n % 1000) / 1000);
-                if (new Date().getTime() - startTime > 4000) {
-                    clearInterval(interval2);
-                    svg.selectAll(".textLensingArea").remove();
-                    svg.selectAll(".timeLegendText")
-                        .style("fill-opacity", function (d, i) {
-                            return getOpacity(d, i);
-                        });
-                    return;
-                }
+                var startTime = new Date().getTime();
+                var interval2 = setInterval(function () {
+                    var d = new Date();
+                    var n = d.getMilliseconds();
+                    svg.selectAll(".textLensingArea")
+                        .style("fill-opacity", (n % 1000) / 1000);
+                    if (new Date().getTime() - startTime > 4000) {
+                        clearInterval(interval2);
+                        svg.selectAll(".textLensingArea").remove();
+                        svg.selectAll(".timeLegendText")
+                            .style("fill-opacity", function (d, i) {
+                                return getOpacity(d, i);
+                            });
+                        return;
+                    }
 
-            }, 50);
-        }, 3000);
+                }, 50);
+            }, 3000);
+        }
     });
 }
 
