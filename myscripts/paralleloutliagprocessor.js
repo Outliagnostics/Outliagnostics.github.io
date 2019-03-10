@@ -70,9 +70,9 @@ class OutliagProcessor {
                         outlyingUpperBound = outliag.outlyingUpperBound;
                     }
                     myself.setYearOutliagScore(year, outlyingScore);
-                    //TODO: Continue here.
-                    myself.allYearsBins.push(bins);
-                    myself.allYearUpperBounds.push(outlyingUpperBound);
+
+                    myself.allYearsBins[year] = bins;
+                    myself.allYearUpperBounds[year] = outlyingUpperBound;
                     //By default, leave out a country would not affect anything => so we set its default leave out to be the same as the not leaveout score.
                     countries.forEach(country => {
                         myself.setYearCountryOutliagScore(year, country, outlyingScore);
