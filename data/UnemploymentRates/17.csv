@@ -1,0 +1,1096 @@
+﻿StateCode,GroupCode,State,Group,NonInstitutionalPopulation,LaborForceNumber,PercentOfPopulation,EmploymentNumber,EmploymentPercentOfPopulation,UnemploymentNumber,UnemploymentRate
+01,01,Alabama,Total,"3,816    ","2,167    ",56.8    ,"2,036    ",53.4    ,131    ,6.0    
+01,02,Alabama,"Total, 16 to 24 years",600    ,326    ,54.3    ,286    ,47.6    ,40    ,12.3    
+01,03,Alabama,"Total, 25 to 54 years","1,827    ","1,393    ",76.3    ,"1,318    ",72.2    ,75    ,5.4    
+01,04,Alabama,"Total, 55 years and over","1,389    ",448    ,32.3    ,432    ,31.1    ,16    ,3.7    
+01,05,Alabama,Men,"1,805    ","1,145    ",63.5    ,"1,070    ",59.3    ,75    ,6.6    
+01,06,Alabama,"Men, 16 to 24 years",286    ,159    ,55.6    ,137    ,47.9    ,22    ,13.8    
+01,07,Alabama,"Men, 25 to 54 years",896    ,746    ,83.2    ,703    ,78.4    ,43    ,5.8    
+01,08,Alabama,"Men, 55 years and over",622    ,241    ,38.7    ,230    ,37.0    ,10    ,4.4    
+01,09,Alabama,Women,"2,011    ","1,022    ",50.8    ,966    ,48.0    ,56    ,5.4    
+01,10,Alabama,"Women, 16 to 24 years",314    ,167    ,53.1    ,149    ,47.4    ,18    ,10.9    
+01,11,Alabama,"Women, 25 to 54 years",931    ,647    ,69.6    ,616    ,66.2    ,32    ,4.9    
+01,12,Alabama,"Women, 55 years and over",767    ,208    ,27.1    ,202    ,26.3    ,6    ,2.9    
+01,13,Alabama,White,"2,689    ","1,506    ",56.0    ,"1,437    ",53.4    ,69    ,4.6    
+01,14,Alabama,"White, 16 to 24 years",379    ,202    ,53.2    ,184    ,48.4    ,18    ,9.0    
+01,15,Alabama,"White, 25 to 54 years","1,245    ",961    ,77.2    ,922    ,74.0    ,39    ,4.0    
+01,16,Alabama,"White, 55 years and over","1,065    ",343    ,32.2    ,331    ,31.1    ,12    ,3.5    
+01,17,Alabama,Black or African American,983    ,579    ,58.9    ,520    ,52.9    ,59    ,10.1    
+01,18,Alabama,"Black or African American, 16 to 24 years",188    ,109    ,58.4    ,89    ,47.5    ,20    ,18.6    
+01,19,Alabama,"Black or African American, 25 to 54 years",503    ,378    ,75.2    ,343    ,68.3    ,35    ,9.2    
+01,20,Alabama,"Black or African American, 55 years and over",293    ,92    ,31.2    ,88    ,30.0    ,4    ,3.9    
+01,25,Alabama,Hispanic or Latino ethnicity,126    ,88    ,69.6    ,83    ,66.0    ,5    ,5.2    
+01,27,Alabama,"Hispanic or Latino ethnicity, 25 to 54 years",81    ,62    ,76.1    ,59    ,72.8    ,3    ,4.3    
+02,01,Alaska,Total,546    ,359    ,65.9    ,335    ,61.5    ,24    ,6.6    
+02,02,Alaska,"Total, 16 to 24 years",91    ,51    ,56.3    ,45    ,49.5    ,6    ,12.0    
+02,03,Alaska,"Total, 25 to 54 years",286    ,232    ,80.9    ,218    ,76.2    ,14    ,5.8    
+02,04,Alaska,"Total, 55 years and over",168    ,76    ,45.3    ,72    ,42.9    ,4    ,5.4    
+02,05,Alaska,Men,280    ,193    ,68.9    ,179    ,63.9    ,14    ,7.2    
+02,06,Alaska,"Men, 16 to 24 years",47    ,27    ,57.3    ,24    ,49.7    ,4    ,13.3    
+02,07,Alaska,"Men, 25 to 54 years",147    ,126    ,85.9    ,118    ,80.3    ,8    ,6.5    
+02,08,Alaska,"Men, 55 years and over",86    ,40    ,46.3    ,38    ,43.8    ,2    ,5.3    
+02,09,Alaska,Women,265    ,166    ,62.6    ,156    ,58.9    ,10    ,6.0    
+02,10,Alaska,"Women, 16 to 24 years",44    ,24    ,55.3    ,22    ,49.4    ,3    ,10.6    
+02,11,Alaska,"Women, 25 to 54 years",140    ,106    ,75.7    ,100    ,71.8    ,5    ,5.1    
+02,12,Alaska,"Women, 55 years and over",82    ,36    ,44.3    ,34    ,41.8    ,2    ,5.6    
+02,13,Alaska,White,363    ,243    ,67.0    ,231    ,63.7    ,12    ,5.0    
+02,14,Alaska,"White, 16 to 24 years",51    ,31    ,61.0    ,28    ,54.5    ,3    ,10.8    
+02,15,Alaska,"White, 25 to 54 years",183    ,151    ,82.7    ,145    ,79.5    ,6    ,3.8    
+02,16,Alaska,"White, 55 years and over",129    ,61    ,47.3    ,58    ,44.9    ,3    ,5.0    
+02,17,Alaska,Black or African American,19    ,15    ,79.4    ,14    ,74.6    ,1    ,6.1    
+02,21,Alaska,Asian,38    ,25    ,66.7    ,24    ,63.6    ,1    ,4.7    
+02,23,Alaska,"Asian, 25 to 54 years",21    ,17    ,82.4    ,16    ,78.4    ,1    ,4.8    
+02,25,Alaska,Hispanic or Latino ethnicity,33    ,25    ,75.5    ,24    ,72.2    ,1    ,4.4    
+02,27,Alaska,"Hispanic or Latino ethnicity, 25 to 54 years",20    ,17    ,85.0    ,16    ,81.6    ,1    ,3.9    
+04,01,Arizona,Total,"5,374    ","3,243    ",60.4    ,"3,076    ",57.2    ,168    ,5.2    
+04,02,Arizona,"Total, 16 to 24 years",856    ,481    ,56.2    ,428    ,50.0    ,53    ,11.1    
+04,03,Arizona,"Total, 25 to 54 years","2,638    ","2,094    ",79.4    ,"2,008    ",76.1    ,86    ,4.1    
+04,04,Arizona,"Total, 55 years and over","1,879    ",669    ,35.6    ,640    ,34.1    ,28    ,4.2    
+04,05,Arizona,Men,"2,614    ","1,767    ",67.6    ,"1,676    ",64.1    ,90    ,5.1    
+04,06,Arizona,"Men, 16 to 24 years",427    ,251    ,58.7    ,220    ,51.5    ,31    ,12.3    
+04,07,Arizona,"Men, 25 to 54 years","1,321    ","1,164    ",88.1    ,"1,121    ",84.9    ,43    ,3.7    
+04,08,Arizona,"Men, 55 years and over",866    ,352    ,40.6    ,335    ,38.7    ,16    ,4.6    
+04,09,Arizona,Women,"2,759    ","1,477    ",53.5    ,"1,399    ",50.7    ,77    ,5.2    
+04,10,Arizona,"Women, 16 to 24 years",429    ,231    ,53.7    ,208    ,48.5    ,22    ,9.7    
+04,11,Arizona,"Women, 25 to 54 years","1,317    ",929    ,70.6    ,887    ,67.3    ,43    ,4.6    
+04,12,Arizona,"Women, 55 years and over","1,013    ",317    ,31.3    ,305    ,30.1    ,12    ,3.8    
+04,13,Arizona,White,"4,648    ","2,800    ",60.2    ,"2,658    ",57.2    ,142    ,5.1    
+04,14,Arizona,"White, 16 to 24 years",706    ,405    ,57.4    ,360    ,51.0    ,45    ,11.1    
+04,15,Arizona,"White, 25 to 54 years","2,231    ","1,791    ",80.3    ,"1,719    ",77.1    ,71    ,4.0    
+04,16,Arizona,"White, 55 years and over","1,711    ",603    ,35.3    ,578    ,33.8    ,25    ,4.2    
+04,17,Arizona,Black or African American,251    ,171    ,67.9    ,159    ,63.3    ,12    ,6.8    
+04,19,Arizona,"Black or African American, 25 to 54 years",151    ,120    ,79.2    ,113    ,74.8    ,7    ,5.5    
+04,21,Arizona,Asian,206    ,122    ,59.4    ,119    ,58.0    ,3    ,2.2    
+04,23,Arizona,"Asian, 25 to 54 years",114    ,86    ,75.6    ,86    ,75.2    ,( 2 ),0.6    
+04,25,Arizona,Hispanic or Latino ethnicity,"1,693    ","1,096    ",64.7    ,"1,019    ",60.2    ,77    ,7.1    
+04,26,Arizona,"Hispanic or Latino ethnicity, 16 to 24 years",384    ,226    ,58.9    ,194    ,50.5    ,32    ,14.3    
+04,27,Arizona,"Hispanic or Latino ethnicity, 25 to 54 years",928    ,715    ,77.1    ,677    ,73.0    ,38    ,5.2    
+04,28,Arizona,"Hispanic or Latino ethnicity, 55 years and over",382    ,155    ,40.7    ,148    ,38.7    ,8    ,4.9    
+05,01,Arkansas,Total,"2,311    ","1,348    ",58.4    ,"1,296    ",56.1    ,53    ,3.9    
+05,02,Arkansas,"Total, 16 to 24 years",328    ,179    ,54.6    ,163    ,49.7    ,16    ,8.9    
+05,03,Arkansas,"Total, 25 to 54 years","1,142    ",895    ,78.4    ,864    ,75.7    ,31    ,3.4    
+05,04,Arkansas,"Total, 55 years and over",841    ,275    ,32.6    ,269    ,31.9    ,6    ,2.2    
+05,05,Arkansas,Men,"1,112    ",715    ,64.3    ,689    ,62.0    ,26    ,3.6    
+05,06,Arkansas,"Men, 16 to 24 years",162    ,91    ,56.3    ,83    ,50.9    ,9    ,9.5    
+05,07,Arkansas,"Men, 25 to 54 years",557    ,478    ,85.8    ,464    ,83.3    ,14    ,2.9    
+05,08,Arkansas,"Men, 55 years and over",393    ,146    ,37.2    ,142    ,36.3    ,3    ,2.4    
+05,09,Arkansas,Women,"1,198    ",633    ,52.8    ,606    ,50.6    ,27    ,4.2    
+05,10,Arkansas,"Women, 16 to 24 years",165    ,88    ,52.9    ,80    ,48.6    ,7    ,8.2    
+05,11,Arkansas,"Women, 25 to 54 years",584    ,417    ,71.3    ,400    ,68.4    ,17    ,4.1    
+05,12,Arkansas,"Women, 55 years and over",449    ,129    ,28.7    ,126    ,28.1    ,2    ,1.9    
+05,13,Arkansas,White,"1,876    ","1,090    ",58.1    ,"1,056    ",56.3    ,35    ,3.2    
+05,14,Arkansas,"White, 16 to 24 years",247    ,136    ,55.3    ,126    ,51.2    ,10    ,7.4    
+05,15,Arkansas,"White, 25 to 54 years",906    ,716    ,79.0    ,696    ,76.8    ,20    ,2.8    
+05,16,Arkansas,"White, 55 years and over",723    ,238    ,32.9    ,234    ,32.3    ,4    ,1.8    
+05,17,Arkansas,Black or African American,338    ,201    ,59.3    ,185    ,54.7    ,15    ,7.7    
+05,19,Arkansas,"Black or African American, 25 to 54 years",180    ,137    ,76.0    ,127    ,70.8    ,9    ,6.9    
+05,25,Arkansas,Hispanic or Latino ethnicity,133    ,98    ,73.2    ,94    ,70.6    ,3    ,3.6    
+05,27,Arkansas,"Hispanic or Latino ethnicity, 25 to 54 years",83    ,67    ,80.7    ,65    ,78.3    ,2    ,3.1    
+06,01,California,Total,"30,669    ","19,076    ",62.2    ,"18,048    ",58.8    ,"1,027    ",5.4    
+06,02,California,"Total, 16 to 24 years","4,894    ","2,451    ",50.1    ,"2,199    ",44.9    ,252    ,10.3    
+06,03,California,"Total, 25 to 54 years","15,914    ","12,625    ",79.3    ,"12,027    ",75.6    ,598    ,4.7    
+06,04,California,"Total, 55 years and over","9,861    ","3,999    ",40.6    ,"3,822    ",38.8    ,177    ,4.4    
+06,05,California,Men,"14,978    ","10,516    ",70.2    ,"9,967    ",66.5    ,549    ,5.2    
+06,06,California,"Men, 16 to 24 years","2,496    ","1,292    ",51.8    ,"1,144    ",45.8    ,148    ,11.5    
+06,07,California,"Men, 25 to 54 years","7,932    ","7,045    ",88.8    ,"6,743    ",85.0    ,301    ,4.3    
+06,08,California,"Men, 55 years and over","4,550    ","2,179    ",47.9    ,"2,080    ",45.7    ,99    ,4.5    
+06,09,California,Women,"15,691    ","8,560    ",54.6    ,"8,081    ",51.5    ,478    ,5.6    
+06,10,California,"Women, 16 to 24 years","2,398    ","1,159    ",48.4    ,"1,056    ",44.0    ,104    ,8.9    
+06,11,California,"Women, 25 to 54 years","7,982    ","5,580    ",69.9    ,"5,284    ",66.2    ,297    ,5.3    
+06,12,California,"Women, 55 years and over","5,311    ","1,820    ",34.3    ,"1,742    ",32.8    ,78    ,4.3    
+06,13,California,White,"22,190    ","13,806    ",62.2    ,"13,060    ",58.9    ,747    ,5.4    
+06,14,California,"White, 16 to 24 years","3,459    ","1,801    ",52.1    ,"1,607    ",46.5    ,194    ,10.8    
+06,15,California,"White, 25 to 54 years","11,309    ","8,995    ",79.5    ,"8,572    ",75.8    ,423    ,4.7    
+06,16,California,"White, 55 years and over","7,421    ","3,011    ",40.6    ,"2,880    ",38.8    ,130    ,4.3    
+06,17,California,Black or African American,"1,927    ","1,150    ",59.7    ,"1,049    ",54.4    ,101    ,8.8    
+06,18,California,"Black or African American, 16 to 24 years",346    ,172    ,49.8    ,150    ,43.5    ,22    ,12.7    
+06,19,California,"Black or African American, 25 to 54 years","1,001    ",754    ,75.4    ,692    ,69.1    ,63    ,8.3    
+06,20,California,"Black or African American, 55 years and over",581    ,223    ,38.4    ,207    ,35.7    ,16    ,7.2    
+06,21,California,Asian,"5,041    ","3,141    ",62.3    ,"3,022    ",59.9    ,119    ,3.8    
+06,22,California,"Asian, 16 to 24 years",721    ,293    ,40.7    ,275    ,38.1    ,19    ,6.3    
+06,23,California,"Asian, 25 to 54 years","2,758    ","2,200    ",79.8    ,"2,123    ",77.0    ,78    ,3.5    
+06,24,California,"Asian, 55 years and over","1,562    ",647    ,41.4    ,624    ,40.0    ,23    ,3.5    
+06,25,California,Hispanic or Latino ethnicity,"10,584    ","6,834    ",64.6    ,"6,386    ",60.3    ,448    ,6.6    
+06,26,California,"Hispanic or Latino ethnicity, 16 to 24 years","2,276    ","1,180    ",51.9    ,"1,038    ",45.6    ,142    ,12.0    
+06,27,California,"Hispanic or Latino ethnicity, 25 to 54 years","6,120    ","4,751    ",77.6    ,"4,493    ",73.4    ,258    ,5.4    
+06,28,California,"Hispanic or Latino ethnicity, 55 years and over","2,188    ",904    ,41.3    ,855    ,39.1    ,49    ,5.4    
+08,01,Colorado,Total,"4,323    ","2,903    ",67.1    ,"2,807    ",64.9    ,95    ,3.3    
+08,02,Colorado,"Total, 16 to 24 years",587    ,369    ,62.8    ,345    ,58.8    ,24    ,6.5    
+08,03,Colorado,"Total, 25 to 54 years","2,290    ","1,925    ",84.1    ,"1,865    ",81.4    ,60    ,3.1    
+08,04,Colorado,"Total, 55 years and over","1,447    ",609    ,42.1    ,598    ,41.3    ,12    ,1.9    
+08,05,Colorado,Men,"2,140    ","1,599    ",74.7    ,"1,552    ",72.5    ,48    ,3.0    
+08,06,Colorado,"Men, 16 to 24 years",280    ,187    ,66.5    ,176    ,62.8    ,11    ,5.6    
+08,07,Colorado,"Men, 25 to 54 years","1,169    ","1,080    ",92.4    ,"1,051    ",89.9    ,29    ,2.7    
+08,08,Colorado,"Men, 55 years and over",690    ,333    ,48.2    ,325    ,47.0    ,8    ,2.4    
+08,09,Colorado,Women,"2,183    ","1,303    ",59.7    ,"1,256    ",57.5    ,47    ,3.6    
+08,10,Colorado,"Women, 16 to 24 years",306    ,182    ,59.5    ,169    ,55.1    ,13    ,7.4    
+08,11,Colorado,"Women, 25 to 54 years","1,121    ",845    ,75.4    ,814    ,72.6    ,31    ,3.6    
+08,12,Colorado,"Women, 55 years and over",757    ,276    ,36.5    ,273    ,36.1    ,3    ,1.2    
+08,13,Colorado,White,"3,850    ","2,581    ",67.0    ,"2,499    ",64.9    ,82    ,3.2    
+08,14,Colorado,"White, 16 to 24 years",504    ,315    ,62.5    ,295    ,58.6    ,20    ,6.3    
+08,15,Colorado,"White, 25 to 54 years","2,009    ","1,702    ",84.7    ,"1,651    ",82.2    ,51    ,3.0    
+08,16,Colorado,"White, 55 years and over","1,336    ",564    ,42.2    ,553    ,41.3    ,11    ,2.0    
+08,17,Colorado,Black or African American,185    ,129    ,69.7    ,123    ,66.4    ,6    ,4.8    
+08,25,Colorado,Hispanic or Latino ethnicity,790    ,534    ,67.6    ,509    ,64.5    ,25    ,4.7    
+08,27,Colorado,"Hispanic or Latino ethnicity, 25 to 54 years",456    ,368    ,80.8    ,352    ,77.2    ,16    ,4.3    
+09,01,Connecticut,Total,"2,870    ","1,896    ",66.1    ,"1,797    ",62.6    ,99    ,5.2    
+09,02,Connecticut,"Total, 16 to 24 years",413    ,204    ,49.4    ,183    ,44.2    ,21    ,10.5    
+09,03,Connecticut,"Total, 25 to 54 years","1,424    ","1,196    ",83.9    ,"1,140    ",80.0    ,56    ,4.7    
+09,04,Connecticut,"Total, 55 years and over","1,033    ",497    ,48.1    ,475    ,46.0    ,22    ,4.4    
+09,05,Connecticut,Men,"1,378    ",981    ,71.2    ,929    ,67.4    ,53    ,5.4    
+09,06,Connecticut,"Men, 16 to 24 years",201    ,94    ,46.9    ,82    ,41.1    ,12    ,12.3    
+09,07,Connecticut,"Men, 25 to 54 years",698    ,626    ,89.7    ,598    ,85.7    ,28    ,4.5    
+09,08,Connecticut,"Men, 55 years and over",480    ,261    ,54.5    ,248    ,51.8    ,13    ,4.9    
+09,09,Connecticut,Women,"1,492    ",915    ,61.3    ,868    ,58.2    ,47    ,5.1    
+09,10,Connecticut,"Women, 16 to 24 years",213    ,110    ,51.7    ,100    ,47.1    ,10    ,9.0    
+09,11,Connecticut,"Women, 25 to 54 years",726    ,570    ,78.4    ,542    ,74.6    ,28    ,4.9    
+09,12,Connecticut,"Women, 55 years and over",553    ,235    ,42.6    ,227    ,41.0    ,9    ,3.8    
+09,13,Connecticut,White,"2,356    ","1,573    ",66.8    ,"1,500    ",63.7    ,73    ,4.7    
+09,14,Connecticut,"White, 16 to 24 years",319    ,164    ,51.6    ,149    ,46.8    ,15    ,9.4    
+09,15,Connecticut,"White, 25 to 54 years","1,142    ",974    ,85.3    ,933    ,81.7    ,41    ,4.2    
+09,16,Connecticut,"White, 55 years and over",896    ,435    ,48.6    ,418    ,46.6    ,17    ,3.9    
+09,17,Connecticut,Black or African American,307    ,187    ,60.8    ,167    ,54.2    ,20    ,10.8    
+09,19,Connecticut,"Black or African American, 25 to 54 years",162    ,130    ,80.2    ,118    ,73.1    ,11    ,8.8    
+09,21,Connecticut,Asian,153    ,98    ,63.8    ,95    ,62.2    ,3    ,2.6    
+09,23,Connecticut,"Asian, 25 to 54 years",91    ,70    ,76.9    ,68    ,74.7    ,2    ,2.9    
+09,25,Connecticut,Hispanic or Latino ethnicity,412    ,289    ,70.0    ,267    ,64.7    ,22    ,7.6    
+09,27,Connecticut,"Hispanic or Latino ethnicity, 25 to 54 years",255    ,209    ,82.0    ,195    ,76.4    ,14    ,6.8    
+10,01,Delaware,Total,756    ,473    ,62.6    ,453    ,59.9    ,21    ,4.3    
+10,02,Delaware,"Total, 16 to 24 years",105    ,59    ,56.0    ,54    ,51.2    ,5    ,8.7    
+10,03,Delaware,"Total, 25 to 54 years",358    ,305    ,85.2    ,293    ,81.8    ,12    ,4.0    
+10,04,Delaware,"Total, 55 years and over",293    ,109    ,37.3    ,106    ,36.2    ,3    ,2.8    
+10,05,Delaware,Men,358    ,243    ,67.7    ,232    ,64.8    ,10    ,4.2    
+10,06,Delaware,"Men, 16 to 24 years",51    ,28    ,54.8    ,25    ,49.1    ,3    ,10.4    
+10,07,Delaware,"Men, 25 to 54 years",173    ,157    ,91.1    ,152    ,87.8    ,6    ,3.7    
+10,08,Delaware,"Men, 55 years and over",135    ,57    ,42.5    ,56    ,41.3    ,2    ,2.8    
+10,09,Delaware,Women,398    ,231    ,58.0    ,221    ,55.5    ,10    ,4.4    
+10,10,Delaware,"Women, 16 to 24 years",54    ,31    ,57.3    ,29    ,53.2    ,2    ,7.1    
+10,11,Delaware,"Women, 25 to 54 years",186    ,148    ,79.7    ,141    ,76.2    ,7    ,4.4    
+10,12,Delaware,"Women, 55 years and over",158    ,52    ,32.9    ,51    ,31.9    ,2    ,2.9    
+10,13,Delaware,White,551    ,339    ,61.6    ,327    ,59.4    ,12    ,3.7    
+10,14,Delaware,"White, 16 to 24 years",65    ,42    ,64.4    ,38    ,59.1    ,3    ,8.3    
+10,15,Delaware,"White, 25 to 54 years",247    ,210    ,84.8    ,203    ,82.1    ,7    ,3.2    
+10,16,Delaware,"White, 55 years and over",239    ,88    ,36.8    ,86    ,35.9    ,2    ,2.5    
+10,17,Delaware,Black or African American,160    ,108    ,67.3    ,101    ,63.1    ,7    ,6.2    
+10,19,Delaware,"Black or African American, 25 to 54 years",87    ,76    ,87.7    ,72    ,82.7    ,4    ,5.8    
+10,21,Delaware,Asian,31    ,20    ,62.8    ,19    ,60.2    ,1    ,4.1    
+10,25,Delaware,Hispanic or Latino ethnicity,71    ,50    ,70.5    ,48    ,67.0    ,2    ,4.9    
+10,27,Delaware,"Hispanic or Latino ethnicity, 25 to 54 years",43    ,36    ,82.2    ,34    ,78.3    ,2    ,4.7    
+11,01,District of Columbia,Total,560    ,392    ,70.1    ,369    ,65.8    ,24    ,6.1    
+11,02,District of Columbia,"Total, 16 to 24 years",78    ,42    ,53.7    ,36    ,45.9    ,6    ,14.5    
+11,03,District of Columbia,"Total, 25 to 54 years",333    ,286    ,86.0    ,272    ,81.6    ,15    ,5.1    
+11,04,District of Columbia,"Total, 55 years and over",149    ,64    ,43.2    ,61    ,41.1    ,3    ,4.9    
+11,05,District of Columbia,Men,260    ,193    ,74.2    ,181    ,69.6    ,12    ,6.2    
+11,06,District of Columbia,"Men, 16 to 24 years",37    ,19    ,52.2    ,16    ,42.5    ,4    ,18.6    
+11,07,District of Columbia,"Men, 25 to 54 years",159    ,142    ,89.3    ,135    ,85.2    ,7    ,4.6    
+11,08,District of Columbia,"Men, 55 years and over",64    ,32    ,49.4    ,30    ,46.6    ,2    ,5.7    
+11,09,District of Columbia,Women,300    ,200    ,66.5    ,188    ,62.5    ,12    ,5.9    
+11,10,District of Columbia,"Women, 16 to 24 years",42    ,23    ,55.0    ,20    ,48.9    ,3    ,11.1    
+11,11,District of Columbia,"Women, 25 to 54 years",174    ,144    ,83.0    ,136    ,78.4    ,8    ,5.5    
+11,12,District of Columbia,"Women, 55 years and over",85    ,33    ,38.5    ,31    ,36.9    ,1    ,4.2    
+11,13,District of Columbia,White,258    ,214    ,82.7    ,209    ,81.0    ,4    ,2.1    
+11,14,District of Columbia,"White, 16 to 24 years",28    ,19    ,66.2    ,18    ,63.4    ,1    ,4.2    
+11,15,District of Columbia,"White, 25 to 54 years",179    ,165    ,92.2    ,162    ,90.5    ,3    ,1.8    
+11,16,District of Columbia,"White, 55 years and over",51    ,30    ,58.5    ,29    ,57.2    ,1    ,2.2    
+11,17,District of Columbia,Black or African American,257    ,146    ,56.8    ,128    ,49.9    ,18    ,12.2    
+11,18,District of Columbia,"Black or African American, 16 to 24 years",43    ,21    ,48.2    ,16    ,36.7    ,5    ,23.8    
+11,19,District of Columbia,"Black or African American, 25 to 54 years",123    ,94    ,76.9    ,84    ,68.2    ,11    ,11.4    
+11,20,District of Columbia,"Black or African American, 55 years and over",91    ,31    ,33.8    ,29    ,31.5    ,2    ,6.9    
+11,21,District of Columbia,Asian,28    ,20    ,73.6    ,20    ,70.9    ,1    ,3.7    
+11,23,District of Columbia,"Asian, 25 to 54 years",19    ,17    ,85.4    ,16    ,83.1    ,( 2 ),2.8    
+11,25,District of Columbia,Hispanic or Latino ethnicity,57    ,45    ,78.9    ,43    ,76.1    ,2    ,3.6    
+11,27,District of Columbia,"Hispanic or Latino ethnicity, 25 to 54 years",41    ,36    ,87.5    ,35    ,85.1    ,1    ,2.7    
+12,01,Florida,Total,"16,616    ","9,754    ",58.7    ,"9,278    ",55.8    ,476    ,4.9    
+12,02,Florida,"Total, 16 to 24 years","2,279    ","1,133    ",49.7    ,"1,019    ",44.7    ,114    ,10.1    
+12,03,Florida,"Total, 25 to 54 years","7,847    ","6,304    ",80.3    ,"6,037    ",76.9    ,268    ,4.2    
+12,04,Florida,"Total, 55 years and over","6,489    ","2,317    ",35.7    ,"2,223    ",34.3    ,95    ,4.1    
+12,05,Florida,Men,"7,951    ","5,121    ",64.4    ,"4,866    ",61.2    ,254    ,5.0    
+12,06,Florida,"Men, 16 to 24 years","1,159    ",571    ,49.3    ,504    ,43.5    ,67    ,11.8    
+12,07,Florida,"Men, 25 to 54 years","3,848    ","3,344    ",86.9    ,"3,209    ",83.4    ,135    ,4.0    
+12,08,Florida,"Men, 55 years and over","2,944    ","1,206    ",41.0    ,"1,154    ",39.2    ,52    ,4.3    
+12,09,Florida,Women,"8,665    ","4,634    ",53.5    ,"4,412    ",50.9    ,222    ,4.8    
+12,10,Florida,"Women, 16 to 24 years","1,121    ",561    ,50.1    ,515    ,45.9    ,46    ,8.3    
+12,11,Florida,"Women, 25 to 54 years","3,999    ","2,961    ",74.0    ,"2,828    ",70.7    ,133    ,4.5    
+12,12,Florida,"Women, 55 years and over","3,545    ","1,112    ",31.4    ,"1,069    ",30.2    ,43    ,3.8    
+12,13,Florida,White,"13,337    ","7,699    ",57.7    ,"7,368    ",55.2    ,331    ,4.3    
+12,14,Florida,"White, 16 to 24 years","1,637    ",844    ,51.6    ,773    ,47.2    ,71    ,8.4    
+12,15,Florida,"White, 25 to 54 years","6,111    ","4,916    ",80.5    ,"4,734    ",77.5    ,182    ,3.7    
+12,16,Florida,"White, 55 years and over","5,589    ","1,938    ",34.7    ,"1,861    ",33.3    ,77    ,4.0    
+12,17,Florida,Black or African American,"2,553    ","1,589    ",62.2    ,"1,463    ",57.3    ,126    ,7.9    
+12,18,Florida,"Black or African American, 16 to 24 years",513    ,234    ,45.7    ,193    ,37.7    ,41    ,17.5    
+12,19,Florida,"Black or African American, 25 to 54 years","1,344    ","1,075    ",80.0    ,"1,001    ",74.5    ,74    ,6.9    
+12,20,Florida,"Black or African American, 55 years and over",697    ,280    ,40.1    ,268    ,38.5    ,11    ,4.1    
+12,21,Florida,Asian,464    ,294    ,63.5    ,283    ,61.1    ,11    ,3.8    
+12,23,Florida,"Asian, 25 to 54 years",255    ,202    ,79.5    ,196    ,76.9    ,7    ,3.3    
+12,25,Florida,Hispanic or Latino ethnicity,"4,212    ","2,607    ",61.9    ,"2,488    ",59.1    ,119    ,4.5    
+12,26,Florida,"Hispanic or Latino ethnicity, 16 to 24 years",661    ,311    ,47.0    ,282    ,42.7    ,29    ,9.3    
+12,27,Florida,"Hispanic or Latino ethnicity, 25 to 54 years","2,326    ","1,859    ",79.9    ,"1,789    ",76.9    ,70    ,3.8    
+12,28,Florida,"Hispanic or Latino ethnicity, 55 years and over","1,225    ",437    ,35.7    ,418    ,34.1    ,20    ,4.5    
+13,01,Georgia,Total,"7,886    ","4,935    ",62.6    ,"4,670    ",59.2    ,265    ,5.4    
+13,02,Georgia,"Total, 16 to 24 years","1,217    ",631    ,51.8    ,546    ,44.9    ,85    ,13.4    
+13,03,Georgia,"Total, 25 to 54 years","4,130    ","3,308    ",80.1    ,"3,160    ",76.5    ,148    ,4.5    
+13,04,Georgia,"Total, 55 years and over","2,539    ",996    ,39.2    ,964    ,38.0    ,33    ,3.3    
+13,05,Georgia,Men,"3,732    ","2,571    ",68.9    ,"2,445    ",65.5    ,126    ,4.9    
+13,06,Georgia,"Men, 16 to 24 years",613    ,323    ,52.7    ,280    ,45.7    ,43    ,13.3    
+13,07,Georgia,"Men, 25 to 54 years","1,958    ","1,719    ",87.8    ,"1,653    ",84.4    ,66    ,3.8    
+13,08,Georgia,"Men, 55 years and over","1,162    ",530    ,45.6    ,512    ,44.1    ,18    ,3.3    
+13,09,Georgia,Women,"4,154    ","2,363    ",56.9    ,"2,225    ",53.6    ,139    ,5.9    
+13,10,Georgia,"Women, 16 to 24 years",605    ,308    ,50.9    ,266    ,44.0    ,42    ,13.5    
+13,11,Georgia,"Women, 25 to 54 years","2,172    ","1,589    ",73.2    ,"1,507    ",69.4    ,82    ,5.2    
+13,12,Georgia,"Women, 55 years and over","1,377    ",467    ,33.9    ,452    ,32.8    ,15    ,3.2    
+13,13,Georgia,White,"4,941    ","3,056    ",61.8    ,"2,937    ",59.4    ,119    ,3.9    
+13,14,Georgia,"White, 16 to 24 years",658    ,347    ,52.8    ,314    ,47.8    ,33    ,9.5    
+13,15,Georgia,"White, 25 to 54 years","2,502    ","2,008    ",80.2    ,"1,940    ",77.5    ,67    ,3.4    
+13,16,Georgia,"White, 55 years and over","1,782    ",701    ,39.4    ,683    ,38.3    ,19    ,2.7    
+13,17,Georgia,Black or African American,"2,437    ","1,535    ",63.0    ,"1,409    ",57.8    ,126    ,8.2    
+13,18,Georgia,"Black or African American, 16 to 24 years",460    ,235    ,51.1    ,189    ,41.1    ,46    ,19.7    
+13,19,Georgia,"Black or African American, 25 to 54 years","1,317    ","1,058    ",80.3    ,991    ,75.3    ,67    ,6.3    
+13,20,Georgia,"Black or African American, 55 years and over",660    ,242    ,36.7    ,230    ,34.8    ,13    ,5.3    
+13,21,Georgia,Asian,349    ,228    ,65.2    ,220    ,63.1    ,7    ,3.2    
+13,23,Georgia,"Asian, 25 to 54 years",223    ,167    ,74.9    ,162    ,72.6    ,5    ,3.1    
+13,25,Georgia,Hispanic or Latino ethnicity,712    ,508    ,71.3    ,488    ,68.5    ,20    ,4.0    
+13,26,Georgia,"Hispanic or Latino ethnicity, 16 to 24 years",160    ,87    ,54.6    ,81    ,50.7    ,6    ,7.1    
+13,27,Georgia,"Hispanic or Latino ethnicity, 25 to 54 years",478    ,379    ,79.4    ,367    ,76.9    ,12    ,3.2    
+15,01,Hawaii,Total,"1,093    ",686    ,62.7    ,665    ,60.8    ,21    ,3.0    
+15,02,Hawaii,"Total, 16 to 24 years",152    ,83    ,54.3    ,77    ,50.5    ,6    ,7.0    
+15,03,Hawaii,"Total, 25 to 54 years",527    ,429    ,81.5    ,418    ,79.4    ,11    ,2.6    
+15,04,Hawaii,"Total, 55 years and over",415    ,174    ,42.0    ,170    ,41.0    ,4    ,2.3    
+15,05,Hawaii,Men,535    ,362    ,67.6    ,351    ,65.6    ,11    ,2.9    
+15,06,Hawaii,"Men, 16 to 24 years",77    ,43    ,55.6    ,40    ,51.4    ,3    ,7.5    
+15,07,Hawaii,"Men, 25 to 54 years",264    ,229    ,86.8    ,224    ,84.8    ,5    ,2.3    
+15,08,Hawaii,"Men, 55 years and over",194    ,90    ,46.3    ,88    ,45.2    ,2    ,2.4    
+15,09,Hawaii,Women,558    ,324    ,58.0    ,313    ,56.2    ,10    ,3.2    
+15,10,Hawaii,"Women, 16 to 24 years",75    ,40    ,53.0    ,37    ,49.6    ,3    ,6.4    
+15,11,Hawaii,"Women, 25 to 54 years",263    ,200    ,76.1    ,194    ,73.8    ,6    ,2.9    
+15,12,Hawaii,"Women, 55 years and over",221    ,84    ,38.2    ,82    ,37.4    ,2    ,2.2    
+15,13,Hawaii,White,225    ,134    ,59.6    ,129    ,57.6    ,5    ,3.4    
+15,15,Hawaii,"White, 25 to 54 years",105    ,83    ,78.7    ,80    ,76.5    ,2    ,2.7    
+15,16,Hawaii,"White, 55 years and over",94    ,37    ,39.3    ,36    ,38.6    ,1    ,1.6    
+15,21,Hawaii,Asian,496    ,307    ,62.0    ,300    ,60.6    ,7    ,2.2    
+15,23,Hawaii,"Asian, 25 to 54 years",212    ,184    ,86.6    ,181    ,85.2    ,3    ,1.6    
+15,24,Hawaii,"Asian, 55 years and over",231    ,96    ,41.5    ,93    ,40.4    ,3    ,2.6    
+15,25,Hawaii,Hispanic or Latino ethnicity,95    ,62    ,65.7    ,60    ,62.9    ,3    ,4.3    
+15,27,Hawaii,"Hispanic or Latino ethnicity, 25 to 54 years",51    ,41    ,79.3    ,39    ,76.0    ,2    ,4.1    
+16,01,Idaho,Total,"1,273    ",814    ,63.9    ,782    ,61.4    ,32    ,3.9    
+16,02,Idaho,"Total, 16 to 24 years",202    ,125    ,62.1    ,116    ,57.7    ,9    ,7.0    
+16,03,Idaho,"Total, 25 to 54 years",624    ,520    ,83.3    ,503    ,80.6    ,17    ,3.3    
+16,04,Idaho,"Total, 55 years and over",448    ,169    ,37.7    ,163    ,36.4    ,6    ,3.6    
+16,05,Idaho,Men,629    ,446    ,70.8    ,428    ,68.1    ,17    ,3.9    
+16,06,Idaho,"Men, 16 to 24 years",101    ,66    ,65.6    ,61    ,60.9    ,5    ,7.2    
+16,07,Idaho,"Men, 25 to 54 years",316    ,288    ,91.1    ,278    ,88.1    ,9    ,3.3    
+16,08,Idaho,"Men, 55 years and over",212    ,92    ,43.2    ,89    ,41.7    ,3    ,3.5    
+16,09,Idaho,Women,644    ,368    ,57.2    ,354    ,55.0    ,14    ,3.9    
+16,10,Idaho,"Women, 16 to 24 years",101    ,59    ,58.5    ,55    ,54.5    ,4    ,6.8    
+16,11,Idaho,"Women, 25 to 54 years",308    ,232    ,75.4    ,225    ,73.0    ,7    ,3.2    
+16,12,Idaho,"Women, 55 years and over",235    ,77    ,32.8    ,74    ,31.6    ,3    ,3.7    
+16,13,Idaho,White,"1,207    ",770    ,63.8    ,741    ,61.4    ,29    ,3.8    
+16,14,Idaho,"White, 16 to 24 years",190    ,118    ,62.4    ,110    ,57.8    ,9    ,7.2    
+16,15,Idaho,"White, 25 to 54 years",583    ,488    ,83.6    ,473    ,81.1    ,15    ,3.0    
+16,16,Idaho,"White, 55 years and over",434    ,164    ,37.8    ,158    ,36.5    ,6    ,3.5    
+16,25,Idaho,Hispanic or Latino ethnicity,152    ,112    ,74.0    ,107    ,70.6    ,5    ,4.7    
+16,27,Idaho,"Hispanic or Latino ethnicity, 25 to 54 years",94    ,81    ,85.7    ,77    ,81.9    ,4    ,4.4    
+17,01,Illinois,Total,"10,031    ","6,547    ",65.3    ,"6,163    ",61.4    ,384    ,5.9    
+17,02,Illinois,"Total, 16 to 24 years","1,582    ",857    ,54.2    ,735    ,46.5    ,122    ,14.2    
+17,03,Illinois,"Total, 25 to 54 years","4,954    ","4,145    ",83.7    ,"3,937    ",79.5    ,208    ,5.0    
+17,04,Illinois,"Total, 55 years and over","3,495    ","1,546    ",44.2    ,"1,491    ",42.7    ,55    ,3.5    
+17,05,Illinois,Men,"4,847    ","3,462    ",71.4    ,"3,258    ",67.2    ,203    ,5.9    
+17,06,Illinois,"Men, 16 to 24 years",802    ,443    ,55.2    ,377    ,46.9    ,66    ,15.0    
+17,07,Illinois,"Men, 25 to 54 years","2,424    ","2,202    ",90.9    ,"2,097    ",86.5    ,106    ,4.8    
+17,08,Illinois,"Men, 55 years and over","1,622    ",817    ,50.4    ,785    ,48.4    ,32    ,3.9    
+17,09,Illinois,Women,"5,184    ","3,085    ",59.5    ,"2,905    ",56.0    ,181    ,5.9    
+17,10,Illinois,"Women, 16 to 24 years",780    ,414    ,53.1    ,359    ,46.0    ,56    ,13.4    
+17,11,Illinois,"Women, 25 to 54 years","2,530    ","1,942    ",76.8    ,"1,840    ",72.7    ,102    ,5.3    
+17,12,Illinois,"Women, 55 years and over","1,873    ",729    ,38.9    ,706    ,37.7    ,23    ,3.2    
+17,13,Illinois,White,"7,886    ","5,249    ",66.6    ,"4,988    ",63.2    ,261    ,5.0    
+17,14,Illinois,"White, 16 to 24 years","1,185    ",659    ,55.6    ,580    ,48.9    ,79    ,12.0    
+17,15,Illinois,"White, 25 to 54 years","3,840    ","3,272    ",85.2    ,"3,133    ",81.6    ,140    ,4.3    
+17,16,Illinois,"White, 55 years and over","2,861    ","1,318    ",46.1    ,"1,275    ",44.6    ,42    ,3.2    
+17,17,Illinois,Black or African American,"1,405    ",825    ,58.7    ,720    ,51.2    ,104    ,12.7    
+17,18,Illinois,"Black or African American, 16 to 24 years",282    ,142    ,50.5    ,102    ,36.2    ,40    ,28.3    
+17,19,Illinois,"Black or African American, 25 to 54 years",668    ,521    ,78.0    ,469    ,70.2    ,52    ,10.1    
+17,20,Illinois,"Black or African American, 55 years and over",455    ,161    ,35.4    ,149    ,32.8    ,12    ,7.2    
+17,21,Illinois,Asian,579    ,363    ,62.7    ,354    ,61.1    ,9    ,2.6    
+17,23,Illinois,"Asian, 25 to 54 years",358    ,275    ,77.0    ,267    ,74.7    ,8    ,3.0    
+17,25,Illinois,Hispanic or Latino ethnicity,"1,474    ","1,028    ",69.7    ,959    ,65.0    ,69    ,6.7    
+17,26,Illinois,"Hispanic or Latino ethnicity, 16 to 24 years",323    ,179    ,55.2    ,154    ,47.5    ,25    ,13.9    
+17,27,Illinois,"Hispanic or Latino ethnicity, 25 to 54 years",894    ,723    ,80.8    ,685    ,76.6    ,38    ,5.2    
+17,28,Illinois,"Hispanic or Latino ethnicity, 55 years and over",257    ,126    ,49.2    ,120    ,46.7    ,6    ,5.0    
+18,01,Indiana,Total,"5,145    ","3,340    ",64.9    ,"3,191    ",62.0    ,149    ,4.5    
+18,02,Indiana,"Total, 16 to 24 years",782    ,487    ,62.2    ,434    ,55.4    ,53    ,10.9    
+18,03,Indiana,"Total, 25 to 54 years","2,519    ","2,099    ",83.3    ,"2,025    ",80.4    ,74    ,3.5    
+18,04,Indiana,"Total, 55 years and over","1,844    ",754    ,40.9    ,732    ,39.7    ,22    ,2.9    
+18,05,Indiana,Men,"2,495    ","1,760    ",70.5    ,"1,683    ",67.4    ,77    ,4.4    
+18,06,Indiana,"Men, 16 to 24 years",397    ,247    ,62.2    ,219    ,55.3    ,28    ,11.2    
+18,07,Indiana,"Men, 25 to 54 years","1,242    ","1,112    ",89.5    ,"1,071    ",86.2    ,41    ,3.7    
+18,08,Indiana,"Men, 55 years and over",856    ,401    ,46.8    ,393    ,45.9    ,8    ,2.0    
+18,09,Indiana,Women,"2,650    ","1,580    ",59.6    ,"1,508    ",56.9    ,72    ,4.6    
+18,10,Indiana,"Women, 16 to 24 years",386    ,240    ,62.2    ,215    ,55.6    ,26    ,10.6    
+18,11,Indiana,"Women, 25 to 54 years","1,277    ",987    ,77.3    ,954    ,74.7    ,33    ,3.3    
+18,12,Indiana,"Women, 55 years and over",988    ,353    ,35.8    ,339    ,34.3    ,14    ,4.0    
+18,13,Indiana,White,"4,474    ","2,921    ",65.3    ,"2,801    ",62.6    ,119    ,4.1    
+18,14,Indiana,"White, 16 to 24 years",659    ,414    ,62.8    ,370    ,56.2    ,43    ,10.5    
+18,15,Indiana,"White, 25 to 54 years","2,164    ","1,818    ",84.0    ,"1,761    ",81.4    ,57    ,3.1    
+18,16,Indiana,"White, 55 years and over","1,651    ",689    ,41.7    ,670    ,40.6    ,19    ,2.8    
+18,17,Indiana,Black or African American,465    ,288    ,61.8    ,262    ,56.3    ,26    ,8.9    
+18,19,Indiana,"Black or African American, 25 to 54 years",243    ,193    ,79.5    ,178    ,73.0    ,16    ,8.1    
+18,25,Indiana,Hispanic or Latino ethnicity,306    ,222    ,72.7    ,212    ,69.3    ,10    ,4.6    
+18,27,Indiana,"Hispanic or Latino ethnicity, 25 to 54 years",186    ,157    ,84.2    ,152    ,81.9    ,4    ,2.7    
+19,01,Iowa,Total,"2,445    ","1,709    ",69.9    ,"1,642    ",67.2    ,67    ,3.9    
+19,02,Iowa,"Total, 16 to 24 years",361    ,261    ,72.2    ,242    ,67.0    ,19    ,7.2    
+19,03,Iowa,"Total, 25 to 54 years","1,173    ","1,034    ",88.1    ,996    ,84.9    ,37    ,3.6    
+19,04,Iowa,"Total, 55 years and over",911    ,415    ,45.5    ,404    ,44.3    ,11    ,2.6    
+19,05,Iowa,Men,"1,205    ",897    ,74.4    ,858    ,71.2    ,39    ,4.3    
+19,06,Iowa,"Men, 16 to 24 years",188    ,139    ,74.0    ,128    ,68.0    ,11    ,8.1    
+19,07,Iowa,"Men, 25 to 54 years",574    ,530    ,92.4    ,509    ,88.8    ,21    ,3.9    
+19,08,Iowa,"Men, 55 years and over",443    ,227    ,51.3    ,220    ,49.7    ,7    ,3.0    
+19,09,Iowa,Women,"1,240    ",812    ,65.5    ,784    ,63.2    ,28    ,3.4    
+19,10,Iowa,"Women, 16 to 24 years",173    ,121    ,70.3    ,114    ,66.0    ,8    ,6.2    
+19,11,Iowa,"Women, 25 to 54 years",599    ,503    ,84.0    ,487    ,81.2    ,17    ,3.3    
+19,12,Iowa,"Women, 55 years and over",468    ,187    ,40.1    ,184    ,39.2    ,4    ,2.1    
+19,13,Iowa,White,"2,276    ","1,599    ",70.3    ,"1,542    ",67.8    ,57    ,3.6    
+19,14,Iowa,"White, 16 to 24 years",320    ,236    ,73.6    ,219    ,68.4    ,17    ,7.1    
+19,15,Iowa,"White, 25 to 54 years","1,073    ",957    ,89.2    ,927    ,86.4    ,30    ,3.1    
+19,16,Iowa,"White, 55 years and over",883    ,407    ,46.1    ,396    ,44.9    ,10    ,2.6    
+19,25,Iowa,Hispanic or Latino ethnicity,131    ,106    ,81.0    ,100    ,76.7    ,6    ,5.3    
+20,01,Kansas,Total,"2,211    ","1,483    ",67.1    ,"1,421    ",64.3    ,62    ,4.2    
+20,02,Kansas,"Total, 16 to 24 years",347    ,210    ,60.6    ,192    ,55.4    ,18    ,8.5    
+20,03,Kansas,"Total, 25 to 54 years","1,078    ",918    ,85.2    ,886    ,82.3    ,32    ,3.5    
+20,04,Kansas,"Total, 55 years and over",786    ,355    ,45.1    ,343    ,43.6    ,12    ,3.4    
+20,05,Kansas,Men,"1,083    ",793    ,73.2    ,756    ,69.8    ,36    ,4.6    
+20,06,Kansas,"Men, 16 to 24 years",174    ,112    ,64.1    ,101    ,58.2    ,10    ,9.2    
+20,07,Kansas,"Men, 25 to 54 years",542    ,495    ,91.3    ,478    ,88.1    ,18    ,3.6    
+20,08,Kansas,"Men, 55 years and over",367    ,185    ,50.6    ,177    ,48.3    ,8    ,4.5    
+20,09,Kansas,Women,"1,128    ",691    ,61.3    ,665    ,59.0    ,26    ,3.8    
+20,10,Kansas,"Women, 16 to 24 years",173    ,99    ,57.0    ,91    ,52.6    ,8    ,7.8    
+20,11,Kansas,"Women, 25 to 54 years",535    ,423    ,79.1    ,409    ,76.4    ,14    ,3.4    
+20,12,Kansas,"Women, 55 years and over",420    ,169    ,40.3    ,165    ,39.4    ,4    ,2.3    
+20,13,Kansas,White,"1,946    ","1,315    ",67.6    ,"1,267    ",65.1    ,48    ,3.7    
+20,14,Kansas,"White, 16 to 24 years",290    ,180    ,62.1    ,166    ,57.2    ,14    ,7.9    
+20,15,Kansas,"White, 25 to 54 years",932    ,805    ,86.3    ,781    ,83.7    ,24    ,3.0    
+20,16,Kansas,"White, 55 years and over",724    ,330    ,45.6    ,320    ,44.2    ,10    ,3.1    
+20,17,Kansas,Black or African American,132    ,86    ,65.5    ,77    ,58.7    ,9    ,10.4    
+20,19,Kansas,"Black or African American, 25 to 54 years",72    ,58    ,81.0    ,52    ,72.7    ,6    ,10.3    
+20,25,Kansas,Hispanic or Latino ethnicity,251    ,180    ,71.7    ,168    ,67.0    ,12    ,6.5    
+20,27,Kansas,"Hispanic or Latino ethnicity, 25 to 54 years",160    ,128    ,80.5    ,122    ,76.7    ,6    ,4.8    
+21,01,Kentucky,Total,"3,458    ","2,003    ",57.9    ,"1,904    ",55.1    ,99    ,4.9    
+21,02,Kentucky,"Total, 16 to 24 years",505    ,283    ,56.0    ,255    ,50.5    ,28    ,9.9    
+21,03,Kentucky,"Total, 25 to 54 years","1,671    ","1,288    ",77.1    ,"1,230    ",73.6    ,58    ,4.5    
+21,04,Kentucky,"Total, 55 years and over","1,283    ",433    ,33.7    ,420    ,32.7    ,13    ,3.0    
+21,05,Kentucky,Men,"1,667    ","1,056    ",63.4    ,999    ,59.9    ,57    ,5.4    
+21,06,Kentucky,"Men, 16 to 24 years",264    ,154    ,58.5    ,139    ,52.6    ,16    ,10.1    
+21,07,Kentucky,"Men, 25 to 54 years",807    ,671    ,83.2    ,637    ,79.0    ,34    ,5.1    
+21,08,Kentucky,"Men, 55 years and over",596    ,231    ,38.7    ,223    ,37.5    ,7    ,3.2    
+21,09,Kentucky,Women,"1,792    ",947    ,52.9    ,905    ,50.5    ,42    ,4.4    
+21,10,Kentucky,"Women, 16 to 24 years",241    ,128    ,53.3    ,116    ,48.2    ,12    ,9.7    
+21,11,Kentucky,"Women, 25 to 54 years",864    ,617    ,71.4    ,593    ,68.6    ,24    ,3.9    
+21,12,Kentucky,"Women, 55 years and over",687    ,202    ,29.4    ,197    ,28.6    ,6    ,2.8    
+21,13,Kentucky,White,"3,098    ","1,790    ",57.8    ,"1,705    ",55.0    ,85    ,4.8    
+21,14,Kentucky,"White, 16 to 24 years",431    ,240    ,55.8    ,217    ,50.3    ,24    ,9.8    
+21,15,Kentucky,"White, 25 to 54 years","1,489    ","1,153    ",77.4    ,"1,102    ",74.1    ,50    ,4.4    
+21,16,Kentucky,"White, 55 years and over","1,179    ",397    ,33.7    ,385    ,32.7    ,11    ,2.9    
+21,17,Kentucky,Black or African American,265    ,160    ,60.4    ,149    ,56.3    ,11    ,6.9    
+21,19,Kentucky,"Black or African American, 25 to 54 years",128    ,104    ,80.9    ,97    ,75.6    ,7    ,6.6    
+21,25,Kentucky,Hispanic or Latino ethnicity,92    ,65    ,70.8    ,60    ,65.2    ,5    ,7.9    
+22,01,Louisiana,Total,"3,587    ","2,127    ",59.3    ,"1,995    ",55.6    ,132    ,6.2    
+22,02,Louisiana,"Total, 16 to 24 years",583    ,297    ,50.9    ,258    ,44.2    ,39    ,13.2    
+22,03,Louisiana,"Total, 25 to 54 years","1,761    ","1,387    ",78.7    ,"1,313    ",74.5    ,74    ,5.3    
+22,04,Louisiana,"Total, 55 years and over","1,243    ",443    ,35.6    ,424    ,34.1    ,19    ,4.2    
+22,05,Louisiana,Men,"1,702    ","1,094    ",64.3    ,"1,021    ",60.0    ,72    ,6.6    
+22,06,Louisiana,"Men, 16 to 24 years",283    ,146    ,51.7    ,123    ,43.4    ,24    ,16.1    
+22,07,Louisiana,"Men, 25 to 54 years",851    ,717    ,84.3    ,678    ,79.7    ,39    ,5.4    
+22,08,Louisiana,"Men, 55 years and over",568    ,231    ,40.6    ,221    ,38.8    ,10    ,4.4    
+22,09,Louisiana,Women,"1,886    ","1,033    ",54.8    ,973    ,51.6    ,59    ,5.8    
+22,10,Louisiana,"Women, 16 to 24 years",301    ,151    ,50.1    ,135    ,44.9    ,15    ,10.3    
+22,11,Louisiana,"Women, 25 to 54 years",910    ,670    ,73.6    ,635    ,69.7    ,35    ,5.3    
+22,12,Louisiana,"Women, 55 years and over",675    ,212    ,31.4    ,204    ,30.2    ,9    ,4.1    
+22,13,Louisiana,White,"2,324    ","1,388    ",59.7    ,"1,329    ",57.2    ,59    ,4.3    
+22,14,Louisiana,"White, 16 to 24 years",342    ,176    ,51.3    ,162    ,47.3    ,14    ,7.8    
+22,15,Louisiana,"White, 25 to 54 years","1,111    ",891    ,80.2    ,858    ,77.2    ,33    ,3.7    
+22,16,Louisiana,"White, 55 years and over",870    ,321    ,36.9    ,309    ,35.5    ,12    ,3.8    
+22,17,Louisiana,Black or African American,"1,102    ",641    ,58.2    ,574    ,52.1    ,67    ,10.5    
+22,18,Louisiana,"Black or African American, 16 to 24 years",213    ,110    ,51.9    ,87    ,41.0    ,23    ,21.1    
+22,19,Louisiana,"Black or African American, 25 to 54 years",558    ,425    ,76.2    ,387    ,69.4    ,38    ,9.0    
+22,20,Louisiana,"Black or African American, 55 years and over",331    ,105    ,31.8    ,100    ,30.1    ,6    ,5.5    
+22,21,Louisiana,Asian,90    ,57    ,63.1    ,54    ,59.9    ,3    ,5.0    
+22,23,Louisiana,"Asian, 25 to 54 years",53    ,41    ,77.6    ,40    ,74.6    ,2    ,3.8    
+22,25,Louisiana,Hispanic or Latino ethnicity,156    ,100    ,64.3    ,97    ,61.8    ,4    ,3.8    
+22,27,Louisiana,"Hispanic or Latino ethnicity, 25 to 54 years",89    ,70    ,78.1    ,68    ,75.8    ,2    ,3.0    
+23,01,Maine,Total,"1,095    ",694    ,63.4    ,667    ,60.9    ,27    ,3.9    
+23,02,Maine,"Total, 16 to 24 years",122    ,76    ,61.9    ,69    ,56.3    ,7    ,9.0    
+23,03,Maine,"Total, 25 to 54 years",518    ,425    ,82.1    ,412    ,79.5    ,14    ,3.2    
+23,04,Maine,"Total, 55 years and over",455    ,193    ,42.4    ,186    ,41.0    ,7    ,3.4    
+23,05,Maine,Men,530    ,365    ,68.8    ,350    ,65.9    ,15    ,4.1    
+23,07,Maine,"Men, 25 to 54 years",251    ,223    ,89.0    ,216    ,86.1    ,7    ,3.3    
+23,08,Maine,"Men, 55 years and over",220    ,107    ,48.8    ,103    ,46.8    ,4    ,4.0    
+23,09,Maine,Women,564    ,329    ,58.3    ,317    ,56.1    ,12    ,3.7    
+23,10,Maine,"Women, 16 to 24 years",62    ,41    ,66.3    ,38    ,60.8    ,3    ,8.3    
+23,11,Maine,"Women, 25 to 54 years",267    ,202    ,75.6    ,196    ,73.2    ,6    ,3.1    
+23,12,Maine,"Women, 55 years and over",235    ,86    ,36.5    ,83    ,35.5    ,2    ,2.7    
+23,13,Maine,White,"1,034    ",652    ,63.0    ,626    ,60.6    ,25    ,3.9    
+23,14,Maine,"White, 16 to 24 years",112    ,69    ,61.9    ,63    ,56.3    ,6    ,8.9    
+23,15,Maine,"White, 25 to 54 years",480    ,395    ,82.1    ,382    ,79.4    ,13    ,3.3    
+23,16,Maine,"White, 55 years and over",442    ,188    ,42.5    ,182    ,41.1    ,6    ,3.3    
+24,01,Maryland,Total,"4,726    ","3,172    ",67.1    ,"3,038    ",64.3    ,134    ,4.2    
+24,02,Maryland,"Total, 16 to 24 years",679    ,397    ,58.5    ,358    ,52.7    ,39    ,9.9    
+24,03,Maryland,"Total, 25 to 54 years","2,416    ","2,044    ",84.6    ,"1,970    ",81.6    ,73    ,3.6    
+24,04,Maryland,"Total, 55 years and over","1,631    ",732    ,44.8    ,710    ,43.5    ,22    ,3.0    
+24,05,Maryland,Men,"2,236    ","1,623    ",72.6    ,"1,561    ",69.8    ,62    ,3.8    
+24,06,Maryland,"Men, 16 to 24 years",333    ,196    ,58.8    ,177    ,53.2    ,19    ,9.5    
+24,07,Maryland,"Men, 25 to 54 years","1,154    ","1,042    ",90.3    ,"1,006    ",87.2    ,36    ,3.4    
+24,08,Maryland,"Men, 55 years and over",749    ,385    ,51.4    ,377    ,50.4    ,7    ,1.9    
+24,09,Maryland,Women,"2,490    ","1,550    ",62.2    ,"1,477    ",59.3    ,73    ,4.7    
+24,10,Maryland,"Women, 16 to 24 years",346    ,201    ,58.2    ,181    ,52.2    ,21    ,10.4    
+24,11,Maryland,"Women, 25 to 54 years","1,262    ","1,001    ",79.4    ,964    ,76.4    ,38    ,3.7    
+24,12,Maryland,"Women, 55 years and over",882    ,347    ,39.3    ,332    ,37.7    ,14    ,4.1    
+24,13,Maryland,White,"2,856    ","1,920    ",67.2    ,"1,860    ",65.1    ,60    ,3.1    
+24,14,Maryland,"White, 16 to 24 years",368    ,238    ,64.7    ,222    ,60.3    ,16    ,6.7    
+24,15,Maryland,"White, 25 to 54 years","1,389    ","1,199    ",86.3    ,"1,167    ",84.0    ,32    ,2.6    
+24,16,Maryland,"White, 55 years and over","1,099    ",483    ,44.0    ,471    ,42.8    ,12    ,2.6    
+24,17,Maryland,Black or African American,"1,407    ",929    ,66.0    ,865    ,61.5    ,63    ,6.8    
+24,18,Maryland,"Black or African American, 16 to 24 years",222    ,110    ,49.4    ,91    ,40.9    ,19    ,17.3    
+24,19,Maryland,"Black or African American, 25 to 54 years",777    ,631    ,81.3    ,595    ,76.6    ,36    ,5.8    
+24,20,Maryland,"Black or African American, 55 years and over",409    ,188    ,45.9    ,180    ,44.0    ,8    ,4.1    
+24,21,Maryland,Asian,316    ,226    ,71.5    ,220    ,69.6    ,6    ,2.6    
+24,23,Maryland,"Asian, 25 to 54 years",182    ,154    ,84.3    ,151    ,82.7    ,3    ,1.8    
+24,25,Maryland,Hispanic or Latino ethnicity,397    ,306    ,77.2    ,290    ,73.1    ,17    ,5.4    
+24,27,Maryland,"Hispanic or Latino ethnicity, 25 to 54 years",256    ,218    ,85.0    ,207    ,80.6    ,11    ,5.1    
+25,01,Massachusetts,Total,"5,528    ","3,587    ",64.9    ,"3,455    ",62.5    ,133    ,3.7    
+25,02,Massachusetts,"Total, 16 to 24 years",788    ,437    ,55.4    ,407    ,51.6    ,29    ,6.7    
+25,03,Massachusetts,"Total, 25 to 54 years","2,761    ","2,297    ",83.2    ,"2,222    ",80.5    ,75    ,3.2    
+25,04,Massachusetts,"Total, 55 years and over","1,979    ",854    ,43.1    ,825    ,41.7    ,29    ,3.4    
+25,05,Massachusetts,Men,"2,647    ","1,860    ",70.3    ,"1,785    ",67.4    ,75    ,4.0    
+25,06,Massachusetts,"Men, 16 to 24 years",395    ,229    ,58.0    ,211    ,53.4    ,18    ,7.8    
+25,07,Massachusetts,"Men, 25 to 54 years","1,348    ","1,186    ",88.0    ,"1,144    ",84.9    ,42    ,3.5    
+25,08,Massachusetts,"Men, 55 years and over",904    ,445    ,49.2    ,429    ,47.5    ,16    ,3.5    
+25,09,Massachusetts,Women,"2,881    ","1,727    ",60.0    ,"1,670    ",58.0    ,58    ,3.3    
+25,10,Massachusetts,"Women, 16 to 24 years",393    ,207    ,52.8    ,196    ,49.9    ,11    ,5.5    
+25,11,Massachusetts,"Women, 25 to 54 years","1,413    ","1,111    ",78.6    ,"1,078    ",76.3    ,33    ,3.0    
+25,12,Massachusetts,"Women, 55 years and over","1,075    ",409    ,38.0    ,396    ,36.8    ,13    ,3.2    
+25,13,Massachusetts,White,"4,580    ","2,984    ",65.1    ,"2,879    ",62.9    ,105    ,3.5    
+25,14,Massachusetts,"White, 16 to 24 years",627    ,366    ,58.4    ,343    ,54.7    ,23    ,6.3    
+25,15,Massachusetts,"White, 25 to 54 years","2,196    ","1,847    ",84.1    ,"1,790    ",81.5    ,57    ,3.1    
+25,16,Massachusetts,"White, 55 years and over","1,757    ",771    ,43.9    ,746    ,42.5    ,25    ,3.2    
+25,17,Massachusetts,Black or African American,440    ,296    ,67.2    ,278    ,63.2    ,18    ,6.0    
+25,19,Massachusetts,"Black or African American, 25 to 54 years",268    ,224    ,83.6    ,212    ,79.4    ,11    ,5.1    
+25,21,Massachusetts,Asian,403    ,242    ,60.1    ,235    ,58.4    ,7    ,2.8    
+25,23,Massachusetts,"Asian, 25 to 54 years",244    ,183    ,75.2    ,178    ,73.1    ,5    ,2.7    
+25,25,Massachusetts,Hispanic or Latino ethnicity,548    ,350    ,63.9    ,327    ,59.7    ,23    ,6.5    
+25,27,Massachusetts,"Hispanic or Latino ethnicity, 25 to 54 years",325    ,251    ,77.2    ,238    ,73.3    ,13    ,5.1    
+26,01,Michigan,Total,"7,896    ","4,848    ",61.4    ,"4,611    ",58.4    ,237    ,4.9    
+26,02,Michigan,"Total, 16 to 24 years","1,179    ",748    ,63.5    ,669    ,56.7    ,80    ,10.6    
+26,03,Michigan,"Total, 25 to 54 years","3,782    ","3,022    ",79.9    ,"2,904    ",76.8    ,119    ,3.9    
+26,04,Michigan,"Total, 55 years and over","2,935    ","1,078    ",36.7    ,"1,039    ",35.4    ,39    ,3.6    
+26,05,Michigan,Men,"3,821    ","2,564    ",67.1    ,"2,440    ",63.9    ,123    ,4.8    
+26,06,Michigan,"Men, 16 to 24 years",618    ,392    ,63.4    ,349    ,56.4    ,43    ,11.0    
+26,07,Michigan,"Men, 25 to 54 years","1,861    ","1,609    ",86.5    ,"1,548    ",83.2    ,62    ,3.8    
+26,08,Michigan,"Men, 55 years and over","1,341    ",563    ,41.9    ,544    ,40.5    ,19    ,3.3    
+26,09,Michigan,Women,"4,076    ","2,285    ",56.1    ,"2,171    ",53.3    ,114    ,5.0    
+26,10,Michigan,"Women, 16 to 24 years",561    ,356    ,63.6    ,320    ,57.1    ,37    ,10.3    
+26,11,Michigan,"Women, 25 to 54 years","1,921    ","1,413    ",73.6    ,"1,356    ",70.6    ,57    ,4.1    
+26,12,Michigan,"Women, 55 years and over","1,594    ",515    ,32.3    ,495    ,31.1    ,20    ,3.9    
+26,13,Michigan,White,"6,481    ","4,003    ",61.8    ,"3,838    ",59.2    ,165    ,4.1    
+26,14,Michigan,"White, 16 to 24 years",919    ,601    ,65.3    ,543    ,59.1    ,58    ,9.6    
+26,15,Michigan,"White, 25 to 54 years","3,021    ","2,450    ",81.1    ,"2,374    ",78.6    ,76    ,3.1    
+26,16,Michigan,"White, 55 years and over","2,540    ",953    ,37.5    ,921    ,36.3    ,32    ,3.3    
+26,17,Michigan,Black or African American,"1,052    ",594    ,56.5    ,535    ,50.8    ,60    ,10.1    
+26,18,Michigan,"Black or African American, 16 to 24 years",186    ,102    ,54.7    ,82    ,44.4    ,19    ,18.8    
+26,19,Michigan,"Black or African American, 25 to 54 years",550    ,403    ,73.3    ,368    ,66.9    ,35    ,8.6    
+26,20,Michigan,"Black or African American, 55 years and over",316    ,90    ,28.4    ,84    ,26.5    ,6    ,6.5    
+26,21,Michigan,Asian,204    ,140    ,68.5    ,136    ,66.7    ,4    ,2.6    
+26,23,Michigan,"Asian, 25 to 54 years",128    ,103    ,80.0    ,100    ,78.0    ,3    ,2.6    
+26,25,Michigan,Hispanic or Latino ethnicity,359    ,240    ,66.9    ,225    ,62.8    ,15    ,6.1    
+26,27,Michigan,"Hispanic or Latino ethnicity, 25 to 54 years",213    ,159    ,74.7    ,151    ,70.7    ,9    ,5.4    
+27,01,Minnesota,Total,"4,317    ","2,983    ",69.1    ,"2,867    ",66.4    ,116    ,3.9    
+27,02,Minnesota,"Total, 16 to 24 years",604    ,375    ,62.1    ,344    ,57.1    ,30    ,8.0    
+27,03,Minnesota,"Total, 25 to 54 years","2,146    ","1,881    ",87.6    ,"1,821    ",84.9    ,60    ,3.2    
+27,04,Minnesota,"Total, 55 years and over","1,567    ",727    ,46.4    ,702    ,44.8    ,26    ,3.5    
+27,05,Minnesota,Men,"2,131    ","1,570    ",73.7    ,"1,500    ",70.4    ,70    ,4.5    
+27,06,Minnesota,"Men, 16 to 24 years",310    ,192    ,62.1    ,171    ,55.3    ,21    ,10.9    
+27,07,Minnesota,"Men, 25 to 54 years","1,082    ",994    ,91.8    ,960    ,88.7    ,33    ,3.3    
+27,08,Minnesota,"Men, 55 years and over",739    ,384    ,51.9    ,368    ,49.8    ,16    ,4.1    
+27,09,Minnesota,Women,"2,186    ","1,413    ",64.7    ,"1,368    ",62.6    ,46    ,3.2    
+27,10,Minnesota,"Women, 16 to 24 years",294    ,182    ,62.1    ,173    ,58.9    ,9    ,5.0    
+27,11,Minnesota,"Women, 25 to 54 years","1,064    ",888    ,83.4    ,861    ,80.9    ,27    ,3.0    
+27,12,Minnesota,"Women, 55 years and over",829    ,344    ,41.5    ,334    ,40.3    ,10    ,2.9    
+27,13,Minnesota,White,"3,778    ","2,626    ",69.5    ,"2,548    ",67.4    ,78    ,3.0    
+27,14,Minnesota,"White, 16 to 24 years",468    ,299    ,63.8    ,282    ,60.2    ,17    ,5.7    
+27,15,Minnesota,"White, 25 to 54 years","1,841    ","1,642    ",89.2    ,"1,604    ",87.1    ,38    ,2.3    
+27,16,Minnesota,"White, 55 years and over","1,469    ",685    ,46.6    ,662    ,45.1    ,22    ,3.3    
+27,17,Minnesota,Black or African American,231    ,150    ,64.9    ,137    ,59.1    ,13    ,8.8    
+27,19,Minnesota,"Black or African American, 25 to 54 years",134    ,105    ,78.0    ,96    ,71.7    ,9    ,8.1    
+27,25,Minnesota,Hispanic or Latino ethnicity,237    ,175    ,73.7    ,166    ,69.8    ,9    ,5.3    
+27,27,Minnesota,"Hispanic or Latino ethnicity, 25 to 54 years",143    ,120    ,83.4    ,113    ,79.1    ,6    ,5.1    
+28,01,Mississippi,Total,"2,285    ","1,279    ",56.0    ,"1,205    ",52.7    ,73    ,5.7    
+28,02,Mississippi,"Total, 16 to 24 years",369    ,169    ,45.8    ,148    ,40.0    ,21    ,12.6    
+28,03,Mississippi,"Total, 25 to 54 years","1,111    ",845    ,76.1    ,803    ,72.2    ,43    ,5.0    
+28,04,Mississippi,"Total, 55 years and over",805    ,265    ,32.9    ,255    ,31.7    ,10    ,3.6    
+28,05,Mississippi,Men,"1,074    ",653    ,60.8    ,614    ,57.2    ,39    ,6.0    
+28,06,Mississippi,"Men, 16 to 24 years",181    ,85    ,46.9    ,75    ,41.4    ,10    ,11.7    
+28,07,Mississippi,"Men, 25 to 54 years",526    ,432    ,82.0    ,409    ,77.7    ,23    ,5.3    
+28,08,Mississippi,"Men, 55 years and over",366    ,136    ,37.3    ,130    ,35.5    ,6    ,4.7    
+28,09,Mississippi,Women,"1,211    ",626    ,51.7    ,592    ,48.8    ,34    ,5.5    
+28,10,Mississippi,"Women, 16 to 24 years",188    ,84    ,44.7    ,73    ,38.7    ,11    ,13.4    
+28,11,Mississippi,"Women, 25 to 54 years",585    ,414    ,70.7    ,394    ,67.3    ,20    ,4.8    
+28,12,Mississippi,"Women, 55 years and over",438    ,128    ,29.2    ,125    ,28.5    ,3    ,2.5    
+28,13,Mississippi,White,"1,396    ",777    ,55.7    ,742    ,53.2    ,35    ,4.5    
+28,14,Mississippi,"White, 16 to 24 years",196    ,100    ,50.9    ,90    ,46.0    ,10    ,9.6    
+28,15,Mississippi,"White, 25 to 54 years",636    ,492    ,77.3    ,473    ,74.4    ,18    ,3.8    
+28,16,Mississippi,"White, 55 years and over",563    ,185    ,32.9    ,179    ,31.7    ,7    ,3.6    
+28,17,Mississippi,Black or African American,823    ,465    ,56.4    ,428    ,52.0    ,36    ,7.8    
+28,18,Mississippi,"Black or African American, 16 to 24 years",160    ,64    ,40.2    ,54    ,33.5    ,11    ,16.6    
+28,19,Mississippi,"Black or African American, 25 to 54 years",432    ,324    ,75.1    ,301    ,69.8    ,23    ,7.0    
+28,20,Mississippi,"Black or African American, 55 years and over",232    ,76    ,33.0    ,74    ,31.8    ,3    ,3.7    
+28,25,Mississippi,Hispanic or Latino ethnicity,51    ,33    ,64.6    ,30    ,59.6    ,3    ,7.8    
+29,01,Missouri,Total,"4,758    ","3,131    ",65.8    ,"2,992    ",62.9    ,139    ,4.4    
+29,02,Missouri,"Total, 16 to 24 years",673    ,439    ,65.3    ,394    ,58.5    ,46    ,10.4    
+29,03,Missouri,"Total, 25 to 54 years","2,363    ","1,993    ",84.3    ,"1,922    ",81.3    ,71    ,3.6    
+29,04,Missouri,"Total, 55 years and over","1,722    ",699    ,40.6    ,676    ,39.3    ,23    ,3.2    
+29,05,Missouri,Men,"2,294    ","1,634    ",71.2    ,"1,563    ",68.1    ,72    ,4.4    
+29,06,Missouri,"Men, 16 to 24 years",325    ,214    ,66.0    ,189    ,58.3    ,25    ,11.6    
+29,07,Missouri,"Men, 25 to 54 years","1,168    ","1,046    ",89.5    ,"1,011    ",86.5    ,35    ,3.3    
+29,08,Missouri,"Men, 55 years and over",801    ,374    ,46.7    ,362    ,45.2    ,12    ,3.3    
+29,09,Missouri,Women,"2,463    ","1,497    ",60.8    ,"1,429    ",58.0    ,67    ,4.5    
+29,10,Missouri,"Women, 16 to 24 years",349    ,225    ,64.6    ,205    ,58.7    ,21    ,9.2    
+29,11,Missouri,"Women, 25 to 54 years","1,195    ",947    ,79.3    ,911    ,76.2    ,36    ,3.8    
+29,12,Missouri,"Women, 55 years and over",920    ,324    ,35.2    ,314    ,34.1    ,10    ,3.2    
+29,13,Missouri,White,"4,033    ","2,648    ",65.7    ,"2,550    ",63.2    ,99    ,3.7    
+29,14,Missouri,"White, 16 to 24 years",531    ,353    ,66.4    ,323    ,60.8    ,30    ,8.5    
+29,15,Missouri,"White, 25 to 54 years","1,983    ","1,680    ",84.8    ,"1,630    ",82.2    ,51    ,3.0    
+29,16,Missouri,"White, 55 years and over","1,519    ",614    ,40.5    ,597    ,39.3    ,18    ,2.9    
+29,17,Missouri,Black or African American,524    ,368    ,70.1    ,334    ,63.8    ,33    ,9.0    
+29,19,Missouri,"Black or African American, 25 to 54 years",273    ,235    ,85.9    ,219    ,79.9    ,16    ,7.0    
+29,25,Missouri,Hispanic or Latino ethnicity,176    ,123    ,69.9    ,115    ,65.4    ,8    ,6.5    
+30,01,Montana,Total,824    ,523    ,63.4    ,500    ,60.7    ,22    ,4.2    
+30,02,Montana,"Total, 16 to 24 years",123    ,76    ,61.8    ,69    ,56.2    ,7    ,9.0    
+30,03,Montana,"Total, 25 to 54 years",368    ,310    ,84.2    ,299    ,81.1    ,11    ,3.6    
+30,04,Montana,"Total, 55 years and over",332    ,136    ,40.9    ,132    ,39.7    ,4    ,2.9    
+30,05,Montana,Men,411    ,277    ,67.5    ,265    ,64.4    ,13    ,4.6    
+30,06,Montana,"Men, 16 to 24 years",65    ,41    ,62.6    ,36    ,56.3    ,4    ,10.1    
+30,07,Montana,"Men, 25 to 54 years",184    ,165    ,89.4    ,159    ,86.0    ,6    ,3.8    
+30,08,Montana,"Men, 55 years and over",162    ,72    ,44.4    ,69    ,42.9    ,2    ,3.3    
+30,09,Montana,Women,413    ,245    ,59.3    ,236    ,57.1    ,9    ,3.8    
+30,10,Montana,"Women, 16 to 24 years",59    ,36    ,60.8    ,33    ,56.2    ,3    ,7.6    
+30,11,Montana,"Women, 25 to 54 years",184    ,145    ,78.9    ,140    ,76.2    ,5    ,3.4    
+30,12,Montana,"Women, 55 years and over",171    ,64    ,37.6    ,63    ,36.7    ,2    ,2.6    
+30,13,Montana,White,765    ,484    ,63.3    ,465    ,60.8    ,19    ,4.0    
+30,14,Montana,"White, 16 to 24 years",108    ,68    ,62.5    ,62    ,57.3    ,6    ,8.3    
+30,15,Montana,"White, 25 to 54 years",338    ,287    ,84.7    ,277    ,81.8    ,10    ,3.4    
+30,16,Montana,"White, 55 years and over",318    ,130    ,40.8    ,126    ,39.6    ,4    ,3.0    
+30,25,Montana,Hispanic or Latino ethnicity,22    ,16    ,71.4    ,15    ,67.0    ,1    ,6.2    
+31,01,Nebraska,Total,"1,454    ","1,011    ",69.5    ,977    ,67.2    ,34    ,3.4    
+31,02,Nebraska,"Total, 16 to 24 years",241    ,161    ,66.8    ,151    ,62.6    ,10    ,6.3    
+31,03,Nebraska,"Total, 25 to 54 years",713    ,627    ,87.9    ,609    ,85.5    ,18    ,2.8    
+31,04,Nebraska,"Total, 55 years and over",500    ,223    ,44.6    ,217    ,43.4    ,6    ,2.8    
+31,05,Nebraska,Men,717    ,532    ,74.2    ,511    ,71.2    ,21    ,4.0    
+31,06,Nebraska,"Men, 16 to 24 years",119    ,81    ,68.6    ,75    ,63.2    ,6    ,7.8    
+31,07,Nebraska,"Men, 25 to 54 years",360    ,331    ,91.9    ,320    ,88.8    ,11    ,3.4    
+31,08,Nebraska,"Men, 55 years and over",238    ,120    ,50.3    ,116    ,48.6    ,4    ,3.2    
+31,09,Nebraska,Women,737    ,479    ,65.0    ,467    ,63.3    ,13    ,2.6    
+31,10,Nebraska,"Women, 16 to 24 years",122    ,80    ,65.1    ,76    ,62.1    ,4    ,4.6    
+31,11,Nebraska,"Women, 25 to 54 years",352    ,296    ,83.9    ,289    ,82.1    ,7    ,2.2    
+31,12,Nebraska,"Women, 55 years and over",263    ,104    ,39.6    ,102    ,38.7    ,2    ,2.2    
+31,13,Nebraska,White,"1,315    ",920    ,70.0    ,895    ,68.1    ,25    ,2.7    
+31,14,Nebraska,"White, 16 to 24 years",206    ,144    ,69.9    ,137    ,66.2    ,8    ,5.3    
+31,15,Nebraska,"White, 25 to 54 years",637    ,565    ,88.7    ,553    ,86.7    ,12    ,2.2    
+31,16,Nebraska,"White, 55 years and over",472    ,211    ,44.8    ,206    ,43.7    ,5    ,2.5    
+31,17,Nebraska,Black or African American,60    ,42    ,69.7    ,37    ,62.7    ,4    ,10.0    
+31,25,Nebraska,Hispanic or Latino ethnicity,141    ,104    ,73.9    ,99    ,70.4    ,5    ,4.7    
+31,27,Nebraska,"Hispanic or Latino ethnicity, 25 to 54 years",83    ,69    ,83.5    ,66    ,79.9    ,3    ,4.3    
+32,01,Nevada,Total,"2,297    ","1,416    ",61.6    ,"1,332    ",58.0    ,84    ,5.9    
+32,02,Nevada,"Total, 16 to 24 years",339    ,189    ,56.0    ,171    ,50.5    ,18    ,9.7    
+32,03,Nevada,"Total, 25 to 54 years","1,162    ",937    ,80.6    ,888    ,76.4    ,49    ,5.2    
+32,04,Nevada,"Total, 55 years and over",796    ,289    ,36.3    ,273    ,34.3    ,16    ,5.7    
+32,05,Nevada,Men,"1,135    ",786    ,69.3    ,739    ,65.1    ,48    ,6.1    
+32,06,Nevada,"Men, 16 to 24 years",171    ,105    ,61.0    ,92    ,53.8    ,12    ,11.8    
+32,07,Nevada,"Men, 25 to 54 years",585    ,520    ,89.0    ,494    ,84.5    ,26    ,5.1    
+32,08,Nevada,"Men, 55 years and over",378    ,161    ,42.7    ,152    ,40.3    ,9    ,5.6    
+32,09,Nevada,Women,"1,162    ",629    ,54.1    ,593    ,51.0    ,36    ,5.7    
+32,10,Nevada,"Women, 16 to 24 years",167    ,85    ,50.8    ,79    ,47.1    ,6    ,7.2    
+32,11,Nevada,"Women, 25 to 54 years",577    ,416    ,72.1    ,394    ,68.3    ,22    ,5.4    
+32,12,Nevada,"Women, 55 years and over",418    ,128    ,30.6    ,120    ,28.8    ,8    ,5.9    
+32,13,Nevada,White,"1,703    ","1,041    ",61.1    ,992    ,58.3    ,48    ,4.6    
+32,14,Nevada,"White, 16 to 24 years",225    ,134    ,59.5    ,125    ,55.5    ,9    ,6.7    
+32,15,Nevada,"White, 25 to 54 years",831    ,672    ,81.0    ,644    ,77.5    ,29    ,4.3    
+32,16,Nevada,"White, 55 years and over",647    ,234    ,36.2    ,224    ,34.6    ,11    ,4.5    
+32,17,Nevada,Black or African American,205    ,121    ,58.9    ,105    ,51.4    ,15    ,12.7    
+32,19,Nevada,"Black or African American, 25 to 54 years",105    ,83    ,79.0    ,74    ,70.3    ,9    ,11.0    
+32,21,Nevada,Asian,223    ,141    ,63.3    ,131    ,58.7    ,10    ,7.4    
+32,23,Nevada,"Asian, 25 to 54 years",127    ,101    ,79.9    ,96    ,75.5    ,6    ,5.5    
+32,25,Nevada,Hispanic or Latino ethnicity,559    ,388    ,69.5    ,365    ,65.3    ,23    ,6.0    
+32,26,Nevada,"Hispanic or Latino ethnicity, 16 to 24 years",123    ,68    ,55.2    ,61    ,49.5    ,7    ,10.3    
+32,27,Nevada,"Hispanic or Latino ethnicity, 25 to 54 years",328    ,273    ,83.2    ,260    ,79.4    ,13    ,4.6    
+32,28,Nevada,"Hispanic or Latino ethnicity, 55 years and over",108    ,48    ,44.2    ,44    ,40.7    ,4    ,7.9    
+33,01,New Hampshire,Total,"1,090    ",751    ,68.9    ,730    ,67.0    ,21    ,2.8    
+33,02,New Hampshire,"Total, 16 to 24 years",153    ,101    ,66.1    ,95    ,62.0    ,6    ,6.1    
+33,03,New Hampshire,"Total, 25 to 54 years",508    ,436    ,85.8    ,427    ,84.1    ,8    ,1.9    
+33,04,New Hampshire,"Total, 55 years and over",430    ,215    ,50.0    ,208    ,48.5    ,6    ,3.0    
+33,05,New Hampshire,Men,535    ,397    ,74.1    ,385    ,71.9    ,12    ,3.1    
+33,06,New Hampshire,"Men, 16 to 24 years",76    ,47    ,62.2    ,44    ,57.9    ,3    ,6.9    
+33,07,New Hampshire,"Men, 25 to 54 years",255    ,236    ,92.6    ,231    ,90.6    ,5    ,2.2    
+33,08,New Hampshire,"Men, 55 years and over",204    ,113    ,55.4    ,110    ,53.6    ,4    ,3.2    
+33,09,New Hampshire,Women,555    ,354    ,63.9    ,346    ,62.3    ,9    ,2.5    
+33,10,New Hampshire,"Women, 16 to 24 years",77    ,54    ,69.9    ,51    ,66.1    ,3    ,5.4    
+33,11,New Hampshire,"Women, 25 to 54 years",253    ,199    ,78.8    ,196    ,77.6    ,3    ,1.6    
+33,12,New Hampshire,"Women, 55 years and over",225    ,101    ,45.0    ,99    ,43.8    ,3    ,2.7    
+33,13,New Hampshire,White,"1,034    ",714    ,69.1    ,694    ,67.2    ,20    ,2.8    
+33,14,New Hampshire,"White, 16 to 24 years",140    ,94    ,67.1    ,88    ,63.1    ,6    ,6.0    
+33,15,New Hampshire,"White, 25 to 54 years",476    ,410    ,86.2    ,403    ,84.5    ,8    ,1.9    
+33,16,New Hampshire,"White, 55 years and over",417    ,210    ,50.2    ,204    ,48.8    ,6    ,3.0    
+34,01,New Jersey,Total,"7,092    ","4,527    ",63.8    ,"4,303    ",60.7    ,223    ,4.9    
+34,02,New Jersey,"Total, 16 to 24 years","1,033    ",504    ,48.8    ,446    ,43.2    ,57    ,11.4    
+34,03,New Jersey,"Total, 25 to 54 years","3,560    ","2,909    ",81.7    ,"2,795    ",78.5    ,113    ,3.9    
+34,04,New Jersey,"Total, 55 years and over","2,499    ","1,114    ",44.6    ,"1,061    ",42.5    ,53    ,4.7    
+34,05,New Jersey,Men,"3,409    ","2,430    ",71.3    ,"2,317    ",68.0    ,113    ,4.6    
+34,06,New Jersey,"Men, 16 to 24 years",538    ,266    ,49.5    ,233    ,43.3    ,33    ,12.4    
+34,07,New Jersey,"Men, 25 to 54 years","1,714    ","1,553    ",90.6    ,"1,500    ",87.5    ,52    ,3.4    
+34,08,New Jersey,"Men, 55 years and over","1,158    ",612    ,52.8    ,584    ,50.5    ,27    ,4.4    
+34,09,New Jersey,Women,"3,683    ","2,096    ",56.9    ,"1,986    ",53.9    ,111    ,5.3    
+34,10,New Jersey,"Women, 16 to 24 years",495    ,238    ,48.0    ,214    ,43.1    ,24    ,10.2    
+34,11,New Jersey,"Women, 25 to 54 years","1,846    ","1,356    ",73.5    ,"1,295    ",70.2    ,61    ,4.5    
+34,12,New Jersey,"Women, 55 years and over","1,341    ",502    ,37.5    ,477    ,35.6    ,25    ,5.1    
+34,13,New Jersey,White,"5,323    ","3,409    ",64.0    ,"3,258    ",61.2    ,151    ,4.4    
+34,14,New Jersey,"White, 16 to 24 years",744    ,384    ,51.7    ,348    ,46.8    ,37    ,9.5    
+34,15,New Jersey,"White, 25 to 54 years","2,569    ","2,134    ",83.1    ,"2,058    ",80.1    ,76    ,3.5    
+34,16,New Jersey,"White, 55 years and over","2,010    ",891    ,44.3    ,852    ,42.4    ,39    ,4.4    
+34,17,New Jersey,Black or African American,"1,000    ",614    ,61.5    ,569    ,57.0    ,45    ,7.3    
+34,18,New Jersey,"Black or African American, 16 to 24 years",183    ,84    ,45.8    ,70    ,38.3    ,14    ,16.4    
+34,19,New Jersey,"Black or African American, 25 to 54 years",526    ,409    ,77.7    ,385    ,73.2    ,23    ,5.7    
+34,20,New Jersey,"Black or African American, 55 years and over",291    ,122    ,42.0    ,114    ,39.2    ,8    ,6.6    
+34,21,New Jersey,Asian,661    ,431    ,65.2    ,413    ,62.4    ,19    ,4.4    
+34,23,New Jersey,"Asian, 25 to 54 years",399    ,311    ,78.0    ,301    ,75.5    ,10    ,3.2    
+34,24,New Jersey,"Asian, 55 years and over",184    ,93    ,50.8    ,89    ,48.3    ,4    ,4.8    
+34,25,New Jersey,Hispanic or Latino ethnicity,"1,207    ",818    ,67.7    ,773    ,64.0    ,45    ,5.5    
+34,26,New Jersey,"Hispanic or Latino ethnicity, 16 to 24 years",209    ,101    ,48.4    ,88    ,42.0    ,13    ,13.2    
+34,27,New Jersey,"Hispanic or Latino ethnicity, 25 to 54 years",739    ,605    ,81.8    ,580    ,78.5    ,24    ,4.0    
+34,28,New Jersey,"Hispanic or Latino ethnicity, 55 years and over",259    ,112    ,43.2    ,105    ,40.5    ,7    ,6.4    
+35,01,New Mexico,Total,"1,610    ",932    ,57.9    ,869    ,54.0    ,63    ,6.8    
+35,02,New Mexico,"Total, 16 to 24 years",264    ,137    ,52.0    ,115    ,43.7    ,22    ,15.9    
+35,03,New Mexico,"Total, 25 to 54 years",759    ,581    ,76.5    ,546    ,72.0    ,34    ,5.9    
+35,04,New Mexico,"Total, 55 years and over",587    ,215    ,36.6    ,207    ,35.3    ,7    ,3.3    
+35,05,New Mexico,Men,782    ,496    ,63.4    ,459    ,58.8    ,36    ,7.3    
+35,06,New Mexico,"Men, 16 to 24 years",139    ,77    ,55.4    ,64    ,46.2    ,13    ,16.7    
+35,07,New Mexico,"Men, 25 to 54 years",372    ,310    ,83.2    ,291    ,78.0    ,19    ,6.2    
+35,08,New Mexico,"Men, 55 years and over",270    ,109    ,40.4    ,105    ,38.7    ,4    ,4.1    
+35,09,New Mexico,Women,828    ,437    ,52.7    ,410    ,49.5    ,27    ,6.1    
+35,10,New Mexico,"Women, 16 to 24 years",125    ,60    ,48.2    ,51    ,41.0    ,9    ,14.9    
+35,11,New Mexico,"Women, 25 to 54 years",387    ,271    ,70.1    ,256    ,66.2    ,15    ,5.6    
+35,12,New Mexico,"Women, 55 years and over",316    ,105    ,33.3    ,103    ,32.5    ,3    ,2.5    
+35,13,New Mexico,White,"1,257    ",738    ,58.7    ,698    ,55.5    ,40    ,5.4    
+35,14,New Mexico,"White, 16 to 24 years",182    ,99    ,54.4    ,87    ,48.0    ,12    ,11.9    
+35,15,New Mexico,"White, 25 to 54 years",580    ,454    ,78.2    ,431    ,74.3    ,23    ,5.0    
+35,16,New Mexico,"White, 55 years and over",495    ,185    ,37.3    ,179    ,36.2    ,5    ,3.0    
+35,17,New Mexico,Black or African American,39    ,26    ,65.9    ,25    ,64.5    ,1    ,2.1    
+35,25,New Mexico,Hispanic or Latino ethnicity,701    ,417    ,59.5    ,390    ,55.6    ,27    ,6.5    
+35,26,New Mexico,"Hispanic or Latino ethnicity, 16 to 24 years",131    ,69    ,52.7    ,60    ,45.8    ,9    ,13.1    
+35,27,New Mexico,"Hispanic or Latino ethnicity, 25 to 54 years",371    ,279    ,75.2    ,265    ,71.3    ,15    ,5.2    
+35,28,New Mexico,"Hispanic or Latino ethnicity, 55 years and over",199    ,69    ,34.7    ,65    ,32.8    ,4    ,5.3    
+36,01,New York,Total,"15,818    ","9,561    ",60.4    ,"9,101    ",57.5    ,460    ,4.8    
+36,02,New York,"Total, 16 to 24 years","2,446    ","1,148    ",46.9    ,"1,027    ",42.0    ,120    ,10.5    
+36,03,New York,"Total, 25 to 54 years","7,787    ","6,197    ",79.6    ,"5,947    ",76.4    ,250    ,4.0    
+36,04,New York,"Total, 55 years and over","5,584    ","2,217    ",39.7    ,"2,126    ",38.1    ,90    ,4.1    
+36,05,New York,Men,"7,550    ","4,988    ",66.1    ,"4,744    ",62.8    ,244    ,4.9    
+36,06,New York,"Men, 16 to 24 years","1,251    ",591    ,47.3    ,525    ,42.0    ,66    ,11.2    
+36,07,New York,"Men, 25 to 54 years","3,770    ","3,235    ",85.8    ,"3,100    ",82.2    ,134    ,4.2    
+36,08,New York,"Men, 55 years and over","2,528    ","1,162    ",46.0    ,"1,119    ",44.2    ,44    ,3.8    
+36,09,New York,Women,"8,268    ","4,573    ",55.3    ,"4,357    ",52.7    ,216    ,4.7    
+36,10,New York,"Women, 16 to 24 years","1,195    ",556    ,46.5    ,502    ,42.0    ,54    ,9.8    
+36,11,New York,"Women, 25 to 54 years","4,017    ","2,962    ",73.7    ,"2,847    ",70.9    ,115    ,3.9    
+36,12,New York,"Women, 55 years and over","3,056    ","1,054    ",34.5    ,"1,008    ",33.0    ,47    ,4.4    
+36,13,New York,White,"11,304    ","6,873    ",60.8    ,"6,582    ",58.2    ,292    ,4.2    
+36,14,New York,"White, 16 to 24 years","1,644    ",812    ,49.4    ,736    ,44.8    ,76    ,9.3    
+36,15,New York,"White, 25 to 54 years","5,365    ","4,336    ",80.8    ,"4,177    ",77.9    ,159    ,3.7    
+36,16,New York,"White, 55 years and over","4,296    ","1,725    ",40.2    ,"1,668    ",38.8    ,57    ,3.3    
+36,17,New York,Black or African American,"2,675    ","1,590    ",59.4    ,"1,471    ",55.0    ,119    ,7.5    
+36,18,New York,"Black or African American, 16 to 24 years",467    ,200    ,42.8    ,166    ,35.7    ,33    ,16.7    
+36,19,New York,"Black or African American, 25 to 54 years","1,416    ","1,098    ",77.5    ,"1,033    ",73.0    ,65    ,5.9    
+36,20,New York,"Black or African American, 55 years and over",792    ,292    ,36.8    ,271    ,34.2    ,20    ,7.0    
+36,21,New York,Asian,"1,475    ",874    ,59.3    ,838    ,56.8    ,36    ,4.1    
+36,22,New York,"Asian, 16 to 24 years",249    ,98    ,39.3    ,90    ,36.1    ,8    ,8.2    
+36,23,New York,"Asian, 25 to 54 years",805    ,601    ,74.6    ,583    ,72.4    ,18    ,3.0    
+36,24,New York,"Asian, 55 years and over",421    ,175    ,41.7    ,165    ,39.3    ,10    ,5.7    
+36,25,New York,Hispanic or Latino ethnicity,"2,558    ","1,546    ",60.4    ,"1,446    ",56.5    ,100    ,6.5    
+36,26,New York,"Hispanic or Latino ethnicity, 16 to 24 years",469    ,204    ,43.5    ,170    ,36.3    ,34    ,16.5    
+36,27,New York,"Hispanic or Latino ethnicity, 25 to 54 years","1,491    ","1,136    ",76.2    ,"1,077    ",72.2    ,59    ,5.2    
+36,28,New York,"Hispanic or Latino ethnicity, 55 years and over",598    ,206    ,34.5    ,199    ,33.3    ,7    ,3.5    
+37,01,North Carolina,Total,"7,892    ","4,873    ",61.7    ,"4,628    ",58.6    ,245    ,5.0    
+37,02,North Carolina,"Total, 16 to 24 years","1,198    ",650    ,54.2    ,568    ,47.4    ,82    ,12.6    
+37,03,North Carolina,"Total, 25 to 54 years","3,953    ","3,196    ",80.9    ,"3,067    ",77.6    ,130    ,4.1    
+37,04,North Carolina,"Total, 55 years and over","2,741    ","1,027    ",37.5    ,994    ,36.2    ,33    ,3.2    
+37,05,North Carolina,Men,"3,738    ","2,551    ",68.2    ,"2,429    ",65.0    ,121    ,4.8    
+37,06,North Carolina,"Men, 16 to 24 years",565    ,311    ,55.0    ,267    ,47.3    ,43    ,13.9    
+37,07,North Carolina,"Men, 25 to 54 years","1,925    ","1,685    ",87.5    ,"1,627    ",84.5    ,58    ,3.4    
+37,08,North Carolina,"Men, 55 years and over","1,248    ",555    ,44.4    ,534    ,42.8    ,20    ,3.6    
+37,09,North Carolina,Women,"4,154    ","2,323    ",55.9    ,"2,199    ",52.9    ,124    ,5.3    
+37,10,North Carolina,"Women, 16 to 24 years",633    ,339    ,53.6    ,301    ,47.5    ,39    ,11.4    
+37,11,North Carolina,"Women, 25 to 54 years","2,028    ","1,511    ",74.5    ,"1,439    ",71.0    ,72    ,4.8    
+37,12,North Carolina,"Women, 55 years and over","1,493    ",472    ,31.6    ,459    ,30.8    ,13    ,2.8    
+37,13,North Carolina,White,"5,662    ","3,492    ",61.7    ,"3,352    ",59.2    ,140    ,4.0    
+37,14,North Carolina,"White, 16 to 24 years",802    ,447    ,55.8    ,404    ,50.4    ,43    ,9.6    
+37,15,North Carolina,"White, 25 to 54 years","2,765    ","2,238    ",81.0    ,"2,163    ",78.3    ,75    ,3.3    
+37,16,North Carolina,"White, 55 years and over","2,096    ",807    ,38.5    ,784    ,37.4    ,23    ,2.8    
+37,17,North Carolina,Black or African American,"1,690    ","1,031    ",61.0    ,948    ,56.1    ,83    ,8.1    
+37,18,North Carolina,"Black or African American, 16 to 24 years",291    ,153    ,52.6    ,119    ,40.8    ,34    ,22.3    
+37,19,North Carolina,"Black or African American, 25 to 54 years",873    ,707    ,81.0    ,667    ,76.4    ,40    ,5.6    
+37,20,North Carolina,"Black or African American, 55 years and over",526    ,171    ,32.5    ,162    ,30.8    ,9    ,5.3    
+37,21,North Carolina,Asian,245    ,161    ,65.6    ,154    ,62.9    ,7    ,4.2    
+37,23,North Carolina,"Asian, 25 to 54 years",150    ,117    ,78.3    ,114    ,76.0    ,3    ,2.9    
+37,25,North Carolina,Hispanic or Latino ethnicity,701    ,499    ,71.1    ,473    ,67.5    ,26    ,5.1    
+37,27,North Carolina,"Hispanic or Latino ethnicity, 25 to 54 years",455    ,365    ,80.2    ,351    ,77.1    ,14    ,3.9    
+38,01,North Dakota,Total,582    ,418    ,71.8    ,404    ,69.5    ,14    ,3.3    
+38,02,North Dakota,"Total, 16 to 24 years",99    ,67    ,67.8    ,63    ,63.6    ,4    ,6.2    
+38,03,North Dakota,"Total, 25 to 54 years",293    ,256    ,87.3    ,248    ,84.7    ,8    ,3.0    
+38,04,North Dakota,"Total, 55 years and over",190    ,95    ,50.2    ,93    ,49.1    ,2    ,2.2    
+38,05,North Dakota,Men,298    ,229    ,76.8    ,220    ,73.9    ,9    ,3.7    
+38,06,North Dakota,"Men, 16 to 24 years",52    ,36    ,69.3    ,33    ,64.7    ,2    ,6.6    
+38,07,North Dakota,"Men, 25 to 54 years",154    ,141    ,92.1    ,137    ,89.1    ,5    ,3.3    
+38,08,North Dakota,"Men, 55 years and over",93    ,51    ,55.5    ,50    ,53.8    ,2    ,3.0    
+38,09,North Dakota,Women,284    ,190    ,66.7    ,184    ,64.8    ,5    ,2.8    
+38,10,North Dakota,"Women, 16 to 24 years",47    ,31    ,66.1    ,29    ,62.4    ,2    ,5.6    
+38,11,North Dakota,"Women, 25 to 54 years",140    ,115    ,82.0    ,112    ,79.8    ,3    ,2.7    
+38,12,North Dakota,"Women, 55 years and over",97    ,44    ,45.1    ,43    ,44.5    ,1    ,1.2    
+38,13,North Dakota,White,525    ,380    ,72.4    ,370    ,70.5    ,10    ,2.6    
+38,14,North Dakota,"White, 16 to 24 years",82    ,58    ,70.4    ,55    ,67.2    ,3    ,4.6    
+38,15,North Dakota,"White, 25 to 54 years",258    ,230    ,89.0    ,224    ,86.9    ,5    ,2.3    
+38,16,North Dakota,"White, 55 years and over",184    ,93    ,50.2    ,91    ,49.2    ,2    ,2.1    
+39,01,Ohio,Total,"9,140    ","5,720    ",62.6    ,"5,437    ",59.5    ,283    ,4.9    
+39,02,Ohio,"Total, 16 to 24 years","1,368    ",857    ,62.7    ,764    ,55.8    ,94    ,10.9    
+39,03,Ohio,"Total, 25 to 54 years","4,274    ","3,505    ",82.0    ,"3,356    ",78.5    ,149    ,4.3    
+39,04,Ohio,"Total, 55 years and over","3,498    ","1,357    ",38.8    ,"1,317    ",37.7    ,40    ,2.9    
+39,05,Ohio,Men,"4,406    ","3,003    ",68.2    ,"2,847    ",64.6    ,156    ,5.2    
+39,06,Ohio,"Men, 16 to 24 years",713    ,442    ,62.0    ,389    ,54.6    ,53    ,11.9    
+39,07,Ohio,"Men, 25 to 54 years","2,078    ","1,830    ",88.1    ,"1,748    ",84.1    ,82    ,4.5    
+39,08,Ohio,"Men, 55 years and over","1,615    ",731    ,45.2    ,709    ,43.9    ,22    ,3.0    
+39,09,Ohio,Women,"4,734    ","2,717    ",57.4    ,"2,590    ",54.7    ,127    ,4.7    
+39,10,Ohio,"Women, 16 to 24 years",655    ,415    ,63.4    ,374    ,57.2    ,41    ,9.9    
+39,11,Ohio,"Women, 25 to 54 years","2,196    ","1,675    ",76.3    ,"1,608    ",73.2    ,68    ,4.0    
+39,12,Ohio,"Women, 55 years and over","1,883    ",627    ,33.3    ,608    ,32.3    ,18    ,2.9    
+39,13,Ohio,White,"7,662    ","4,818    ",62.9    ,"4,614    ",60.2    ,204    ,4.2    
+39,14,Ohio,"White, 16 to 24 years","1,094    ",698    ,63.7    ,636    ,58.1    ,61    ,8.8    
+39,15,Ohio,"White, 25 to 54 years","3,498    ","2,900    ",82.9    ,"2,792    ",79.8    ,109    ,3.7    
+39,16,Ohio,"White, 55 years and over","3,071    ","1,220    ",39.7    ,"1,186    ",38.6    ,34    ,2.8    
+39,17,Ohio,Black or African American,"1,082    ",631    ,58.3    ,570    ,52.7    ,61    ,9.6    
+39,18,Ohio,"Black or African American, 16 to 24 years",177    ,104    ,58.9    ,81    ,46.1    ,23    ,21.7    
+39,19,Ohio,"Black or African American, 25 to 54 years",563    ,435    ,77.3    ,401    ,71.3    ,33    ,7.7    
+39,20,Ohio,"Black or African American, 55 years and over",343    ,92    ,26.8    ,87    ,25.4    ,5    ,5.1    
+39,21,Ohio,Asian,209    ,143    ,68.3    ,138    ,65.9    ,5    ,3.4    
+39,23,Ohio,"Asian, 25 to 54 years",135    ,108    ,80.0    ,104    ,76.8    ,4    ,4.1    
+39,25,Ohio,Hispanic or Latino ethnicity,276    ,193    ,69.8    ,181    ,65.7    ,11    ,5.9    
+39,27,Ohio,"Hispanic or Latino ethnicity, 25 to 54 years",169    ,137    ,81.0    ,130    ,76.7    ,7    ,5.3    
+40,01,Oklahoma,Total,"2,988    ","1,825    ",61.1    ,"1,733    ",58.0    ,93    ,5.1    
+40,02,Oklahoma,"Total, 16 to 24 years",439    ,234    ,53.3    ,206    ,46.9    ,28    ,11.9    
+40,03,Oklahoma,"Total, 25 to 54 years","1,481    ","1,157    ",78.1    ,"1,107    ",74.7    ,51    ,4.4    
+40,04,Oklahoma,"Total, 55 years and over","1,067    ",434    ,40.6    ,420    ,39.3    ,14    ,3.2    
+40,05,Oklahoma,Men,"1,446    ","1,000    ",69.1    ,946    ,65.4    ,54    ,5.4    
+40,06,Oklahoma,"Men, 16 to 24 years",217    ,128    ,59.0    ,114    ,52.4    ,14    ,11.1    
+40,07,Oklahoma,"Men, 25 to 54 years",732    ,633    ,86.5    ,603    ,82.4    ,30    ,4.8    
+40,08,Oklahoma,"Men, 55 years and over",497    ,239    ,48.0    ,230    ,46.2    ,9    ,3.9    
+40,09,Oklahoma,Women,"1,542    ",825    ,53.5    ,786    ,51.0    ,39    ,4.7    
+40,10,Oklahoma,"Women, 16 to 24 years",222    ,106    ,47.7    ,92    ,41.5    ,14    ,12.9    
+40,11,Oklahoma,"Women, 25 to 54 years",749    ,524    ,70.0    ,504    ,67.2    ,21    ,3.9    
+40,12,Oklahoma,"Women, 55 years and over",570    ,195    ,34.2    ,190    ,33.4    ,5    ,2.4    
+40,13,Oklahoma,White,"2,331    ","1,410    ",60.5    ,"1,351    ",58.0    ,59    ,4.2    
+40,14,Oklahoma,"White, 16 to 24 years",311    ,165    ,53.1    ,151    ,48.5    ,14    ,8.7    
+40,15,Oklahoma,"White, 25 to 54 years","1,122    ",881    ,78.5    ,848    ,75.6    ,33    ,3.8    
+40,16,Oklahoma,"White, 55 years and over",899    ,364    ,40.5    ,353    ,39.2    ,11    ,3.0    
+40,17,Oklahoma,Black or African American,208    ,131    ,62.9    ,121    ,57.9    ,10    ,7.9    
+40,19,Oklahoma,"Black or African American, 25 to 54 years",110    ,84    ,76.1    ,81    ,73.1    ,3    ,4.0    
+40,25,Oklahoma,Hispanic or Latino ethnicity,305    ,210    ,68.6    ,199    ,65.1    ,11    ,5.1    
+40,27,Oklahoma,"Hispanic or Latino ethnicity, 25 to 54 years",200    ,154    ,77.2    ,148    ,74.0    ,6    ,4.2    
+41,01,Oregon,Total,"3,283    ","2,067    ",63.0    ,"1,965    ",59.9    ,101    ,4.9    
+41,02,Oregon,"Total, 16 to 24 years",466    ,255    ,54.9    ,224    ,48.0    ,32    ,12.4    
+41,03,Oregon,"Total, 25 to 54 years","1,615    ","1,327    ",82.2    ,"1,276    ",79.0    ,51    ,3.8    
+41,04,Oregon,"Total, 55 years and over","1,202    ",484    ,40.3    ,465    ,38.7    ,19    ,3.9    
+41,05,Oregon,Men,"1,604    ","1,095    ",68.3    ,"1,043    ",65.0    ,52    ,4.8    
+41,06,Oregon,"Men, 16 to 24 years",247    ,138    ,56.0    ,119    ,48.3    ,19    ,13.8    
+41,07,Oregon,"Men, 25 to 54 years",803    ,722    ,89.9    ,698    ,86.9    ,24    ,3.3    
+41,08,Oregon,"Men, 55 years and over",553    ,235    ,42.4    ,226    ,40.8    ,9    ,3.9    
+41,09,Oregon,Women,"1,679    ",971    ,57.8    ,922    ,54.9    ,49    ,5.1    
+41,10,Oregon,"Women, 16 to 24 years",218    ,117    ,53.6    ,104    ,47.8    ,13    ,10.8    
+41,11,Oregon,"Women, 25 to 54 years",812    ,605    ,74.5    ,578    ,71.2    ,27    ,4.4    
+41,12,Oregon,"Women, 55 years and over",649    ,250    ,38.4    ,240    ,36.9    ,10    ,3.9    
+41,13,Oregon,White,"2,917    ","1,838    ",63.0    ,"1,747    ",59.9    ,91    ,4.9    
+41,14,Oregon,"White, 16 to 24 years",392    ,224    ,57.1    ,196    ,49.9    ,29    ,12.7    
+41,15,Oregon,"White, 25 to 54 years","1,412    ","1,168    ",82.7    ,"1,123    ",79.5    ,45    ,3.9    
+41,16,Oregon,"White, 55 years and over","1,112    ",445    ,40.0    ,429    ,38.5    ,17    ,3.8    
+41,21,Oregon,Asian,137    ,81    ,59.4    ,77    ,56.5    ,4    ,4.9    
+41,23,Oregon,"Asian, 25 to 54 years",78    ,59    ,75.6    ,57    ,72.4    ,3    ,4.3    
+41,25,Oregon,Hispanic or Latino ethnicity,373    ,277    ,74.1    ,261    ,69.9    ,16    ,5.7    
+41,26,Oregon,"Hispanic or Latino ethnicity, 16 to 24 years",102    ,67    ,66.0    ,60    ,58.6    ,7    ,11.1    
+41,27,Oregon,"Hispanic or Latino ethnicity, 25 to 54 years",234    ,190    ,81.0    ,183    ,78.0    ,7    ,3.8    
+42,01,Pennsylvania,Total,"10,231    ","6,481    ",63.3    ,"6,120    ",59.8    ,361    ,5.6    
+42,02,Pennsylvania,"Total, 16 to 24 years","1,557    ",958    ,61.5    ,855    ,54.9    ,103    ,10.7    
+42,03,Pennsylvania,"Total, 25 to 54 years","4,623    ","3,860    ",83.5    ,"3,671    ",79.4    ,189    ,4.9    
+42,04,Pennsylvania,"Total, 55 years and over","4,050    ","1,663    ",41.1    ,"1,594    ",39.4    ,69    ,4.2    
+42,05,Pennsylvania,Men,"4,927    ","3,373    ",68.5    ,"3,178    ",64.5    ,195    ,5.8    
+42,06,Pennsylvania,"Men, 16 to 24 years",786    ,479    ,61.0    ,421    ,53.6    ,58    ,12.1    
+42,07,Pennsylvania,"Men, 25 to 54 years","2,258    ","2,005    ",88.8    ,"1,907    ",84.4    ,98    ,4.9    
+42,08,Pennsylvania,"Men, 55 years and over","1,883    ",889    ,47.2    ,851    ,45.2    ,38    ,4.3    
+42,09,Pennsylvania,Women,"5,304    ","3,108    ",58.6    ,"2,941    ",55.5    ,166    ,5.3    
+42,10,Pennsylvania,"Women, 16 to 24 years",772    ,479    ,62.1    ,434    ,56.2    ,45    ,9.4    
+42,11,Pennsylvania,"Women, 25 to 54 years","2,365    ","1,855    ",78.4    ,"1,764    ",74.6    ,90    ,4.9    
+42,12,Pennsylvania,"Women, 55 years and over","2,167    ",774    ,35.7    ,743    ,34.3    ,31    ,4.0    
+42,13,Pennsylvania,White,"8,584    ","5,498    ",64.0    ,"5,228    ",60.9    ,270    ,4.9    
+42,14,Pennsylvania,"White, 16 to 24 years","1,212    ",779    ,64.3    ,702    ,57.9    ,78    ,10.0    
+42,15,Pennsylvania,"White, 25 to 54 years","3,779    ","3,218    ",85.2    ,"3,086    ",81.7    ,132    ,4.1    
+42,16,Pennsylvania,"White, 55 years and over","3,593    ","1,500    ",41.7    ,"1,440    ",40.1    ,60    ,4.0    
+42,17,Pennsylvania,Black or African American,"1,095    ",651    ,59.5    ,577    ,52.7    ,74    ,11.4    
+42,18,Pennsylvania,"Black or African American, 16 to 24 years",222    ,129    ,58.0    ,108    ,48.7    ,21    ,16.2    
+42,19,Pennsylvania,"Black or African American, 25 to 54 years",541    ,411    ,76.0    ,366    ,67.6    ,45    ,11.0    
+42,20,Pennsylvania,"Black or African American, 55 years and over",333    ,112    ,33.6    ,103    ,31.1    ,8    ,7.4    
+42,21,Pennsylvania,Asian,339    ,211    ,62.3    ,204    ,60.2    ,7    ,3.3    
+42,23,Pennsylvania,"Asian, 25 to 54 years",203    ,155    ,76.6    ,150    ,73.8    ,6    ,3.7    
+42,25,Pennsylvania,Hispanic or Latino ethnicity,603    ,384    ,63.7    ,338    ,56.1    ,46    ,11.9    
+42,26,Pennsylvania,"Hispanic or Latino ethnicity, 16 to 24 years",150    ,81    ,54.3    ,70    ,46.3    ,12    ,14.6    
+42,27,Pennsylvania,"Hispanic or Latino ethnicity, 25 to 54 years",352    ,267    ,75.7    ,237    ,67.3    ,29    ,11.0    
+44,01,Rhode Island,Total,857    ,550    ,64.2    ,521    ,60.7    ,29    ,5.4    
+44,02,Rhode Island,"Total, 16 to 24 years",121    ,73    ,60.4    ,65    ,53.5    ,8    ,11.4    
+44,03,Rhode Island,"Total, 25 to 54 years",414    ,337    ,81.4    ,322    ,77.8    ,15    ,4.3    
+44,04,Rhode Island,"Total, 55 years and over",322    ,140    ,43.5    ,133    ,41.4    ,7    ,4.7    
+44,05,Rhode Island,Men,409    ,281    ,68.7    ,263    ,64.2    ,18    ,6.5    
+44,06,Rhode Island,"Men, 16 to 24 years",64    ,40    ,61.8    ,35    ,53.7    ,5    ,13.1    
+44,07,Rhode Island,"Men, 25 to 54 years",201    ,175    ,86.9    ,165    ,82.3    ,9    ,5.3    
+44,08,Rhode Island,"Men, 55 years and over",144    ,67    ,46.4    ,63    ,43.6    ,4    ,5.9    
+44,09,Rhode Island,Women,448    ,269    ,60.0    ,258    ,57.5    ,11    ,4.1    
+44,10,Rhode Island,"Women, 16 to 24 years",57    ,33    ,58.7    ,30    ,53.2    ,3    ,9.4    
+44,11,Rhode Island,"Women, 25 to 54 years",213    ,162    ,76.1    ,157    ,73.6    ,5    ,3.3    
+44,12,Rhode Island,"Women, 55 years and over",178    ,73    ,41.1    ,71    ,39.7    ,3    ,3.5    
+44,13,Rhode Island,White,735    ,471    ,64.1    ,447    ,60.8    ,24    ,5.1    
+44,14,Rhode Island,"White, 16 to 24 years",99    ,60    ,61.3    ,54    ,54.5    ,7    ,11.0    
+44,15,Rhode Island,"White, 25 to 54 years",347    ,285    ,82.3    ,274    ,78.9    ,12    ,4.1    
+44,16,Rhode Island,"White, 55 years and over",290    ,125    ,43.2    ,120    ,41.2    ,6    ,4.6    
+44,17,Rhode Island,Black or African American,62    ,41    ,66.0    ,38    ,61.4    ,3    ,6.9    
+44,19,Rhode Island,"Black or African American, 25 to 54 years",34    ,27    ,78.2    ,26    ,74.6    ,1    ,4.6    
+44,25,Rhode Island,Hispanic or Latino ethnicity,121    ,77    ,64.1    ,71    ,58.5    ,7    ,8.7    
+44,27,Rhode Island,"Hispanic or Latino ethnicity, 25 to 54 years",73    ,55    ,74.9    ,51    ,69.8    ,4    ,6.9    
+45,01,South Carolina,Total,"3,887    ","2,320    ",59.7    ,"2,207    ",56.8    ,113    ,4.9    
+45,02,South Carolina,"Total, 16 to 24 years",527    ,287    ,54.5    ,257    ,48.7    ,30    ,10.5    
+45,03,South Carolina,"Total, 25 to 54 years","1,899    ","1,511    ",79.6    ,"1,445    ",76.1    ,65    ,4.3    
+45,04,South Carolina,"Total, 55 years and over","1,461    ",522    ,35.8    ,505    ,34.6    ,17    ,3.3    
+45,05,South Carolina,Men,"1,835    ","1,190    ",64.9    ,"1,124    ",61.3    ,66    ,5.6    
+45,06,South Carolina,"Men, 16 to 24 years",265    ,141    ,53.2    ,122    ,46.0    ,19    ,13.5    
+45,07,South Carolina,"Men, 25 to 54 years",893    ,777    ,87.1    ,742    ,83.1    ,35    ,4.6    
+45,08,South Carolina,"Men, 55 years and over",678    ,272    ,40.2    ,261    ,38.5    ,12    ,4.3    
+45,09,South Carolina,Women,"2,052    ","1,130    ",55.1    ,"1,083    ",52.8    ,47    ,4.2    
+45,10,South Carolina,"Women, 16 to 24 years",263    ,146    ,55.7    ,135    ,51.4    ,11    ,7.7    
+45,11,South Carolina,"Women, 25 to 54 years","1,006    ",733    ,72.9    ,703    ,69.9    ,30    ,4.1    
+45,12,South Carolina,"Women, 55 years and over",783    ,250    ,31.9    ,244    ,31.2    ,6    ,2.3    
+45,13,South Carolina,White,"2,742    ","1,644    ",60.0    ,"1,578    ",57.5    ,66    ,4.0    
+45,14,South Carolina,"White, 16 to 24 years",338    ,183    ,54.2    ,168    ,49.6    ,16    ,8.5    
+45,15,South Carolina,"White, 25 to 54 years","1,316    ","1,071    ",81.3    ,"1,033    ",78.5    ,37    ,3.5    
+45,16,South Carolina,"White, 55 years and over","1,087    ",390    ,35.9    ,376    ,34.6    ,13    ,3.4    
+45,17,South Carolina,Black or African American,"1,020    ",600    ,58.8    ,555    ,54.4    ,45    ,7.5    
+45,18,South Carolina,"Black or African American, 16 to 24 years",169    ,94    ,55.4    ,80    ,47.2    ,14    ,14.9    
+45,19,South Carolina,"Black or African American, 25 to 54 years",512    ,391    ,76.4    ,364    ,71.1    ,27    ,6.9    
+45,20,South Carolina,"Black or African American, 55 years and over",339    ,115    ,33.9    ,111    ,32.8    ,4    ,3.1    
+45,25,South Carolina,Hispanic or Latino ethnicity,181    ,129    ,71.2    ,125    ,68.7    ,5    ,3.6    
+45,27,South Carolina,"Hispanic or Latino ethnicity, 25 to 54 years",123    ,96    ,78.4    ,93    ,75.9    ,3    ,3.1    
+46,01,South Dakota,Total,657    ,453    ,68.9    ,440    ,67.0    ,13    ,2.8    
+46,02,South Dakota,"Total, 16 to 24 years",103    ,67    ,65.5    ,63    ,61.0    ,5    ,6.9    
+46,03,South Dakota,"Total, 25 to 54 years",306    ,261    ,85.2    ,255    ,83.2    ,6    ,2.4    
+46,04,South Dakota,"Total, 55 years and over",248    ,125    ,50.3    ,123    ,49.5    ,2    ,1.5    
+46,05,South Dakota,Men,327    ,243    ,74.4    ,236    ,72.1    ,7    ,3.0    
+46,07,South Dakota,"Men, 25 to 54 years",157    ,143    ,90.8    ,139    ,88.6    ,3    ,2.4    
+46,08,South Dakota,"Men, 55 years and over",118    ,64    ,54.4    ,63    ,53.6    ,1    ,1.4    
+46,09,South Dakota,Women,330    ,210    ,63.6    ,204    ,61.9    ,5    ,2.6    
+46,11,South Dakota,"Women, 25 to 54 years",149    ,118    ,79.3    ,115    ,77.4    ,3    ,2.3    
+46,12,South Dakota,"Women, 55 years and over",130    ,61    ,46.5    ,60    ,45.8    ,1    ,1.6    
+46,13,South Dakota,White,577    ,404    ,70.0    ,398    ,69.0    ,6    ,1.5    
+46,14,South Dakota,"White, 16 to 24 years",79    ,54    ,68.9    ,52    ,66.2    ,2    ,3.8    
+46,15,South Dakota,"White, 25 to 54 years",260    ,230    ,88.4    ,227    ,87.4    ,3    ,1.2    
+46,16,South Dakota,"White, 55 years and over",237    ,119    ,50.2    ,118    ,49.7    ,1    ,1.0    
+47,01,Tennessee,Total,"5,217    ","3,144    ",60.3    ,"2,997    ",57.4    ,147    ,4.7    
+47,02,Tennessee,"Total, 16 to 24 years",726    ,428    ,59.0    ,384    ,52.9    ,44    ,10.3    
+47,03,Tennessee,"Total, 25 to 54 years","2,566    ","2,009    ",78.3    ,"1,925    ",75.0    ,85    ,4.2    
+47,04,Tennessee,"Total, 55 years and over","1,926    ",707    ,36.7    ,689    ,35.8    ,18    ,2.6    
+47,05,Tennessee,Men,"2,492    ","1,678    ",67.4    ,"1,604    ",64.4    ,74    ,4.4    
+47,06,Tennessee,"Men, 16 to 24 years",349    ,216    ,62.0    ,193    ,55.3    ,23    ,10.8    
+47,07,Tennessee,"Men, 25 to 54 years","1,260    ","1,090    ",86.5    ,"1,048    ",83.1    ,43    ,3.9    
+47,08,Tennessee,"Men, 55 years and over",883    ,372    ,42.1    ,364    ,41.2    ,8    ,2.2    
+47,09,Tennessee,Women,"2,726    ","1,466    ",53.8    ,"1,393    ",51.1    ,73    ,5.0    
+47,10,Tennessee,"Women, 16 to 24 years",377    ,212    ,56.1    ,191    ,50.6    ,21    ,9.8    
+47,11,Tennessee,"Women, 25 to 54 years","1,305    ",919    ,70.4    ,877    ,67.2    ,42    ,4.6    
+47,12,Tennessee,"Women, 55 years and over","1,043    ",335    ,32.2    ,325    ,31.2    ,10    ,3.1    
+47,13,Tennessee,White,"4,162    ","2,468    ",59.3    ,"2,374    ",57.1    ,94    ,3.8    
+47,14,Tennessee,"White, 16 to 24 years",544    ,324    ,59.4    ,296    ,54.4    ,27    ,8.5    
+47,15,Tennessee,"White, 25 to 54 years","2,000    ","1,562    ",78.1    ,"1,508    ",75.4    ,54    ,3.5    
+47,16,Tennessee,"White, 55 years and over","1,617    ",583    ,36.0    ,571    ,35.3    ,12    ,2.1    
+47,17,Tennessee,Black or African American,844    ,532    ,63.0    ,484    ,57.4    ,47    ,8.9    
+47,18,Tennessee,"Black or African American, 16 to 24 years",153    ,87    ,57.1    ,71    ,46.8    ,16    ,18.0    
+47,19,Tennessee,"Black or African American, 25 to 54 years",439    ,351    ,79.9    ,325    ,74.0    ,26    ,7.4    
+47,20,Tennessee,"Black or African American, 55 years and over",252    ,94    ,37.1    ,88    ,34.9    ,6    ,6.0    
+47,21,Tennessee,Asian,110    ,77    ,70.3    ,74    ,67.3    ,3    ,4.2    
+47,25,Tennessee,Hispanic or Latino ethnicity,241    ,163    ,67.5    ,156    ,65.0    ,6    ,3.8    
+47,27,Tennessee,"Hispanic or Latino ethnicity, 25 to 54 years",159    ,118    ,74.4    ,115    ,72.6    ,3    ,2.5    
+48,01,Texas,Total,"20,862    ","13,294    ",63.7    ,"12,688    ",60.8    ,606    ,4.6    
+48,02,Texas,"Total, 16 to 24 years","3,486    ","1,830    ",52.5    ,"1,642    ",47.1    ,188    ,10.3    
+48,03,Texas,"Total, 25 to 54 years","10,910    ","8,799    ",80.7    ,"8,471    ",77.6    ,328    ,3.7    
+48,04,Texas,"Total, 55 years and over","6,466    ","2,666    ",41.2    ,"2,575    ",39.8    ,91    ,3.4    
+48,05,Texas,Men,"10,139    ","7,379    ",72.8    ,"7,028    ",69.3    ,351    ,4.8    
+48,06,Texas,"Men, 16 to 24 years","1,758    ","1,013    ",57.6    ,900    ,51.2    ,113    ,11.2    
+48,07,Texas,"Men, 25 to 54 years","5,386    ","4,875    ",90.5    ,"4,694    ",87.2    ,181    ,3.7    
+48,08,Texas,"Men, 55 years and over","2,995    ","1,491    ",49.8    ,"1,434    ",47.9    ,57    ,3.8    
+48,09,Texas,Women,"10,722    ","5,915    ",55.2    ,"5,660    ",52.8    ,255    ,4.3    
+48,10,Texas,"Women, 16 to 24 years","1,728    ",817    ,47.3    ,742    ,42.9    ,75    ,9.1    
+48,11,Texas,"Women, 25 to 54 years","5,524    ","3,923    ",71.0    ,"3,776    ",68.4    ,147    ,3.7    
+48,12,Texas,"Women, 55 years and over","3,471    ","1,175    ",33.9    ,"1,141    ",32.9    ,34    ,2.9    
+48,13,Texas,White,"16,711    ","10,582    ",63.3    ,"10,139    ",60.7    ,443    ,4.2    
+48,14,Texas,"White, 16 to 24 years","2,728    ","1,451    ",53.2    ,"1,314    ",48.1    ,138    ,9.5    
+48,15,Texas,"White, 25 to 54 years","8,551    ","6,891    ",80.6    ,"6,660    ",77.9    ,230    ,3.3    
+48,16,Texas,"White, 55 years and over","5,432    ","2,240    ",41.2    ,"2,165    ",39.9    ,75    ,3.3    
+48,17,Texas,Black or African American,"2,551    ","1,662    ",65.1    ,"1,547    ",60.6    ,115    ,6.9    
+48,18,Texas,"Black or African American, 16 to 24 years",461    ,249    ,54.1    ,213    ,46.2    ,36    ,14.6    
+48,19,Texas,"Black or African American, 25 to 54 years","1,400    ","1,140    ",81.4    ,"1,072    ",76.6    ,67    ,5.9    
+48,20,Texas,"Black or African American, 55 years and over",690    ,273    ,39.5    ,261    ,37.8    ,12    ,4.4    
+48,21,Texas,Asian,"1,044    ",668    ,64.0    ,639    ,61.2    ,29    ,4.3    
+48,23,Texas,"Asian, 25 to 54 years",657    ,518    ,78.9    ,499    ,76.0    ,19    ,3.7    
+48,25,Texas,Hispanic or Latino ethnicity,"7,447    ","4,851    ",65.1    ,"4,616    ",62.0    ,236    ,4.9    
+48,26,Texas,"Hispanic or Latino ethnicity, 16 to 24 years","1,577    ",850    ,53.9    ,768    ,48.7    ,82    ,9.6    
+48,27,Texas,"Hispanic or Latino ethnicity, 25 to 54 years","4,247    ","3,316    ",78.1    ,"3,190    ",75.1    ,126    ,3.8    
+48,28,Texas,"Hispanic or Latino ethnicity, 55 years and over","1,624    ",686    ,42.2    ,658    ,40.5    ,28    ,4.1    
+49,01,Utah,Total,"2,200    ","1,513    ",68.8    ,"1,459    ",66.3    ,54    ,3.6    
+49,02,Utah,"Total, 16 to 24 years",415    ,287    ,69.2    ,270    ,65.1    ,17    ,6.0    
+49,03,Utah,"Total, 25 to 54 years","1,181    ",967    ,81.9    ,937    ,79.3    ,30    ,3.1    
+49,04,Utah,"Total, 55 years and over",604    ,259    ,42.9    ,252    ,41.7    ,7    ,2.7    
+49,05,Utah,Men,"1,092    ",857    ,78.5    ,826    ,75.6    ,32    ,3.7    
+49,06,Utah,"Men, 16 to 24 years",202    ,143    ,71.0    ,133    ,66.1    ,10    ,6.9    
+49,07,Utah,"Men, 25 to 54 years",606    ,564    ,93.1    ,546    ,90.2    ,18    ,3.1    
+49,08,Utah,"Men, 55 years and over",285    ,150    ,52.9    ,146    ,51.4    ,4    ,2.9    
+49,09,Utah,Women,"1,108    ",656    ,59.2    ,633    ,57.2    ,22    ,3.4    
+49,10,Utah,"Women, 16 to 24 years",213    ,144    ,67.5    ,137    ,64.1    ,7    ,5.1    
+49,11,Utah,"Women, 25 to 54 years",576    ,403    ,70.1    ,391    ,67.9    ,12    ,3.1    
+49,12,Utah,"Women, 55 years and over",319    ,108    ,34.0    ,106    ,33.1    ,3    ,2.5    
+49,13,Utah,White,"2,055    ","1,407    ",68.5    ,"1,357    ",66.0    ,50    ,3.6    
+49,14,Utah,"White, 16 to 24 years",376    ,257    ,68.2    ,241    ,64.1    ,15    ,6.0    
+49,15,Utah,"White, 25 to 54 years","1,097    ",901    ,82.2    ,874    ,79.7    ,28    ,3.1    
+49,16,Utah,"White, 55 years and over",582    ,249    ,42.8    ,242    ,41.6    ,7    ,2.8    
+49,25,Utah,Hispanic or Latino ethnicity,260    ,194    ,74.5    ,187    ,72.0    ,6    ,3.3    
+49,27,Utah,"Hispanic or Latino ethnicity, 25 to 54 years",160    ,133    ,83.4    ,130    ,81.3    ,3    ,2.5    
+50,01,Vermont,Total,515    ,346    ,67.1    ,335    ,65.0    ,11    ,3.3    
+50,02,Vermont,"Total, 16 to 24 years",75    ,47    ,63.2    ,44    ,58.6    ,3    ,7.3    
+50,03,Vermont,"Total, 25 to 54 years",230    ,196    ,85.1    ,190    ,82.9    ,5    ,2.6    
+50,04,Vermont,"Total, 55 years and over",211    ,103    ,49.0    ,101    ,47.7    ,3    ,2.6    
+50,05,Vermont,Men,252    ,179    ,71.3    ,173    ,68.7    ,7    ,3.7    
+50,06,Vermont,"Men, 16 to 24 years",40    ,26    ,65.7    ,24    ,60.0    ,2    ,8.8    
+50,07,Vermont,"Men, 25 to 54 years",112    ,100    ,88.5    ,97    ,85.9    ,3    ,2.9    
+50,08,Vermont,"Men, 55 years and over",100    ,54    ,54.1    ,52    ,52.7    ,1    ,2.6    
+50,09,Vermont,Women,264    ,167    ,63.2    ,162    ,61.4    ,5    ,2.8    
+50,10,Vermont,"Women, 16 to 24 years",35    ,21    ,60.3    ,20    ,57.0    ,1    ,5.6    
+50,11,Vermont,"Women, 25 to 54 years",117    ,96    ,81.8    ,94    ,79.9    ,2    ,2.2    
+50,12,Vermont,"Women, 55 years and over",111    ,49    ,44.4    ,48    ,43.2    ,1    ,2.7    
+50,13,Vermont,White,487    ,329    ,67.6    ,319    ,65.4    ,11    ,3.2    
+50,14,Vermont,"White, 16 to 24 years",68    ,44    ,64.3    ,41    ,59.6    ,3    ,7.2    
+50,15,Vermont,"White, 25 to 54 years",215    ,184    ,85.6    ,179    ,83.4    ,5    ,2.6    
+50,16,Vermont,"White, 55 years and over",204    ,101    ,49.7    ,99    ,48.4    ,3    ,2.6    
+51,01,Virginia,Total,"6,542    ","4,207    ",64.3    ,"4,037    ",61.7    ,170    ,4.1    
+51,02,Virginia,"Total, 16 to 24 years",962    ,519    ,53.9    ,469    ,48.8    ,49    ,9.5    
+51,03,Virginia,"Total, 25 to 54 years","3,301    ","2,749    ",83.3    ,"2,653    ",80.4    ,96    ,3.5    
+51,04,Virginia,"Total, 55 years and over","2,279    ",940    ,41.2    ,915    ,40.1    ,25    ,2.7    
+51,05,Virginia,Men,"3,140    ","2,220    ",70.7    ,"2,129    ",67.8    ,90    ,4.1    
+51,06,Virginia,"Men, 16 to 24 years",468    ,258    ,55.1    ,230    ,49.1    ,28    ,10.9    
+51,07,Virginia,"Men, 25 to 54 years","1,616    ","1,449    ",89.7    ,"1,403    ",86.8    ,46    ,3.2    
+51,08,Virginia,"Men, 55 years and over","1,056    ",513    ,48.6    ,497    ,47.1    ,16    ,3.1    
+51,09,Virginia,Women,"3,402    ","1,987    ",58.4    ,"1,907    ",56.1    ,80    ,4.0    
+51,10,Virginia,"Women, 16 to 24 years",493    ,260    ,52.8    ,239    ,48.5    ,21    ,8.2    
+51,11,Virginia,"Women, 25 to 54 years","1,685    ","1,300    ",77.1    ,"1,250    ",74.2    ,50    ,3.8    
+51,12,Virginia,"Women, 55 years and over","1,223    ",427    ,34.9    ,418    ,34.2    ,9    ,2.1    
+51,13,Virginia,White,"4,677    ","2,984    ",63.8    ,"2,891    ",61.8    ,93    ,3.1    
+51,14,Virginia,"White, 16 to 24 years",653    ,361    ,55.3    ,335    ,51.3    ,26    ,7.3    
+51,15,Virginia,"White, 25 to 54 years","2,261    ","1,889    ",83.5    ,"1,841    ",81.4    ,48    ,2.5    
+51,16,Virginia,"White, 55 years and over","1,762    ",734    ,41.7    ,715    ,40.6    ,19    ,2.6    
+51,17,Virginia,Black or African American,"1,238    ",792    ,64.0    ,736    ,59.4    ,56    ,7.1    
+51,19,Virginia,"Black or African American, 25 to 54 years",654    ,541    ,82.7    ,506    ,77.4    ,34    ,6.4    
+51,20,Virginia,"Black or African American, 55 years and over",376    ,145    ,38.5    ,140    ,37.2    ,5    ,3.5    
+51,21,Virginia,Asian,435    ,305    ,70.2    ,294    ,67.6    ,11    ,3.7    
+51,23,Virginia,"Asian, 25 to 54 years",286    ,237    ,82.7    ,229    ,80.2    ,7    ,3.1    
+51,25,Virginia,Hispanic or Latino ethnicity,534    ,394    ,73.7    ,381    ,71.3    ,13    ,3.2    
+51,27,Virginia,"Hispanic or Latino ethnicity, 25 to 54 years",336    ,283    ,84.2    ,276    ,82.0    ,7    ,2.6    
+53,01,Washington,Total,"5,722    ","3,648    ",63.7    ,"3,449    ",60.3    ,199    ,5.5    
+53,02,Washington,"Total, 16 to 24 years",835    ,485    ,58.1    ,425    ,50.9    ,60    ,12.3    
+53,03,Washington,"Total, 25 to 54 years","2,874    ","2,351    ",81.8    ,"2,245    ",78.1    ,106    ,4.5    
+53,04,Washington,"Total, 55 years and over","2,013    ",813    ,40.4    ,779    ,38.7    ,34    ,4.2    
+53,05,Washington,Men,"2,817    ","1,934    ",68.7    ,"1,821    ",64.7    ,113    ,5.8    
+53,06,Washington,"Men, 16 to 24 years",422    ,251    ,59.4    ,218    ,51.5    ,33    ,13.3    
+53,07,Washington,"Men, 25 to 54 years","1,415    ","1,251    ",88.4    ,"1,191    ",84.2    ,60    ,4.8    
+53,08,Washington,"Men, 55 years and over",980    ,433    ,44.2    ,413    ,42.1    ,20    ,4.6    
+53,09,Washington,Women,"2,906    ","1,714    ",59.0    ,"1,628    ",56.0    ,86    ,5.0    
+53,10,Washington,"Women, 16 to 24 years",413    ,234    ,56.7    ,207    ,50.3    ,26    ,11.3    
+53,11,Washington,"Women, 25 to 54 years","1,459    ","1,100    ",75.4    ,"1,054    ",72.2    ,46    ,4.2    
+53,12,Washington,"Women, 55 years and over","1,034    ",380    ,36.8    ,366    ,35.4    ,14    ,3.6    
+53,13,Washington,White,"4,629    ","2,937    ",63.4    ,"2,782    ",60.1    ,155    ,5.3    
+53,14,Washington,"White, 16 to 24 years",646    ,386    ,59.8    ,340    ,52.6    ,47    ,12.1    
+53,15,Washington,"White, 25 to 54 years","2,250    ","1,856    ",82.5    ,"1,776    ",78.9    ,80    ,4.3    
+53,16,Washington,"White, 55 years and over","1,733    ",695    ,40.1    ,666    ,38.4    ,29    ,4.1    
+53,17,Washington,Black or African American,213    ,149    ,69.9    ,140    ,65.7    ,9    ,6.1    
+53,19,Washington,"Black or African American, 25 to 54 years",116    ,98    ,84.6    ,92    ,79.1    ,6    ,6.5    
+53,21,Washington,Asian,499    ,331    ,66.4    ,319    ,64.0    ,12    ,3.5    
+53,23,Washington,"Asian, 25 to 54 years",297    ,243    ,82.0    ,237    ,79.7    ,7    ,2.7    
+53,25,Washington,Hispanic or Latino ethnicity,632    ,451    ,71.3    ,416    ,65.9    ,34    ,7.6    
+53,26,Washington,"Hispanic or Latino ethnicity, 16 to 24 years",148    ,90    ,61.0    ,77    ,52.3    ,13    ,14.3    
+53,27,Washington,"Hispanic or Latino ethnicity, 25 to 54 years",389    ,315    ,81.1    ,298    ,76.5    ,18    ,5.7    
+54,01,West Virginia,Total,"1,472    ",783    ,53.2    ,735    ,49.9    ,47    ,6.1    
+54,02,West Virginia,"Total, 16 to 24 years",203    ,98    ,48.6    ,85    ,42.0    ,13    ,13.6    
+54,03,West Virginia,"Total, 25 to 54 years",666    ,493    ,74.1    ,464    ,69.7    ,29    ,5.9    
+54,04,West Virginia,"Total, 55 years and over",604    ,191    ,31.6    ,186    ,30.8    ,5    ,2.6    
+54,05,West Virginia,Men,717    ,419    ,58.4    ,391    ,54.5    ,28    ,6.8    
+54,06,West Virginia,"Men, 16 to 24 years",97    ,50    ,52.0    ,43    ,44.0    ,8    ,15.5    
+54,07,West Virginia,"Men, 25 to 54 years",335    ,269    ,80.3    ,251    ,74.9    ,18    ,6.7    
+54,08,West Virginia,"Men, 55 years and over",285    ,100    ,35.0    ,97    ,34.0    ,3    ,2.7    
+54,09,West Virginia,Women,755    ,364    ,48.1    ,345    ,45.6    ,19    ,5.2    
+54,10,West Virginia,"Women, 16 to 24 years",106    ,48    ,45.4    ,43    ,40.1    ,6    ,11.7    
+54,11,West Virginia,"Women, 25 to 54 years",331    ,224    ,67.8    ,213    ,64.5    ,11    ,5.0    
+54,12,West Virginia,"Women, 55 years and over",318    ,91    ,28.6    ,89    ,27.9    ,2    ,2.5    
+54,13,West Virginia,White,"1,385    ",739    ,53.3    ,694    ,50.1    ,45    ,6.0    
+54,14,West Virginia,"White, 16 to 24 years",184    ,92    ,49.9    ,80    ,43.2    ,12    ,13.5    
+54,15,West Virginia,"White, 25 to 54 years",627    ,465    ,74.2    ,438    ,69.8    ,28    ,5.9    
+54,16,West Virginia,"White, 55 years and over",574    ,182    ,31.7    ,177    ,30.8    ,5    ,2.6    
+54,17,West Virginia,Black or African American,50    ,25    ,50.3    ,23    ,47.0    ,2    ,6.5    
+54,19,West Virginia,"Black or African American, 25 to 54 years",23    ,17    ,72.6    ,16    ,68.2    ,1    ,6.0    
+55,01,Wisconsin,Total,"4,571    ","3,126    ",68.4    ,"2,997    ",65.6    ,129    ,4.1    
+55,02,Wisconsin,"Total, 16 to 24 years",699    ,474    ,67.7    ,443    ,63.3    ,31    ,6.6    
+55,03,Wisconsin,"Total, 25 to 54 years","2,156    ","1,920    ",89.1    ,"1,848    ",85.7    ,72    ,3.8    
+55,04,Wisconsin,"Total, 55 years and over","1,715    ",731    ,42.6    ,706    ,41.2    ,26    ,3.5    
+55,05,Wisconsin,Men,"2,245    ","1,630    ",72.6    ,"1,554    ",69.2    ,77    ,4.7    
+55,06,Wisconsin,"Men, 16 to 24 years",359    ,245    ,68.2    ,224    ,62.4    ,21    ,8.5    
+55,07,Wisconsin,"Men, 25 to 54 years","1,084    ","1,007    ",92.9    ,965    ,89.0    ,42    ,4.2    
+55,08,Wisconsin,"Men, 55 years and over",802    ,379    ,47.2    ,365    ,45.5    ,14    ,3.7    
+55,09,Wisconsin,Women,"2,326    ","1,495    ",64.3    ,"1,443    ",62.0    ,52    ,3.5    
+55,10,Wisconsin,"Women, 16 to 24 years",341    ,229    ,67.2    ,219    ,64.2    ,10    ,4.5    
+55,11,Wisconsin,"Women, 25 to 54 years","1,072    ",914    ,85.2    ,883    ,82.4    ,30    ,3.3    
+55,12,Wisconsin,"Women, 55 years and over",914    ,353    ,38.6    ,341    ,37.3    ,12    ,3.3    
+55,13,Wisconsin,White,"4,061    ","2,777    ",68.4    ,"2,672    ",65.8    ,105    ,3.8    
+55,14,Wisconsin,"White, 16 to 24 years",571    ,400    ,70.0    ,373    ,65.3    ,27    ,6.7    
+55,15,Wisconsin,"White, 25 to 54 years","1,863    ","1,681    ",90.2    ,"1,628    ",87.4    ,53    ,3.1    
+55,16,Wisconsin,"White, 55 years and over","1,628    ",697    ,42.8    ,671    ,41.2    ,25    ,3.6    
+55,17,Wisconsin,Black or African American,255    ,167    ,65.5    ,149    ,58.6    ,18    ,10.6    
+55,19,Wisconsin,"Black or African American, 25 to 54 years",141    ,113    ,80.0    ,99    ,69.9    ,14    ,12.5    
+55,21,Wisconsin,Asian,140    ,94    ,66.8    ,91    ,64.7    ,3    ,3.0    
+55,25,Wisconsin,Hispanic or Latino ethnicity,313    ,222    ,71.1    ,215    ,68.7    ,7    ,3.3    
+55,27,Wisconsin,"Hispanic or Latino ethnicity, 25 to 54 years",185    ,157    ,84.6    ,152    ,81.8    ,5    ,3.3    
+56,01,Wyoming,Total,451    ,302    ,66.8    ,285    ,63.2    ,16    ,5.4    
+56,02,Wyoming,"Total, 16 to 24 years",70    ,43    ,61.5    ,39    ,55.6    ,4    ,9.6    
+56,03,Wyoming,"Total, 25 to 54 years",214    ,182    ,85.2    ,173    ,81.1    ,9    ,4.8    
+56,04,Wyoming,"Total, 55 years and over",167    ,76    ,45.6    ,73    ,43.5    ,4    ,4.7    
+56,05,Wyoming,Men,228    ,166    ,72.9    ,156    ,68.3    ,11    ,6.4    
+56,06,Wyoming,"Men, 16 to 24 years",36    ,22    ,62.8    ,20    ,55.5    ,3    ,11.6    
+56,07,Wyoming,"Men, 25 to 54 years",111    ,103    ,92.3    ,97    ,87.1    ,6    ,5.6    
+56,08,Wyoming,"Men, 55 years and over",81    ,41    ,50.8    ,39    ,48.1    ,2    ,5.4    
+56,09,Wyoming,Women,223    ,135    ,60.6    ,129    ,58.0    ,6    ,4.3    
+56,10,Wyoming,"Women, 16 to 24 years",34    ,21    ,60.1    ,19    ,55.6    ,2    ,7.4    
+56,11,Wyoming,"Women, 25 to 54 years",103    ,80    ,77.4    ,77    ,74.6    ,3    ,3.6    
+56,12,Wyoming,"Women, 55 years and over",86    ,35    ,40.7    ,34    ,39.1    ,1    ,4.0    
+56,13,Wyoming,White,425    ,283    ,66.6    ,268    ,63.1    ,15    ,5.2    
+56,14,Wyoming,"White, 16 to 24 years",64    ,39    ,61.8    ,36    ,55.9    ,4    ,9.4    
+56,15,Wyoming,"White, 25 to 54 years",200    ,170    ,85.1    ,162    ,81.3    ,8    ,4.5    
+56,16,Wyoming,"White, 55 years and over",161    ,74    ,45.6    ,70    ,43.5    ,3    ,4.5    
+56,25,Wyoming,Hispanic or Latino ethnicity,36    ,25    ,69.5    ,23    ,64.7    ,2    ,6.9    
+56,27,Wyoming,"Hispanic or Latino ethnicity, 25 to 54 years",19    ,16    ,85.3    ,15    ,79.9    ,1    ,6.3    
+,,,,,,,,,,
+"SOURCE:  Bureau of Labor Statistics, Current Population Survey",,,,,,,,,,
+,,,,,,,,,,
+"1  Error ranges are calculated at the 90-percent confidence interval, which means that if repeated samples were drawn from the same population and an error range",,,,,,,,,,
+"constructed around each sample estimate, in 9 out of 10 cases the true value based on a census of the population would be contained within these error ranges.",,,,,,,,,,
+2  Fewer than 500 people.,,,,,,,,,,
+3  Error ranges cannot be properly computed when the number of sample cases is very small or the unemployment rate is too low.,,,,,,,,,,
+"  NOTE:  Data for demographic groups are not shown when the labor force base does not meet the BLS publication standard of reliability for the area in question, as deter-",,,,,,,,,,
+mined by the sample size. Items may not sum to totals because of rounding. Estimates for the race groups shown in the table do not sum to totals because data are not pre-,,,,,,,,,,
+"sented for all races. In addition, people whose ethnicity is identified as Hispanic or Latino may be of any race and, therefore, are classified by ethnicity as well as by race.",,,,,,,,,,

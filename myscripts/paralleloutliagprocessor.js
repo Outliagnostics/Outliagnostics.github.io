@@ -3,11 +3,13 @@ class OutliagProcessor {
         this.dataS = dataS;
         this.allYearsBins = [];
         this.allYearUpperBounds = [];
+        //For timing records
+        this.counter = 0;
     }
 
     processOutliagData(onCompleted) {
         let myself = this;
-
+        let result1 = '';
         processYearlyOutliags();
 
         function processYearlyOutliags() {
@@ -34,6 +36,13 @@ class OutliagProcessor {
                 'outlyingUpperBound': outlyingUpperBound
             }
             let outliags = [];
+            //Todo: For timing records only
+            //<editor-fold>
+            myself.counter += 1;
+            let withBinTime = new Date();
+            let numOfScags = yearsData.length;
+            //</editor-fold>
+
             yearsData.map((d, i) => {
                 const y = d.filter(p => isValidPoint(p));
                 const data = {
@@ -47,6 +56,11 @@ class OutliagProcessor {
             function onResult(e) {
                 outliags.push(e);
                 if (outliags.length === yearsData.length) {
+                    //Todo: For timing records only
+                    //<editor-fold>
+                    result1 = `${numOfScags},${new Date() - withBinTime}`;
+                    //</editor-fold>
+
                     setData(outliags);
                     resetWorkers();
                     processLeaveOut(onCompleted);
@@ -83,7 +97,6 @@ class OutliagProcessor {
 
         function processLeaveOut(onCompleted) {
             //Only need to process the bins !=null and each bin with length > 1.
-
             let allBinsLength = myself.allYearsBins.length;
             const leaveOutData = [];
             for (let year = 0; year < allBinsLength; ++year) {
@@ -116,7 +129,8 @@ class OutliagProcessor {
             }
 
             let outliags = [];
-
+            let withoutBinTime = new Date();
+            let numOfScagsWithoutBin = leaveOutData.length;
 
             leaveOutData.map((data, i) => {
                 startWorker("myscripts/myworker.js", data, onResult, i);
@@ -127,7 +141,16 @@ class OutliagProcessor {
                 if (outliags.length === leaveOutData.length) {
                     setData(outliags);
                     resetWorkers();
-                    onCompleted();
+                    let timeCompleted = new Date();
+                    //Todo: For timing records only
+                    //<editor-fold>
+                    console.log(`${myself.counter},${fileAbbreviations[fileList.indexOf(fileName)]},${result1},${numOfScagsWithoutBin},${timeCompleted - withoutBinTime}`);
+                    if(myself.counter<30){
+                        myself.processOutliagData(onCompleted);
+                    }
+                    //</editor-fold>
+                    //Enable this after testing fro time.
+                    //onCompleted();
                 }
             }
 
@@ -144,26 +167,6 @@ class OutliagProcessor {
                 });
             }
         }
-    }
-
-    calculateOutliag(y, isNormalized, isBinned, outlyingUpperBound) {
-        var outliag = null;
-        let self = this;
-        y = y.filter(d => self.isValidPoint(d));
-        //check if the input points has more than 2 unique values.
-        if (this.getUniqueSize(y) > 3) {
-            outliag = outliagnostics(y, binType, startBinGridSize, isNormalized, isBinned, outlyingUpperBound);
-        }
-        return outliag;
-    }
-
-    getUniqueSize(data) {
-        const setdata = new Set(data.map(v => v.join(',')));
-        return setdata.size;
-    }
-
-    isValidPoint(d) {
-        return (typeof d[0] === 'number') && (typeof d[1] === 'number');
     }
 
     getYearData(year) {
