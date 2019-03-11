@@ -144,7 +144,7 @@ class OutliagProcessor {
                     let timeCompleted = new Date();
                     //Todo: For timing records only
                     //<editor-fold>
-                    console.log(`${myself.counter},${fileAbbreviations[fileList.indexOf(fileName)]},${result1},${numOfScagsWithoutBin},${timeCompleted - withoutBinTime}`);
+                    console.log(`${navigator.hardwareConcurrency},${maxWorkers},${myself.counter},${fileAbbreviations[fileList.indexOf(fileName)]},${result1},${numOfScagsWithoutBin},${timeCompleted - withoutBinTime}`);
                     if(myself.counter<30){
                         myself.processOutliagData(onCompleted);
                     }
