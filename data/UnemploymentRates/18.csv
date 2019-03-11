@@ -1,0 +1,617 @@
+StateCode	GroupCode	State	Group	NonInstitutionalPopulation	LaborForceNumber	PercentOfPopulation	EmploymentNumber	EmploymentPercentOfPopulation	UnemploymentNumber	UnemploymentRate
+1	1	Alabama	Total	"3,834"	"2,162"	56.4	"2,068"	53.9	94	4.3
+1	2	Alabama	"Total, 16 to 24 years"	580	293	50.5	269	46.3	25	8.4
+1	3	Alabama	"Total, 25 to 54 years"	"1,826"	"1,390"	76.1	"1,333"	73	56	4.1
+1	4	Alabama	"Total, 55 years and over"	"1,428"	479	33.5	466	32.6	13	2.7
+1	5	Alabama	Men	"1,811"	"1,146"	63.3	"1,096"	60.5	50	4.4
+1	6	Alabama	"Men, 16 to 24 years"	281	145	51.6	132	46.9	13	9
+1	7	Alabama	"Men, 25 to 54 years"	882	745	84.4	715	81.1	29	3.9
+1	8	Alabama	"Men, 55 years and over"	648	256	39.5	249	38.4	8	3
+1	9	Alabama	Women	"2,023"	"1,016"	50.2	973	48.1	44	4.3
+1	10	Alabama	"Women, 16 to 24 years"	299	148	49.5	137	45.7	12	7.8
+1	11	Alabama	"Women, 25 to 54 years"	944	645	68.4	618	65.5	27	4.2
+1	12	Alabama	"Women, 55 years and over"	781	223	28.6	218	27.9	5	2.3
+2	1	Alaska	Total	547	366	67	338	61.8	28	7.7
+2	2	Alaska	"Total, 16 to 24 years"	91	52	56.9	44	48.6	8	14.6
+2	3	Alaska	"Total, 25 to 54 years"	283	232	82.1	214	75.8	18	7.6
+2	4	Alaska	"Total, 55 years and over"	173	82	47.6	79	45.8	3	3.7
+2	5	Alaska	Men	279	194	69.6	176	63.2	18	9.1
+2	6	Alaska	"Men, 16 to 24 years"	48	26	55.2	21	44.6	5	19.1
+2	7	Alaska	"Men, 25 to 54 years"	142	123	86.4	112	78.7	11	9
+2	8	Alaska	"Men, 55 years and over"	89	45	50.2	43	48.3	2	3.8
+2	9	Alaska	Women	268	172	64.3	162	60.3	11	6.2
+2	10	Alaska	"Women, 16 to 24 years"	44	26	58.8	23	52.8	3	10.5
+2	11	Alaska	"Women, 25 to 54 years"	140	109	77.6	102	72.9	7	6.1
+2	12	Alaska	"Women, 55 years and over"	84	37	44.7	36	43.2	1	3.5
+4	1	Arizona	Total	"5,469"	"3,298"	60.3	"3,142"	57.5	156	4.7
+4	2	Arizona	"Total, 16 to 24 years"	876	493	56.3	449	51.3	44	8.9
+4	3	Arizona	"Total, 25 to 54 years"	"2,638"	"2,119"	80.3	"2,034"	77.1	85	4
+4	4	Arizona	"Total, 55 years and over"	"1,956"	686	35.1	659	33.7	27	3.9
+4	5	Arizona	Men	"2,662"	"1,773"	66.6	"1,700"	63.8	73	4.1
+4	6	Arizona	"Men, 16 to 24 years"	431	233	54.1	210	48.9	23	9.8
+4	7	Arizona	"Men, 25 to 54 years"	"1,330"	"1,184"	89	"1,146"	86.1	39	3.3
+4	8	Arizona	"Men, 55 years and over"	902	356	39.4	344	38.1	12	3.4
+4	9	Arizona	Women	"2,807"	"1,525"	54.3	"1,443"	51.4	82	5.4
+4	10	Arizona	"Women, 16 to 24 years"	445	260	58.4	239	53.6	21	8.2
+4	11	Arizona	"Women, 25 to 54 years"	"1,307"	935	71.5	888	67.9	46	5
+4	12	Arizona	"Women, 55 years and over"	"1,054"	330	31.3	316	30	15	4.4
+5	1	Arkansas	Total	"2,327"	"1,362"	58.5	"1,312"	56.4	50	3.7
+5	2	Arkansas	"Total, 16 to 24 years"	365	205	56.1	191	52.4	14	6.6
+5	3	Arkansas	"Total, 25 to 54 years"	"1,098"	871	79.3	842	76.7	29	3.4
+5	4	Arkansas	"Total, 55 years and over"	864	286	33.1	279	32.3	7	2.3
+5	5	Arkansas	Men	"1,119"	702	62.8	674	60.3	28	4
+5	6	Arkansas	"Men, 16 to 24 years"	185	106	57.3	98	53.1	8	7.3
+5	7	Arkansas	"Men, 25 to 54 years"	524	444	84.7	428	81.7	16	3.6
+5	8	Arkansas	"Men, 55 years and over"	410	153	37.2	148	36.2	4	2.8
+5	9	Arkansas	Women	"1,208"	660	54.6	638	52.8	22	3.3
+5	10	Arkansas	"Women, 16 to 24 years"	180	99	54.9	93	51.7	6	5.9
+5	11	Arkansas	"Women, 25 to 54 years"	575	428	74.4	414	72.1	14	3.2
+5	12	Arkansas	"Women, 55 years and over"	453	133	29.4	131	28.8	3	1.9
+6	1	California	Total	"30,931"	"19,224"	62.2	"18,305"	59.2	919	4.8
+6	2	California	"Total, 16 to 24 years"	"4,803"	"2,381"	49.6	"2,140"	44.6	241	10.1
+6	3	California	"Total, 25 to 54 years"	"15,983"	"12,772"	79.9	"12,260"	76.7	513	4
+6	4	California	"Total, 55 years and over"	"10,145"	"4,071"	40.1	"3,906"	38.5	165	4.1
+6	5	California	Men	"15,105"	"10,476"	69.4	"10,000"	66.2	476	4.5
+6	6	California	"Men, 16 to 24 years"	"2,421"	"1,232"	50.9	"1,092"	45.1	139	11.3
+6	7	California	"Men, 25 to 54 years"	"7,946"	"7,000"	88.1	"6,750"	85	249	3.6
+6	8	California	"Men, 55 years and over"	"4,737"	"2,245"	47.4	"2,158"	45.5	87	3.9
+6	9	California	Women	"15,826"	"8,748"	55.3	"8,305"	52.5	443	5.1
+6	10	California	"Women, 16 to 24 years"	"2,382"	"1,149"	48.2	"1,048"	44	101	8.8
+6	11	California	"Women, 25 to 54 years"	"8,037"	"5,773"	71.8	"5,509"	68.5	264	4.6
+6	12	California	"Women, 55 years and over"	"5,408"	"1,826"	33.8	"1,748"	32.3	78	4.3
+8	1	Colorado	Total	"4,403"	"3,017"	68.5	"2,929"	66.5	88	2.9
+8	2	Colorado	"Total, 16 to 24 years"	617	392	63.5	366	59.3	25	6.5
+8	3	Colorado	"Total, 25 to 54 years"	"2,312"	"1,986"	85.9	"1,937"	83.8	48	2.4
+8	4	Colorado	"Total, 55 years and over"	"1,474"	640	43.4	626	42.5	14	2.2
+8	5	Colorado	Men	"2,181"	"1,645"	75.4	"1,593"	73	52	3.1
+8	6	Colorado	"Men, 16 to 24 years"	295	199	67.6	181	61.5	18	9
+8	7	Colorado	"Men, 25 to 54 years"	"1,189"	"1,105"	92.9	"1,081"	90.9	24	2.2
+8	8	Colorado	"Men, 55 years and over"	698	341	48.8	331	47.5	10	2.8
+8	9	Colorado	Women	"2,221"	"1,372"	61.8	"1,336"	60.2	36	2.6
+8	10	Colorado	"Women, 16 to 24 years"	323	192	59.6	185	57.4	7	3.8
+8	11	Colorado	"Women, 25 to 54 years"	"1,123"	881	78.4	857	76.3	24	2.7
+8	12	Colorado	"Women, 55 years and over"	776	299	38.6	295	38	5	1.5
+9	1	Connecticut	Total	"2,877"	"1,915"	66.6	"1,822"	63.3	93	4.9
+9	2	Connecticut	"Total, 16 to 24 years"	404	215	53.1	193	47.8	21	10
+9	3	Connecticut	"Total, 25 to 54 years"	"1,375"	"1,162"	84.5	"1,111"	80.8	51	4.4
+9	4	Connecticut	"Total, 55 years and over"	"1,098"	539	49.1	518	47.1	21	4
+9	5	Connecticut	Men	"1,384"	992	71.7	941	68	51	5.2
+9	6	Connecticut	"Men, 16 to 24 years"	200	111	55.3	97	48.6	13	12
+9	7	Connecticut	"Men, 25 to 54 years"	672	599	89.1	572	85.1	27	4.5
+9	8	Connecticut	"Men, 55 years and over"	512	283	55.2	272	53.1	11	3.9
+9	9	Connecticut	Women	"1,493"	923	61.9	881	59	42	4.6
+9	10	Connecticut	"Women, 16 to 24 years"	204	104	51	96	47.1	8	7.7
+9	11	Connecticut	"Women, 25 to 54 years"	702	563	80.1	539	76.8	24	4.2
+9	12	Connecticut	"Women, 55 years and over"	586	256	43.7	246	41.9	10	4.1
+10	1	Delaware	Total	763	477	62.6	454	59.5	23	4.8
+10	2	Delaware	"Total, 16 to 24 years"	113	69	60.9	63	55.5	6	8.7
+10	3	Delaware	"Total, 25 to 54 years"	344	289	84	277	80.4	13	4.4
+10	4	Delaware	"Total, 55 years and over"	306	119	39	115	37.5	5	3.8
+10	5	Delaware	Men	361	245	67.7	233	64.4	12	4.8
+10	6	Delaware	"Men, 16 to 24 years"	57	35	60.7	31	53.9	4	11.5
+10	7	Delaware	"Men, 25 to 54 years"	164	145	88.7	139	85.1	6	4.1
+10	8	Delaware	"Men, 55 years and over"	141	65	46	63	44.6	2	2.9
+10	9	Delaware	Women	402	233	57.9	221	55.1	11	4.9
+10	10	Delaware	"Women, 16 to 24 years"	56	34	61	32	57.2	2	5.9
+10	11	Delaware	"Women, 25 to 54 years"	180	144	79.8	137	76.1	7	4.7
+10	12	Delaware	"Women, 55 years and over"	166	55	33.1	52	31.5	3	4.7
+11	1	District of Columbia	Total	569	401	70.5	376	66.1	25	6.2
+11	2	District of Columbia	"Total, 16 to 24 years"	78	45	58.5	39	50	7	14.8
+11	3	District of Columbia	"Total, 25 to 54 years"	340	294	86.5	278	81.8	16	5.4
+11	4	District of Columbia	"Total, 55 years and over"	151	62	40.9	59	39.1	3	4.2
+11	5	District of Columbia	Men	264	196	74.2	184	69.5	12	6.3
+11	6	District of Columbia	"Men, 16 to 24 years"	38	21	55.2	17	45.3	4	17.9
+11	7	District of Columbia	"Men, 25 to 54 years"	160	143	89.7	136	85.1	7	5.2
+11	8	District of Columbia	"Men, 55 years and over"	66	32	47.8	30	45.8	1	3.8
+11	9	District of Columbia	Women	304	205	67.3	192	63.1	13	6.2
+11	10	District of Columbia	"Women, 16 to 24 years"	39	24	61.7	21	54.3	3	12
+11	11	District of Columbia	"Women, 25 to 54 years"	180	150	83.6	142	78.9	8	5.6
+11	12	District of Columbia	"Women, 55 years and over"	85	30	35.6	29	34	1	4.6
+12	1	Florida	Total	"16,926"	"10,113"	59.7	"9,699"	57.3	414	4.1
+12	2	Florida	"Total, 16 to 24 years"	"2,211"	"1,170"	52.9	"1,066"	48.2	104	8.9
+12	3	Florida	"Total, 25 to 54 years"	"8,022"	"6,482"	80.8	"6,260"	78	223	3.4
+12	4	Florida	"Total, 55 years and over"	"6,693"	"2,460"	36.8	"2,374"	35.5	87	3.5
+12	5	Florida	Men	"8,105"	"5,303"	65.4	"5,104"	63	199	3.7
+12	6	Florida	"Men, 16 to 24 years"	"1,140"	607	53.2	549	48.2	58	9.5
+12	7	Florida	"Men, 25 to 54 years"	"3,890"	"3,413"	87.7	"3,316"	85.2	97	2.8
+12	8	Florida	"Men, 55 years and over"	"3,075"	"1,283"	41.7	"1,239"	40.3	44	3.4
+12	9	Florida	Women	"8,821"	"4,810"	54.5	"4,595"	52.1	215	4.5
+12	10	Florida	"Women, 16 to 24 years"	"1,071"	563	52.6	517	48.2	46	8.2
+12	11	Florida	"Women, 25 to 54 years"	"4,132"	"3,069"	74.3	"2,944"	71.2	126	4.1
+12	12	Florida	"Women, 55 years and over"	"3,618"	"1,178"	32.5	"1,135"	31.4	43	3.7
+13	1	Georgia	Total	"7,989"	"5,061"	63.3	"4,825"	60.4	235	4.7
+13	2	Georgia	"Total, 16 to 24 years"	"1,237"	655	53	583	47.2	72	10.9
+13	3	Georgia	"Total, 25 to 54 years"	"4,165"	"3,365"	80.8	"3,231"	77.6	134	4
+13	4	Georgia	"Total, 55 years and over"	"2,588"	"1,041"	40.2	"1,011"	39.1	30	2.9
+13	5	Georgia	Men	"3,778"	"2,633"	69.7	"2,510"	66.4	123	4.7
+13	6	Georgia	"Men, 16 to 24 years"	597	322	53.9	283	47.3	39	12.2
+13	7	Georgia	"Men, 25 to 54 years"	"1,994"	"1,746"	87.6	"1,677"	84.1	70	4
+13	8	Georgia	"Men, 55 years and over"	"1,187"	565	47.6	551	46.4	14	2.5
+13	9	Georgia	Women	"4,212"	"2,428"	57.6	"2,315"	55	112	4.6
+13	10	Georgia	"Women, 16 to 24 years"	640	333	52.1	301	47	32	9.7
+13	11	Georgia	"Women, 25 to 54 years"	"2,171"	"1,618"	74.6	"1,554"	71.6	64	3.9
+13	12	Georgia	"Women, 55 years and over"	"1,402"	476	34	460	32.8	16	3.4
+15	1	Hawaii	Total	"1,097"	685	62.4	668	60.9	17	2.4
+15	2	Hawaii	"Total, 16 to 24 years"	153	90	58.8	85	55.6	5	5.7
+15	3	Hawaii	"Total, 25 to 54 years"	516	420	81.5	411	79.7	9	2.2
+15	4	Hawaii	"Total, 55 years and over"	428	174	40.7	172	40.2	2	1.2
+15	5	Hawaii	Men	530	357	67.4	348	65.6	9	2.6
+15	6	Hawaii	"Men, 16 to 24 years"	76	47	62	44	57.8	3	7
+15	7	Hawaii	"Men, 25 to 54 years"	257	224	87.2	219	85.4	5	2.1
+15	8	Hawaii	"Men, 55 years and over"	197	86	43.6	85	42.8	1	1.6
+15	9	Hawaii	Women	566	328	57.8	320	56.6	7	2.2
+15	10	Hawaii	"Women, 16 to 24 years"	76	43	55.6	41	53.3	2	4.2
+15	11	Hawaii	"Women, 25 to 54 years"	259	197	75.8	192	74	5	2.3
+15	12	Hawaii	"Women, 55 years and over"	231	88	38.3	88	38	1	0.8
+16	1	Idaho	Total	"1,297"	831	64.1	805	62	27	3.2
+16	2	Idaho	"Total, 16 to 24 years"	206	128	62	119	57.8	9	6.9
+16	3	Idaho	"Total, 25 to 54 years"	631	529	83.7	514	81.4	14	2.7
+16	4	Idaho	"Total, 55 years and over"	460	175	38.1	172	37.3	4	2
+16	5	Idaho	Men	642	453	70.5	439	68.3	14	3.1
+16	6	Idaho	"Men, 16 to 24 years"	102	66	64.9	61	60.2	5	7.4
+16	7	Idaho	"Men, 25 to 54 years"	320	293	91.5	285	89.1	8	2.6
+16	8	Idaho	"Men, 55 years and over"	221	94	42.5	92	41.7	2	1.8
+16	9	Idaho	Women	655	379	57.8	366	55.9	13	3.3
+16	10	Idaho	"Women, 16 to 24 years"	104	62	59.2	58	55.4	4	6.3
+16	11	Idaho	"Women, 25 to 54 years"	312	236	75.8	229	73.5	7	2.9
+16	12	Idaho	"Women, 55 years and over"	240	81	33.9	80	33.2	2	2.2
+17	1	Illinois	Total	"10,036"	"6,455"	64.3	"6,142"	61.2	313	4.9
+17	2	Illinois	"Total, 16 to 24 years"	"1,530"	854	55.8	765	50	89	10.4
+17	3	Illinois	"Total, 25 to 54 years"	"4,988"	"4,121"	82.6	"3,944"	79.1	176	4.3
+17	4	Illinois	"Total, 55 years and over"	"3,518"	"1,481"	42.1	"1,433"	40.7	48	3.2
+17	5	Illinois	Men	"4,850"	"3,398"	70.1	"3,229"	66.6	169	5
+17	6	Illinois	"Men, 16 to 24 years"	762	427	56.1	375	49.2	53	12.4
+17	7	Illinois	"Men, 25 to 54 years"	"2,462"	"2,192"	89	"2,101"	85.3	91	4.1
+17	8	Illinois	"Men, 55 years and over"	"1,625"	779	47.9	753	46.4	26	3.3
+17	9	Illinois	Women	"5,187"	"3,057"	58.9	"2,913"	56.2	144	4.7
+17	10	Illinois	"Women, 16 to 24 years"	767	426	55.6	390	50.8	36	8.5
+17	11	Illinois	"Women, 25 to 54 years"	"2,526"	"1,929"	76.4	"1,844"	73	85	4.4
+17	12	Illinois	"Women, 55 years and over"	"1,893"	702	37.1	680	35.9	22	3.2
+18	1	Indiana	Total	"5,175"	"3,314"	64	"3,195"	61.7	119	3.6
+18	2	Indiana	"Total, 16 to 24 years"	890	547	61.4	505	56.7	42	7.7
+18	3	Indiana	"Total, 25 to 54 years"	"2,419"	"2,007"	83	"1,945"	80.4	62	3.1
+18	4	Indiana	"Total, 55 years and over"	"1,866"	760	40.7	746	40	14	1.9
+18	5	Indiana	Men	"2,516"	"1,753"	69.7	"1,686"	67	67	3.8
+18	6	Indiana	"Men, 16 to 24 years"	458	289	63.1	262	57.3	26	9.1
+18	7	Indiana	"Men, 25 to 54 years"	"1,189"	"1,059"	89.1	"1,026"	86.3	33	3.1
+18	8	Indiana	"Men, 55 years and over"	870	405	46.6	398	45.7	8	1.9
+18	9	Indiana	Women	"2,659"	"1,561"	58.7	"1,509"	56.8	51	3.3
+18	10	Indiana	"Women, 16 to 24 years"	433	258	59.6	242	56	16	6.1
+18	11	Indiana	"Women, 25 to 54 years"	"1,230"	948	77.1	919	74.7	29	3.1
+18	12	Indiana	"Women, 55 years and over"	996	355	35.6	348	34.9	7	1.8
+19	1	Iowa	Total	"2,460"	"1,679"	68.3	"1,625"	66.1	54	3.2
+19	2	Iowa	"Total, 16 to 24 years"	375	258	68.7	243	64.8	15	5.7
+19	3	Iowa	"Total, 25 to 54 years"	"1,144"	"1,006"	87.9	978	85.5	28	2.8
+19	4	Iowa	"Total, 55 years and over"	940	415	44.1	404	42.9	11	2.7
+19	5	Iowa	Men	"1,214"	895	73.8	864	71.1	32	3.5
+19	6	Iowa	"Men, 16 to 24 years"	195	139	71.5	131	67.2	9	6.1
+19	7	Iowa	"Men, 25 to 54 years"	572	527	92.1	510	89.2	16	3.1
+19	8	Iowa	"Men, 55 years and over"	447	229	51.3	222	49.7	7	3
+19	9	Iowa	Women	"1,246"	784	62.9	762	61.1	22	2.8
+19	10	Iowa	"Women, 16 to 24 years"	180	118	65.6	112	62.2	6	5.2
+19	11	Iowa	"Women, 25 to 54 years"	572	479	83.8	468	81.8	12	2.4
+19	12	Iowa	"Women, 55 years and over"	494	186	37.7	182	36.8	4	2.3
+20	1	Kansas	Total	"2,218"	"1,480"	66.7	"1,427"	64.3	53	3.6
+20	2	Kansas	"Total, 16 to 24 years"	347	218	62.9	205	59	13	6
+20	3	Kansas	"Total, 25 to 54 years"	"1,063"	899	84.5	867	81.5	32	3.6
+20	4	Kansas	"Total, 55 years and over"	808	363	44.9	355	44	7	2
+20	5	Kansas	Men	"1,085"	785	72.3	753	69.4	32	4.1
+20	6	Kansas	"Men, 16 to 24 years"	175	111	63.3	102	58.3	9	7.8
+20	7	Kansas	"Men, 25 to 54 years"	536	486	90.6	466	87	19	4
+20	8	Kansas	"Men, 55 years and over"	374	189	50.4	185	49.3	4	2.1
+20	9	Kansas	Women	"1,133"	695	61.3	674	59.5	21	3
+20	10	Kansas	"Women, 16 to 24 years"	172	108	62.4	103	59.8	5	4.2
+20	11	Kansas	"Women, 25 to 54 years"	527	413	78.4	401	75.9	13	3.1
+20	12	Kansas	"Women, 55 years and over"	434	174	40.1	171	39.4	3	1.9
+21	1	Kentucky	Total	"3,476"	"2,073"	59.7	"1,966"	56.6	107	5.2
+21	2	Kentucky	"Total, 16 to 24 years"	516	304	59	275	53.3	29	9.7
+21	3	Kentucky	"Total, 25 to 54 years"	"1,672"	"1,312"	78.5	"1,249"	74.7	64	4.8
+21	4	Kentucky	"Total, 55 years and over"	"1,288"	457	35.5	443	34.4	15	3.2
+21	5	Kentucky	Men	"1,683"	"1,102"	65.5	"1,042"	61.9	61	5.5
+21	6	Kentucky	"Men, 16 to 24 years"	261	165	63.4	147	56.5	18	10.8
+21	7	Kentucky	"Men, 25 to 54 years"	828	692	83.5	656	79.2	36	5.2
+21	8	Kentucky	"Men, 55 years and over"	594	245	41.3	238	40.1	7	2.9
+21	9	Kentucky	Women	"1,793"	971	54.2	925	51.6	47	4.8
+21	10	Kentucky	"Women, 16 to 24 years"	255	139	54.5	127	50	12	8.3
+21	11	Kentucky	"Women, 25 to 54 years"	844	620	73.5	593	70.2	28	4.5
+21	12	Kentucky	"Women, 55 years and over"	694	212	30.5	205	29.5	8	3.5
+22	1	Louisiana	Total	"3,602"	"2,114"	58.7	"2,005"	55.7	109	5.1
+22	2	Louisiana	"Total, 16 to 24 years"	539	263	48.9	231	42.9	33	12.4
+22	3	Louisiana	"Total, 25 to 54 years"	"1,767"	"1,388"	78.6	"1,327"	75.1	61	4.4
+22	4	Louisiana	"Total, 55 years and over"	"1,296"	463	35.7	448	34.5	15	3.2
+22	5	Louisiana	Men	"1,707"	"1,111"	65.1	"1,046"	61.3	66	5.9
+22	6	Louisiana	"Men, 16 to 24 years"	274	146	53.4	127	46.3	19	13.3
+22	7	Louisiana	"Men, 25 to 54 years"	845	717	84.8	679	80.4	38	5.2
+22	8	Louisiana	"Men, 55 years and over"	588	248	42.3	240	40.8	9	3.4
+22	9	Louisiana	Women	"1,895"	"1,003"	52.9	960	50.6	43	4.3
+22	10	Louisiana	"Women, 16 to 24 years"	265	117	44.3	104	39.4	13	11.3
+22	11	Louisiana	"Women, 25 to 54 years"	922	671	72.8	647	70.2	24	3.5
+22	12	Louisiana	"Women, 55 years and over"	709	214	30.2	208	29.4	6	2.9
+23	1	Maine	Total	"1,099"	702	63.9	679	61.8	23	3.3
+23	2	Maine	"Total, 16 to 24 years"	142	87	61.6	79	55.4	9	10
+23	3	Maine	"Total, 25 to 54 years"	502	416	82.8	405	80.7	10	2.5
+23	4	Maine	"Total, 55 years and over"	455	199	43.8	195	42.9	4	2
+23	5	Maine	Men	534	374	70	361	67.6	13	3.4
+23	6	Maine	"Men, 16 to 24 years"	68	47	68.4	42	60.9	5	10.7
+23	7	Maine	"Men, 25 to 54 years"	248	220	88.6	214	86.4	5	2.5
+23	8	Maine	"Men, 55 years and over"	218	107	49.3	105	48.1	2	2.2
+23	9	Maine	Women	565	328	58.1	318	56.4	10	3.1
+23	10	Maine	"Women, 16 to 24 years"	74	41	55.2	37	50.3	4	9.1
+23	11	Maine	"Women, 25 to 54 years"	254	196	77.1	191	75.1	5	2.5
+23	12	Maine	"Women, 55 years and over"	237	92	38.8	90	38	2	1.7
+24	1	Maryland	Total	"4,748"	"3,213"	67.7	"3,078"	64.8	136	4.2
+24	2	Maryland	"Total, 16 to 24 years"	667	398	59.7	358	53.6	40	10.1
+24	3	Maryland	"Total, 25 to 54 years"	"2,433"	"2,065"	84.9	"1,993"	81.9	71	3.4
+24	4	Maryland	"Total, 55 years and over"	"1,648"	751	45.6	727	44.1	24	3.2
+24	5	Maryland	Men	"2,246"	"1,652"	73.6	"1,584"	70.6	68	4.1
+24	6	Maryland	"Men, 16 to 24 years"	333	204	61.1	183	54.9	21	10.2
+24	7	Maryland	"Men, 25 to 54 years"	"1,163"	"1,060"	91.1	"1,023"	88	36	3.4
+24	8	Maryland	"Men, 55 years and over"	750	389	51.9	378	50.5	11	2.7
+24	9	Maryland	Women	"2,502"	"1,561"	62.4	"1,493"	59.7	68	4.4
+24	10	Maryland	"Women, 16 to 24 years"	333	194	58.2	175	52.3	20	10.1
+24	11	Maryland	"Women, 25 to 54 years"	"1,270"	"1,005"	79.1	970	76.4	35	3.5
+24	12	Maryland	"Women, 55 years and over"	898	362	40.3	349	38.8	14	3.8
+25	1	Massachusetts	Total	"5,566"	"3,666"	65.9	"3,523"	63.3	142	3.9
+25	2	Massachusetts	"Total, 16 to 24 years"	821	446	54.3	412	50.2	34	7.6
+25	3	Massachusetts	"Total, 25 to 54 years"	"2,754"	"2,323"	84.4	"2,247"	81.6	77	3.3
+25	4	Massachusetts	"Total, 55 years and over"	"1,992"	897	45	865	43.4	32	3.5
+25	5	Massachusetts	Men	"2,666"	"1,890"	70.9	"1,811"	67.9	79	4.2
+25	6	Massachusetts	"Men, 16 to 24 years"	406	222	54.8	201	49.7	21	9.3
+25	7	Massachusetts	"Men, 25 to 54 years"	"1,360"	"1,223"	89.9	"1,183"	87	40	3.3
+25	8	Massachusetts	"Men, 55 years and over"	900	444	49.4	426	47.4	18	4.1
+25	9	Massachusetts	Women	"2,900"	"1,776"	61.2	"1,712"	59.1	64	3.6
+25	10	Massachusetts	"Women, 16 to 24 years"	415	224	53.9	211	50.7	13	5.9
+25	11	Massachusetts	"Women, 25 to 54 years"	"1,393"	"1,100"	79	"1,063"	76.3	37	3.4
+25	12	Massachusetts	"Women, 55 years and over"	"1,092"	452	41.4	438	40.2	14	3
+26	1	Michigan	Total	"7,927"	"4,868"	61.4	"4,641"	58.5	227	4.7
+26	2	Michigan	"Total, 16 to 24 years"	"1,120"	682	60.9	609	54.4	74	10.8
+26	3	Michigan	"Total, 25 to 54 years"	"3,843"	"3,101"	80.7	"2,981"	77.6	120	3.9
+26	4	Michigan	"Total, 55 years and over"	"2,964"	"1,085"	36.6	"1,051"	35.5	34	3.1
+26	5	Michigan	Men	"3,842"	"2,595"	67.5	"2,479"	64.5	116	4.5
+26	6	Michigan	"Men, 16 to 24 years"	567	345	60.8	306	54	39	11.3
+26	7	Michigan	"Men, 25 to 54 years"	"1,910"	"1,664"	87.1	"1,604"	84	60	3.6
+26	8	Michigan	"Men, 55 years and over"	"1,365"	585	42.9	568	41.6	17	2.9
+26	9	Michigan	Women	"4,084"	"2,273"	55.7	"2,162"	52.9	112	4.9
+26	10	Michigan	"Women, 16 to 24 years"	553	337	61	303	54.7	35	10.3
+26	11	Michigan	"Women, 25 to 54 years"	"1,933"	"1,436"	74.3	"1,376"	71.2	60	4.2
+26	12	Michigan	"Women, 55 years and over"	"1,599"	499	31.2	483	30.2	17	3.4
+27	1	Minnesota	Total	"4,350"	"3,099"	71.2	"2,993"	68.8	106	3.4
+27	2	Minnesota	"Total, 16 to 24 years"	598	399	66.7	370	61.9	29	7.2
+27	3	Minnesota	"Total, 25 to 54 years"	"2,185"	"1,949"	89.2	"1,891"	86.6	58	3
+27	4	Minnesota	"Total, 55 years and over"	"1,568"	752	47.9	732	46.7	19	2.6
+27	5	Minnesota	Men	"2,151"	"1,627"	75.6	"1,560"	72.5	67	4.1
+27	6	Minnesota	"Men, 16 to 24 years"	311	208	66.9	187	60.2	21	9.9
+27	7	Minnesota	"Men, 25 to 54 years"	"1,085"	"1,009"	93.1	975	89.9	35	3.4
+27	8	Minnesota	"Men, 55 years and over"	756	410	54.1	398	52.6	12	2.8
+27	9	Minnesota	Women	"2,199"	"1,473"	67	"1,434"	65.2	39	2.6
+27	10	Minnesota	"Women, 16 to 24 years"	287	191	66.5	183	63.7	8	4.2
+27	11	Minnesota	"Women, 25 to 54 years"	"1,100"	939	85.4	916	83.3	23	2.5
+27	12	Minnesota	"Women, 55 years and over"	812	342	42.2	334	41.2	8	2.3
+28	1	Mississippi	Total	"2,293"	"1,281"	55.9	"1,215"	53	66	5.1
+28	2	Mississippi	"Total, 16 to 24 years"	356	167	46.9	145	40.8	22	12.9
+28	3	Mississippi	"Total, 25 to 54 years"	"1,097"	847	77.1	808	73.6	38	4.5
+28	4	Mississippi	"Total, 55 years and over"	839	267	31.8	262	31.2	6	2.1
+28	5	Mississippi	Men	"1,078"	658	61	624	57.9	34	5.1
+28	6	Mississippi	"Men, 16 to 24 years"	182	86	47.3	72	39.8	14	15.9
+28	7	Mississippi	"Men, 25 to 54 years"	512	428	83.7	411	80.3	17	4.1
+28	8	Mississippi	"Men, 55 years and over"	384	144	37.4	141	36.7	3	1.9
+28	9	Mississippi	Women	"1,215"	623	51.3	591	48.6	32	5.1
+28	10	Mississippi	"Women, 16 to 24 years"	174	81	46.5	73	41.9	8	9.8
+28	11	Mississippi	"Women, 25 to 54 years"	586	418	71.4	397	67.8	21	5
+28	12	Mississippi	"Women, 55 years and over"	455	124	27.1	121	26.5	3	2.3
+29	1	Missouri	Total	"4,784"	"3,010"	62.9	"2,895"	60.5	114	3.8
+29	2	Missouri	"Total, 16 to 24 years"	696	406	58.3	377	54.2	29	7
+29	3	Missouri	"Total, 25 to 54 years"	"2,301"	"1,926"	83.7	"1,859"	80.8	67	3.5
+29	4	Missouri	"Total, 55 years and over"	"1,787"	678	38	659	36.9	19	2.8
+29	5	Missouri	Men	"2,309"	"1,557"	67.4	"1,489"	64.5	68	4.3
+29	6	Missouri	"Men, 16 to 24 years"	365	209	57.4	191	52.2	19	8.9
+29	7	Missouri	"Men, 25 to 54 years"	"1,120"	998	89.1	959	85.6	39	3.9
+29	8	Missouri	"Men, 55 years and over"	824	349	42.4	339	41.2	10	2.7
+29	9	Missouri	Women	"2,475"	"1,453"	58.7	"1,406"	56.8	47	3.2
+29	10	Missouri	"Women, 16 to 24 years"	331	197	59.4	187	56.4	10	5
+29	11	Missouri	"Women, 25 to 54 years"	"1,181"	927	78.5	900	76.2	27	2.9
+29	12	Missouri	"Women, 55 years and over"	963	329	34.2	319	33.2	10	2.9
+30	1	Montana	Total	832	522	62.7	500	60.1	21	4
+30	2	Montana	"Total, 16 to 24 years"	111	70	63.4	65	58.5	5	7.7
+30	3	Montana	"Total, 25 to 54 years"	377	312	82.7	300	79.6	12	3.8
+30	4	Montana	"Total, 55 years and over"	344	140	40.5	136	39.5	4	2.7
+30	5	Montana	Men	415	280	67.5	268	64.6	12	4.3
+30	6	Montana	"Men, 16 to 24 years"	54	35	65.4	32	60	3	8.3
+30	7	Montana	"Men, 25 to 54 years"	192	170	88.5	163	84.9	7	3.9
+30	8	Montana	"Men, 55 years and over"	169	75	44.4	73	43.1	2	3.1
+30	9	Montana	Women	418	242	57.8	232	55.7	9	3.8
+30	10	Montana	"Women, 16 to 24 years"	57	35	61.5	33	57	3	7.4
+30	11	Montana	"Women, 25 to 54 years"	185	142	76.7	137	74	5	3.5
+30	12	Montana	"Women, 55 years and over"	175	65	36.8	63	35.9	2	2.3
+31	1	Nebraska	Total	"1,466"	"1,005"	68.6	977	66.6	29	2.8
+31	2	Nebraska	"Total, 16 to 24 years"	234	157	67.1	148	63.2	9	5.7
+31	3	Nebraska	"Total, 25 to 54 years"	704	616	87.5	602	85.6	14	2.2
+31	4	Nebraska	"Total, 55 years and over"	528	232	43.9	226	42.8	6	2.5
+31	5	Nebraska	Men	721	534	74	517	71.6	17	3.2
+31	6	Nebraska	"Men, 16 to 24 years"	122	87	71.2	81	66.5	6	6.8
+31	7	Nebraska	"Men, 25 to 54 years"	349	320	91.7	312	89.4	8	2.5
+31	8	Nebraska	"Men, 55 years and over"	250	127	50.7	123	49.3	3	2.7
+31	9	Nebraska	Women	745	471	63.3	460	61.7	11	2.4
+31	10	Nebraska	"Women, 16 to 24 years"	112	70	62.5	67	59.7	3	4.4
+31	11	Nebraska	"Women, 25 to 54 years"	355	296	83.5	290	81.8	6	2
+31	12	Nebraska	"Women, 55 years and over"	278	105	37.9	103	37	2	2.2
+32	1	Nevada	Total	"2,340"	"1,454"	62.1	"1,381"	59	73	5
+32	2	Nevada	"Total, 16 to 24 years"	340	205	60.2	184	54.1	21	10.2
+32	3	Nevada	"Total, 25 to 54 years"	"1,168"	940	80.5	903	77.3	38	4
+32	4	Nevada	"Total, 55 years and over"	833	309	37.1	295	35.4	14	4.6
+32	5	Nevada	Men	"1,154"	801	69.4	757	65.6	44	5.5
+32	6	Nevada	"Men, 16 to 24 years"	173	108	62.7	95	55.1	13	12.1
+32	7	Nevada	"Men, 25 to 54 years"	581	519	89.3	498	85.7	21	4
+32	8	Nevada	"Men, 55 years and over"	401	174	43.4	164	41	10	5.5
+32	9	Nevada	Women	"1,186"	654	55.1	624	52.6	29	4.5
+32	10	Nevada	"Women, 16 to 24 years"	167	97	57.8	89	53.1	8	8.1
+32	11	Nevada	"Women, 25 to 54 years"	588	422	71.8	405	68.9	17	4
+32	12	Nevada	"Women, 55 years and over"	432	135	31.4	131	30.3	5	3.3
+33	1	New Hampshire	Total	"1,096"	741	67.6	721	65.8	20	2.8
+33	2	New Hampshire	"Total, 16 to 24 years"	158	101	64	94	59.4	7	7.1
+33	3	New Hampshire	"Total, 25 to 54 years"	486	425	87.5	417	85.8	9	2
+33	4	New Hampshire	"Total, 55 years and over"	452	215	47.5	210	46.5	5	2.2
+33	5	New Hampshire	Men	538	388	72.1	377	70.2	10	2.7
+33	6	New Hampshire	"Men, 16 to 24 years"	82	50	60.7	46	56.7	3	6.7
+33	7	New Hampshire	"Men, 25 to 54 years"	241	222	92.1	218	90.3	5	2
+33	8	New Hampshire	"Men, 55 years and over"	215	116	53.8	113	52.7	3	2.2
+33	9	New Hampshire	Women	558	354	63.4	343	61.6	10	2.9
+33	10	New Hampshire	"Women, 16 to 24 years"	76	51	67.4	47	62.2	4	7.6
+33	11	New Hampshire	"Women, 25 to 54 years"	245	203	83	199	81.3	4	2
+33	12	New Hampshire	"Women, 55 years and over"	237	99	41.8	97	40.9	2	2.2
+34	1	New Jersey	Total	"7,124"	"4,491"	63	"4,284"	60.1	207	4.6
+34	2	New Jersey	"Total, 16 to 24 years"	"1,032"	477	46.2	427	41.4	50	10.4
+34	3	New Jersey	"Total, 25 to 54 years"	"3,472"	"2,900"	83.5	"2,790"	80.4	110	3.8
+34	4	New Jersey	"Total, 55 years and over"	"2,621"	"1,114"	42.5	"1,067"	40.7	47	4.2
+34	5	New Jersey	Men	"3,429"	"2,363"	68.9	"2,258"	65.8	105	4.4
+34	6	New Jersey	"Men, 16 to 24 years"	513	219	42.7	193	37.6	26	11.9
+34	7	New Jersey	"Men, 25 to 54 years"	"1,710"	"1,559"	91.2	"1,503"	87.9	57	3.6
+34	8	New Jersey	"Men, 55 years and over"	"1,206"	584	48.5	562	46.6	23	3.9
+34	9	New Jersey	Women	"3,695"	"2,128"	57.6	"2,026"	54.8	102	4.8
+34	10	New Jersey	"Women, 16 to 24 years"	519	258	49.7	234	45.2	24	9.1
+34	11	New Jersey	"Women, 25 to 54 years"	"1,762"	"1,340"	76.1	"1,287"	73	54	4
+34	12	New Jersey	"Women, 55 years and over"	"1,415"	530	37.4	505	35.7	25	4.7
+35	1	New Mexico	Total	"1,614"	929	57.6	872	54	57	6.1
+35	2	New Mexico	"Total, 16 to 24 years"	255	132	51.7	115	44.9	17	13
+35	3	New Mexico	"Total, 25 to 54 years"	745	571	76.7	541	72.7	30	5.2
+35	4	New Mexico	"Total, 55 years and over"	614	226	36.8	216	35.2	10	4.4
+35	5	New Mexico	Men	782	502	64.2	470	60.1	33	6.5
+35	6	New Mexico	"Men, 16 to 24 years"	130	73	56.2	62	47.8	11	15
+35	7	New Mexico	"Men, 25 to 54 years"	370	312	84.3	296	79.9	16	5.2
+35	8	New Mexico	"Men, 55 years and over"	282	117	41.6	112	39.7	5	4.6
+35	9	New Mexico	Women	832	427	51.3	403	48.4	24	5.6
+35	10	New Mexico	"Women, 16 to 24 years"	126	59	47.1	53	42.1	6	10.5
+35	11	New Mexico	"Women, 25 to 54 years"	375	259	69.1	246	65.6	13	5.1
+35	12	New Mexico	"Women, 55 years and over"	331	109	32.8	104	31.4	5	4.2
+36	1	New York	Total	"15,861"	"9,699"	61.1	"9,248"	58.3	450	4.6
+36	2	New York	"Total, 16 to 24 years"	"2,294"	"1,082"	47.2	954	41.6	128	11.8
+36	3	New York	"Total, 25 to 54 years"	"7,915"	"6,355"	80.3	"6,115"	77.3	239	3.8
+36	4	New York	"Total, 55 years and over"	"5,652"	"2,262"	40	"2,179"	38.5	84	3.7
+36	5	New York	Men	"7,582"	"5,065"	66.8	"4,828"	63.7	238	4.7
+36	6	New York	"Men, 16 to 24 years"	"1,178"	589	50	517	43.9	71	12.1
+36	7	New York	"Men, 25 to 54 years"	"3,854"	"3,328"	86.4	"3,206"	83.2	122	3.7
+36	8	New York	"Men, 55 years and over"	"2,551"	"1,149"	45.1	"1,105"	43.3	44	3.8
+36	9	New York	Women	"8,279"	"4,633"	56	"4,421"	53.4	213	4.6
+36	10	New York	"Women, 16 to 24 years"	"1,117"	493	44.2	437	39.1	56	11.4
+36	11	New York	"Women, 25 to 54 years"	"4,061"	"3,027"	74.5	"2,910"	71.6	117	3.9
+36	12	New York	"Women, 55 years and over"	"3,101"	"1,113"	35.9	"1,074"	34.6	39	3.5
+37	1	North Carolina	Total	"7,995"	"4,906"	61.4	"4,686"	58.6	220	4.5
+37	2	North Carolina	"Total, 16 to 24 years"	"1,225"	678	55.4	612	50	66	9.7
+37	3	North Carolina	"Total, 25 to 54 years"	"3,902"	"3,134"	80.3	"3,011"	77.2	124	3.9
+37	4	North Carolina	"Total, 55 years and over"	"2,869"	"1,094"	38.1	"1,063"	37.1	31	2.8
+37	5	North Carolina	Men	"3,782"	"2,543"	67.2	"2,429"	64.2	114	4.5
+37	6	North Carolina	"Men, 16 to 24 years"	584	329	56.3	291	49.8	38	11.6
+37	7	North Carolina	"Men, 25 to 54 years"	"1,897"	"1,655"	87.2	"1,591"	83.9	64	3.8
+37	8	North Carolina	"Men, 55 years and over"	"1,301"	559	43	547	42.1	12	2.2
+37	9	North Carolina	Women	"4,213"	"2,363"	56.1	"2,257"	53.6	106	4.5
+37	10	North Carolina	"Women, 16 to 24 years"	641	349	54.5	321	50.1	28	8
+37	11	North Carolina	"Women, 25 to 54 years"	"2,005"	"1,480"	73.8	"1,419"	70.8	60	4.1
+37	12	North Carolina	"Women, 55 years and over"	"1,568"	534	34.1	516	32.9	18	3.4
+38	1	North Dakota	Total	582	416	71.5	406	69.7	11	2.6
+38	2	North Dakota	"Total, 16 to 24 years"	87	58	66.7	55	63.9	2	4.2
+38	3	North Dakota	"Total, 25 to 54 years"	296	260	87.9	254	85.7	7	2.5
+38	4	North Dakota	"Total, 55 years and over"	199	98	49.3	97	48.4	2	1.8
+38	5	North Dakota	Men	297	227	76.5	221	74.5	6	2.7
+38	6	North Dakota	"Men, 16 to 24 years"	44	29	65.8	28	63.1	1	4.2
+38	7	North Dakota	"Men, 25 to 54 years"	157	145	92.4	141	90	4	2.7
+38	8	North Dakota	"Men, 55 years and over"	96	53	55.5	52	54.3	1	2.2
+38	9	North Dakota	Women	285	189	66.3	185	64.7	5	2.4
+38	10	North Dakota	"Women, 16 to 24 years"	43	29	67.4	28	64.6	1	4.1
+38	11	North Dakota	"Women, 25 to 54 years"	139	115	82.8	112	80.8	3	2.3
+38	12	North Dakota	"Women, 55 years and over"	103	45	43.5	44	42.9	1	1.3
+39	1	Ohio	Total	"9,174"	"5,778"	63	"5,487"	59.8	291	5
+39	2	Ohio	"Total, 16 to 24 years"	"1,395"	892	63.9	794	56.9	98	10.9
+39	3	Ohio	"Total, 25 to 54 years"	"4,336"	"3,560"	82.1	"3,411"	78.7	149	4.2
+39	4	Ohio	"Total, 55 years and over"	"3,443"	"1,327"	38.5	"1,282"	37.2	44	3.3
+39	5	Ohio	Men	"4,426"	"3,037"	68.6	"2,877"	65	161	5.3
+39	6	Ohio	"Men, 16 to 24 years"	730	474	65	423	57.9	51	10.8
+39	7	Ohio	"Men, 25 to 54 years"	"2,135"	"1,866"	87.4	"1,779"	83.3	88	4.7
+39	8	Ohio	"Men, 55 years and over"	"1,561"	697	44.7	675	43.3	22	3.1
+39	9	Ohio	Women	"4,748"	"2,741"	57.7	"2,610"	55	130	4.7
+39	10	Ohio	"Women, 16 to 24 years"	665	418	62.8	371	55.8	46	11.1
+39	11	Ohio	"Women, 25 to 54 years"	"2,201"	"1,693"	76.9	"1,632"	74.1	62	3.6
+39	12	Ohio	"Women, 55 years and over"	"1,882"	630	33.5	607	32.3	22	3.5
+40	1	Oklahoma	Total	"3,007"	"1,839"	61.2	"1,758"	58.5	81	4.4
+40	2	Oklahoma	"Total, 16 to 24 years"	440	242	54.9	218	49.5	24	10
+40	3	Oklahoma	"Total, 25 to 54 years"	"1,479"	"1,167"	78.9	"1,120"	75.7	48	4.1
+40	4	Oklahoma	"Total, 55 years and over"	"1,087"	430	39.5	421	38.7	9	2.1
+40	5	Oklahoma	Men	"1,455"	"1,006"	69.1	965	66.3	41	4.1
+40	6	Oklahoma	"Men, 16 to 24 years"	221	129	58.1	119	54	9	7.2
+40	7	Oklahoma	"Men, 25 to 54 years"	729	638	87.6	610	83.7	28	4.4
+40	8	Oklahoma	"Men, 55 years and over"	506	240	47.4	236	46.6	4	1.8
+40	9	Oklahoma	Women	"1,551"	833	53.7	794	51.1	39	4.7
+40	10	Oklahoma	"Women, 16 to 24 years"	219	113	51.6	98	44.9	15	13.2
+40	11	Oklahoma	"Women, 25 to 54 years"	750	529	70.5	510	67.9	20	3.7
+40	12	Oklahoma	"Women, 55 years and over"	582	190	32.7	185	31.9	5	2.6
+41	1	Oregon	Total	"3,340"	"2,123"	63.6	"2,037"	61	86	4.1
+41	2	Oregon	"Total, 16 to 24 years"	440	267	60.6	245	55.7	22	8.1
+41	3	Oregon	"Total, 25 to 54 years"	"1,651"	"1,370"	83	"1,322"	80.1	48	3.5
+41	4	Oregon	"Total, 55 years and over"	"1,249"	486	38.9	470	37.6	17	3.4
+41	5	Oregon	Men	"1,632"	"1,124"	68.8	"1,076"	65.9	48	4.3
+41	6	Oregon	"Men, 16 to 24 years"	224	132	58.8	119	52.9	13	10
+41	7	Oregon	"Men, 25 to 54 years"	817	731	89.5	704	86.2	27	3.7
+41	8	Oregon	"Men, 55 years and over"	592	261	44.2	254	42.9	8	3
+41	9	Oregon	Women	"1,708"	999	58.5	961	56.3	38	3.8
+41	10	Oregon	"Women, 16 to 24 years"	216	135	62.5	127	58.6	9	6.3
+41	11	Oregon	"Women, 25 to 54 years"	834	639	76.6	618	74.1	21	3.3
+41	12	Oregon	"Women, 55 years and over"	657	225	34.2	216	32.9	9	3.9
+42	1	Pennsylvania	Total	"10,255"	"6,396"	62.4	"6,088"	59.4	308	4.8
+42	2	Pennsylvania	"Total, 16 to 24 years"	"1,443"	856	59.3	778	53.9	78	9.1
+42	3	Pennsylvania	"Total, 25 to 54 years"	"4,698"	"3,888"	82.8	"3,721"	79.2	168	4.3
+42	4	Pennsylvania	"Total, 55 years and over"	"4,114"	"1,652"	40.2	"1,590"	38.6	62	3.8
+42	5	Pennsylvania	Men	"4,937"	"3,359"	68	"3,184"	64.5	175	5.2
+42	6	Pennsylvania	"Men, 16 to 24 years"	767	446	58.1	397	51.7	49	11
+42	7	Pennsylvania	"Men, 25 to 54 years"	"2,255"	"2,000"	88.7	"1,909"	84.6	92	4.6
+42	8	Pennsylvania	"Men, 55 years and over"	"1,915"	912	47.7	878	45.8	35	3.8
+42	9	Pennsylvania	Women	"5,318"	"3,037"	57.1	"2,905"	54.6	133	4.4
+42	10	Pennsylvania	"Women, 16 to 24 years"	676	410	60.6	381	56.3	29	7
+42	11	Pennsylvania	"Women, 25 to 54 years"	"2,443"	"1,888"	77.3	"1,812"	74.2	76	4
+42	12	Pennsylvania	"Women, 55 years and over"	"2,199"	740	33.6	712	32.4	28	3.7
+44	1	Rhode Island	Total	860	555	64.5	531	61.7	25	4.4
+44	2	Rhode Island	"Total, 16 to 24 years"	116	69	59.6	64	55	5	7.8
+44	3	Rhode Island	"Total, 25 to 54 years"	413	344	83.2	331	80.1	13	3.7
+44	4	Rhode Island	"Total, 55 years and over"	332	143	43	136	41.1	6	4.5
+44	5	Rhode Island	Men	412	288	69.7	272	65.8	16	5.6
+44	6	Rhode Island	"Men, 16 to 24 years"	59	34	57.9	31	51.5	4	11.4
+44	7	Rhode Island	"Men, 25 to 54 years"	205	182	88.8	174	84.8	9	4.7
+44	8	Rhode Island	"Men, 55 years and over"	148	71	47.9	67	45.4	4	5.1
+44	9	Rhode Island	Women	448	268	59.7	259	57.8	9	3.2
+44	10	Rhode Island	"Women, 16 to 24 years"	57	35	61.4	33	58.6	2	4.6
+44	11	Rhode Island	"Women, 25 to 54 years"	208	161	77.5	157	75.5	4	2.7
+44	12	Rhode Island	"Women, 55 years and over"	184	72	39.1	69	37.6	3	3.9
+45	1	South Carolina	Total	"3,942"	"2,287"	58	"2,187"	55.5	100	4.4
+45	2	South Carolina	"Total, 16 to 24 years"	559	304	54.4	273	48.9	31	10.1
+45	3	South Carolina	"Total, 25 to 54 years"	"1,853"	"1,452"	78.3	"1,397"	75.4	54	3.7
+45	4	South Carolina	"Total, 55 years and over"	"1,530"	531	34.7	517	33.8	15	2.8
+45	5	South Carolina	Men	"1,860"	"1,200"	64.5	"1,146"	61.6	54	4.5
+45	6	South Carolina	"Men, 16 to 24 years"	272	153	56.2	136	49.8	17	11.3
+45	7	South Carolina	"Men, 25 to 54 years"	891	772	86.6	743	83.4	29	3.7
+45	8	South Carolina	"Men, 55 years and over"	697	276	39.6	268	38.4	8	2.9
+45	9	South Carolina	Women	"2,082"	"1,087"	52.2	"1,041"	50	46	4.2
+45	10	South Carolina	"Women, 16 to 24 years"	287	152	52.8	138	48	14	8.9
+45	11	South Carolina	"Women, 25 to 54 years"	962	680	70.6	654	68	26	3.8
+45	12	South Carolina	"Women, 55 years and over"	833	256	30.7	249	29.9	7	2.7
+46	1	South Dakota	Total	662	460	69.4	443	66.9	17	3.6
+46	2	South Dakota	"Total, 16 to 24 years"	114	76	66.8	71	62.1	5	7
+46	3	South Dakota	"Total, 25 to 54 years"	293	253	86.5	244	83.4	10	3.7
+46	4	South Dakota	"Total, 55 years and over"	256	130	50.9	128	50.1	2	1.4
+46	5	South Dakota	Men	331	244	73.7	235	71.1	9	3.6
+46	7	South Dakota	"Men, 25 to 54 years"	148	135	91	130	87.6	5	3.8
+46	8	South Dakota	"Men, 55 years and over"	125	70	55.9	69	55.1	1	1.4
+46	9	South Dakota	Women	332	216	65.1	208	62.7	8	3.6
+46	11	South Dakota	"Women, 25 to 54 years"	145	119	82	115	79.1	4	3.7
+46	12	South Dakota	"Women, 55 years and over"	131	60	46.1	59	45.4	1	1.3
+47	1	Tennessee	Total	"5,274"	"3,195"	60.6	"3,076"	58.3	120	3.7
+47	2	Tennessee	"Total, 16 to 24 years"	725	409	56.4	375	51.8	34	8.3
+47	3	Tennessee	"Total, 25 to 54 years"	"2,574"	"2,071"	80.4	"2,002"	77.8	69	3.3
+47	4	Tennessee	"Total, 55 years and over"	"1,974"	715	36.2	698	35.4	17	2.3
+47	5	Tennessee	Men	"2,517"	"1,690"	67.1	"1,627"	64.6	63	3.7
+47	6	Tennessee	"Men, 16 to 24 years"	346	201	58.1	182	52.6	19	9.4
+47	7	Tennessee	"Men, 25 to 54 years"	"1,268"	"1,110"	87.5	"1,076"	84.8	34	3.1
+47	8	Tennessee	"Men, 55 years and over"	903	379	42	369	40.9	10	2.6
+47	9	Tennessee	Women	"2,756"	"1,505"	54.6	"1,449"	52.6	57	3.8
+47	10	Tennessee	"Women, 16 to 24 years"	380	208	54.9	193	51	15	7.2
+47	11	Tennessee	"Women, 25 to 54 years"	"1,306"	961	73.6	926	70.9	35	3.6
+47	12	Tennessee	"Women, 55 years and over"	"1,071"	336	31.4	329	30.7	7	2
+48	1	Texas	Total	"21,216"	"13,491"	63.6	"12,908"	60.8	583	4.3
+48	2	Texas	"Total, 16 to 24 years"	"3,567"	"1,841"	51.6	"1,686"	47.3	155	8.4
+48	3	Texas	"Total, 25 to 54 years"	"10,991"	"8,905"	81	"8,574"	78	331	3.7
+48	4	Texas	"Total, 55 years and over"	"6,658"	"2,744"	41.2	"2,648"	39.8	96	3.5
+48	5	Texas	Men	"10,312"	"7,434"	72.1	"7,120"	69	314	4.2
+48	6	Texas	"Men, 16 to 24 years"	"1,790"	988	55.2	900	50.3	88	8.9
+48	7	Texas	"Men, 25 to 54 years"	"5,460"	"4,930"	90.3	"4,762"	87.2	167	3.4
+48	8	Texas	"Men, 55 years and over"	"3,063"	"1,517"	49.5	"1,458"	47.6	60	3.9
+48	9	Texas	Women	"10,904"	"6,056"	55.5	"5,788"	53.1	269	4.4
+48	10	Texas	"Women, 16 to 24 years"	"1,777"	854	48	786	44.2	68	7.9
+48	11	Texas	"Women, 25 to 54 years"	"5,531"	"3,975"	71.9	"3,811"	68.9	164	4.1
+48	12	Texas	"Women, 55 years and over"	"3,595"	"1,227"	34.1	"1,191"	33.1	37	3
+49	1	Utah	Total	"2,250"	"1,570"	69.8	"1,516"	67.4	53	3.4
+49	2	Utah	"Total, 16 to 24 years"	443	314	70.9	294	66.5	20	6.2
+49	3	Utah	"Total, 25 to 54 years"	"1,164"	961	82.6	933	80.2	28	2.9
+49	4	Utah	"Total, 55 years and over"	644	294	45.7	289	44.9	5	1.8
+49	5	Utah	Men	"1,121"	875	78.1	849	75.8	26	3
+49	6	Utah	"Men, 16 to 24 years"	215	157	73.1	148	68.8	9	5.9
+49	7	Utah	"Men, 25 to 54 years"	597	555	92.9	540	90.4	15	2.6
+49	8	Utah	"Men, 55 years and over"	308	163	52.9	161	52.3	2	1.2
+49	9	Utah	Women	"1,129"	694	61.5	667	59.1	27	3.9
+49	10	Utah	"Women, 16 to 24 years"	227	157	68.8	146	64.3	10	6.5
+49	11	Utah	"Women, 25 to 54 years"	567	407	71.8	393	69.4	13	3.3
+49	12	Utah	"Women, 55 years and over"	335	131	39.1	128	38	4	2.7
+50	1	Vermont	Total	515	345	67	335	64.9	11	3.1
+50	2	Vermont	"Total, 16 to 24 years"	73	49	66.2	45	61.8	3	6.4
+50	3	Vermont	"Total, 25 to 54 years"	228	196	86.2	191	84	5	2.6
+50	4	Vermont	"Total, 55 years and over"	215	101	46.8	98	45.7	2	2.4
+50	5	Vermont	Men	253	179	71.1	174	68.8	6	3.1
+50	6	Vermont	"Men, 16 to 24 years"	39	27	69	25	64.4	2	6.6
+50	7	Vermont	"Men, 25 to 54 years"	114	101	89	99	86.8	3	2.6
+50	8	Vermont	"Men, 55 years and over"	99	51	51.3	50	49.9	1	2.6
+50	9	Vermont	Women	263	166	63	161	61.1	5	3
+50	10	Vermont	"Women, 16 to 24 years"	34	21	62.6	20	58.8	1	6.1
+50	11	Vermont	"Women, 25 to 54 years"	114	95	83.4	92	81.2	3	2.6
+50	12	Vermont	"Women, 55 years and over"	115	50	43	49	42.1	1	2.2
+51	1	Virginia	Total	"6,584"	"4,294"	65.2	"4,134"	62.8	160	3.7
+51	2	Virginia	"Total, 16 to 24 years"	971	549	56.5	500	51.5	49	8.9
+51	3	Virginia	"Total, 25 to 54 years"	"3,289"	"2,767"	84.1	"2,675"	81.3	92	3.3
+51	4	Virginia	"Total, 55 years and over"	"2,324"	979	42.1	960	41.3	19	2
+51	5	Virginia	Men	"3,155"	"2,244"	71.1	"2,162"	68.5	82	3.7
+51	6	Virginia	"Men, 16 to 24 years"	464	250	54	223	48	28	11.1
+51	7	Virginia	"Men, 25 to 54 years"	"1,623"	"1,470"	90.6	"1,425"	87.8	45	3.1
+51	8	Virginia	"Men, 55 years and over"	"1,068"	523	49	514	48.2	9	1.7
+51	9	Virginia	Women	"3,430"	"2,051"	59.8	"1,973"	57.5	78	3.8
+51	10	Virginia	"Women, 16 to 24 years"	507	298	58.8	277	54.7	21	7.1
+51	11	Virginia	"Women, 25 to 54 years"	"1,666"	"1,297"	77.8	"1,250"	75	46	3.6
+51	12	Virginia	"Women, 55 years and over"	"1,256"	456	36.3	446	35.5	10	2.3
+53	1	Washington	Total	"5,821"	"3,718"	63.9	"3,546"	60.9	173	4.6
+53	2	Washington	"Total, 16 to 24 years"	835	491	58.8	449	53.7	42	8.6
+53	3	Washington	"Total, 25 to 54 years"	"2,927"	"2,385"	81.5	"2,282"	78	103	4.3
+53	4	Washington	"Total, 55 years and over"	"2,059"	843	41	815	39.6	28	3.4
+53	5	Washington	Men	"2,863"	"2,012"	70.3	"1,916"	66.9	96	4.8
+53	6	Washington	"Men, 16 to 24 years"	422	258	61.2	233	55.1	25	9.8
+53	7	Washington	"Men, 25 to 54 years"	"1,457"	"1,301"	89.3	"1,246"	85.5	55	4.2
+53	8	Washington	"Men, 55 years and over"	984	453	46	437	44.4	15	3.4
+53	9	Washington	Women	"2,958"	"1,707"	57.7	"1,630"	55.1	77	4.5
+53	10	Washington	"Women, 16 to 24 years"	413	233	56.4	216	52.3	17	7.2
+53	11	Washington	"Women, 25 to 54 years"	"1,470"	"1,084"	73.7	"1,036"	70.5	47	4.4
+53	12	Washington	"Women, 55 years and over"	"1,075"	391	36.3	378	35.1	13	3.3
+54	1	West Virginia	Total	"1,469"	782	53.2	741	50.5	41	5.2
+54	2	West Virginia	"Total, 16 to 24 years"	210	103	48.8	91	43.4	12	11.2
+54	3	West Virginia	"Total, 25 to 54 years"	657	490	74.6	466	71	24	4.9
+54	4	West Virginia	"Total, 55 years and over"	602	189	31.4	184	30.5	5	2.9
+54	5	West Virginia	Men	716	417	58.2	393	54.9	24	5.8
+54	6	West Virginia	"Men, 16 to 24 years"	106	55	51.4	49	46	6	10.6
+54	7	West Virginia	"Men, 25 to 54 years"	326	262	80.3	247	75.7	15	5.8
+54	8	West Virginia	"Men, 55 years and over"	284	101	35.4	97	34.3	3	3.2
+54	9	West Virginia	Women	752	365	48.5	348	46.3	17	4.6
+54	10	West Virginia	"Women, 16 to 24 years"	104	48	46.3	42	40.6	6	12.1
+54	11	West Virginia	"Women, 25 to 54 years"	330	228	69.1	219	66.3	9	3.9
+54	12	West Virginia	"Women, 55 years and over"	318	89	27.9	87	27.2	2	2.5
+55	1	Wisconsin	Total	"4,590"	"3,168"	69	"3,068"	66.8	100	3.2
+55	2	Wisconsin	"Total, 16 to 24 years"	688	486	70.7	453	65.9	32	6.7
+55	3	Wisconsin	"Total, 25 to 54 years"	"2,168"	"1,916"	88.4	"1,865"	86	50	2.6
+55	4	Wisconsin	"Total, 55 years and over"	"1,735"	767	44.2	749	43.2	17	2.3
+55	5	Wisconsin	Men	"2,259"	"1,665"	73.7	"1,609"	71.2	57	3.4
+55	6	Wisconsin	"Men, 16 to 24 years"	365	257	70.5	236	64.6	21	8.3
+55	7	Wisconsin	"Men, 25 to 54 years"	"1,067"	994	93.2	968	90.7	26	2.6
+55	8	Wisconsin	"Men, 55 years and over"	827	414	50	405	48.9	9	2.2
+55	9	Wisconsin	Women	"2,332"	"1,503"	64.5	"1,459"	62.6	43	2.9
+55	10	Wisconsin	"Women, 16 to 24 years"	322	229	70.9	218	67.5	11	4.9
+55	11	Wisconsin	"Women, 25 to 54 years"	"1,101"	921	83.7	897	81.5	24	2.6
+55	12	Wisconsin	"Women, 55 years and over"	908	353	38.9	345	38	8	2.4
+56	1	Wyoming	Total	450	294	65.3	282	62.5	13	4.3
+56	2	Wyoming	"Total, 16 to 24 years"	68	40	59.5	36	53.5	4	9.9
+56	3	Wyoming	"Total, 25 to 54 years"	213	179	83.9	173	81	6	3.4
+56	4	Wyoming	"Total, 55 years and over"	170	75	44.2	73	42.8	3	3.3
+56	5	Wyoming	Men	228	160	70.5	153	67.2	8	4.7
+56	6	Wyoming	"Men, 16 to 24 years"	38	22	59.5	20	53.1	2	10.8
+56	7	Wyoming	"Men, 25 to 54 years"	108	98	90.5	94	87.1	4	3.7
+56	8	Wyoming	"Men, 55 years and over"	82	40	48.8	39	47.1	2	3.8
+56	9	Wyoming	Women	223	134	60	129	57.8	5	3.7
+56	10	Wyoming	"Women, 16 to 24 years"	30	18	59.5	16	53.9	2	8.8
+56	11	Wyoming	"Women, 25 to 54 years"	105	81	77.1	78	74.7	3	3.1
+56	12	Wyoming	"Women, 55 years and over"	88	35	39.9	34	38.8	1	2.8
+										
+"SOURCE:  Bureau of Labor Statistics, Current Population Survey"										
+										
+p = preliminary.										
+"NOTE:  Data for demographic groups are not shown when the labor force base does not meet the BLS publication standard of reliability for the area in question, as determined by"										
+"the sample size. Items may not sum to totals because of rounding. For information on the preliminary nature of these data, see https://www.bls.gov/lau/pnote14full2017.pdf."										
