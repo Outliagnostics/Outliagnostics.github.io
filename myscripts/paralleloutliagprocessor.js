@@ -36,12 +36,12 @@ class OutliagProcessor {
                 'outlyingUpperBound': outlyingUpperBound
             }
             let outliags = [];
-            //Todo: For timing records only
-            //<editor-fold>
-            myself.counter += 1;
-            let withBinTime = new Date();
-            let numOfScags = yearsData.length;
-            //</editor-fold>
+            // //Todo: For timing records only
+            // //<editor-fold>
+            // myself.counter += 1;
+            // let withBinTime = new Date();
+            // let numOfScags = yearsData.length;
+            // //</editor-fold>
 
             yearsData.map((d, i) => {
                 const y = d.filter(p => isValidPoint(p));
@@ -56,10 +56,10 @@ class OutliagProcessor {
             function onResult(e) {
                 outliags.push(e);
                 if (outliags.length === yearsData.length) {
-                    //Todo: For timing records only
-                    //<editor-fold>
-                    result1 = `${numOfScags},${new Date() - withBinTime}`;
-                    //</editor-fold>
+                    // //Todo: For timing records only
+                    // //<editor-fold>
+                    // result1 = `${numOfScags},${new Date() - withBinTime}`;
+                    // //</editor-fold>
 
                     setData(outliags);
                     resetWorkers();
@@ -129,8 +129,10 @@ class OutliagProcessor {
             }
 
             let outliags = [];
-            let withoutBinTime = new Date();
-            let numOfScagsWithoutBin = leaveOutData.length;
+            //<editor-fold "TODO: for time records only">
+            // let withoutBinTime = new Date();
+            // let numOfScagsWithoutBin = leaveOutData.length;
+            //</editor-fold>
 
             leaveOutData.map((data, i) => {
                 startWorker("myscripts/myworker.js", data, onResult, i);
@@ -141,16 +143,17 @@ class OutliagProcessor {
                 if (outliags.length === leaveOutData.length) {
                     setData(outliags);
                     resetWorkers();
-                    let timeCompleted = new Date();
-                    //Todo: For timing records only
-                    //<editor-fold>
-                    console.log(`${myself.counter},${fileAbbreviations[fileList.indexOf(fileName)]},${result1},${numOfScagsWithoutBin},${timeCompleted - withoutBinTime}`);
-                    if(myself.counter<30){
-                        myself.processOutliagData(onCompleted);
-                    }
-                    //</editor-fold>
+
+                    // //Todo: For timing records only
+                    // //<editor-fold>
+                    // let timeCompleted = new Date();
+                    // console.log(`${navigator.hardwareConcurrency},${maxWorkers},${myself.counter},${fileAbbreviations[fileList.indexOf(fileName)]},${result1},${numOfScagsWithoutBin},${timeCompleted - withoutBinTime}`);
+                    // if(myself.counter<30){
+                    //     myself.processOutliagData(onCompleted);
+                    // }
+                    ////</editor-fold>
                     //Enable this after testing fro time.
-                    //onCompleted();
+                    onCompleted();
                 }
             }
 

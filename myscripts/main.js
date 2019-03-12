@@ -130,7 +130,7 @@ var timeSteps = {
     "HPCC_04Oct": {minTime: 0, maxTime: 32, type: "quarter"},
 };
 // var fileName = fileList[fileList.length-1];
-var fileName = fileList[9];
+var fileName = fileList[2];
 
 // START: loader spinner settings ****************************
 var opts = {
@@ -227,8 +227,8 @@ function loadData() {
             op.processOutliagData(onCompleted);
 
             function onCompleted() {
-                // dataS = processedData[fileName] = op.dataS;
-                // drawData(dataS)
+                dataS = processedData[fileName] = op.dataS;
+                drawData(dataS)
             }
         } else {
             dataS = processedData[fileName];
