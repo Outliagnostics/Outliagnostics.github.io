@@ -1,5 +1,5 @@
-// const maxWorkers = navigator.hardwareConcurrency || 4;
-const maxWorkers = 1;
+const maxWorkers = navigator.hardwareConcurrency || 4;
+// const maxWorkers = 1;
 let workers = new Array(maxWorkers);
 function resetWorkers(){
     //Reset all the workers
