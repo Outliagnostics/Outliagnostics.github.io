@@ -47,9 +47,6 @@ function updateSubLayout(m) {
         .attr("width", size - padding)
         .attr("height", size - padding)
         .style("fill", function (d) {
-            if (!dataS.YearsData[m]) {
-                debugger
-            }
             return colorRedBlue(dataS.YearsData[m].Scagnostics0[0]);
         })
         //.style("fill-opacity",0.9)
@@ -66,8 +63,8 @@ function updateSubLayout(m) {
             obj["v" + v] = dataS.CountriesData[obj.country][m]["v" + v];
             if (v % 2 == 1) {
                 var pair = Math.floor(v / 2);
-                obj["Scagnostics" + pair] = dataS.YearsData[m]["Scagnostics" + pair]; // 0 is the index of Outlysing
-                obj["ScagnosticsLeave1out" + pair] = []; // 0 is the index of Outlysing
+                obj["Scagnostics" + pair] = dataS.YearsData[m]["Scagnostics" + pair]; // 0 is the index of Outlying
+                obj["ScagnosticsLeave1out" + pair] = []; // 0 is the index of Outlying
                 for (var s = 0; s < dataS.Scagnostics.length; s++) {
                     obj["ScagnosticsLeave1out" + pair].push(dataS.CountriesData[obj.country][m][dataS.Scagnostics[s]]);
                 }
@@ -77,7 +74,7 @@ function updateSubLayout(m) {
     }
 
     //Filter out data points with "NaN"
-    dataPoints = dataPoints.filter(d=>d["v0"]!=="NaN" && d["v1"]!=="NaN" && d["s0"]!=="NaN" && d["s1"]!=="NaN" && (!isNaN(d["ScagnosticsLeave1out0"][0] - d["Scagnostics0"][0])));
+    dataPoints = dataPoints.filter(d => d["v0"] !== "NaN" && d["v1"] !== "NaN" && d["s0"] !== "NaN" && d["s1"] !== "NaN" && (!isNaN(d["ScagnosticsLeave1out0"][0] - d["Scagnostics0"][0])));
 
     var scaleRadius = d3.scale.linear()
         .range([size / 35, size / 10])
@@ -94,19 +91,19 @@ function updateSubLayout(m) {
                 return 0;
             else
                 return margin + 1.5 + d["s" + selectedVar] * (size - 3);
-                // return margin + 1.5 + d["s" + selectedVar] * (size - 9) + 3; //TODO: This is for the teaser only (switch back the previous one for normal page)
+            // return margin + 1.5 + d["s" + selectedVar] * (size - 9) + 3; //TODO: This is for the teaser only (switch back the previous one for normal page)
         })
         .attr("cy", function (d, i) {
             if (d["v1"] === "NaN")
                 return 0;
             else
                 return margin + size - 1.5 - d["s" + (selectedVar + 1)] * (size - 3);
-                // return margin + size - 1.5 - d["s" + (selectedVar + 1)] * (size - 9) - 3;//TODO: This is for the teaser only (switch back the previous one for normal page)
+            // return margin + size - 1.5 - d["s" + (selectedVar + 1)] * (size - 9) - 3;//TODO: This is for the teaser only (switch back the previous one for normal page)
         })
         .attr("r", function (d) {
             var difAbs = Math.abs(d["ScagnosticsLeave1out0"][0] - d["Scagnostics0"][0]);
-            if(isNaN(difAbs)){
-                debugger
+            if (isNaN(difAbs)) {
+            debugger
             }
             return scaleRadius(difAbs);
         })
@@ -119,14 +116,12 @@ function updateSubLayout(m) {
                     return "#000";
                 else
                     return colorAbove;
-            }
-            else if (d["ScagnosticsLeave1out0"][0] < d["Scagnostics0"][0]) {
+            } else if (d["ScagnosticsLeave1out0"][0] < d["Scagnostics0"][0]) {
                 if (d["Scagnostics0"][0] - d["ScagnosticsLeave1out0"][0] < outlyingCut)
                     return "#000";
                 else
                     return colorBelow;
-            }
-            else
+            } else
                 return "#000";
         })
         .style("fill-opacity", pointOpacity)

@@ -62,8 +62,7 @@ var areaAbove = d3.svg.area()
     .y0(function (d, i) {
         if (i == 0 || i == dataS.YearsData.length + 1) {
             return d.y;
-        }
-        else {
+        } else {
             return d.y - yScaleS(dataS.YearsData[i - 1].Scagnostics0[selectedScag]);
         }
 
@@ -159,7 +158,7 @@ function drawgraph2() {
         obj1.country = country;  // Using for setting time series titles
         var obj2 = {};
 
-        var thisCountryData = dataS.CountriesData[country];
+        var thisCountryData = dataS.CountriesData[country].slice();
         if (thisCountryData.length == dataS.YearsData.length) { // Avoid multiple push
             thisCountryData.unshift(obj1);
             thisCountryData.push(obj2);
@@ -176,8 +175,7 @@ function drawgraph2() {
                 if (dif > 0 && dif > thisCountryData.maxDifAbove) {
                     thisCountryData.maxDifAbove = dif;
                     thisCountryData.maxYearAbove = y - 1;
-                }
-                else if (dif < 0 && dif < thisCountryData.maxDifBelow) {
+                } else if (dif < 0 && dif < thisCountryData.maxDifBelow) {
                     thisCountryData.maxDifBelow = dif;
                     thisCountryData.maxYearBelow = y - 1;
                 }
@@ -504,8 +502,7 @@ function updateTextClouds() {
                     d.fontSize = 0;
                 else
                     d.fontSize = sizeScale(Math.abs(d[y + 1].OutlyingDif));
-            }
-            else {
+            } else {
                 var sizeScale = d3.scale.linear()
                     .range(textCloudRange)
                     .domain([0, maxAbs]);
@@ -520,8 +517,7 @@ function updateTextClouds() {
             var y = Math.floor(i / numTermsWordCloud);
             if (lMonth - numLens - 1 <= y && y <= lMonth + numLens + 1) {
                 return d[0].country.substring(0, lensedCloudTextLength);//+" ("+d.count+")";
-            }
-            else {
+            } else {
                 return d[0].country.substring(0, cloudTextLength);
             }
         });
@@ -545,14 +541,12 @@ function updateTimeSeries() {
                         maxOutlyingDif_A = Math.max(maxOutlyingDif_A, Math.abs(a[i].OutlyingDif));
                     if (b[i].OutlyingDif < 0)
                         maxOutlyingDif_B = Math.max(maxOutlyingDif_B, Math.abs(b[i].OutlyingDif));
-                }
-                else if (orderby == 2) { // Order by inliers
+                } else if (orderby == 2) { // Order by inliers
                     if (a[i].OutlyingDif > 0)
                         maxOutlyingDif_A = Math.max(maxOutlyingDif_A, a[i].OutlyingDif);
                     if (b[i].OutlyingDif > 0)
                         maxOutlyingDif_B = Math.max(maxOutlyingDif_B, b[i].OutlyingDif);
-                }
-                else if (orderby == 3) { // Order by
+                } else if (orderby == 3) { // Order by
                     maxOutlyingDif_A = Math.max(maxOutlyingDif_A, Math.abs(a[i].OutlyingDif));
                     maxOutlyingDif_B = Math.max(maxOutlyingDif_B, Math.abs(b[i].OutlyingDif));
                 }

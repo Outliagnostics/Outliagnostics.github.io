@@ -194,13 +194,12 @@ function loadData() {
         //     });
         // }
         //TODO: we know explicitly that we would cut 5 years at first and 30 at last
-        if(fileName.indexOf("UnemploymentRate")>=0){
-            debugger
-            data_["YearsData"] = data_["YearsData"].slice(5, data_["YearsData"].length-30);
-            data_["Countries"].forEach(country=>{
+        if (fileName.indexOf("UnemploymentRate") >= 0) {
+            data_["YearsData"] = data_["YearsData"].slice(5, data_["YearsData"].length - 30);
+            data_["Countries"].forEach(country => {
                 let cd = data_["CountriesData"][country];
-                data_["CountriesData"][country] = cd.slice(5, cd.length-30).map(d=>{
-                    d.year=d.year-5;
+                data_["CountriesData"][country] = cd.slice(5, cd.length - 30).map(d => {
+                    d.year = d.year - 5;
                     return d;
                 });
             });
@@ -226,7 +225,8 @@ function loadData() {
             op.processOutliagData(onCompleted);
 
             function onCompleted() {
-                dataS = processedData[fileName] = op.dataS;
+                dataS = op.dataS;
+                processedData[fileName] = dataS;
                 drawData(dataS)
             }
         } else {
