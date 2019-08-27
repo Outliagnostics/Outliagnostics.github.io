@@ -34,7 +34,6 @@ var colorPurpleGreen = d3.scale.linear()
     .range([colorBelow, "#666", colorAbove]);
 
 function computeMonthlyGraphs() {
-    //console.log("computeMonthlyGraphs");
     allSVG = []; // all SVG in clusters.js
     for (var m = 0; m < numMonth; m++) {
         // Draw network snapshot

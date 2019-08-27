@@ -113,8 +113,8 @@ var processedData = {
 };
 
 var timeSteps = {
-    "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
-    // "UnemploymentRate": {minTime: 1965, maxTime: 1985, type: "year"},//TODO: Change this For Customized Scatterplots
+    // "UnemploymentRate": {minTime: 1960, maxTime: 2015, type: "year"},
+    "UnemploymentRate": {minTime: 1965, maxTime: 1985, type: "year"},//TODO: Change this For Customized Scatterplots due to missing data for this dataset.
     "LifeExpectancy263": {minTime: 1960, maxTime: 2015, type: "year"},
     // "LifeExpectancy263":  {minTime: 1970, maxTime: 2002, type: "year"},//TODO: Change this for Life Expectancey from 1970 or above (filtered out first 10 years) and before 2002 (remove last 13 years)
     "PrevalenceOfHIV": {minTime: 1990, maxTime: 2015, type: "year"},
@@ -155,8 +155,6 @@ var dataS;
 
 
 function loadData() {
-
-    // d3.json("./workspace/Scagnostics2017/bin/data/out.json", function(data_) {
     d3.json("data/" + fileName + ".json", function (data_) {
         spinner.spin(target);
         //<editor-fold desc="This section filters out some data => for the purpose of the explanation of the process of building this software">
@@ -195,17 +193,18 @@ function loadData() {
         //         });
         //     });
         // }
-        // //TODO: 10 here coz we know explicitly that we would cut 5 years at first and 30 at last
-        // if(fileName.indexOf("UnemploymentRate")>=0){
-        //     data_["YearsData"] = data_["YearsData"].slice(5, data_["YearsData"].length-30);
-        //     data_["Countries"].forEach(country=>{
-        //         let cd = data_["CountriesData"][country];
-        //         data_["CountriesData"][country] = cd.slice(5, cd.length-30).map(d=>{
-        //             d.year=d.year-5;
-        //             return d;
-        //         });
-        //     });
-        // }
+        //TODO: we know explicitly that we would cut 5 years at first and 30 at last
+        if(fileName.indexOf("UnemploymentRate")>=0){
+            debugger
+            data_["YearsData"] = data_["YearsData"].slice(5, data_["YearsData"].length-30);
+            data_["Countries"].forEach(country=>{
+                let cd = data_["CountriesData"][country];
+                data_["CountriesData"][country] = cd.slice(5, cd.length-30).map(d=>{
+                    d.year=d.year-5;
+                    return d;
+                });
+            });
+        }
         //</editor-fold>
 
         //<editor-fold desc: Vung's code to reprocess the outliag data>
@@ -223,7 +222,7 @@ function loadData() {
         if (processedData[fileName] == null) {
             dataS = data_;
             let op = new OutliagProcessor(dataS);
-            //For timing records
+
             op.processOutliagData(onCompleted);
 
             function onCompleted() {
@@ -372,9 +371,7 @@ function addDatasetsOptions() {
     loadData();
 }
 
-
 function loadNewData(event) {
-    //alert(this.options[this.selectedIndex].text + " this.selectedIndex="+this.selectedIndex);
     svg.selectAll("*").remove();
     fileName = this.options[this.selectedIndex].text;
     loadData();
