@@ -140,6 +140,7 @@ function drawgraph2() {
     //need to reset these values every time we calculate a new data set
     var maxDifAboveForAll = 0;
     var maxDifBelowForAll = 0;
+    var maxDifAbsoluteForAll = 0;
 
     var startMonth = lMonth > numLens ? lMonth - numLens : 0;
     if (lMonth < 0)
@@ -183,11 +184,18 @@ function drawgraph2() {
         }
         thisCountryData.maxDifAbsolute = Math.max(thisCountryData.maxDifAbove, Math.abs(thisCountryData.maxDifBelow));
         // Max of maxDifAbove and maxDifBelow ******
-        if (thisCountryData.maxDifAbove > maxDifAboveForAll)
+        if (thisCountryData.maxDifAbove > maxDifAboveForAll) {
             maxDifAboveForAll = thisCountryData.maxDifAbove;
-        if (thisCountryData.maxDifBelow < maxDifBelowForAll)
+            countryList.maxYearAbove = thisCountryData.maxYearAbove;
+        }
+        if (thisCountryData.maxDifBelow < maxDifBelowForAll) {
             maxDifBelowForAll = thisCountryData.maxDifBelow;
-
+            countryList.maxYearBelow = thisCountryData.maxYearBelow;
+        }
+        if (thisCountryData.maxDifAbsolute > maxDifAbsoluteForAll) {
+            maxDifAbsoluteForAll = thisCountryData.maxDifAbsolute;
+            countryList.maxYearAbsolute = thisCountryData.maxDifAbove >= Math.abs(thisCountryData.maxDifBelow) ? thisCountryData.maxYearAbove : thisCountryData.maxYearBelow;
+        }
         countryList.push(thisCountryData);
     }
     maxAbs = Math.max(maxDifAboveForAll, Math.abs(maxDifBelowForAll));

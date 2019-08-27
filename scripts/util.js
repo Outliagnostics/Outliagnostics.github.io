@@ -465,8 +465,20 @@ function clearLensing(){
 function autoLensing(){
     if (document.getElementById("checkbox1").checked) {
         isLensing = true;
-        lMonth = countryList[0].maxYearBelow;
-
+        //get the lensing order option
+        let orderOptionIdx = document.getElementById("nodeDropdown").selectedIndex;
+        if(orderOptionIdx === 0){
+            //Outliers
+            lMonth = countryList.maxYearBelow;
+        }else if(orderOptionIdx === 1){
+            //Inliers
+            lMonth = countryList.maxYearAbove;
+        }else{
+            //Both
+            lMonth = countryList.maxYearAbsolute;
+        }
+        // lMonth = countryList[0].maxYearBelow;
+        // lMonth = 3;
         // Update layout
         updateTimeLegend();
         updateTimeBox();
