@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="javascripts/d3.v3.min.js"></script>
-    <!--<script src="build/js/scagnostics.min.js"></script>-->
-    <!--<script src="build/js/outliagnostics.min.js"></script>-->
+    <script src="libs/d3.v3.min.js"></script>
     <script type="text/javascript"
-            src="javascripts/scagnostics.min.js"
+            src="scripts/scagnostics.min.js"
     ></script>
     <script type="text/javascript"
-            src="javascripts/outliagnostics.min.js"
+            src="scripts/outliagnostics.min.js"
     ></script>
-    <script src="https://underscorejs.org/underscore-min.js"></script>
-    <script src="https://unpkg.com/delaunator@3.0.2/delaunator.min.js"></script> <!-- minified build -->
+    <script src="libs/underscore-min.js"></script>
+    <script src="libs/delaunator.min.js"></script> <!-- minified build -->
 
     <title>Scagnostics</title>
     <style>
@@ -195,7 +193,7 @@
         setPointOutliagScore(index, outlyingScore) {
             this.points[index].outliagScore = this.outlyingScore - outlyingScore;
             if (isNaN(this.points[index].outliagScore)) {
-                debugger
+            debugger
             }
         }
     }
@@ -206,7 +204,7 @@
     let animateTime = 20;
     let colorAbove = "#0a0";
     let colorBelow = "#b06";
-    let outlyingCut=0.008;
+    let outlyingCut = 0.008;
 
     /*This is for the tooltip*/
     var div = d3.select("body").append("div")
@@ -215,7 +213,7 @@
     /*End tooltip section*/
 
     //<editor-fold desc="section for display options">
-    let optionsBinLeader = ["origPoints", "bins", "triangulations", "mst", "outlyingLinks", "outlyingPoints", "noOutlyingPoints", "noOutlyingTree",  "v2Corners", "obtuseV2Corners", "noOutlyingTriangulations", "convexHull", "concaveHull", "v1s"];
+    let optionsBinLeader = ["origPoints", "bins", "triangulations", "mst", "outlyingLinks", "outlyingPoints", "noOutlyingPoints", "noOutlyingTree", "v2Corners", "obtuseV2Corners", "noOutlyingTriangulations", "convexHull", "concaveHull", "v1s"];
 
     function createControlButtons(theContainer, theOptions) {
         let controlButtons = d3.select("#" + theContainer);
@@ -267,6 +265,7 @@
     var parentElm = ifrm.ownerDocument; // reference to container's document
     var dataPoints = parentElm.dataPoints; // reference to first form in container document
     let variables = dataPoints.Variables;
+
     function isValidPoint(d) {
         return (typeof d[0] === 'number') && (typeof d[1] === 'number');
     }
@@ -277,8 +276,8 @@
         let y = [];
         d3.keys(cd).forEach(key => {
             let point = [cd[key]["v0"], cd[key]["v1"]];
-            if(!point.data){
-                point.data={};
+            if (!point.data) {
+                point.data = {};
             }
             point.data.text = cd[key]["country"];
             y.push(point);
@@ -332,8 +331,8 @@
         // let inlierColor = d3.scale.linear().range(["green", "#000"])
         //     .interpolate(d3.interpolateHcl)
         //     .domain(d3.extent(scag.normalizedPoints.map(p => (p.outliagScore.toFixed(3) < 0 ? p.outliagScore.toFixed(3) : 0))));
-        let originalPointColor = function(p){
-            return (p.outliagScore > outlyingCut)?colorBelow : ((p.outliagScore < -outlyingCut)?colorAbove:"#000");
+        let originalPointColor = function (p) {
+            return (p.outliagScore > outlyingCut) ? colorBelow : ((p.outliagScore < -outlyingCut) ? colorAbove : "#000");
         }
 
         //Main container
@@ -353,7 +352,7 @@
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html((d.data ? (d.data.text ? d.data.text : d.data.index?d.data.index: '') + ': ' : '') + `[${(d.data ? (d.data.originalPoint ? d.data.originalPoint[0] : d[0]) : d[0]).toFixed(3)}, ${(d.data ? (d.data.originalPoint ? d.data.originalPoint[1] : d[1]) : d[1]).toFixed(3)}]`)
+                div.html((d.data ? (d.data.text ? d.data.text : d.data.index ? d.data.index : '') + ': ' : '') + `[${(d.data ? (d.data.originalPoint ? d.data.originalPoint[0] : d[0]) : d[0]).toFixed(3)}, ${(d.data ? (d.data.originalPoint ? d.data.originalPoint[1] : d[1]) : d[1]).toFixed(3)}]`)
                     .style("left", (d3.event.pageX - 10) + "px")
                     .style("top", (d3.event.pageY - 52) + "px");
             })
@@ -369,11 +368,11 @@
                 brushDataPoint(origPoints, d.data.index);
                 brushBins(bins, d.data.index);
                 //Display skip tooltip
-                if(!outliag){
+                if (!outliag) {
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html((d.data ? (d.data.text ? d.data.text : d.data.index?d.data.index: '') + ': ' : '') + `[${(d.data ? (d.data.originalPoint ? d.data.originalPoint[0] : d[0]) : d[0]).toFixed(3)}, ${(d.data ? (d.data.originalPoint ? d.data.originalPoint[1] : d[1]) : d[1]).toFixed(3)}]`)
+                    div.html((d.data ? (d.data.text ? d.data.text : d.data.index ? d.data.index : '') + ': ' : '') + `[${(d.data ? (d.data.originalPoint ? d.data.originalPoint[0] : d[0]) : d[0]).toFixed(3)}, ${(d.data ? (d.data.originalPoint ? d.data.originalPoint[1] : d[1]) : d[1]).toFixed(3)}]`)
                         .style("left", (d3.event.pageX - 10) + "px")
                         .style("top", (d3.event.pageY - 52) + "px");
                 }
@@ -382,39 +381,44 @@
         return g;
     }
 
-    function brushDataPoint(g, index){
-        g.style("opacity", d=>{
-            if(d.data.index == index){
+    function brushDataPoint(g, index) {
+        g.style("opacity", d => {
+            if (d.data.index == index) {
                 return 1.0;
-            }else{
+            } else {
                 return 0.1;
             }
         });
     }
-    function getBinsFromPointIdx(bins, pointIndex){
+
+    function getBinsFromPointIdx(bins, pointIndex) {
         let data = bins.data;
         for (let i = 0; i < data.length; i++) {
-            if(d[i].data.index == pointIndex){
+            if (d[i].data.index == pointIndex) {
                 return bins[i];
             }
         }
     }
-    function brushBins(bins, pointIndex){
-        bins.style("opacity", d=>{
+
+    function brushBins(bins, pointIndex) {
+        bins.style("opacity", d => {
             for (let i = 0; i < d.length; i++) {
-                if(d[i].data.index == pointIndex){
+                if (d[i].data.index == pointIndex) {
                     return 1.0;
                 }
             }
             return 0.1;
         });
     }
-    function unbrushBins(bins){
+
+    function unbrushBins(bins) {
         bins.style("opacity", 1.0);
     }
-    function unBrushDataPoints(g){
+
+    function unBrushDataPoints(g) {
         g.style("opacity", 1.0);
     }
+
     function drawNormalizedData(scag) {
         origPoints0 = drawNormalizedDataSvg(scag, normalizedsvg);
     }
@@ -659,7 +663,7 @@
             .style("display", "none");
         noOutlyingPoints = drawNoOutlyingPoints(g, scag);
         //Display some main components
-        animateNodes(bins, animateTime, 10e-6, .8, ()=>{
+        animateNodes(bins, animateTime, 10e-6, .8, () => {
             animateNodes(mst, animateTime, 10e-6, .8, () => {
                 animateNodes(outlyingLinks, animateTime, 10e-6, .8, () => {
                     animateNodes(outlyingPoints, animateTime, 10e-6, .8, () => {
@@ -785,7 +789,6 @@
                 });
             });
         }
-
     }
 
     function drawAxis(svg, variables) {
@@ -810,7 +813,7 @@
         let y = margins.top;
         let rectWidth = +svg.attr("width") - margins.left - margins.right;
         let rectHeight = +svg.attr("height") - margins.top - margins.bottom;
-        svg.append("rect").attr("x", x).attr("y", y).attr("width", rectWidth).attr("height", rectHeight).attr("stroke", "black").attr("stroke-width", 1).attr("fill", "#ddd").on("click", ()=>{
+        svg.append("rect").attr("x", x).attr("y", y).attr("width", rectWidth).attr("height", rectHeight).attr("stroke", "black").attr("stroke-width", 1).attr("fill", "#ddd").on("click", () => {
             unBrushDataPoints(origPoints0);
             unBrushDataPoints(origPoints);
             unbrushBins(bins);

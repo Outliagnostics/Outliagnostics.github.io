@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Scagnostics2017/src/data/PrevalenceOfOverweight.txt&apos; to &apos;PrevalenceOfOverweight263.txt&apos;" description="Rename resource &apos;PrevalenceOfOverweight.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/data/PrevalenceOfOverweight.txt" name="PrevalenceOfOverweight263.txt" stamp="1511029800277" updateReferences="true"/>
-</session>
