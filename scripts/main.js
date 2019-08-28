@@ -233,8 +233,8 @@ function loadData() {
             dataS = processedData[fileName];
             drawData(dataS);
         }
-
         //</editor-fold>
+        changeDisplayOption();
 
         function drawData(dataS) {
             searchTerm = "";
