@@ -234,7 +234,6 @@ function loadData() {
             drawData(dataS);
         }
         //</editor-fold>
-        changeDisplayOption();
 
         function drawData(dataS) {
             searchTerm = "";
